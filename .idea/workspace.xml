@@ -75,7 +75,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -100,10 +100,41 @@
       <option name="presentableId" value="Default" />
       <updated>1580928287121</updated>
       <workItem from="1580928532019" duration="51000" />
+      <workItem from="1581022017134" duration="148000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="364" y="220" key="ComposerCompositePathDialog" timestamp="1581022145202">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="364" y="220" key="ComposerCompositePathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022145202" />
+    <state x="420" y="83" key="FileChooserDialogImpl" timestamp="1581022159959">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="420" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581022159958" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1581022165789">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581022165789" />
+    <state x="409" y="244" key="SymfonyPathDialog" timestamp="1581022161325">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="409" y="244" key="SymfonyPathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022161325" />
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1581022017905">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022017905" />
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1581022125462">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1581022125462" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581022115622">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1581022115622" />
   </component>
 </project>

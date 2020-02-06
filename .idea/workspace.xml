@@ -75,7 +75,12 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="c dump-autoload" />
+    </option>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -100,7 +105,9 @@
       <option name="presentableId" value="Default" />
       <updated>1580928287121</updated>
       <workItem from="1580928532019" duration="51000" />
-      <workItem from="1581022017134" duration="148000" />
+      <workItem from="1581022017134" duration="763000" />
+      <workItem from="1581022996630" duration="1474000" />
+      <workItem from="1581026545239" duration="13000" />
     </task>
     <servers />
   </component>
@@ -116,22 +123,38 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="420" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581022159958" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1581022165789">
+    <state width="1237" height="88" key="GridCell.Tab.0.bottom" timestamp="1581024474907">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581022165789" />
+    <state width="1237" height="88" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581024474907" />
+    <state width="1237" height="88" key="GridCell.Tab.0.center" timestamp="1581024474906">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="88" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581024474906" />
+    <state width="1237" height="88" key="GridCell.Tab.0.left" timestamp="1581024474906">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="88" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581024474906" />
+    <state width="1237" height="88" key="GridCell.Tab.0.right" timestamp="1581024474907">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="88" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581024474907" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1581022780504">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581022780504" />
     <state x="409" y="244" key="SymfonyPathDialog" timestamp="1581022161325">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="409" y="244" key="SymfonyPathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022161325" />
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1581022017905">
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1581026547694">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022017905" />
-    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1581022125462">
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1581026547694" />
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1581023131404">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1581022125462" />
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1581023131404" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581022115622">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

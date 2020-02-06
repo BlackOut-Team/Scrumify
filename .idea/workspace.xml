@@ -16,6 +16,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="7c7ed44c-d943-485b-9c93-ea30039d58ca" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
@@ -75,7 +78,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -99,11 +102,33 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580928287121</updated>
-      <workItem from="1580928532019" duration="51000" />
+      <workItem from="1580928532019" duration="1526000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="364" y="220" key="ComposerCompositePathDialog" timestamp="1580937778828">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="364" y="220" key="ComposerCompositePathDialog/0.0.1280.680@0.0.1280.680" timestamp="1580937778828" />
+    <state x="420" y="83" key="FileChooserDialogImpl" timestamp="1580937792774">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="420" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1580937792774" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1580937830479">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1580937830479" />
+    <state x="409" y="244" key="SymfonyPathDialog" timestamp="1580937796999">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="409" y="244" key="SymfonyPathDialog/0.0.1280.680@0.0.1280.680" timestamp="1580937796999" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1580937844891">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1580937844891" />
   </component>
 </project>

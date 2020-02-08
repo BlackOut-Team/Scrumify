@@ -176,6 +176,9 @@
       <command value="s doctrine:schema:update --force" />
       <command value="c require symfony/templating" />
       <command value="c dump-autoload" />
+      <command value="s doctrine:generate:form" />
+      <command value="s doctrine:generate:form User" />
+      <command value="s doctrine:generate:form MainBundle:User" />
     </option>
   </component>
   <component name="ServiceViewManager">
@@ -206,7 +209,7 @@
       <workItem from="1581026545239" duration="71000" />
       <workItem from="1581085979920" duration="7173000" />
       <workItem from="1581108962957" duration="4793000" />
-      <workItem from="1581159875830" duration="16505000" />
+      <workItem from="1581159875830" duration="30566000" />
     </task>
     <servers />
   </component>
@@ -218,42 +221,58 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="221" y="0" key="#CLI_Interpreters/0.0.1280.680@0.0.1280.680" timestamp="1581109346793" />
-    <state x="395" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581109963507">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581204520846">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="395" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1581109963507" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1581204520846" />
+    <state x="395" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581200108858">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="395" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1581200108858" />
+    <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581201827044">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1581201827044" />
+    <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581200354657">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1581200354657" />
     <state x="364" y="220" key="ComposerCompositePathDialog" timestamp="1581022145202">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="364" y="220" key="ComposerCompositePathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022145202" />
-    <state x="420" y="83" key="FileChooserDialogImpl" timestamp="1581171148245">
+    <state x="420" y="83" key="FileChooserDialogImpl" timestamp="1581181766057">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="420" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581171148245" />
+    <state x="420" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581181766057" />
     <state x="496" y="230" key="FrameworkEditDialogDimensionKey" timestamp="1581108491985">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="496" y="230" key="FrameworkEditDialogDimensionKey/0.0.1280.680@0.0.1280.680" timestamp="1581108491985" />
-    <state width="1237" height="137" key="GridCell.Tab.0.bottom" timestamp="1581179949666">
+    <state width="1237" height="137" key="GridCell.Tab.0.bottom" timestamp="1581200960437">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="137" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581179949666" />
-    <state width="1237" height="137" key="GridCell.Tab.0.center" timestamp="1581179949666">
+    <state width="1237" height="137" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581200960437" />
+    <state width="1237" height="137" key="GridCell.Tab.0.center" timestamp="1581200960437">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="137" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581179949666" />
-    <state width="1237" height="137" key="GridCell.Tab.0.left" timestamp="1581179949666">
+    <state width="1237" height="137" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581200960437" />
+    <state width="1237" height="137" key="GridCell.Tab.0.left" timestamp="1581200960436">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="137" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581179949666" />
-    <state width="1237" height="137" key="GridCell.Tab.0.right" timestamp="1581179949666">
+    <state width="1237" height="137" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581200960436" />
+    <state width="1237" height="137" key="GridCell.Tab.0.right" timestamp="1581200960437">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="137" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581179949666" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1581164815544">
+    <state width="1237" height="137" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581200960437" />
+    <state x="221" y="77" key="IDE.errors.dialog" timestamp="1581204434434">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581164815544" />
+    <state x="221" y="77" key="IDE.errors.dialog/0.0.1280.680@0.0.1280.680" timestamp="1581204434434" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1581181827607">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581181827607" />
     <state x="409" y="244" key="SymfonyPathDialog" timestamp="1581022161325">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -266,24 +285,13 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="450" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1581107047090" />
-    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1581180473501">
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1581200043955">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1581180473501" />
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1581200043955" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581107730626">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1581107730626" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/MainBundle/Resources/views/layout.html.twig</url>
-          <line>23</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

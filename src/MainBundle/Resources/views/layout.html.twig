@@ -1,6 +1,7 @@
+{% trans_default_domain 'FOSUserBundle' %}
 <!DOCTYPE html>
 <html lang="en">
-{% block head %}
+
 <head>
     <title>Scrumify</title>
     <meta charset="utf-8">
@@ -17,76 +18,59 @@
     <link rel="stylesheet" href={{ asset('Front/Index/css/sign.css') }}>
 
 </head>
-{% endblock %}
-
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div id="overlayer"></div>
 
-
-<div class="site-wrap"  id="home-section">
-
-    <div id="overlayer"></div>
-    <div class="loader">
-        <div class="spinner-border text-primary" role="status">
-        </div>
-    </div>
+<div class="container">
 
 
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close mt-3">
-                <span class="icon-close2 js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
+            <div class="site-wrap"  id="home-section">
 
-
-
-        <div>
-            {% block fos_user_content %}
-                <div>
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                        <a href="{{ path('fos_user_security_logout') }}">
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                        </a>
-                    {% else %}
-                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                    {% endif %}
+                <div id="overlayer"></div>
+                <div class="loader">
+                    <div class="spinner-border text-primary" role="status">
+                    </div>
                 </div>
+            </div>
 
-                {% if app.request.hasPreviousSession %}
-                    {% for type, messages in app.session.flashbag.all() %}
-                        {% for message in messages %}
-                            <div class="flash-{{ type }}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endfor %}
-                {% endif %}
-                <div class="container">
-
-                    <div class="overlay" id="overlay">
-                        <div class="sign-in" id="sign-in">
-                            <h1>Welcome Back!</h1>
-
-                            <p>To keep connected with us please login with your personal info</p>
-                            <button class="switch-button" id="slide-right-button">Sign In</button>
-                        </div>
-                        <div class="sign-up" id="sign-up">
-                            <h1>Hello, Friend!</h1>
-                            <p>Enter your personal details and start a journey with us</p>
-                            <button class="switch-button" id="slide-left-button">Sign Up</button>
+                <div class="site-mobile-menu site-navbar-target">
+                    <div class="site-mobile-menu-header">
+                        <div class="site-mobile-menu-close mt-3">
+                            <span class="icon-close2 js-menu-toggle"></span>
                         </div>
                     </div>
+                    <div class="site-mobile-menu-body"></div>
+                </div>
+
+                        <div class="overlay" id="overlay">
+                            <div class="sign-in" id="sign-in">
+                                <h1>Welcome Back!</h1>
+
+                                <p>To keep connected with us please login with your personal info</p>
+                                <button class="switch-button" id="slide-right-button">Sign In</button>
+                            </div>
+                            <div class="sign-up" id="sign-up">
+                                <h1>Hello, Friend!</h1>
+                                <p>Enter your personal details and start a journey with us</p>
+                                <button class="switch-button" id="slide-left-button">Sign Up</button>
+                            </div>
+                        </div>
+
+
                     <div class="form">
                         <div class="sign-in" id="sign-in-info">
                             <div class="icon" >
                                 <img src={{ asset('Front/Index/images/scrumify.png') }} width="50" href="index.html" >
                             </div>
+                            <div>
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                    <a href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
+                                {% endif %}
+                            </div>
                             <h1>Sign In</h1>
-
                             <div class="social-media-buttons">
                                 <div class="icon">
                                     <svg viewBox="0 0 24 24">
@@ -104,17 +88,21 @@
                                     </svg>
                                 </div>
                             </div>
+                            <div>
+
+
+                                {% block fos_user_content %}
+                                {% endblock %}
+
+                            </div>
+
                             <p class="small">or use your email account:</p>
-                            <form id="sign-in-form">
-                                <input type="email" placeholder="Email"/>
-                                <input type="password" placeholder="Password"/>
-                                <p class="forgot-password">Forgot your password?</p>
-                                <button class="control-button in">Sign In</button>
-                            </form>
+
                         </div>
+
                         <div class="sign-up" id="sign-up-info">
                             <div class="icon" >
-                                <img src="images/scrumify.png" width="50" href="index.html" >
+                                <img src={{ asset('Front/Index/images/scrumify.png') }} width="50" href="index.html" >
                             </div>
                             <h1>Create Account</h1>
 
@@ -135,24 +123,26 @@
                                     </svg>
                                 </div>
                             </div>
+
                             <p class="small">or use your email for registration:</p>
-                            <form id="sign-up-form">
-                                <input type="text" placeholder="Name"/>
-                                <input type="email" placeholder="Email"/>
-                                <input type="password" placeholder="Password"/>
-                                <button class="control-button up">Sign Up</button>
-                            </form>
+
+                            <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary mr-2 mb-2 control-button in">Sign up</a>
+
+                        </div>
+
                         </div>
                     </div>
+
                 </div>
-            {% endblock fos_user_content %}
-        </div>
-    </body>
+
+
+</body>
 
 <script src={{ asset('Front/Index/js/jquery-3.3.1.min.js') }}></script>
 
 
-
 <script src={{ asset('Front/Index/js/sign.js') }}></script>
-<script src={{ asset('Front/Index/js/main.js') }}"></script>
+<script src={{ asset('Front/Index/js/main.js') }}></script>
+
+
 </html>

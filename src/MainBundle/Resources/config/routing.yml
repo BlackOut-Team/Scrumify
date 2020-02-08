@@ -1,0 +1,9 @@
+homepage:
+  path:     /
+  defaults: { _controller: MainBundle:Default:index }
+register:
+  path:     /register
+  defaults: { _controller: MainBundle:Default:register }
+
+fos_user:
+  resource: '@FOSUserBundle/Resources/config/routing/all.xml'

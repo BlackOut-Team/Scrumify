@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@MainBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -10,7 +11,7 @@ parameters:
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -69,3 +70,30 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+# FOS User Bundle
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: MainBundle\Entity\User
+    service:
+        mailer: fos_user.mailer.twig_swift
+    registration:
+        form:
+            type: FOS\UserBundle\Form\Type\RegistrationFormType
+            name: fos_user_registration_form
+            validation_groups: [Registration, Default]
+        confirmation:
+            enabled: true
+            template: '@FOSUser/Registration/email.txt.twig'
+    profile:
+        form:
+            type: FOS\UserBundle\Form\Type\ProfileFormType
+            #validation_groups: [Profile, Default]
+    resetting:
+        email:
+            template: '@FOSUser/Resetting/email.txt.twig'
+    group:
+        group_class: Scrumify\MainBundle\Entity\Group
+    from_email:
+        address: mail@domain.tld
+        sender_name: user

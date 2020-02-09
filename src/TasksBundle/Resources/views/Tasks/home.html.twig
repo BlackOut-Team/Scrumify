@@ -69,6 +69,7 @@
                     </div>
                     <div class="card-list-body">
                         <!--kaaba sticky note -->
+                        {%  for TaskTodo in TaskTodo %}
                         <div class="card card-kanban">
 
                             <div class="card-body">
@@ -85,14 +86,14 @@
 
                                 <div class="card-title">
                                     <a href="#" data-toggle="modal" data-target="#task-modal">
-                                        <h5>title</h5>
-                                        <h6> description </h6>
+                                        <h5>{{ TaskTodo.title }}</h5>
+                                        <h6> {{ TaskTodo.description }} </h6>
                                     </a>
                                 </div>
 
                             </div>
                         </div>
-
+                        {% endfor %}
                     </div>
                     <div class="card-list-footer">
                         <button class="btn btn-link btn-sm text-small" data-toggle="modal" data-target="#myModal">Add task</button>
@@ -126,24 +127,20 @@
                                     <h6>General Details</h6>
                                     <div class="form-group row align-items-center">
                                         <label class="col-3">Name</label>
-                                        <input class="form-control col" type="text" placeholder="Task name" name="task-name" />
+                                        <input class="form-control col" type="text" placeholder="Task name" name="title" />
                                     </div>
                                     <div class="form-group row align-items-center">
                                         <label class="col-3">Priority</label>
-                                        <input class="form-control col" type="number" placeholder="Task name" name="task-name" />
+                                        <input class="form-control col" type="number" placeholder="Task name" name="priority" />
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-3">Description</label>
-                                        <textarea class="form-control col" rows="3" placeholder="Task description" name="task-description"></textarea>
+                                        <textarea class="form-control col" rows="3" placeholder="Task description" name="description"></textarea>
                                     </div>
                                     <hr>
                                     <div class="form-group row align-items-center">
-                                        <label class="col-3">Start Date</label>
-                                        <input class="form-control col" type="datetime-local" name="task-start" placeholder="Select a date" data-flatpickr data-default-date="2021-04-21" data-alt-input="true" />
-                                    </div>
-                                    <div class="form-group row align-items-center">
                                         <label class="col-3">Due Date</label>
-                                        <input class="form-control col" type="datetime-local" name="task-due" placeholder="Select a date" data-flatpickr data-default-date="2021-09-15" data-alt-input="true" />
+                                        <input class="form-control col" type="datetime-local" name="finished" placeholder="Select a date" data-flatpickr data-default-date="2021-09-15" data-alt-input="true" />
 
                                     </div>
                                     <div class="alert alert-warning text-small" role="alert">
@@ -310,7 +307,7 @@
                         </div>
                         <!--end of modal body-->
                         <div class="modal-footer">
-                            <button role="button" class="btn btn-primary" type="submit">
+                            <button role="button" class="btn btn-primary" type="submit" name="addTasks">
                                 Create Task
                             </button>
                         </div>
@@ -330,7 +327,7 @@
 
                     </div>
                     <div class="card-list-body">
-
+                        {%  for TaskDoing in TaskDoing %}
                         <div class="card card-kanban">
 
                             <div class="card-body">
@@ -345,19 +342,20 @@
                                 </div>
                                 <div class="card-title">
                                     <a href="#" data-toggle="modal" data-target="#task-modal">
-                                        <h5>title</h5>
-                                        <h6> description </h6>
+                                        <h5>{{ TaskDoing.title }}</h5>
+                                        <h6> {{ TaskDoing.description }} </h6>
                                     </a>
                                 </div>
 
                                 <div class="card-meta d-flex justify-content-between">
 
-                                    <span class="text-small">Due 10 days</span>
+                                    <span class="text-small">Due {{ TaskDoing.finished|date('Y-m-d H:i:s') }}</span>
 
                                 </div>
 
                             </div>
                         </div>
+                        {% endfor %}
 
                     </div>
                 </div>
@@ -370,7 +368,7 @@
                         <h6>Done</h6>
                     </div>
                     <div class="card-list-body">
-
+                        {%  for TaskDone in TaskDone %}
                         <div class="card card-kanban">
 
 
@@ -386,19 +384,20 @@
                                 </div>
                                 <div class="card-title">
                                     <a href="#" data-toggle="modal" data-target="#task-modal">
-                                        <h5>title</h5>
-                                        <h6> description </h6>
+                                        <h5> {{ TaskDone.title }}</h5>
+                                        <h6>  {{ TaskDone.description }}</h6>
                                     </a>
                                 </div>
 
                                 <div class="card-meta d-flex justify-content-between">
 
-                                    <span class="text-small">Due 10 days</span>
+                                    <span class="text-small">Due {{ TaskDone.finished|date('Y-m-d H:i:s') }}</span>
 
                                 </div>
 
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
 
                 </div>
@@ -413,6 +412,7 @@
                     </div>
                     <div class="card-list-body">
 
+                        {% for TaskBlock in TaskBlock %}
                         <div class="card card-kanban">
 
                             <div class="card-body">
@@ -430,19 +430,20 @@
 
                                 <div class="card-title">
                                     <a href="#" data-toggle="modal" data-target="#task-modal">
-                                        <h5>title</h5>
-                                        <h6> description </h6>
+                                        <h5>{{ TaskBlock.title }}</h5>
+                                        <h6> {{ TaskBlock.description }} </h6>
                                     </a>
                                 </div>
 
                                 <div class="card-meta d-flex justify-content-between">
 
-                                    <span class="text-small">Due 10 days</span>
+                                    <span class="text-small">Due {{ TaskBlock.finished|date('Y-m-d H:i:s') }}</span>
 
                                 </div>
 
                             </div>
                         </div>
+                        {% endfor %}
 
 
 

@@ -4,23 +4,50 @@
 {%  block body %}
 
         {% block fos_user_content %}
-            {% block title  %}<h1>Sign up</h1> {% endblock %}
+            {% block title  %}<h1></h1> {% endblock %}
 
             {%  block content %}
-                <div class="sign-in" id="sign-in">
-                    <h1>Welcome Back!</h1>
 
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="switch-button" id="slide-right-button">Sign Up</button>
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+
+                <div class="p-5 mt-5">
+                    <img src="assets/img/basic/logo.png" alt=""/>
                 </div>
+                <div class="p-5">
+                    <h3>Sign up</h3>
+                    <div class="form-group has-icon"><i class="icon-envelope-o"></i>
+
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control form-control-lg', 'placeholder':"email"}}) }}
+
+
+                    </div>
+                    <div class="form-group has-icon"><i class="icon-address-card-o"></i>
+
+                        {{ form_widget(form.username, {'attr': {'class': 'form-control form-control-lg', 'placeholder':"Username"}}) }}
+
+
+                    </div>
+                    <div class="form-group has-icon"><i class="icon-user-secret"></i>
+                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control form-control-lg', 'placeholder':"Password",'type':"password", 'id':'password' }}) }}
+
+                    </div>
+                    <div class="form-group has-icon"><i class="icon-user-secret"></i>
+                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control form-control-lg', 'placeholder':"repeat Password",'type':"password", 'id':'password' }}) }}
+
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" id="_submit" name="_submit" value="{{ 'registration.submit'|trans }} ">
+                </div>
+
+
+
+
+                {{ form_end(form) }}
                 {% endblock %}
 
-            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-        {{ form_widget(form) }}
-        <div>
-            <input type="submit" class="control-button in"  value="{{ 'registration.submit'|trans }}" />
-        </div>
-        {{ form_end(form) }}
+
+
+
     {% endblock %}
 
 {% endblock %}

@@ -77,6 +77,9 @@ fos_user:
     user_class: MainBundle\Entity\User
     service:
         mailer: fos_user.mailer.twig_swift
+    from_email:
+        address: "amiradoghri0@esprit.tn"
+        sender_name: "Scrumify Team"
     registration:
         form:
             type: FOS\UserBundle\Form\Type\RegistrationFormType

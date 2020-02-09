@@ -170,11 +170,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Scrumify\src\AppBundle\Resources" />
-      <recent name="C:\wamp64\www\Scrumify\src\AppBundle\views" />
+      <recent name="C:\wamp64\www\Scrumify\src\TasksBundle\Resources\views\Tasks" />
+      <recent name="C:\wamp64\www\Scrumify\src\TasksBundle\Resources\views" />
+      <recent name="C:\wamp64\www\Scrumify\app\Resources" />
       <recent name="C:\wamp64\www\Scrumify\src\MainBundle\Resources\views\Default" />
-      <recent name="C:\wamp64\www\Scrumify\app\Resources\views" />
-      <recent name="C:\wamp64\www\Scrumify\src\AppBundle\Resources\views" />
+      <recent name="C:\wamp64\www\Scrumify\src\TasksBundle\Resources\views\" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Scrumify\src\MainBundle\Resources\views\Default" />
@@ -233,7 +233,7 @@
       <workItem from="1581108962957" duration="4793000" />
       <workItem from="1581159875830" duration="13811000" />
       <workItem from="1581178890350" duration="16200000" />
-      <workItem from="1581251648351" duration="4090000" />
+      <workItem from="1581251648351" duration="6681000" />
     </task>
     <servers />
   </component>

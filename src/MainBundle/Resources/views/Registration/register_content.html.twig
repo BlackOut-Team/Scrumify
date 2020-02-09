@@ -5,22 +5,16 @@
 
         {% block fos_user_content %}
             {% block title  %}<h1>Sign up</h1> {% endblock %}
-
             {%  block content %}
-                <div class="sign-in" id="sign-in">
-                    <h1>Welcome Back!</h1>
-
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="switch-button" id="slide-right-button">Sign Up</button>
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                {{ form_widget(form) }}
+                <div>
+                    <input type="submit" class="control-button in"  value="{{ 'registration.submit'|trans }}" />
                 </div>
+                {{ form_end(form) }}
                 {% endblock %}
 
-            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-        {{ form_widget(form) }}
-        <div>
-            <input type="submit" class="control-button in"  value="{{ 'registration.submit'|trans }}" />
-        </div>
-        {{ form_end(form) }}
     {% endblock %}
 
 {% endblock %}
+

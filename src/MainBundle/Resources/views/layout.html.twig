@@ -21,7 +21,6 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div id="overlayer"></div>
 
-<div class="container">
 
 
             <div class="site-wrap"  id="home-section">
@@ -41,25 +40,22 @@
                     </div>
                     <div class="site-mobile-menu-body"></div>
                 </div>
+<div class="container">
 
                         <div class="overlay" id="overlay">
-                            {%  block content %}
-                                <div class="sign-in" id="sign-in">
-                                    <h1>Welcome Back!</h1>
 
-                                    <p>To keep connected with us please login with your personal info</p>
-                                    <button class="switch-button" id="slide-right-button">Sign In</button>
-                                </div>
-                            {% endblock %}
+                            <div class="sign-in" id="sign-in">
+                             
+                                <h1>Welcome Back!</h1>
 
-                            {%  block content1 %}
-                                <div class="sign-up" id="sign-up">
-                                    <h1>Hello, Friend!</h1>
-                                    <p>Enter your personal details and start a journey with us</p>
-                                    <button class="switch-button" id="slide-left-button">Sign Up</button>
-                                </div>
-                            {% endblock %}
-
+                                <p>To keep connected with us please login with your personal info</p>
+                                <button class="switch-button" id="slide-right-button">Sign In</button>
+                            </div>
+                            <div class="sign-up" id="sign-up">
+                                <h1>Hello, Friend!</h1>
+                                <p>Enter your personal details and start a journey with us</p>
+                                <button class="switch-button" id="slide-left-button">Sign Up</button>
+                            </div>
                         </div>
     <div>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -75,7 +71,6 @@
                             <div class="icon" >
                                 <img src={{ asset('Front/Index/images/scrumify.png') }} width="50" href="index.html" >
                             </div>
-
                             <h1>{% block title  %}{% endblock %}</h1>
                             <div class="social-media-buttons">
                                 <div class="icon">

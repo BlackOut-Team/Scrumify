@@ -28,10 +28,10 @@
 {% block body %}
     <div class="layout layout-nav-top layout-sidebar">
 
-    {% block navbar %}
+
         <div class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
-            <a class="navbar-brand" href="index-2.html">
-                <img alt="Pipeline" src={{ asset('assets/img/logo.svg')}} />
+            <a class="navbar-brand" href={{path('project_homepage')}}>
+                <img alt="Scrumify" width="50" height="50" src={{ asset('Front/Index/images/scrumify.png')}} />
             </a>
             <div class="d-flex align-items-center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,53 +55,10 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="index-2.html">Overview</a>
+                        <a class="nav-link" href={{ path('project_homepage') }}>Project Homepage</a>
 
                     </li>
 
-                    <li class="nav-item">
-
-                        <div class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-dropdown-2">Pages</a>
-                            <div class="dropdown-menu">
-
-                                <a class="dropdown-item" href="pages-app.html">App Pages</a>
-
-                                <a class="dropdown-item" href="pages-utility.html">Utility Pages</a>
-
-                                <a class="dropdown-item" href="pages-layouts.html">Layouts</a>
-
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <div class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-dropdown-3">Components</a>
-                            <div class="dropdown-menu">
-
-                                <a class="dropdown-item" href="components-bootstrap.html">Bootstrap</a>
-
-                                <a class="dropdown-item" href="components-pipeline.html">Pipeline</a>
-
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="documentation/index.html">Documentation</a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="documentation/changelog.html">Changelog</a>
-
-                    </li>
 
                 </ul>
                 <div class="d-lg-flex align-items-center">
@@ -121,7 +78,7 @@
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Team</a>
-                            <a class="dropdown-item" href="#">Project</a>
+                            <a class="dropdown-item" href={{ path('createProject') }}>Project</a>
                             <a class="dropdown-item" href="#">Task</a>
                         </div>
                     </div>
@@ -140,7 +97,6 @@
                 </div>
             </div>
 
-        {% endblock %}
         </div>
         <div class="main-container">
             <!--<div class="sidebar-container">
@@ -158,7 +114,7 @@
                     </div>
                 </div>
             </div>-->
-            {% block content %}
+            {% block contents %}
             <div class="content-container">
 
                 <div class="text-center d-flex align-items-center justify-content-center pt-5">

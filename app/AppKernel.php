@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new MainBundle\MainBundle(),
             new TasksBundle\TasksBundle(),
             new ProjectBundle\ProjectBundle(),
+            new SprintBundle\SprintBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

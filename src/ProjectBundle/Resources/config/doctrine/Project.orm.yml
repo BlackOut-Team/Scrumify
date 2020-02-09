@@ -1,0 +1,23 @@
+ProjectBundle\Entity\Project:
+    type: entity
+    table: null
+    repositoryClass: ProjectBundle\Repository\ProjectRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        created:
+            type: datetime
+        nbrSprints:
+            type: string
+            length: 255
+            column: nbr_sprints
+    lifecycleCallbacks: {  }

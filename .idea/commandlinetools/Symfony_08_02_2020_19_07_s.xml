@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<framework xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schemas/frameworkDescriptionVersion1.1.4.xsd" frameworkId="com.symfony" name="Symfony_2/6/20 10:12 PM_s" invoke="C:\wamp64\bin\php\php7.3.1\php.exe C:\wamp64\www\Scrumify\bin\console" alias="s" enabled="false" version="2">
+<framework xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schemas/frameworkDescriptionVersion1.1.4.xsd" frameworkId="com.symfony" name="Symfony_08/02/2020 19:07_s" invoke="C:\wamp64\bin\php\php7.3.1\php.exe C:\wamp64\www\Scrumify\bin\console" alias="s" enabled="true" version="2">
+  <extraData><![CDATA[version:3]]></extraData>
   <command>
     <name>about</name>
     <help><![CDATA[The <b>about</b> command displays information about the current Symfony project.<br> <br> The <b>PHP</b> section displays important configuration that could affect your application. The values might<br> be different between web and CLI.<br> <br> The <b>Environment</b> section displays the current environment variables managed by Symfony Dotenv. It will not<br> be shown if no variables were found. The values might be different between web and CLI.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
@@ -1220,6 +1221,55 @@
     </optionsBefore>
   </command>
   <command>
+    <name>doctrine:generate:crud</name>
+    <help><![CDATA[The <b>doctrine:generate:crud</b> command generates a CRUD based on a Doctrine entity.<br> <br> The default command only generates the list and show actions.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:crud AcmeBlogBundle:Post --route-prefix=post_admin</b><br> <br> Using the --with-write option allows to generate the new, edit and delete actions.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:crud AcmeBlogBundle:Post --route-prefix=post_admin --with-write</b><br> <br> Every generated file is based on a template. There are default templates but they can be overridden by placing custom templates in one of the following locations, by order of priority:<br> <br> <b>BUNDLE_PATH/Resources/SensioGeneratorBundle/skeleton/crud<br> APP_PATH/Resources/SensioGeneratorBundle/skeleton/crud</b><br> <br> And<br> <br> <b>__bundle_path__/Resources/SensioGeneratorBundle/skeleton/form<br> __project_root__/app/Resources/SensioGeneratorBundle/skeleton/form</b><br> <br> You can check https://github.com/sensio/SensioGeneratorBundle/tree/master/Resources/skeleton<br> in order to know the file structure of the skeleton<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--entity</td><td></td><td>The entity class name to initialize (shortcut notation)</td></tr> <tr><td>--route-prefix</td><td></td><td>The route prefix</td></tr> <tr><td>--with-write</td><td></td><td>Whether or not to generate create, new and delete actions</td></tr> <tr><td>--format</td><td></td><td>The format used for configuration files (php, xml, yml, or annotation)</td></tr> <tr><td>--overwrite</td><td></td><td>Overwrite any existing controller or form class when generating the CRUD contents</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>entity[=null]</params>
+    <optionsBefore>
+      <option name="--entity" shortcut="" pattern="equals">
+        <help><![CDATA[The entity class name to initialize (shortcut notation)]]></help>
+      </option>
+      <option name="--route-prefix" shortcut="" pattern="equals">
+        <help><![CDATA[The route prefix]]></help>
+      </option>
+      <option name="--with-write" shortcut="">
+        <help><![CDATA[Whether or not to generate create, new and delete actions]]></help>
+      </option>
+      <option name="--format" shortcut="" pattern="equals">
+        <help><![CDATA[The format used for configuration files (php, xml, yml, or annotation)]]></help>
+      </option>
+      <option name="--overwrite" shortcut="">
+        <help><![CDATA[Overwrite any existing controller or form class when generating the CRUD contents]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
     <name>doctrine:generate:entities</name>
     <help><![CDATA[The <b>doctrine:generate:entities</b> command generates entity classes<br> and method stubs from your mapping information:<br> <br> You have to limit generation of entities:<br> <br> * To a bundle:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entities MyCustomBundle</b><br> <br> * To a single entity:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entities MyCustomBundle:User</b><br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entities MyCustomBundle/Entity/User</b><br> <br> * To a namespace<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entities MyCustomBundle/Entity</b><br> <br> If the entities are not stored in a bundle, and if the classes do not exist,<br> the command has no way to guess where they should be generated. In this case,<br> you must provide the <comment>--path</comment> option:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entities Blog/Entity --path=src/</b><br> <br> By default, the unmodified version of each entity is backed up and saved<br> (e.g. Product.php~). To prevent this task from creating the backup file,<br> pass the <comment>--no-backup</comment> option:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entities Blog/Entity --no-backup</b><br> <br> <error>Important:</error> Even if you specified Inheritance options in your<br> XML or YAML Mapping files the generator cannot generate the base and<br> child classes for you correctly, because it doesn't know which<br> class is supposed to extend which. You have to adjust the entity<br> code manually for inheritance to work!<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--path</td><td></td><td>The path where to generate entities when it cannot be guessed</td></tr> <tr><td>--no-backup</td><td></td><td>Do not backup existing entities files.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
     <params>name</params>
@@ -1230,6 +1280,83 @@
       <option name="--no-backup" shortcut="">
         <help><![CDATA[Do not backup existing entities files.]]></help>
       </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>doctrine:generate:entity</name>
+    <help><![CDATA[The <b>doctrine:generate:entity</b> task generates a new Doctrine<br> entity inside a bundle:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entity AcmeBlogBundle:Blog/Post</b><br> <br> The above command would initialize a new entity in the following entity<br> namespace <b>Acme\BlogBundle\Entity\Blog\Post</b>.<br> <br> You can also optionally specify the fields you want to generate in the new<br> entity:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entity AcmeBlogBundle:Blog/Post --fields="title:string(255) body:text"</b><br> <br> By default, the command uses annotations for the mapping information; change it<br> with <comment>--format</comment>:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entity AcmeBlogBundle:Blog/Post --format=yml</b><br> <br> To deactivate the interaction mode, simply use the <comment>--no-interaction</comment> option or its<br> alias <comment>-n</comment>, without forgetting to pass all needed options:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entity AcmeBlogBundle:Blog/Post -n --format=annotation --fields="title:string(255) body:text"</b><br> <br> This also has support for passing field specific attributes:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:entity AcmeBlogBundle:Blog/Post -n --format=annotation --fields="title:string(length=255 nullable=true unique=true) body:text ranking:decimal(precision=10 scale=0)"</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--entity</td><td></td><td>The entity class name to initialize (shortcut notation)</td></tr> <tr><td>--fields</td><td></td><td>The fields to create with the new entity</td></tr> <tr><td>--format</td><td></td><td>Use the format for configuration files (php, xml, yml, or annotation)</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>entity[=null]</params>
+    <optionsBefore>
+      <option name="--entity" shortcut="" pattern="equals">
+        <help><![CDATA[The entity class name to initialize (shortcut notation)]]></help>
+      </option>
+      <option name="--fields" shortcut="" pattern="equals">
+        <help><![CDATA[The fields to create with the new entity]]></help>
+      </option>
+      <option name="--format" shortcut="" pattern="equals">
+        <help><![CDATA[Use the format for configuration files (php, xml, yml, or annotation)]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>doctrine:generate:form</name>
+    <help><![CDATA[The <b>doctrine:generate:form</b> command generates a form class based on a Doctrine entity.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:generate:form AcmeBlogBundle:Post</b><br> <br> Every generated file is based on a template. There are default templates but they can be overridden by placing custom templates in one of the following locations, by order of priority:<br> <br> <b>BUNDLE_PATH/Resources/SensioGeneratorBundle/skeleton/form<br> APP_PATH/Resources/SensioGeneratorBundle/skeleton/form</b><br> <br> You can check https://github.com/sensio/SensioGeneratorBundle/tree/master/Resources/skeleton<br> in order to know the file structure of the skeleton<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>entity</params>
+    <optionsBefore>
       <option name="--help" shortcut="-h">
         <help><![CDATA[Display this help message]]></help>
       </option>
@@ -1400,570 +1527,6 @@
     </optionsBefore>
   </command>
   <command>
-    <name>doctrine:migrations:diff</name>
-    <help><![CDATA[The <b>doctrine:migrations:diff</b> command generates a migration by comparing your current database to your mapping information:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:diff</b><br> <br> You can optionally specify a <comment>--editor-cmd</comment> option to open the generated file in your favorite editor:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:diff --editor-cmd=mate</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--editor-cmd</td><td></td><td>Open file with this command upon creation.</td></tr> <tr><td>--filter-expression</td><td></td><td>Tables which are filtered by Regular Expression.</td></tr> <tr><td>--formatted</td><td></td><td>Format the generated SQL.</td></tr> <tr><td>--line-length</td><td></td><td>Max line length of unformatted lines.</td></tr> <tr><td>--check-database-platform</td><td></td><td>Check Database Platform to the generated code.</td></tr> <tr><td>--allow-empty-diff</td><td></td><td>Do not throw an exception when no changes are detected.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--editor-cmd" shortcut="" pattern="equals">
-        <help><![CDATA[Open file with this command upon creation.]]></help>
-      </option>
-      <option name="--filter-expression" shortcut="" pattern="equals">
-        <help><![CDATA[Tables which are filtered by Regular Expression.]]></help>
-      </option>
-      <option name="--formatted" shortcut="">
-        <help><![CDATA[Format the generated SQL.]]></help>
-      </option>
-      <option name="--line-length" shortcut="" pattern="equals">
-        <help><![CDATA[Max line length of unformatted lines.]]></help>
-      </option>
-      <option name="--check-database-platform" shortcut="" pattern="equals">
-        <help><![CDATA[Check Database Platform to the generated code.]]></help>
-      </option>
-      <option name="--allow-empty-diff" shortcut="">
-        <help><![CDATA[Do not throw an exception when no changes are detected.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:dump-schema</name>
-    <help><![CDATA[The <b>doctrine:migrations:dump-schema</b> command dumps the schema for your database to a migration:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:dump-schema</b><br> <br> After dumping your schema to a migration, you can rollup your migrations using the <b>migrations:rollup</b> command.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--editor-cmd</td><td></td><td>Open file with this command upon creation.</td></tr> <tr><td>--formatted</td><td></td><td>Format the generated SQL.</td></tr> <tr><td>--line-length</td><td></td><td>Max line length of unformatted lines.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--editor-cmd" shortcut="" pattern="equals">
-        <help><![CDATA[Open file with this command upon creation.]]></help>
-      </option>
-      <option name="--formatted" shortcut="">
-        <help><![CDATA[Format the generated SQL.]]></help>
-      </option>
-      <option name="--line-length" shortcut="" pattern="equals">
-        <help><![CDATA[Max line length of unformatted lines.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:execute</name>
-    <help><![CDATA[The <b>doctrine:migrations:execute</b> command executes a single migration version up or down manually:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:execute YYYYMMDDHHMMSS</b><br> <br> If no <comment>--up</comment> or <comment>--down</comment> option is specified it defaults to up:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:execute YYYYMMDDHHMMSS --down</b><br> <br> You can also execute the migration as a <comment>--dry-run</comment>:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:execute YYYYMMDDHHMMSS --dry-run</b><br> <br> You can output the would be executed SQL statements to a file with <comment>--write-sql</comment>:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:execute YYYYMMDDHHMMSS --write-sql</b><br> <br> Or you can also execute the migration without a warning message which you need to interact with:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:execute YYYYMMDDHHMMSS --no-interaction</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--write-sql</td><td></td><td>The path to output the migration SQL file instead of executing it. Defaults to current working directory.</td></tr> <tr><td>--dry-run</td><td></td><td>Execute the migration as a dry run.</td></tr> <tr><td>--up</td><td></td><td>Execute the migration up.</td></tr> <tr><td>--down</td><td></td><td>Execute the migration down.</td></tr> <tr><td>--query-time</td><td></td><td>Time all the queries individually.</td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>version</params>
-    <optionsBefore>
-      <option name="--write-sql" shortcut="" pattern="equals">
-        <help><![CDATA[The path to output the migration SQL file instead of executing it. Defaults to current working directory.]]></help>
-      </option>
-      <option name="--dry-run" shortcut="">
-        <help><![CDATA[Execute the migration as a dry run.]]></help>
-      </option>
-      <option name="--up" shortcut="">
-        <help><![CDATA[Execute the migration up.]]></help>
-      </option>
-      <option name="--down" shortcut="">
-        <help><![CDATA[Execute the migration down.]]></help>
-      </option>
-      <option name="--query-time" shortcut="">
-        <help><![CDATA[Time all the queries individually.]]></help>
-      </option>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:generate</name>
-    <help><![CDATA[The <b>doctrine:migrations:generate</b> command generates a blank migration class:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:generate</b><br> <br> You can optionally specify a <comment>--editor-cmd</comment> option to open the generated file in your favorite editor:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:generate --editor-cmd=mate</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--editor-cmd</td><td></td><td>Open file with this command upon creation.</td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--editor-cmd" shortcut="" pattern="equals">
-        <help><![CDATA[Open file with this command upon creation.]]></help>
-      </option>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:latest</name>
-    <help><![CDATA[Outputs the latest version number<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:migrate</name>
-    <help><![CDATA[The <b>doctrine:migrations:migrate</b> command executes a migration to a specified version or the latest available version:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:migrate</b><br> <br> You can optionally manually specify the version you wish to migrate to:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:migrate YYYYMMDDHHMMSS</b><br> <br> You can specify the version you wish to migrate to using an alias:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:migrate prev</b><br> <b>These alias are defined : first, latest, prev, current and next</b><br> <br> You can specify the version you wish to migrate to using an number against the current version:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:migrate current+3</b><br> <br> You can also execute the migration as a <comment>--dry-run</comment>:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:migrate YYYYMMDDHHMMSS --dry-run</b><br> <br> You can output the would be executed SQL statements to a file with <comment>--write-sql</comment>:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:migrate YYYYMMDDHHMMSS --write-sql</b><br> <br> Or you can also execute the migration without a warning message which you need to interact with:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:migrate --no-interaction</b><br> <br> You can also time all the different queries if you wanna know which one is taking so long:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:migrate --query-time</b><br> <br> Use the --all-or-nothing option to wrap the entire migration in a transaction.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--write-sql</td><td></td><td>The path to output the migration SQL file instead of executing it. Defaults to current working directory.</td></tr> <tr><td>--dry-run</td><td></td><td>Execute the migration as a dry run.</td></tr> <tr><td>--query-time</td><td></td><td>Time all the queries individually.</td></tr> <tr><td>--allow-no-migration</td><td></td><td>Do not throw an exception if no migration is available.</td></tr> <tr><td>--all-or-nothing</td><td></td><td>Wrap the entire migration in a transaction.</td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>version[=null]</params>
-    <optionsBefore>
-      <option name="--write-sql" shortcut="" pattern="equals">
-        <help><![CDATA[The path to output the migration SQL file instead of executing it. Defaults to current working directory.]]></help>
-      </option>
-      <option name="--dry-run" shortcut="">
-        <help><![CDATA[Execute the migration as a dry run.]]></help>
-      </option>
-      <option name="--query-time" shortcut="">
-        <help><![CDATA[Time all the queries individually.]]></help>
-      </option>
-      <option name="--allow-no-migration" shortcut="">
-        <help><![CDATA[Do not throw an exception if no migration is available.]]></help>
-      </option>
-      <option name="--all-or-nothing" shortcut="" pattern="equals">
-        <help><![CDATA[Wrap the entire migration in a transaction.]]></help>
-      </option>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:rollup</name>
-    <help><![CDATA[The <b>doctrine:migrations:rollup</b> command rolls up migrations by deleting all tracked versions and<br> inserts the one version that exists that was created with the <b>migrations:dump-schema</b> command.<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:rollup</b><br> <br> To dump your schema to a migration version you can use the <b>migrations:dump-schema</b> command.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:status</name>
-    <help><![CDATA[The <b>doctrine:migrations:status</b> command outputs the status of a set of migrations:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:status</b><br> <br> You can output a list of all available migrations and their status with <comment>--show-versions</comment>:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:status --show-versions</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--show-versions</td><td></td><td>This will display a list of all available migrations and their status</td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--show-versions" shortcut="">
-        <help><![CDATA[This will display a list of all available migrations and their status]]></help>
-      </option>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:up-to-date</name>
-    <help><![CDATA[The <b>doctrine:migrations:up-to-date</b> command tells you if your schema is up-to-date:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:up-to-date</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--fail-on-unregistered</td><td>(-u)</td><td>Whether to fail when there are unregistered extra migrations found</td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--fail-on-unregistered" shortcut="-u">
-        <help><![CDATA[Whether to fail when there are unregistered extra migrations found]]></help>
-      </option>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>doctrine:migrations:version</name>
-    <help><![CDATA[The <b>doctrine:migrations:version</b> command allows you to manually add, delete or synchronize migration versions from the version table:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:version YYYYMMDDHHMMSS --add</b><br> <br> If you want to delete a version you can use the <comment>--delete</comment> option:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:version YYYYMMDDHHMMSS --delete</b><br> <br> If you want to synchronize by adding or deleting all migration versions available in the version table you can use the <comment>--all</comment> option:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:version --add --all</b><br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:version --delete --all</b><br> <br> If you want to synchronize by adding or deleting some range of migration versions available in the version table you can use the <comment>--range-from/--range-to</comment> option:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:version --add --range-from=YYYYMMDDHHMMSS --range-to=YYYYMMDDHHMMSS</b><br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:version --delete --range-from=YYYYMMDDHHMMSS --range-to=YYYYMMDDHHMMSS</b><br> <br> You can also execute this command without a warning message which you need to interact with:<br> <br> <b>C:\wamp64\www\Scrumify\bin\console doctrine:migrations:version --no-interaction</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--add</td><td></td><td>Add the specified version.</td></tr> <tr><td>--delete</td><td></td><td>Delete the specified version.</td></tr> <tr><td>--all</td><td></td><td>Apply to all the versions.</td></tr> <tr><td>--range-from</td><td></td><td>Apply from specified version.</td></tr> <tr><td>--range-to</td><td></td><td>Apply to specified version.</td></tr> <tr><td>--configuration</td><td></td><td>The path to a migrations configuration file.</td></tr> <tr><td>--db-configuration</td><td></td><td>The path to a database connection configuration file.</td></tr> <tr><td>--db</td><td></td><td>The database connection to use for this command.</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command.</td></tr> <tr><td>--shard</td><td></td><td>The shard connection to use for this command.</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>version[=null]</params>
-    <optionsBefore>
-      <option name="--add" shortcut="">
-        <help><![CDATA[Add the specified version.]]></help>
-      </option>
-      <option name="--delete" shortcut="">
-        <help><![CDATA[Delete the specified version.]]></help>
-      </option>
-      <option name="--all" shortcut="">
-        <help><![CDATA[Apply to all the versions.]]></help>
-      </option>
-      <option name="--range-from" shortcut="" pattern="equals">
-        <help><![CDATA[Apply from specified version.]]></help>
-      </option>
-      <option name="--range-to" shortcut="" pattern="equals">
-        <help><![CDATA[Apply to specified version.]]></help>
-      </option>
-      <option name="--configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a migrations configuration file.]]></help>
-      </option>
-      <option name="--db-configuration" shortcut="" pattern="equals">
-        <help><![CDATA[The path to a database connection configuration file.]]></help>
-      </option>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection to use for this command.]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager to use for this command.]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection to use for this command.]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
     <name>doctrine:query:dql</name>
     <help><![CDATA[The <b>doctrine:query:dql</b> command executes the given DQL query and<br> outputs the results:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:query:dql "SELECT u FROM UserBundle:User u"</b><br> <br> You can also optional specify some additional options like what type of<br> hydration to use when executing the query:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:query:dql "SELECT u FROM UserBundle:User u" --hydrate=array</b><br> <br> Additionally you can specify the first result and maximum amount of results to<br> show:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:query:dql "SELECT u FROM UserBundle:User u" --first-result=0 --max-result=30</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--hydrate</td><td></td><td>Hydration mode of result set. Should be either: object, array, scalar or single-scalar.</td></tr> <tr><td>--first-result</td><td></td><td>The first result in the result set.</td></tr> <tr><td>--max-result</td><td></td><td>The maximum number of results in the result set.</td></tr> <tr><td>--depth</td><td></td><td>Dumping depth of Entity graph.</td></tr> <tr><td>--show-sql</td><td></td><td>Dump generated SQL instead of executing query</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
     <params>dql</params>
@@ -2017,14 +1580,11 @@
   </command>
   <command>
     <name>doctrine:query:sql</name>
-    <help><![CDATA[The <b>doctrine:query:sql</b> command executes the given SQL query and<br> outputs the results:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:query:sql "SELECT * FROM users"</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--depth</td><td></td><td>Dumping depth of result set.</td></tr> <tr><td>--force-fetch</td><td></td><td>Forces fetching the result.</td></tr> <tr><td>--connection</td><td></td><td>The connection to use for this command</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <help><![CDATA[The <b>doctrine:query:sql</b> command executes the given SQL query and<br> outputs the results:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console doctrine:query:sql "SELECT * FROM users"</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--depth</td><td></td><td>Dumping depth of result set.</td></tr> <tr><td>--connection</td><td></td><td>The connection to use for this command</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
     <params>sql</params>
     <optionsBefore>
       <option name="--depth" shortcut="" pattern="equals">
         <help><![CDATA[Dumping depth of result set.]]></help>
-      </option>
-      <option name="--force-fetch" shortcut="">
-        <help><![CDATA[Forces fetching the result.]]></help>
       </option>
       <option name="--connection" shortcut="" pattern="equals">
         <help><![CDATA[The connection to use for this command]]></help>
@@ -2189,7 +1749,7 @@
   </command>
   <command>
     <name>doctrine:schema:validate</name>
-    <help><![CDATA[Validate that the mapping files are correct and in sync with the database.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--skip-mapping</td><td></td><td>Skip the mapping validation check</td></tr> <tr><td>--skip-sync</td><td></td><td>Skip checking if the mapping is in sync with the database</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <help><![CDATA['Validate that the mapping files are correct and in sync with the database.'<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--skip-mapping</td><td></td><td>Skip the mapping validation check</td></tr> <tr><td>--skip-sync</td><td></td><td>Skip checking if the mapping is in sync with the database</td></tr> <tr><td>--em</td><td></td><td>The entity manager to use for this command</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
     <optionsBefore>
       <option name="--skip-mapping" shortcut="">
         <help><![CDATA[Skip the mapping validation check]]></help>
@@ -2199,6 +1759,349 @@
       </option>
       <option name="--em" shortcut="" pattern="equals">
         <help><![CDATA[The entity manager to use for this command]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>fos:user:activate</name>
+    <help><![CDATA[The <b>fos:user:activate</b> command activates a user (so they will be able to log in):<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:activate matthieu</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>username</params>
+    <optionsBefore>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>fos:user:change-password</name>
+    <help><![CDATA[The <b>fos:user:change-password</b> command changes the password of a user:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:change-password matthieu</b><br> <br> This interactive shell will first ask you for a password.<br> <br> You can alternatively specify the password as a second argument:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:change-password matthieu mypassword</b><br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>username password</params>
+    <optionsBefore>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>fos:user:create</name>
+    <help><![CDATA[The <b>fos:user:create</b> command creates a user:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:create matthieu</b><br> <br> This interactive shell will ask you for an email and then a password.<br> <br> You can alternatively specify the email and password as the second and third arguments:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:create matthieu matthieu@example.com mypassword</b><br> <br> You can create a super admin via the super-admin flag:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:create admin --super-admin</b><br> <br> You can create an inactive user (will not be able to log in):<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:create thibault --inactive</b><br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--super-admin</td><td></td><td>Set the user as super admin</td></tr> <tr><td>--inactive</td><td></td><td>Set the user as inactive</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>username email password</params>
+    <optionsBefore>
+      <option name="--super-admin" shortcut="">
+        <help><![CDATA[Set the user as super admin]]></help>
+      </option>
+      <option name="--inactive" shortcut="">
+        <help><![CDATA[Set the user as inactive]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>fos:user:deactivate</name>
+    <help><![CDATA[The <b>fos:user:deactivate</b> command deactivates a user (will not be able to log in)<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:deactivate matthieu</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>username</params>
+    <optionsBefore>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>fos:user:demote</name>
+    <help><![CDATA[The <b>fos:user:demote</b> command demotes a user by removing a role<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:demote matthieu ROLE_CUSTOM</b><br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:demote --super matthieu</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--super</td><td></td><td>Instead specifying role, use this to quickly add the super administrator role</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>username role[=null]</params>
+    <optionsBefore>
+      <option name="--super" shortcut="">
+        <help><![CDATA[Instead specifying role, use this to quickly add the super administrator role]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>fos:user:promote</name>
+    <help><![CDATA[The <b>fos:user:promote</b> command promotes a user by adding a role<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:promote matthieu ROLE_CUSTOM</b><br> <b>php C:\wamp64\www\Scrumify\bin\console fos:user:promote --super matthieu</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--super</td><td></td><td>Instead specifying role, use this to quickly add the super administrator role</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>username role[=null]</params>
+    <optionsBefore>
+      <option name="--super" shortcut="">
+        <help><![CDATA[Instead specifying role, use this to quickly add the super administrator role]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>generate:bundle</name>
+    <help><![CDATA[The <b>generate:bundle</b> command helps you generates new bundles.<br> <br> By default, the command interacts with the developer to tweak the generation.<br> Any passed option will be used as a default value for the interaction<br> (<comment>--namespace</comment> is the only one needed if you follow the<br> conventions):<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console generate:bundle --namespace=Acme/BlogBundle</b><br> <br> Note that you can use <comment>/</comment> instead of <comment>\ </comment>for the namespace delimiter to avoid any<br> problems.<br> <br> If you want to disable any user interaction, use <comment>--no-interaction</comment> but don't forget to pass all needed options:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console generate:bundle --namespace=Acme/BlogBundle --dir=src [--bundle-name=...] --no-interaction</b><br> <br> Note that the bundle namespace must end with "Bundle".<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--namespace</td><td></td><td>The namespace of the bundle to create</td></tr> <tr><td>--dir</td><td></td><td>The directory where to create the bundle</td></tr> <tr><td>--bundle-name</td><td></td><td>The optional bundle name</td></tr> <tr><td>--format</td><td></td><td>Use the format for configuration files (php, xml, yml, or annotation)</td></tr> <tr><td>--shared</td><td></td><td>Are you planning on sharing this bundle across multiple applications?</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
+      <option name="--namespace" shortcut="" pattern="equals">
+        <help><![CDATA[The namespace of the bundle to create]]></help>
+      </option>
+      <option name="--dir" shortcut="" pattern="equals">
+        <help><![CDATA[The directory where to create the bundle]]></help>
+      </option>
+      <option name="--bundle-name" shortcut="" pattern="equals">
+        <help><![CDATA[The optional bundle name]]></help>
+      </option>
+      <option name="--format" shortcut="" pattern="equals">
+        <help><![CDATA[Use the format for configuration files (php, xml, yml, or annotation)]]></help>
+      </option>
+      <option name="--shared" shortcut="">
+        <help><![CDATA[Are you planning on sharing this bundle across multiple applications?]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>generate:command</name>
+    <help><![CDATA[The <b>generate:command</b> command helps you generate new commands<br> inside bundles. Provide the bundle name as the first argument and the command<br> name as the second argument:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console generate:command AppBundle blog:publish-posts</b><br> <br> If any of the arguments is missing, the command will ask for their values<br> interactively. If you want to disable any user interaction, use<br> <comment>--no-interaction</comment>, but don't forget to pass all needed arguments.<br> <br> Every generated file is based on a template. There are default templates but they can<br> be overridden by placing custom templates in one of the following locations, by order of priority:<br> <br> <b>BUNDLE_PATH/Resources/SensioGeneratorBundle/skeleton/command<br> APP_PATH/Resources/SensioGeneratorBundle/skeleton/command</b><br> <br> You can check https://github.com/sensio/SensioGeneratorBundle/tree/master/Resources/skeleton<br> in order to know the file structure of the skeleton.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>bundle[=null] name[=null]</params>
+    <optionsBefore>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>generate:controller</name>
+    <help><![CDATA[The <b>generate:controller</b> command helps you generates new controllers<br> inside bundles.<br> <br> By default, the command interacts with the developer to tweak the generation.<br> Any passed option will be used as a default value for the interaction<br> (<comment>--controller</comment> is the only one needed if you follow the conventions):<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console generate:controller --controller=AcmeBlogBundle:Post</b><br> <br> If you want to disable any user interaction, use <comment>--no-interaction</comment><br> but don't forget to pass all needed options:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console generate:controller --controller=AcmeBlogBundle:Post --no-interaction</b><br> <br> Every generated file is based on a template. There are default templates but they can<br> be overridden by placing custom templates in one of the following locations, by order of priority:<br> <br> <b>BUNDLE_PATH/Resources/SensioGeneratorBundle/skeleton/controller<br> APP_PATH/Resources/SensioGeneratorBundle/skeleton/controller</b><br> <br> You can check https://github.com/sensio/SensioGeneratorBundle/tree/master/Resources/skeleton<br> in order to know the file structure of the skeleton<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--controller</td><td></td><td>The name of the controller to create</td></tr> <tr><td>--route-format</td><td></td><td>The format that is used for the routing (yml, xml, php, annotation)</td></tr> <tr><td>--template-format</td><td></td><td>The format that is used for templating (twig, php)</td></tr> <tr><td>--actions</td><td></td><td>The actions in the controller</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
+      <option name="--controller" shortcut="" pattern="equals">
+        <help><![CDATA[The name of the controller to create]]></help>
+      </option>
+      <option name="--route-format" shortcut="" pattern="equals">
+        <help><![CDATA[The format that is used for the routing (yml, xml, php, annotation)]]></help>
+      </option>
+      <option name="--template-format" shortcut="" pattern="equals">
+        <help><![CDATA[The format that is used for templating (twig, php)]]></help>
+      </option>
+      <option name="--actions" shortcut="" pattern="equals">
+        <help><![CDATA[The actions in the controller]]></help>
       </option>
       <option name="--help" shortcut="-h">
         <help><![CDATA[Display this help message]]></help>
@@ -2344,648 +2247,6 @@
     </optionsBefore>
   </command>
   <command>
-    <name>make:auth</name>
-    <help><![CDATA[The <b>make:auth</b> command generates various authentication systems,<br> by asking questions.<br> <br> It can provide an empty authenticator, or a full login form authentication process.<br> In both cases it also updates your <b>security.yaml</b>.<br> For the login form, it also generates a controller and the twig template.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:auth</b><br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:command</name>
-    <help><![CDATA[The <b>make:command</b> command generates a new command:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:command app:do-something</b><br> <br> If the argument is missing, the command will ask for the command name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:controller</name>
-    <help><![CDATA[The <b>make:controller</b> command generates a new controller class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:controller CoolStuffController</b><br> <br> If the argument is missing, the command will ask for the controller class name interactively.<br> <br> You can also generate the controller alone, without template with this option:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:controller --no-template</b><br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--no-template</td><td></td><td>Use this option to disable template generation</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>controller-class[=null]</params>
-    <optionsBefore>
-      <option name="--no-template" shortcut="">
-        <help><![CDATA[Use this option to disable template generation]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:crud</name>
-    <help><![CDATA[The <b>make:crud</b> command generates crud controller with templates for selected entity.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:crud BlogPost</b><br> <br> If the argument is missing, the command will ask for the entity class name interactively.<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>entity-class[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:entity</name>
-    <help><![CDATA[The <b>make:entity</b> command creates or updates an entity and repository class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:entity BlogPost</b><br> <br> If the argument is missing, the command will ask for the entity class name interactively.<br> <br> You can also mark this class as an API Platform resource. A hypermedia CRUD API will<br> automatically be available for this entity class:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:entity --api-resource</b><br> <br> You can also generate all the getter/setter/adder/remover methods<br> for the properties of existing entities:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:entity --regenerate</b><br> <br> You can also *overwrite* any existing methods:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:entity --regenerate --overwrite</b><br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--api-resource</td><td>(-a)</td><td>Mark this class as an API Platform resource (expose a CRUD API for it)</td></tr> <tr><td>--regenerate</td><td></td><td>Instead of adding new fields, simply generate the methods (e.g. getter/setter) for existing fields</td></tr> <tr><td>--overwrite</td><td></td><td>Overwrite any existing getter/setter methods</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--api-resource" shortcut="-a">
-        <help><![CDATA[Mark this class as an API Platform resource (expose a CRUD API for it)]]></help>
-      </option>
-      <option name="--regenerate" shortcut="">
-        <help><![CDATA[Instead of adding new fields, simply generate the methods (e.g. getter/setter) for existing fields]]></help>
-      </option>
-      <option name="--overwrite" shortcut="">
-        <help><![CDATA[Overwrite any existing getter/setter methods]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:fixtures</name>
-    <help><![CDATA[The <b>make:fixtures</b> command generates a new Doctrine fixtures class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:fixtures AppFixtures</b><br> <br> If the argument is missing, the command will ask for a class interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>fixtures-class[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:form</name>
-    <help><![CDATA[The <b>make:form</b> command generates a new form class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:form UserType</b><br> <br> If the argument is missing, the command will ask for the form class interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null] bound-class[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:functional-test</name>
-    <help><![CDATA[The <b>make:functional-test</b> command generates a new functional test class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:functional-test DefaultControllerTest</b><br> <br> If the argument is missing, the command will ask for the class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:migration</name>
-    <help><![CDATA[The <b>make:migration</b> command generates a new migration:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:migration</b><br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--db</td><td></td><td>The database connection name</td></tr> <tr><td>--em</td><td></td><td>The entity manager name</td></tr> <tr><td>--shard</td><td></td><td>The shard connection name</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--db" shortcut="" pattern="equals">
-        <help><![CDATA[The database connection name]]></help>
-      </option>
-      <option name="--em" shortcut="" pattern="equals">
-        <help><![CDATA[The entity manager name]]></help>
-      </option>
-      <option name="--shard" shortcut="" pattern="equals">
-        <help><![CDATA[The shard connection name]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:registration-form</name>
-    <help><![CDATA[The <b>make:registration-form</b> command generates a complete registration form, controller & template.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:registration-form</b><br> <br> The command will ask for several pieces of information to build your form.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:serializer:encoder</name>
-    <help><![CDATA[The <b>make:serializer:encoder</b> command generates a new serializer encoder class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:serializer:encoder YamlEncoder</b><br> <br> If the argument is missing, the command will ask for the class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null] format[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:serializer:normalizer</name>
-    <help><![CDATA[The <b>make:serializer:normalizer</b> command generates a new serializer normalizer class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:serializer:normalizer UserNormalizer</b><br> <br> If the argument is missing, the command will ask for the class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:subscriber</name>
-    <help><![CDATA[The <b>make:subscriber</b> command generates a new event subscriber class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:subscriber ExceptionSubscriber</b><br> <br> If the argument is missing, the command will ask for the class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null] event[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:twig-extension</name>
-    <help><![CDATA[The <b>make:twig-extension</b> command generates a new twig extension class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:twig-extension AppExtension</b><br> <br> If the argument is missing, the command will ask for the class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:unit-test</name>
-    <help><![CDATA[The <b>make:unit-test</b> command generates a new unit test class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:unit-test UtilTest</b><br> <br> If the argument is missing, the command will ask for the class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:user</name>
-    <help><![CDATA[The <b>make:user</b> command generates a new user class for security<br> and updates your security.yaml file for it. It will also generate a user provider<br> class if your situation needs a custom class.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:user User</b><br> <br> If the argument is missing, the command will ask for the class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--is-entity</td><td></td><td>Do you want to store user data in the database (via Doctrine)?</td></tr> <tr><td>--identity-property-name</td><td></td><td>Enter a property name that will be the unique "display" name for the user (e.g. <comment>email, username, uuid</comment>)</td></tr> <tr><td>--with-password</td><td></td><td>Will this app be responsible for checking the password? Choose <comment>No</comment> if the password is actually checked by some other system (e.g. a single sign-on server)</td></tr> <tr><td>--use-argon2</td><td></td><td>Use the Argon2i password encoder? (deprecated)</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--is-entity" shortcut="">
-        <help><![CDATA[Do you want to store user data in the database (via Doctrine)?]]></help>
-      </option>
-      <option name="--identity-property-name" shortcut="" pattern="equals">
-        <help><![CDATA[Enter a property name that will be the unique "display" name for the user (e.g. <comment>email, username, uuid</comment>)]]></help>
-      </option>
-      <option name="--with-password" shortcut="">
-        <help><![CDATA[Will this app be responsible for checking the password? Choose <comment>No</comment> if the password is actually checked by some other system (e.g. a single sign-on server)]]></help>
-      </option>
-      <option name="--use-argon2" shortcut="">
-        <help><![CDATA[Use the Argon2i password encoder? (deprecated)]]></help>
-      </option>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:validator</name>
-    <help><![CDATA[The <b>make:validator</b> command generates a new validation constraint.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:validator EnabledValidator</b><br> <br> If the argument is missing, the command will ask for the constraint class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
-    <name>make:voter</name>
-    <help><![CDATA[The <b>make:voter</b> command generates a new security voter.<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console make:voter BlogPostVoter</b><br> <br> If the argument is missing, the command will ask for the class name interactively.<br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
-    <params>name[=null]</params>
-    <optionsBefore>
-      <option name="--help" shortcut="-h">
-        <help><![CDATA[Display this help message]]></help>
-      </option>
-      <option name="--quiet" shortcut="-q">
-        <help><![CDATA[Do not output any message]]></help>
-      </option>
-      <option name="--verbose" shortcut="-v">
-        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
-      </option>
-      <option name="--version" shortcut="-V">
-        <help><![CDATA[Display this application version]]></help>
-      </option>
-      <option name="--ansi" shortcut="">
-        <help><![CDATA[Force ANSI output]]></help>
-      </option>
-      <option name="--no-ansi" shortcut="">
-        <help><![CDATA[Disable ANSI output]]></help>
-      </option>
-      <option name="--no-interaction" shortcut="-n">
-        <help><![CDATA[Do not ask any interactive question]]></help>
-      </option>
-      <option name="--env" shortcut="-e" pattern="equals">
-        <help><![CDATA[The Environment name.]]></help>
-      </option>
-      <option name="--no-debug" shortcut="">
-        <help><![CDATA[Switches off debug mode.]]></help>
-      </option>
-    </optionsBefore>
-  </command>
-  <command>
     <name>router:match</name>
     <help><![CDATA[The <b>router:match</b> shows which routes match a given request and which don't and for what reason:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console router:match /foo</b><br> <br> or<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console router:match /foo --method POST --scheme https --host symfony.com --verbose</b><br> <br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--method</td><td></td><td>Sets the HTTP method</td></tr> <tr><td>--scheme</td><td></td><td>Sets the URI scheme (usually http or https)</td></tr> <tr><td>--host</td><td></td><td>Sets the URI host</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
     <params>path_info</params>
@@ -2998,6 +2259,52 @@
       </option>
       <option name="--host" shortcut="" pattern="equals">
         <help><![CDATA[Sets the URI host]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display this help message]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Disable ANSI output]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="-e" pattern="equals">
+        <help><![CDATA[The Environment name.]]></help>
+      </option>
+      <option name="--no-debug" shortcut="">
+        <help><![CDATA[Switches off debug mode.]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>security:check</name>
+    <help><![CDATA[The <b>security:check</b> command looks for security issues in the<br> project dependencies:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console security:check</b><br> <br> You can also pass the path to a <b>composer.lock</b> file as an argument:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console security:check /path/to/composer.lock</b><br> <br> By default, the command displays the result in plain text, but you can also<br> configure it to output JSON instead by using the <b>--format</b> option:<br> <br> <b>php C:\wamp64\www\Scrumify\bin\console security:check /path/to/composer.lock --format=json</b><br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--format</td><td></td><td>The output format</td></tr> <tr><td>--end-point</td><td></td><td>The security checker server URL</td></tr> <tr><td>--timeout</td><td></td><td>The HTTP timeout in seconds</td></tr> <tr><td>--token</td><td></td><td>The server token</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display this help message</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Disable ANSI output</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td>(-e)</td><td>The Environment name.</td></tr> <tr><td>--no-debug</td><td></td><td>Switches off debug mode.</td></tr> </table> <br/>]]></help>
+    <params>lockfile[=null]</params>
+    <optionsBefore>
+      <option name="--format" shortcut="" pattern="equals">
+        <help><![CDATA[The output format]]></help>
+      </option>
+      <option name="--end-point" shortcut="" pattern="equals">
+        <help><![CDATA[The security checker server URL]]></help>
+      </option>
+      <option name="--timeout" shortcut="" pattern="equals">
+        <help><![CDATA[The HTTP timeout in seconds]]></help>
+      </option>
+      <option name="--token" shortcut="" pattern="equals">
+        <help><![CDATA[The server token]]></help>
       </option>
       <option name="--help" shortcut="-h">
         <help><![CDATA[Display this help message]]></help>

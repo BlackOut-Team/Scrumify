@@ -159,7 +159,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/MainBundle/Resources/views/Default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ExamenS2020/app/Resources/views/base.html.twig" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -194,13 +194,13 @@
       <command value="c composer clear-cache" />
       <command value="c clear-cache" />
       <command value="c php -r &quot;echo ini_get('memory_limit').PHP_EOL;&quot; " />
-      <command value="s generate:bundle" />
       <command value="s doctrine:generate:entity user" />
       <command value="s doctrine:database:create" />
       <command value="s doctrine:generate:entity " />
       <command value="s doctrine:schema:create" />
       <command value="s doctrine:schema:update --force" />
       <command value="c require symfony/templating" />
+      <command value="s generate:bundle" />
     </option>
   </component>
   <component name="ServiceViewManager">
@@ -253,43 +253,47 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="395" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1581109963507" />
-    <state x="364" y="220" key="ComposerCompositePathDialog" timestamp="1581022145202">
+    <state x="364" y="220" key="ComposerCompositePathDialog" timestamp="1581259192384">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="364" y="220" key="ComposerCompositePathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022145202" />
-    <state x="504" y="101" key="FileChooserDialogImpl" timestamp="1581252443366">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="364" y="220" key="ComposerCompositePathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581259192384" />
+    <state x="420" y="83" key="FileChooserDialogImpl" timestamp="1581259565168">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="420" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581171148245" />
+    <state x="420" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581259565168" />
     <state x="504" y="101" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1581252443366" />
     <state x="496" y="230" key="FrameworkEditDialogDimensionKey" timestamp="1581108491985">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="496" y="230" key="FrameworkEditDialogDimensionKey/0.0.1280.680@0.0.1280.680" timestamp="1581108491985" />
-    <state width="1237" height="137" key="GridCell.Tab.0.bottom" timestamp="1581175947229">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1581259394412">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="137" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581175947229" />
-    <state width="1237" height="137" key="GridCell.Tab.0.center" timestamp="1581175947224">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581259394412" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1581259394411">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="137" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581175947224" />
-    <state width="1237" height="137" key="GridCell.Tab.0.left" timestamp="1581175947224">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581259394411" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1581259394411">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="137" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581175947224" />
-    <state width="1237" height="137" key="GridCell.Tab.0.right" timestamp="1581175947229">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581259394411" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1581259394411">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="137" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581175947229" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1581164815544">
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581259394411" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1581259224848">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581164815544" />
-    <state x="409" y="244" key="SymfonyPathDialog" timestamp="1581022161325">
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581259224848" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1581259853886">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="409" y="244" key="SymfonyPathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022161325" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1280.680@0.0.1280.680" timestamp="1581259853886" />
+    <state x="409" y="244" key="SymfonyPathDialog" timestamp="1581259207339">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="409" y="244" key="SymfonyPathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581259207339" />
     <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1581159945391">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -298,10 +302,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="450" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1581107047090" />
-    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1581175947274">
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1581259228018">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1581175947274" />
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1581259228018" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581107730626">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

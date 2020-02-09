@@ -159,7 +159,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/MainBundle/Controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/MainBundle/Resources/views/Default" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -169,14 +169,18 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Scrumify\src\MainBundle\Controller" />
-      <recent name="C:\wamp64\www\Scrumify\app\Resources\MainBundle\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Scrumify\src\AppBundle\Resources" />
+      <recent name="C:\wamp64\www\Scrumify\src\AppBundle\views" />
       <recent name="C:\wamp64\www\Scrumify\src\MainBundle\Resources\views\Default" />
       <recent name="C:\wamp64\www\Scrumify\app\Resources\views" />
       <recent name="C:\wamp64\www\Scrumify\src\AppBundle\Resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Scrumify\src\MainBundle\Resources\views\Default" />
+      <recent name="C:\wamp64\www\Scrumify\src\AppBundle" />
+      <recent name="C:\wamp64\www\Scrumify\src\MainBundle\Controller" />
+      <recent name="C:\wamp64\www\Scrumify\app\Resources\MainBundle\views" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -229,6 +233,7 @@
       <workItem from="1581108962957" duration="4793000" />
       <workItem from="1581159875830" duration="13811000" />
       <workItem from="1581178890350" duration="16200000" />
+      <workItem from="1581251648351" duration="4090000" />
     </task>
     <servers />
   </component>
@@ -240,6 +245,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="221" y="0" key="#CLI_Interpreters/0.0.1280.680@0.0.1280.680" timestamp="1581109346793" />
+    <state x="510" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581252136081">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="510" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1581252136081" />
     <state x="395" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581109963507">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -248,10 +257,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="364" y="220" key="ComposerCompositePathDialog/0.0.1280.680@0.0.1280.680" timestamp="1581022145202" />
-    <state x="420" y="83" key="FileChooserDialogImpl" timestamp="1581171148245">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="504" y="101" key="FileChooserDialogImpl" timestamp="1581252443366">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="420" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581171148245" />
+    <state x="504" y="101" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1581252443366" />
     <state x="496" y="230" key="FrameworkEditDialogDimensionKey" timestamp="1581108491985">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

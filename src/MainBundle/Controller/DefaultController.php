@@ -25,5 +25,12 @@ class DefaultController extends Controller
     {
         return $this->render('@Main/Registration/register.html.twig');
     }
+    /**
+     * @Route("/home")
+     */
+    public function homeAction()
+    {
+        return $this->render('@Main/Default/home.html.twig');
+    }
 
 }

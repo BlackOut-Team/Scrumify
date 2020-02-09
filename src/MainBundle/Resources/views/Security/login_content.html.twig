@@ -4,13 +4,23 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-<form action="{{ path("fos_user_registration_confirmed") }}" method="post"  id="sign-in-form">
+<form action="{{ path("fos_user_security_login") }}" method="post"  id="sign-in-form">
     {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     {% endif %}
 
+    {% block title  %}<h1>Sign in</h1> {% endblock %}
+    {%  block content %}
+        <div class="sign-in" id="sign-in">
+            <h1>Welcome Back!</h1>
 
+            <p>To keep connected with us please login with your personal info</p>
+            <button class="switch-button" id="slide-right-button">Sign In</button>
+        </div>
+    {% endblock %}
+    {% block content1 %}
 
+    {% endblock %}
     <input type="text" id="username" name="_username" placeholder="Username" value="{{ last_username }}" required="required" autocomplete="username" />
 
     <input type="password" id="password" name="_password" placeholder="Password" required="required" autocomplete="current-password" />

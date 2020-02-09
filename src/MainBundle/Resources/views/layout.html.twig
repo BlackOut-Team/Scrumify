@@ -43,34 +43,40 @@
                 </div>
 
                         <div class="overlay" id="overlay">
-                            <div class="sign-in" id="sign-in">
-                                <h1>Welcome Back!</h1>
+                            {%  block content %}
+                                <div class="sign-in" id="sign-in">
+                                    <h1>Welcome Back!</h1>
 
-                                <p>To keep connected with us please login with your personal info</p>
-                                <button class="switch-button" id="slide-right-button">Sign In</button>
-                            </div>
-                            <div class="sign-up" id="sign-up">
-                                <h1>Hello, Friend!</h1>
-                                <p>Enter your personal details and start a journey with us</p>
-                                <button class="switch-button" id="slide-left-button">Sign Up</button>
-                            </div>
+                                    <p>To keep connected with us please login with your personal info</p>
+                                    <button class="switch-button" id="slide-right-button">Sign In</button>
+                                </div>
+                            {% endblock %}
+
+                            {%  block content1 %}
+                                <div class="sign-up" id="sign-up">
+                                    <h1>Hello, Friend!</h1>
+                                    <p>Enter your personal details and start a journey with us</p>
+                                    <button class="switch-button" id="slide-left-button">Sign Up</button>
+                                </div>
+                            {% endblock %}
+
                         </div>
-
+    <div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+        {% endif %}
+    </div>
 
                     <div class="form">
                         <div class="sign-in" id="sign-in-info">
                             <div class="icon" >
                                 <img src={{ asset('Front/Index/images/scrumify.png') }} width="50" href="index.html" >
                             </div>
-                            <div>
-                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                                    <a href="{{ path('fos_user_security_logout') }}">
-                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                    </a>
-                                {% endif %}
-                            </div>
-                            <h1>Sign In</h1>
+
+                            <h1>{% block title  %}{% endblock %}</h1>
                             <div class="social-media-buttons">
                                 <div class="icon">
                                     <svg viewBox="0 0 24 24">

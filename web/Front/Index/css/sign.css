@@ -37,7 +37,6 @@ body, html{
   background-image: linear-gradient(to right, var(--left-color), var(--right-color));
   border-radius: 10px;
   color: white;
-  clip: rect(0, 385px, var(--form-height), 0);
 }
 
 .open-sign-up{

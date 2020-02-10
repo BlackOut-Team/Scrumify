@@ -1,3 +1,3 @@
 team_homepage:
-    path:     /
+    path:     /team
     defaults: { _controller: TeamBundle:Default:index }

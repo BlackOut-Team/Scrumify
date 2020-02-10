@@ -1,0 +1,4 @@
+services:
+#    userstory.example:
+#        class: UserstoryBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

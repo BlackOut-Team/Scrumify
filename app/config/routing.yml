@@ -1,5 +1,13 @@
+
 team:
     resource: "@TeamBundle/Resources/config/routing.yml"
+
+userstory:
+    resource: "@UserstoryBundle/Resources/config/routing.yml"
+    prefix:   /
+
+feature:
+    resource: "@FeatureBundle/Resources/config/routing.yml"
     prefix:   /
 
 sprint:
@@ -9,7 +17,12 @@ sprint:
 project:
     resource: "@ProjectBundle/Resources/config/routing.yml"
     prefix:   /
-
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /
+activity:
+    resource: "@ActivityBundle/Resources/config/routing.yml"
+    prefix:   /
 tasks:
     resource: "@TasksBundle/Resources/config/routing.yml"
     prefix:   /

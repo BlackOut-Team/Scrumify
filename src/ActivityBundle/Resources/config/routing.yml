@@ -1,0 +1,8 @@
+
+
+activity_homepage:
+    path:     /afficher_activite
+    defaults: { _controller: ActivityBundle:Activity:Afficher }
+delete_activity:
+    path:     /delete_activity/{id}
+    defaults: { _controller: ActivityBundle:Activity:Supprimer}

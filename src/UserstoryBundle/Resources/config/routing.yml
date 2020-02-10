@@ -1,0 +1,3 @@
+userstory_homepage:
+    path:     /
+    defaults: { _controller: UserstoryBundle:Default:index }

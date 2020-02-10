@@ -5,6 +5,7 @@ project_homepage:
 showProject:
     path:   /Show
     defaults: { _controller: ProjectBundle:Default:ShowP }
+
 addProject:
     path:   /Add
     defaults: { _controller: ProjectBundle:Default:AddP }

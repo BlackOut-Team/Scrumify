@@ -31,7 +31,7 @@
                                 <div class="row content-list-head">
                                     <div class="col-auto">
                                         <h3>Roles</h3>
-                                        <button class="btn btn-round" data-toggle="modal" data-target="#project-add-modal">
+                                        <button class="btn btn-round" data-toggle="modal" data-target="#role-add-modal">
                                             <i class="material-icons">add</i>
                                         </button>
                                     </div>
@@ -93,6 +93,52 @@
                 </div>
             </div>
         </div>
+
+        <form class="modal fade" id="role-add-modal" tabindex="-1" aria-hidden="true">
+            {{ form_start(f) }}
+            {% set type = '0' %}
+            {{ form_row(f._token) }}
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">New Role</h5>
+                        <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <!--end of modal head-->
+                    <ul class="nav nav-tabs nav-fill" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="project-add-details-tab" data-toggle="tab" href="#project-add-details" role="tab" aria-controls="project-add-details" aria-selected="true">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="project-add-members-tab" data-toggle="tab" href="#project-add-members" role="tab" aria-controls="project-add-members" aria-selected="false">Members</a>
+                        </li>
+                    </ul>
+                    <div class="modal-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
+                                <h6>General Details</h6>
+                                <div class="form-group row align-items-center">
+                                    <label class="col-3">Name</label>
+                                    <div class="tt-value-wrapper">
+                                        {{ form_widget(f.title, {'attr': {'class': 'form-control', "id":"inputTopicTitle","placeholder":"Subject of your topic", "name":"name", "type":"text"}}) }}
+                                        <span class="tt-value-input">99</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--end of modal body-->
+                        <div class="modal-footer">
+                            <button role="button" class="btn btn-primary" type="submit">
+                                Create Role
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        </form>
         <button class="btn btn-primary btn-round btn-floating btn-lg" type="button" data-toggle="collapse" data-target="#floating-chat" aria-expanded="false">
             <i class="material-icons">chat_bubble</i>
             <i class="material-icons">close</i>

@@ -108,6 +108,3 @@ fos_user:
             template: '@FOSUser/Resetting/email.txt.twig'
     group:
         group_class: Scrumify\MainBundle\Entity\Group
-    from_email:
-        address: mail@domain.tld
-        sender_name: user

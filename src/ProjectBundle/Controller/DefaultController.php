@@ -2,6 +2,8 @@
 
 namespace ProjectBundle\Controller;
 
+use ProjectBundle\Entity\Project;
+use ProjectBundle\Form\ProjectType;
 use ProjectBundle\ProjectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,26 +18,33 @@ class DefaultController extends Controller
     {
         return $this->render('@Project/Default/createProject.html.twig');
     }
-    public function AddProjectAction(Request $request)
+    public function  AddPAction(Request $request)
     {
-        $project=new project();
-        $Form=$this->createForm(ProjectType::class,$project);
+        $p= new Project();
+        $Form=$this->createForm(ProjectType::class,$p);
         $Form->handleRequest($request);
-        if($Form->isSubmitted()){
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($project);
+
+
+        if ($Form->isSubmitted() && $Form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($p);
             $em->flush();
+            $this->addFlash('info', 'Created Successfully !');
             return $this->redirectToRoute('project_homepage');
-
-
         }
-        return $this->render('@Project/Default/AddP.html.twig',
-            array('f'=>$Form->createView()));
+
+
+        return $this->render('@Test/Default/add.html.twig',array(
+         'f'=>$Form->createView()));
+
     }
     public function ShowPAction()
     {
+
         $project=$this->getDoctrine()->getRepository('ProjectBundle:Project')->findAll();
-        return $this->render('@Project/Default/createProject.html.twig',
+
+
+            return $this->render('@Project/Default/createProject.html.twig',
             array('p'=>$project));
     }
 

@@ -18,8 +18,7 @@ class ProjectType extends AbstractType
                 ->add('description')
                 ->add('created')
                 ->add('nbrSprints')
-                ->add('duedate')
-            ->add('Add',SubmitType::class);
+            ->add('Sign up',SubmitType::class);
 
     }/**
      * {@inheritdoc}

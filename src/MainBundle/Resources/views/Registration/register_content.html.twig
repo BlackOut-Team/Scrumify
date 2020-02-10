@@ -1,17 +1,17 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-
 {%  block body %}
+<form action="{{ path("fos_user_registration_register") }}" method="post"  id="sign-up-form">
 
         {% block fos_user_content %}
             {% block title  %}<h1>Sign up</h1> {% endblock %}
             {%  block content %}
-                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register') }}
                 {{ form_widget(form) }}
 
                 <div>
                     <input type="submit" class="control-button in"  value="{{ 'registration.submit'|trans }}" />
-                </div>
+                </div></form>
 
                 {{ form_end(form) }}
                 {% endblock %}

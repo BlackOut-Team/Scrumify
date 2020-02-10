@@ -1,5 +1,3 @@
-
-
 activity_homepage:
     path:     /afficher_activite
     defaults: { _controller: ActivityBundle:Activity:Afficher }

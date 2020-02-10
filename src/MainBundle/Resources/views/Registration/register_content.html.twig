@@ -8,9 +8,11 @@
             {%  block content %}
                 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
                 {{ form_widget(form) }}
+
                 <div>
                     <input type="submit" class="control-button in"  value="{{ 'registration.submit'|trans }}" />
                 </div>
+
                 {{ form_end(form) }}
                 {% endblock %}
 

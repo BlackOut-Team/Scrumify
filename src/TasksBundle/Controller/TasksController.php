@@ -31,8 +31,6 @@ class TasksController extends Controller
     public function archiveTasksAction(){
 
 
-
-
     }
 
 

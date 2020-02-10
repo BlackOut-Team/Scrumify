@@ -1,9 +1,16 @@
 {% extends'base.html.twig' %}
 {% block title %}Create Project{% endblock %}
-
-{% block body %}
-{% block navbar %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
 {% endblock %}
+{% block content %}
+
+
+
+    {% block contents %}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-11">
@@ -39,7 +46,7 @@
                             </div>
                             <!--end of content list head-->
                             <div class="content-list-body row">
-
+                             {% for p in p %}
                                 <div class="col-lg-6">
                                     <div class="card card-project">
 
@@ -59,26 +66,27 @@
                                             </div>
                                             <div class="card-title">
                                                 <a href="#">
-                                                    <h5 data-filter-by="text">New Website</h5>
+                                                    <h5 data-filter-by="text"> {{ p.name }}</h5>
+                                                    <p> {{ p.description }}</p>
                                                 </a>
                                             </div>
                                             <ul class="avatars">
 
                                                 <li>
                                                     <a href="#" data-toggle="tooltip" title="Kenny">
-                                                        <img alt="Kenny Tran" class="avatar" src="assets/img/avatar-male-6.jpg" data-filter-by="alt" />
+                                                        <img alt="Kenny Tran" class="avatar" src={{ asset('assets/img/avatar-male-6.jpg') }} data-filter-by="alt" />
                                                     </a>
                                                 </li>
 
                                                 <li>
                                                     <a href="#" data-toggle="tooltip" title="Peggy">
-                                                        <img alt="Peggy Brown" class="avatar" src="assets/img/avatar-female-2.jpg" data-filter-by="alt" />
+                                                        <img alt="Peggy Brown" class="avatar" src={{ asset('assets/img/avatar-female-2.jpg') }} data-filter-by="alt" />
                                                     </a>
                                                 </li>
 
                                                 <li>
                                                     <a href="#" data-toggle="tooltip" title="Ravi">
-                                                        <img alt="Ravi Singh" class="avatar" src="assets/img/avatar-male-3.jpg" data-filter-by="alt" />
+                                                        <img alt="Ravi Singh" class="avatar" src={{ asset('assets/img/avatar-male-3.jpg') }} data-filter-by="alt" />
                                                     </a>
                                                 </li>
 
@@ -93,330 +101,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% endfor %}
 
-                                <div class="col-lg-6">
-                                    <div class="card card-project">
 
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-
-                                        <div class="card-body">
-                                            <div class="dropdown card-options">
-                                                <button class="btn-options" type="button" id="project-dropdown-button-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="material-icons">more_vert</i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Share</a>
-                                                </div>
-                                            </div>
-                                            <div class="card-title">
-                                                <a href="#">
-                                                    <h5 data-filter-by="text">Company Vision Statement</h5>
-                                                </a>
-                                            </div>
-                                            <ul class="avatars">
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Harry">
-                                                        <img alt="Harry Xai" class="avatar" src="assets/img/avatar-male-2.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Sally">
-                                                        <img alt="Sally Harper" class="avatar" src="assets/img/avatar-female-3.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Kristina">
-                                                        <img alt="Kristina Van Der Stroem" class="avatar" src="assets/img/avatar-female-4.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Kerri-Anne">
-                                                        <img alt="Kerri-Anne Banks" class="avatar" src="assets/img/avatar-female-5.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Claire">
-                                                        <img alt="Claire Connors" class="avatar" src="assets/img/avatar-female-1.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Marcus">
-                                                        <img alt="Marcus Simmons" class="avatar" src="assets/img/avatar-male-1.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                            <div class="card-meta d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="material-icons mr-1">playlist_add_check</i>
-                                                    <span class="text-small">1/8</span>
-                                                </div>
-                                                <span class="text-small" data-filter-by="text">Due 7 days</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="card card-project">
-
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-
-                                        <div class="card-body">
-                                            <div class="dropdown card-options">
-                                                <button class="btn-options" type="button" id="project-dropdown-button-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="material-icons">more_vert</i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Share</a>
-                                                </div>
-                                            </div>
-                                            <div class="card-title">
-                                                <a href="#">
-                                                    <h5 data-filter-by="text">Update Privacy Policy</h5>
-                                                </a>
-                                            </div>
-                                            <ul class="avatars">
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Claire">
-                                                        <img alt="Claire Connors" class="avatar" src="assets/img/avatar-female-1.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                            <div class="card-meta d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="material-icons mr-1">playlist_add_check</i>
-                                                    <span class="text-small">2/8</span>
-                                                </div>
-                                                <span class="text-small" data-filter-by="text">Due 8 days</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="card card-project">
-
-                                        <div class="card-body">
-                                            <div class="dropdown card-options">
-                                                <button class="btn-options" type="button" id="project-dropdown-button-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="material-icons">more_vert</i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Share</a>
-                                                </div>
-                                            </div>
-                                            <div class="card-title">
-                                                <a href="#">
-                                                    <h5 data-filter-by="text">Update Marketing Collateral</h5>
-                                                </a>
-                                            </div>
-                                            <ul class="avatars">
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="David">
-                                                        <img alt="David Whittaker" class="avatar" src="assets/img/avatar-male-4.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Masimba">
-                                                        <img alt="Masimba Sibanda" class="avatar" src="assets/img/avatar-male-5.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Krishna">
-                                                        <img alt="Krishna Bajaj" class="avatar" src="assets/img/avatar-female-6.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Harry">
-                                                        <img alt="Harry Xai" class="avatar" src="assets/img/avatar-male-2.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                            <div class="card-meta d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="material-icons mr-1">playlist_add_check</i>
-                                                    <span class="text-small">0/5</span>
-                                                </div>
-                                                <span class="text-small" data-filter-by="text">Due 12 days</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="card card-project">
-
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 8%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-
-                                        <div class="card-body">
-                                            <div class="dropdown card-options">
-                                                <button class="btn-options" type="button" id="project-dropdown-button-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="material-icons">more_vert</i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Share</a>
-                                                </div>
-                                            </div>
-                                            <div class="card-title">
-                                                <a href="#">
-                                                    <h5 data-filter-by="text">Brand Concept &amp; Design</h5>
-                                                </a>
-                                            </div>
-                                            <ul class="avatars">
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Ravi">
-                                                        <img alt="Ravi Singh" class="avatar" src="assets/img/avatar-male-3.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Masimba">
-                                                        <img alt="Masimba Sibanda" class="avatar" src="assets/img/avatar-male-5.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Peggy">
-                                                        <img alt="Peggy Brown" class="avatar" src="assets/img/avatar-female-2.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Marcus">
-                                                        <img alt="Marcus Simmons" class="avatar" src="assets/img/avatar-male-1.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Kerri-Anne">
-                                                        <img alt="Kerri-Anne Banks" class="avatar" src="assets/img/avatar-female-5.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Claire">
-                                                        <img alt="Claire Connors" class="avatar" src="assets/img/avatar-female-1.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                            <div class="card-meta d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="material-icons mr-1">playlist_add_check</i>
-                                                    <span class="text-small">1/12</span>
-                                                </div>
-                                                <span class="text-small" data-filter-by="text">Due 20 days</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="card card-project">
-
-                                        <div class="card-body">
-                                            <div class="dropdown card-options">
-                                                <button class="btn-options" type="button" id="project-dropdown-button-6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="material-icons">more_vert</i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Share</a>
-                                                </div>
-                                            </div>
-                                            <div class="card-title">
-                                                <a href="#">
-                                                    <h5 data-filter-by="text">Company Getaway</h5>
-                                                </a>
-                                            </div>
-                                            <ul class="avatars">
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Claire">
-                                                        <img alt="Claire Connors" class="avatar" src="assets/img/avatar-female-1.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Kristina">
-                                                        <img alt="Kristina Van Der Stroem" class="avatar" src="assets/img/avatar-female-4.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                            <div class="card-meta d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="material-icons mr-1">playlist_add_check</i>
-                                                    <span class="text-small">-/-</span>
-                                                </div>
-                                                <span class="text-small" data-filter-by="text">Unscheduled</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="card card-project">
-
-                                        <div class="card-body">
-                                            <div class="dropdown card-options">
-                                                <button class="btn-options" type="button" id="project-dropdown-button-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="material-icons">more_vert</i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Share</a>
-                                                </div>
-                                            </div>
-                                            <div class="card-title">
-                                                <a href="#">
-                                                    <h5 data-filter-by="text">Annual Team Meeting</h5>
-                                                </a>
-                                            </div>
-                                            <ul class="avatars">
-
-                                                <li>
-                                                    <a href="#" data-toggle="tooltip" title="Ravi">
-                                                        <img alt="Ravi Singh" class="avatar" src="assets/img/avatar-male-3.jpg" data-filter-by="alt" />
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                            <div class="card-meta d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="material-icons mr-1">playlist_add_check</i>
-                                                    <span class="text-small">-/-</span>
-                                                </div>
-                                                <span class="text-small" data-filter-by="text">Unscheduled</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
                             <!--end of content list body-->
@@ -449,7 +136,7 @@
 
                                 <div class="col-6">
                                     <a class="media media-member" href="#">
-                                        <img alt="Claire Connors" src="assets/img/avatar-female-1.jpg" class="avatar avatar-lg" />
+                                        <img alt="Claire Connors" src={{ asset('assets/img/avatar-male-6.jpg') }} class="avatar avatar-lg" />
                                         <div class="media-body">
                                             <h6 class="mb-0" data-filter-by="text">Claire Connors</h6>
                                             <span data-filter-by="text" class="text-body">Administrator</span>
@@ -457,115 +144,7 @@
                                     </a>
                                 </div>
 
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Marcus Simmons" src="assets/img/avatar-male-1.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Marcus Simmons</h6>
-                                            <span data-filter-by="text" class="text-body">Administrator</span>
-                                        </div>
-                                    </a>
-                                </div>
 
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Peggy Brown" src="assets/img/avatar-female-2.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Peggy Brown</h6>
-                                            <span data-filter-by="text" class="text-body">Project Manager</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Harry Xai" src="assets/img/avatar-male-2.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Harry Xai</h6>
-                                            <span data-filter-by="text" class="text-body">Project Manager</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Sally Harper" src="assets/img/avatar-female-3.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Sally Harper</h6>
-                                            <span data-filter-by="text" class="text-body">Developer</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Ravi Singh" src="assets/img/avatar-male-3.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Ravi Singh</h6>
-                                            <span data-filter-by="text" class="text-body">Developer</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Kristina Van Der Stroem" src="assets/img/avatar-female-4.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Kristina Van Der Stroem</h6>
-                                            <span data-filter-by="text" class="text-body">Developer</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="David Whittaker" src="assets/img/avatar-male-4.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">David Whittaker</h6>
-                                            <span data-filter-by="text" class="text-body">Designer</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Kerri-Anne Banks" src="assets/img/avatar-female-5.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Kerri-Anne Banks</h6>
-                                            <span data-filter-by="text" class="text-body">Marketing</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Masimba Sibanda" src="assets/img/avatar-male-5.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Masimba Sibanda</h6>
-                                            <span data-filter-by="text" class="text-body">Designer</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Krishna Bajaj" src="assets/img/avatar-female-6.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Krishna Bajaj</h6>
-                                            <span data-filter-by="text" class="text-body">Marketing</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a class="media media-member" href="#">
-                                        <img alt="Kenny Tran" src="assets/img/avatar-male-6.jpg" class="avatar avatar-lg" />
-                                        <div class="media-body">
-                                            <h6 class="mb-0" data-filter-by="text">Kenny Tran</h6>
-                                            <span data-filter-by="text" class="text-body">Contributor</span>
-                                        </div>
-                                    </a>
-                                </div>
 
                             </div>
                         </div>
@@ -626,12 +205,14 @@
                                 </li>
                             </ul>
                             <div class="modal-body">
+
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="team-manage-details" role="tabpanel">
                                         <h6>Team Details</h6>
                                         <div class="form-group row align-items-center">
                                             <label class="col-3">Name</label>
                                             <input class="form-control col" type="text" placeholder="Team name" name="team-name" value="Medium Rare" />
+
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-3">Description</label>
@@ -1219,6 +800,5 @@
     </div>
     </div>
 
-
-
+    {% endblock %}
 {% endblock %}

@@ -1,0 +1,13 @@
+forum_homepage:
+    path:     /Forum
+    defaults: { _controller: ForumBundle:Default:index }
+
+_display_questions:
+    path:     /DisplayQuestions
+    defaults: { _controller: ForumBundle:Question:DisplayQuestions }
+_display_question:
+    path:     /DisplayQuestion/{id}
+    defaults: { _controller: ForumBundle:Question:DisplayQuestion }
+_add_question:
+    path:     /AddQuestion
+    defaults: { _controller: ForumBundle:Question:AddQuestion }

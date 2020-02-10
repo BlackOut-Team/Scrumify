@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Index</h1>
+    <p class="important">
+        Welcome on my awesome homepage.
+    </p>
+
+
+    {% block contents %}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-11">
+                    <hr>
+                    <ul class="nav nav-tabs nav-fill" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#Roles" role="tab" aria-controls="roles" aria-selected="true">Roles</a>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="projects" role="tabpanel" data-filter-list="content-list-body">
+                            <div class="content-list">
+                                <div class="row content-list-head">
+                                    <div class="col-auto">
+                                        <h3>Roles</h3>
+                                        <button class="btn btn-round" data-toggle="modal" data-target="#project-add-modal">
+                                            <i class="material-icons">add</i>
+                                        </button>
+                                    </div>
+                                    <form class="col-md-auto">
+                                        <div class="input-group input-group-round">
+                                            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">filter_list</i>
+                            </span>
+                                            </div>
+                                            <input type="search" class="form-control filter-list-input" placeholder="Filter Roles" aria-label="Filter Roles">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--end of content list head-->
+                                <div class="content-list-body row">
+                                                                        {% for p in p %}
+                                    <div class="col-lg-6">
+                                        <div class="card card-project">
+
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <div class="dropdown card-options">
+                                                    <button class="btn-options" type="button" id="project-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="material-icons">more_vert</i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Share</a>
+                                                    </div>
+                                                </div>
+                                                                                                    <div class="card-title">
+                                                                                                        <a href="#">
+                                                                                                            <h5 data-filter-by="text"> {{ p.role }}</h5>
+
+                                                                                                        </a>
+                                                                                                    </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                   {% endfor %}
+
+
+                                </div>
+                                <!--end of content list body-->
+                            </div>
+                            <!--end of content list-->
+                        </div>
+                        <!--end of tab-->
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-round btn-floating btn-lg" type="button" data-toggle="collapse" data-target="#floating-chat" aria-expanded="false">
+            <i class="material-icons">chat_bubble</i>
+            <i class="material-icons">close</i>
+        </button>
+
+
+        </div>
+        </div>
+
+    {% endblock %}
+{% endblock %}

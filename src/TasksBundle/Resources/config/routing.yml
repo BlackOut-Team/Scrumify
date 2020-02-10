@@ -1,0 +1,7 @@
+tasks_homepage:
+    path:     /home
+    defaults: { _controller: TasksBundle:Default:home }
+
+add_tasks:
+    path:     /addTasks
+    defaults: { _controller: TasksBundle:Tasks:addTasks }

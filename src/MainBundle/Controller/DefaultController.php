@@ -26,4 +26,5 @@ class DefaultController extends Controller
         return $this->render('@Main/Registration/register.html.twig');
     }
 
+
 }

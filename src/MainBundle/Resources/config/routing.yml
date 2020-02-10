@@ -7,4 +7,3 @@ login:
 register:
   path:     /register
   defaults: { _controller: MainBundle:Default:register }
-

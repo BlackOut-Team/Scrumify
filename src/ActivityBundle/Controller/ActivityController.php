@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ActivityController extends Controller
 {
+
+
     public function AfficherAction()
     {
         $Activities=$this->getDoctrine()

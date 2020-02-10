@@ -5,6 +5,9 @@ namespace ForumBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class QuestionType extends AbstractType
 {
@@ -14,10 +17,16 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title')
-            ->add('description')
-            ->add('category')
+            ->add('description', TextareaType::class)
+            ->add('category',ChoiceType::class,
+                array(
+                    'choices'=>
+                        [ 'programming'=>"programming"]
+
+                ))
             ->add('type')
-            ->add('User');
+            ->add('User')
+            ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}
      */

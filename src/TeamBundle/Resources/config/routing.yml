@@ -8,5 +8,5 @@ affiche_role:
     defaults: { _controller: TeamBundle:Default:affRole }
 
 ajout_role:
-    path:     /ADD
+    path:     /aff
     defaults: { _controller: TeamBundle:Default:ajoutRole }

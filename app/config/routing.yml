@@ -1,3 +1,11 @@
+userstory:
+    resource: "@UserstoryBundle/Resources/config/routing.yml"
+    prefix:   /
+
+feature:
+    resource: "@FeatureBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sprint:
     resource: "@SprintBundle/Resources/config/routing.yml"
     prefix:   /

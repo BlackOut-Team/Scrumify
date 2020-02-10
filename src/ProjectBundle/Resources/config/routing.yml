@@ -1,5 +1,9 @@
 project_homepage:
+<<<<<<< HEAD
     path:   /Project
+=======
+    path:     /Project
+>>>>>>> 7018a333237f9a96c527e27be0d34f755520f0f2
     defaults: { _controller: ProjectBundle:Default:indexP }
 showProject:
     path:   /Show

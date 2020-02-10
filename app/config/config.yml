@@ -8,6 +8,8 @@ imports:
     - { resource: "@ActivityBundle/Resources/config/services.yml" }
     - { resource: "@ForumBundle/Resources/config/services.yml" }
     - { resource: "@SprintBundle/Resources/config/services.yml" }
+    - { resource: "@FeatureBundle/Resources/config/services.yml" }
+    - { resource: "@UserstoryBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration

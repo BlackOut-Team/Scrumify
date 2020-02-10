@@ -24,6 +24,8 @@ class AppKernel extends Kernel
             new ActivityBundle\ActivityBundle(),
             new ProjectBundle\ProjectBundle(),
             new SprintBundle\SprintBundle(),
+            new FeatureBundle\FeatureBundle(),
+            new UserstoryBundle\UserstoryBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

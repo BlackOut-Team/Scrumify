@@ -46,7 +46,7 @@
                             </div>
                             <!--end of content list head-->
                             <div class="content-list-body row">
-                             {% for p in p %}
+                         {#   {% for p in p %}
                                 <div class="col-lg-6">
                                     <div class="card card-project">
 
@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {% endfor %}
+                                {% endfor %}#}
 
 
 
@@ -412,8 +412,6 @@
                                             <label class="col-3">Name</label>
                                             {{ form_start(f) }}
                                             {{ form_widget(f) }}
-
-
                                             {{ form_end(f) }}
 
                                     </div>

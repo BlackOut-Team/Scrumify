@@ -20,6 +20,8 @@ class DefaultController extends Controller
     }
     public function  AddPAction(Request $request)
     {
+        $project=$this->getDoctrine()->getRepository('ProjectBundle:Project')->findAll();
+
         $p= new Project();
         $Form=$this->createForm(ProjectType::class,$p);
         $Form->handleRequest($request);
@@ -34,19 +36,11 @@ class DefaultController extends Controller
         }
 
 
-        return $this->render('@Test/Default/add.html.twig',array(
-         'f'=>$Form->createView()));
+        return $this->render('@Project/Default/createProject.html.twig',array(
+         'f'=>$Form->createView(),  array('p'=>$project)));
 
     }
-    public function ShowPAction()
-    {
 
-        $project=$this->getDoctrine()->getRepository('ProjectBundle:Project')->findAll();
-
-
-            return $this->render('@Project/Default/createProject.html.twig',
-            array('p'=>$project));
-    }
 
     public function ArchivePAction($id)
     {

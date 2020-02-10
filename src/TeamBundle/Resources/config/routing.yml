@@ -1,8 +1,0 @@
-team_homepage:
-    path:     /
-    defaults: { _controller: TeamBundle:Default:index }
-
-
-team_ajoutRole:
-    path:     /ajoutRole
-    defaults: { _controller: TeamBundle:role:ajoutCondidat }

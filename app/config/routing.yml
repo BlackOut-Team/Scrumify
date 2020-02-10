@@ -16,6 +16,9 @@ project:
 forum:
     resource: "@ForumBundle/Resources/config/routing.yml"
     prefix:   /
+activity:
+    resource: "@ActivityBundle/Resources/config/routing.yml"
+    prefix:   /
 tasks:
     resource: "@TasksBundle/Resources/config/routing.yml"
     prefix:   /

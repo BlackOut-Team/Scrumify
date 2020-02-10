@@ -1,6 +1,7 @@
 project_homepage:
     path:   /Project
     defaults: { _controller: ProjectBundle:Default:indexP }
+
 showProject:
     path:   /Show
     defaults: { _controller: ProjectBundle:Default:ShowP }

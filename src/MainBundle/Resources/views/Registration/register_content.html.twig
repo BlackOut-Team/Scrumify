@@ -6,7 +6,7 @@
         {% block fos_user_content %}
             {% block title  %}<h1>Sign up</h1> {% endblock %}
             {%  block content %}
-                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register') }}
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), }}) }}
                 {{ form_widget(form) }}
 
                 <div>

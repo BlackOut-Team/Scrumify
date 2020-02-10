@@ -1,15 +1,13 @@
-activity:
-    resource: "@ActivityBundle/Resources/config/routing.yml"
-    prefix:   /
-
-forum:
-    resource: "@ForumBundle/Resources/config/routing.yml"
+sprint:
+    resource: "@SprintBundle/Resources/config/routing.yml"
     prefix:   /
 
 project:
     resource: "@ProjectBundle/Resources/config/routing.yml"
     prefix:   /
-
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /
 tasks:
     resource: "@TasksBundle/Resources/config/routing.yml"
     prefix:   /

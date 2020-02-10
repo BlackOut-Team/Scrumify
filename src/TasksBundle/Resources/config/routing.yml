@@ -5,3 +5,6 @@ tasks_homepage:
 add_tasks:
     path:     /addTasks
     defaults: { _controller: TasksBundle:Tasks:addTasks }
+show_tasks:
+    path:     /showTasks
+    defaults: { _controller: TasksBundle:Tasks:showTasks }

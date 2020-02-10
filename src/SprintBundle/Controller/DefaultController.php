@@ -1,49 +1,52 @@
 <?php
 
-namespace ProjectBundle\Controller;
+namespace SprintBundle\Controller;
 
-use ProjectBundle\ProjectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
+    public function indexAction()
+    {
+        return $this->render('@Sprint/Default/index.html.twig');
+    }
     public function indexPAction()
     {
-        return $this->render('@Project/Default/createProject.html.twig');
+        return $this->render('@Sprint/Default/index.html.twig');
     }
     public function createPAction()
     {
-        return $this->render('@Project/Default/createProject.html.twig');
+        return $this->render('@Sprint/Default/createProject.html.twig');
     }
     public function AddProjectAction(Request $request)
     {
-        $project=new project();
-        $Form=$this->createForm(ProjectType::class,$project);
+        $sprint=new sprint();
+        $Form=$this->createForm(SprintType::class,$sprint);
         $Form->handleRequest($request);
         if($Form->isSubmitted()){
             $em=$this->getDoctrine()->getManager();
-            $em->persist($project);
+            $em->persist($sprint);
             $em->flush();
             return $this->redirectToRoute('project_homepage');
 
 
         }
-        return $this->render('@Project/Default/AddP.html.twig',
+        return $this->render('@Sprint/Default/AddProject.html.twig',
             array('f'=>$Form->createView()));
     }
     public function ShowPAction()
     {
-        $project=$this->getDoctrine()->getRepository('ProjectBundle:Project')->findAll();
-        return $this->render('@Project/Default/createProject.html.twig',
-            array('p'=>$project));
+        $sprint=$this->getDoctrine()->getRepository(Sprint::class)->findAll();
+        return $this->render('@Sprint/Default/show_project.html.twig',
+            array('p'=>$sprint));
     }
 
     public function ArchivePAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $project=$em->getRepository(Project::class)->find($id);
-        $em->remove($project);
+        $project=$em->getRepository(Sprint::class)->find($id);
+        $em->remove($sprint);
         $em->flush();
         return $this->redirectToRoute('@Project/Default/show_project.html.twig');
 

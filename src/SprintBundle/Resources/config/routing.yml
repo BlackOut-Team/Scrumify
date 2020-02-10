@@ -1,0 +1,3 @@
+sprint_homepage:
+    path:     /
+    defaults: { _controller: SprintBundle:Default:index }

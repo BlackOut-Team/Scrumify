@@ -26,23 +26,11 @@ class QuestionController extends Controller
         return $this->render('@Forum/Question/display_question.html.twig',array(
             'question'=> $question));
     }
-    public function AddQuestionAction($id, Request $request)
+    public function AddQuestionAction(Request $request)
     {
 
-        $question=new Question();
-        $question->setUser($id);
-        $Form=$this->createForm(QuestionType::class,$question);
-        $Form->add('Add ',SubmitType::class);
-        $Form->handleRequest($request);
-        $em=$this->getDoctrine()->getManager();
-        if($Form->isSubmitted() && $Form->isValid()){
-            $em->persist($question);
-            $em->flush();
-            return $this->redirectToRoute('_display_questions');
-        }
 
-        return $this->render('@Forum/Question/add_question.html.twig',
-            array('f'=>$Form->createView()));
+        return $this->render('@Forum/Question/add_question.html.twig');
     }
 
 

@@ -9,5 +9,5 @@ _display_question:
     path:     /DisplayQuestion/{id}
     defaults: { _controller: ForumBundle:Question:DisplayQuestion }
 _add_question:
-    path:     /AddQuestion/{id}
+    path:     /AddQuestion
     defaults: { _controller: ForumBundle:Question:AddQuestion }

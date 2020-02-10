@@ -11,40 +11,44 @@
 
 {% block contents %}
 
+<div class="breadcrumb-bar navbar bg-white sticky-top">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index-2.html">Feature</a>
+            </li>
+            <li class="breadcrumb-item"><a href="pages-app.html#">User Story</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
+        </ol>
+    </nav>
+
+
+    <!--Menu li ala jnab -->
+    <div class="dropdown">
+        <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
+            <i class="material-icons">settings</i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
+            <a class="dropdown-item" href="#">Share</a>
+            <a class="dropdown-item" href="#">Mark as Complete</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger" href="#">Archive</a>
+
+        </div>
+    </div>
+
+</div>
 
 
 
     <div class="main-container">
 
-        <div class="breadcrumb-bar navbar bg-white sticky-top">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index-2.html">Feature</a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="pages-app.html#">User Story</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
-                </ol>
-            </nav>
-            <!--Menu li ala jnab -->
-            <div class="dropdown">
-                <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
-                    <i class="material-icons">settings</i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
 
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
-                    <a class="dropdown-item" href="#">Share</a>
-                    <a class="dropdown-item" href="#">Mark as Complete</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#">Archive</a>
 
-                </div>
-            </div>
-
-        </div>
-
-        <div class="kanban-board container-fluid mt-lg-3" style="padding-bottom: 450px">
+        <div class="kanban-board container-fluid mt-lg-3">
             <!-- colone to do-->
             <div class="kanban-col">
                 <div class="card-list">

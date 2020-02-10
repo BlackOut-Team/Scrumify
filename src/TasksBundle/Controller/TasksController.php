@@ -11,7 +11,7 @@ class TasksController extends Controller
 {
     public function addTasksAction( Request $request)
     {
-        
+                
     }
 
     public function showTasksAction(){
@@ -26,6 +26,7 @@ class TasksController extends Controller
         return $this->render('@Tasks/Tasks/home.html.twig',array(
             'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3));
     }
+
 
     public function archiveTasksAction(){
 

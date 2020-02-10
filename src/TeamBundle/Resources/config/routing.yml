@@ -1,3 +1,8 @@
 team_homepage:
-    path:     /team
+    path:     /role
     defaults: { _controller: TeamBundle:Default:index }
+
+
+affiche_role:
+    path:     /aff
+    defaults: { _controller: TeamBundle:Default:affRole }

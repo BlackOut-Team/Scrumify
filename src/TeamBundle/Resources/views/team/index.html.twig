@@ -1,4 +1,6 @@
 {% extends'base.html.twig' %}
+{% block title %}Team{% endblock %}
+{% block soustitle %}   <a class="nav-link" }}>Team Homepage</a> {% endblock %}
 {% block head %}
     {{ parent() }}
     <style type="text/css">
@@ -10,16 +12,13 @@
 
 
     {% block contents %}
-        {% block  title %}
-            <a class="nav-link" href={{ path('project_homepage') }}>Project Homepage</a>
-        {%  endblock %}
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-10 col-lg-11">
                     <hr>
                     <ul class="nav nav-tabs nav-fill" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Projects</a>
+                            <a class="nav-link active" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Team</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="false">Members</a>
@@ -30,7 +29,7 @@
                             <div class="content-list">
                                 <div class="row content-list-head">
                                     <div class="col-auto">
-                                        <h3>Projects</h3>
+                                        <h3>Team</h3>
                                         <button class="btn btn-round" data-toggle="modal" data-target="#project-add-modal">
                                             <i class="material-icons">add</i>
                                         </button>
@@ -48,8 +47,7 @@
                                 </div>
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
-                                    {% for project in project %}
-                                        {% if project.state != 1 %}
+                                    {% for con in con %}
                                         <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -63,15 +61,18 @@
                                                             <i class="material-icons">more_vert</i>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item text-danger" href="{{ path('archiverProject', { 'id': project.id }) }}">Archive Project</a>
+                                                            <a class="dropdown-item" href="{{ path('edit_team', {'id': con.id}) }}">Edit</a>
+
 
                                                         </div>
                                                     </div>
                                                     <div class="card-title">
-                                                        <a href="{{ path('sprint_homepage')}}">
-                                                            <h5 data-filter-by="text"> {{ project.name }}</h5>
-                                                            <p> {{ project.description }}</p>
+                                                        <a href="#">
+                                                            <h5 data-filter-by="text"> {{ con.name }}</h5>
+                                                            <h5 data-filter-by="text"> {{ con.created |date("m/d/Y")}}</h5>
+                                                            <h5 data-filter-by="text"> {{ con.updated|date("m/d/Y") }}</h5>
+                                                            <h5 data-filter-by="text"> {{ con.etat }}</h5>
+
                                                         </a>
                                                     </div>
                                                     <ul class="avatars">
@@ -104,10 +105,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>{% endif %}
-
-
+                                        </div>
                                     {% endfor %}
+
 
 
                                 </div>
@@ -418,29 +418,24 @@
                                             <h6>General Details</h6>
                                             <div class="form-group row align-items-center">
                                                 <label class="col-3">Project Name</label>
-                                                    {{ form_start(f) }}
-                                                {{ form_widget(f.name ,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_start(form) }}
+                                                {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
                                             </div>
                                             <div class="form-group row">
 
                                                 <label class="col-3">Description</label>
 
-                                                {{ form_widget(f.description,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_widget(form.etat,{'attr': {'class': 'form-control col'}})}}
                                             </div>
                                             <hr>
-                                            <h6>Timeline</h6>
-                                            <div class="form-group row align-items-center">
-                                                <label class="col-3">Start Date</label>
 
-                                                {{ form_widget(f.created,{'attr': {'class': 'form-control col'}})}}
-                                            </div>
                                             <div class="form-group row align-items-center">
 
                                                 <label class="col-3">Sprints Number</label>
 
-                                                {{ form_widget(f.nbrSprints,{'attr': {'class': 'form-control col'}})}}
-                                                {{ form_widget(f.AddProject,{'attr': {'class': 'form-control col'}})}}
-                                                {{ form_end(f) }}
+
+                                                {{ form_widget(form.Ajouter,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_end(form) }}
 
                                             </div>
                                         </div>
@@ -609,7 +604,7 @@
 
                             </div>
                         </div>
-                </div>
+                    </div>
                 </div>
 
             </div>

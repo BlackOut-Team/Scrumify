@@ -23,13 +23,10 @@ class AppKernel extends Kernel
             new ForumBundle\ForumBundle(),
             new ActivityBundle\ActivityBundle(),
             new ProjectBundle\ProjectBundle(),
-            new SprintBundle\SprintBundle(),
-
             new TeamBundle\TeamBundle(),
-
             new FeatureBundle\FeatureBundle(),
             new UserstoryBundle\UserstoryBundle(),
-
+            new SprintBundle\SprintBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

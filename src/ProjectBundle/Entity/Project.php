@@ -45,16 +45,24 @@ class Project
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="duedate", type="datetime")
+     * @ORM\Column(name="duedate", type="date")
      */
     private $duedate;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="nbrSprints", type="integer")
+     * @ORM\Column(name="nbrSprint", type="bigint")
      */
-    private $nbrSprints;
+    private $nbrSprint;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="etat", type="bigint")
+     */
+    private $etat;
+
 
     /**
      * Get id
@@ -163,31 +171,51 @@ class Project
     }
 
     /**
-     * Set nbrSprints
+     * Set nbrSprint
      *
-     * @param integer $nbrSprints
+     * @param integer $nbrSprint
      *
      * @return Project
      */
-    public function setNbrSprints($nbrSprints)
+    public function setNbrSprint($nbrSprint)
     {
-        $this->nbrSprints = $nbrSprints;
+        $this->nbrSprint = $nbrSprint;
 
         return $this;
     }
 
     /**
-     * Get nbrSprints
+     * Get nbrSprint
      *
      * @return int
      */
-    public function getNbrSprints()
+    public function getNbrSprint()
     {
-        return $this->nbrSprints;
+        return $this->nbrSprint;
     }
 
+    /**
+     * Set etat
+     *
+     * @param integer $etat
+     *
+     * @return Project
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
 
+        return $this;
+    }
 
-
+    /**
+     * Get etat
+     *
+     * @return int
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
 }
 

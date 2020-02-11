@@ -2,14 +2,11 @@
 
 namespace ProjectBundle\Form;
 
-use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
-
 
 class ProjectType extends AbstractType
 {
@@ -19,13 +16,10 @@ class ProjectType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name')
-                ->add('description',TextareaType::class)
-                ->add('created')
-                ->add('nbrSprints')
-                ->add('AddProject',SubmitType::class );
-
-
-    }/**
+            ->add('description',TextareaType::class)
+            ->add('finished')
+            ->add('nbrSprints')
+            ->add('AddProject',SubmitType::class );    }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

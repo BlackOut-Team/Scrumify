@@ -2,6 +2,9 @@
 
 namespace SprintBundle\Controller;
 
+use BalProjetBundle\Entity\Projet;
+use ProjectBundle\Entity\Project;
+use SprintBundle\Entity\Sprint;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -11,6 +14,42 @@ class DefaultController extends Controller
     {
         return $this->render('@Sprint/Default/index.html.twig');
     }
+    public function  AddSAction(Request $request, $id)
+    {
+        $project = $this->getDoctrine()->getRepository(Project::class)->find($id);
+        $sprint=$this->getDoctrine()->getRepository(Sprint::class)->findBy(array('project'=>$project->getId()));
+        $s= new Sprint();
+        $f=$this->createForm('SprintBundle\Form\SprintType',$s);
+        $f->handleRequest($request);
+        if ($f->isSubmitted() && $f->isValid()) {
+
+            $em = $this->getDoctrine()->getManager();
+            $s->setEtat(1);
+            $s->setCreated(new \DateTime('now'));
+            $em->persist($s);
+
+            $em->flush($s);
+
+            return $this->redirectToRoute('addSprint');
+
+        }
+        return $this->render('@Sprint/Default/index.html.twig',array(
+            'f'=>$f->createView(),
+            'sprint'=>$sprint ,
+            'project'=>$project,
 
 
+        ));
+
+    }
+
+    public function archiverSAction(Request $request, Sprint $sprint){
+
+        $em= $this->getDoctrine()->getManager();
+        $sprint->setEtat(0);
+        $em->persist($sprint);
+        $em->flush($sprint);
+        return $this->redirectToRoute('addSprint');
+
+    }
 }

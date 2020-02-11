@@ -2,10 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="016bad1b-d6a8-48d2-8cfa-d7fdfd5c6930" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/meetings.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_2_12_20__12_09_AM_c.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_2_12_20__12_10_AM_s.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Amira_Doghri.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProjectBundle/Repository/projectScrumRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProjectBundle/Repository/projetRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Controller/TeamController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Entity/team.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Repository/teamRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/config/doctrine/team.orm.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/team/ajoutTeam.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/team/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/team/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Tests/Controller/TeamControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_08_02_2020_19_07_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_08_02_2020_19_07_c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_08_02_2020_19_07_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_08_02_2020_19_07_s.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ActivityBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ActivityBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ActivityBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ActivityBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Form/ProjectType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Form/ProjectType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Default/createProject.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Default/createProject.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Entity/Sprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Entity/Sprint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Form/SprintType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Form/SprintType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/config/routing/sprint.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Tests/Controller/SprintControllerTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TasksBundle/Entity/Tasks.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TasksBundle/Entity/Tasks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TasksBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TasksBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TasksBundle/Resources/views/Tasks/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TasksBundle/Resources/views/Tasks/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamBundle/Resources/views/Default/createRole.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/Role/createRole.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/Role/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,22 +95,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/new.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/edit.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/Default/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/show.html.twig">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -510,7 +535,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10859000" />
+    <option name="totallyTimeSpent" value="10935000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />

@@ -46,6 +46,7 @@ class TasksController extends Controller
         $form=$this->createForm('TasksBundle\Form\TasksType',$task);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $task->setEtat(0);
             $task->setCreated(new \DateTime('now'));
@@ -66,10 +67,7 @@ class TasksController extends Controller
     }
 
 
-    public function archiveTasksAction(){
 
-
-    }
 
 
 }

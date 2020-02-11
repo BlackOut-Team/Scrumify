@@ -202,8 +202,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#" >Edit</a>
-                                        <a class="dropdown-item text-danger" href="#">Archive Card</a>
+                                        <a class="dropdown-item" href="{{ path('edit_tasks', { 'id': TaskDoing.id }) }}" >Edit</a>
+                                        <a class="dropdown-item text-danger" href="{{ path('archiver_tasks', { 'id': TaskDoing.id }) }}">Archive Card</a>
                                     </div>
                                 </div>
                                 <div class="card-title">
@@ -244,8 +244,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item text-danger" href="#">Archive Card</a>
+                                        <a class="dropdown-item" href="{{ path('edit_tasks', { 'id': TaskDone.id }) }}" >Edit</a>
+                                        <a class="dropdown-item text-danger" href="{{ path('archiver_tasks', { 'id': TaskDone.id }) }}">Archive Card</a>
                                     </div>
                                 </div>
                                 <div class="card-title">
@@ -287,8 +287,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item text-danger" href="#">Archive Card</a>
+                                        <a class="dropdown-item" href="{{ path('edit_tasks', { 'id': TaskBlock.id }) }}" >Edit</a>
+                                        <a class="dropdown-item text-danger" href="{{ path('archiver_tasks', { 'id': TaskBlock.id }) }}">Archive Card</a>
                                     </div>
                                 </div>
 

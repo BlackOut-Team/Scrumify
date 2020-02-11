@@ -10,16 +10,14 @@
 
 
     {% block contents %}
-        {% block  title %}
-            <a class="nav-link" href={{ path('Sprint_homepage') }}>Project Homepage</a>
-        {%  endblock %}
+
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-10 col-lg-11">
                     <hr>
                     <ul class="nav nav-tabs nav-fill" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Projects</a>
+                            <a class="nav-link active" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Sprints</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="false">Members</a>
@@ -30,7 +28,7 @@
                             <div class="content-list">
                                 <div class="row content-list-head">
                                     <div class="col-auto">
-                                        <h3>Projects</h3>
+                                        <h3>Sprints</h3>
                                         <button class="btn btn-round" data-toggle="modal" data-target="#project-add-modal">
                                             <i class="material-icons">add</i>
                                         </button>
@@ -49,7 +47,6 @@
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
                                     {% for sprint in sprint %}
-                                        {% if sprint.etat != 1 %}
                                             <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -69,7 +66,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="card-title">
-                                                        <a href="{{ path('sprint_homepage')}}">
+                                                        <a href="{{ path('Sprint_homepage')}}">
                                                             <h5 data-filter-by="text"> {{ sprint.name }}</h5>
                                                             <p> {{ sprint.description }}</p>
                                                         </a>
@@ -104,7 +101,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            </div>{% endif %}
+                                            </div>
 
 
                                     {% endfor %}
@@ -395,7 +392,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">New Project</h5>
+                                    <h5 class="modal-title">New Sprint</h5>
                                     <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
                                         <i class="material-icons">close</i>
                                     </button>
@@ -416,7 +413,7 @@
                                         <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
                                             <h6>General Details</h6>
                                             <div class="form-group row align-items-center">
-                                                <label class="col-3">Project Name</label>
+                                                <label class="col-3">Sprint Name</label>
                                                 {{ form_start(f) }}
                                                 {{ form_widget(f.name ,{'attr': {'class': 'form-control col'}})}}
                                             </div>
@@ -431,14 +428,15 @@
                                             <div class="form-group row align-items-center">
                                                 <label class="col-3">Start Date</label>
 
-                                                {{ form_widget(f.created,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_widget(f.updated,{'attr': {'class': 'form-control col'}})}}
                                             </div>
                                             <div class="form-group row align-items-center">
 
                                                 <label class="col-3">Sprints Number</label>
 
-                                                {{ form_widget(f.nbrSprints,{'attr': {'class': 'form-control col'}})}}
-                                                {{ form_widget(f.AddProject,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_widget(f.duedate,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_widget(f.AddSprint,{'attr': {'class': 'form-control col'}})}}
+
                                                 {{ form_end(f) }}
 
                                             </div>

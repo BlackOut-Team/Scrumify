@@ -22,7 +22,6 @@ class DefaultController extends Controller
         if ($f->isSubmitted() && $f->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-            $s->setCreated(new \DateTime('now'));
             $em->persist($s);
             $em->flush($s);
 
@@ -31,17 +30,18 @@ class DefaultController extends Controller
         }
         return $this->render('@Sprint/Default/index.html.twig',array(
             'f'=>$f->createView(),
-            'sprint'=>$sprint
+            'sprint'=>$sprint ,
+
 
         ));
 
     }
 
-    public function archiverSAction(Request $request, Project $project){
+    public function archiverSAction(Request $request, Sprint $sprint){
 
         $em= $this->getDoctrine()->getManager();
-        $project->setstate(1);
-        $em->persist($project);
+        $sprint->setstate(1);
+        $em->persist($sprint);
         $em->flush();
         return $this->redirectToRoute('addSprint');
 

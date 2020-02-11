@@ -142,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -166,7 +166,8 @@
       <option name="presentableId" value="Default" />
       <updated>1581438239399</updated>
       <workItem from="1581438243800" duration="13401000" />
-      <workItem from="1581457100661" duration="618000" />
+      <workItem from="1581457100661" duration="1444000" />
+      <workItem from="1581462386552" duration="224000" />
     </task>
     <servers />
   </component>
@@ -178,21 +179,33 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="530" y="188" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/62.0.1474.864@62.0.1474.864" timestamp="1581439087763" />
-    <state x="308" y="76" key="SettingsEditor" timestamp="1581438304525">
+    <state x="524" y="312" key="ComposerCompositePathDialog" timestamp="1581462576155">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="308" y="76" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1581438304525" />
+    <state x="524" y="312" key="ComposerCompositePathDialog/62.0.1474.864@62.0.1474.864" timestamp="1581462576155" />
+    <state x="579" y="175" key="FileChooserDialogImpl" timestamp="1581462606153">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="579" y="175" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1581462606153" />
+    <state x="308" y="76" key="SettingsEditor" timestamp="1581462618567">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="308" y="76" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1581462618567" />
     <state width="514" height="446" key="SwitcherDM" timestamp="1581444239077">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state width="514" height="446" key="SwitcherDM/62.0.1474.864@62.0.1474.864" timestamp="1581444239077" />
+    <state x="572" y="336" key="SymfonyPathDialog" timestamp="1581462608224">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="572" y="336" key="SymfonyPathDialog/62.0.1474.864@62.0.1474.864" timestamp="1581462608224" />
     <state x="496" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1581457104759">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="496" y="258" key="com.intellij.ide.util.TipDialog/62.0.1474.864@62.0.1474.864" timestamp="1581457104759" />
-    <state x="456" y="197" width="672" height="677" key="run.anything.popup" timestamp="1581455682467">
+    <state x="456" y="197" width="672" height="677" key="run.anything.popup" timestamp="1581462624544">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="456" y="197" width="672" height="677" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1581455682467" />
+    <state x="456" y="197" width="672" height="677" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1581462624544" />
   </component>
 </project>

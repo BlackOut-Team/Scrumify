@@ -1,14 +1,11 @@
 project_homepage:
     path:   /Project
     defaults: { _controller: ProjectBundle:Default:indexP }
-<<<<<<< HEAD
-=======
 
 showProject:
     path:   /Show
     defaults: { _controller: ProjectBundle:Default:ShowP }
 
->>>>>>> 0e032ad7810bcf6fa4fec1c34048c8902a2816c6
 addProject:
     path:   /Add
     defaults: { _controller: ProjectBundle:Default:AddP }

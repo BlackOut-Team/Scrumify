@@ -15,9 +15,10 @@ class ActivityGenerator
         $this->em = $em;
         $this->logger = $logger;
     }
-    public function AjouterActivity($description){
+    public function AjouterActivity($description, $user){
         $activity=new Activity();
         $activity->setAction($description);
+        $activity->setUser($user);
         $this->em->persist($activity);
         $this->em->flush();
     }

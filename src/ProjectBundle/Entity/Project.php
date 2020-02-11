@@ -52,14 +52,14 @@ class Project
     /**
      * @var int
      *
-     * @ORM\Column(name="nbrSprints", type="bigint")
+     * @ORM\Column(name="nbrSprints", type="integer")
      */
     private $nbrSprints;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="etat", type="bigint")
+     * @ORM\Column(name="etat", type="integer")
      */
     private $etat;
 
@@ -177,7 +177,7 @@ class Project
      *
      * @return Project
      */
-    public function setnbrSprints($nbrSprints)
+    public function setNbrSprints($nbrSprints)
     {
         $this->nbrSprints = $nbrSprints;
 
@@ -189,7 +189,7 @@ class Project
      *
      * @return int
      */
-    public function getnbrSprints()
+    public function getNbrSprints()
     {
         return $this->nbrSprints;
     }

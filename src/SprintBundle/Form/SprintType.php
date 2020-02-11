@@ -1,31 +1,34 @@
 <?php
 
-namespace ProjectBundle\Form;
+namespace SprintBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProjectType extends AbstractType
+class SprintType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')
-            ->add('description',TextareaType::class)
-            ->add('created')
-            ->add('nbrSprints')
-            ->add('AddProject',SubmitType::class );    }/**
+        $builder
+            ->add('name')
+            ->add('description')
+            ->add('duedate')
+            ->add('etat')
+            ->add('updated')
+        ->add('AddSprint',SubmitType::class );
+
+}/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ProjectBundle\Entity\Project'
+            'data_class' => 'SprintBundle\Entity\Sprint'
         ));
     }
 
@@ -34,7 +37,7 @@ class ProjectType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'projectbundle_project';
+        return 'sprintbundle_sprint';
     }
 
 

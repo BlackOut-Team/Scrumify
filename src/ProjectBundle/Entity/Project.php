@@ -52,9 +52,9 @@ class Project
     /**
      * @var int
      *
-     * @ORM\Column(name="nbrSprint", type="bigint")
+     * @ORM\Column(name="nbrSprints", type="bigint")
      */
-    private $nbrSprint;
+    private $nbrSprints;
 
     /**
      * @var int
@@ -171,27 +171,27 @@ class Project
     }
 
     /**
-     * Set nbrSprint
+     * Set nbrSprints
      *
-     * @param integer $nbrSprint
+     * @param integer $nbrSprints
      *
      * @return Project
      */
-    public function setNbrSprint($nbrSprint)
+    public function setnbrSprints($nbrSprints)
     {
-        $this->nbrSprint = $nbrSprint;
+        $this->nbrSprints = $nbrSprints;
 
         return $this;
     }
 
     /**
-     * Get nbrSprint
+     * Get nbrSprints
      *
      * @return int
      */
-    public function getNbrSprint()
+    public function getnbrSprints()
     {
-        return $this->nbrSprint;
+        return $this->nbrSprints;
     }
 
     /**

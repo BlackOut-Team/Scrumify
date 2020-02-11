@@ -10,6 +10,29 @@ use TasksBundle\Form\TasksType;
 class TasksController extends Controller
 {
 
+    public function editAction(Request $request, Tasks $task){
+        $editForm=$this->createForm('TasksBundle\Form\TasksType',$task);
+        $editForm->handleRequest($request);
+
+        if($editForm->isSubmitted() && $editForm->isValid())
+        {
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('show_tasks');
+        }
+        return $this->render('@Tasks/Tasks/edit.html.twig', array(
+            'edit_form' => $editForm->createView()
+        ));
+    }
+
+    public function archiverAction(Request $request, Tasks $task){
+
+        $em= $this->getDoctrine()->getManager();
+        $task->setEtat(1);
+        $em->persist($task);
+        $em->flush();
+            return $this->redirectToRoute('show_tasks');
+
+    }
 
     public function showTasksAction(Request $request){
 

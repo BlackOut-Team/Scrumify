@@ -50,7 +50,7 @@ body, html{
 .overlay .sign-in, .overlay .sign-up{
   /*  Width is 385px - padding  */
   --padding: 20px;
-  width: calc(385px - var(--padding) * 2);
+  width: calc(800px - var(--padding) * 2);
   height: 100%;
   display: flex;
   justify-content: center;

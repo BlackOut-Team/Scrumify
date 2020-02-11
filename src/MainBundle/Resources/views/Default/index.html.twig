@@ -89,7 +89,14 @@
                     </li>
                 <li><a href="#blog-section" class="nav-link">Blog</a></li>
                 <li><a href="#contact-section" class="nav-link">Contact</a></li>
-                <li><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary mr-2 mb-2" style="color: white"><strong>Sign in / up</strong></a></li>
+                {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary mr-2 mb-2" style="color: white"><strong>Sign in</strong></a></li>
+                {% endif %}
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                  {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                  <li><a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary mr-2 mb-2" style="color: white"><strong>LogOut</strong></a></li>
+
+                {% endif %}
 
               </ul>
             </nav>

@@ -44,9 +44,9 @@
                                     </div>
                                 </form>
                             </div>
-                            <!--end of content list head-->
+                                            <!--end of content list head-->
                             <div class="content-list-body row">
-                             {% for p in p %}
+                            {% for p in p %}
                                 <div class="col-lg-6">
                                     <div class="card card-project">
 
@@ -405,15 +405,36 @@
                                 </li>
                             </ul>
                             <div class="modal-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
-                                        <h6>General Details</h6>
-                                        <div class="form-group row align-items-center">
-                                            <label class="col-3">Name</label>
-                                            {{ form_start(f) }}
-                                            {{ form_widget(f) }}
 
+                                            {{ form_start(f,{'attr': {'class': 'form-control col'}} , {'action': path('addProject'), 'method': 'POST'}) }}
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
+                                                    <h6>General Details</h6>
+                                                    <div class="form-group row align-items-center">
+                                                        <label class="col-3">Project Name</label>
 
+                                            {{ form_widget(f.name ,{'attr': {'class': 'form-control col'}})}}
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                    <label class="col-3">Description</label>
+
+                                                        {{ form_widget(f.description,{'attr': {'class': 'form-control col'}})}}
+                                                    </div>
+                                                    <hr>
+                                                    <h6>Timeline</h6>
+                                                    <div class="form-group row align-items-center">
+                                                        <label class="col-3">Start Date</label>
+
+                                                        {{ form_widget(f.created,{'attr': {'class': 'form-control col'}})}}
+                                                    </div>
+                                                    <div class="form-group row align-items-center">
+
+                                                    <label class="col-3">Sprints Number</label>
+
+                                                        {{ form_widget(f.nbrSprints,{'attr': {'class': 'form-control col'}})}}
+                                                    </div>
+                                                    </div>
                                             {{ form_end(f) }}
 
                                     </div>
@@ -577,9 +598,7 @@
                             </div>
                             <!--end of modal body-->
                             <div class="modal-footer">
-                                <button role="button" class="btn btn-primary" type="submit">
-                                    Create Project
-                                </button>
+
                             </div>
                         </div>
                     </div>

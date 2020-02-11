@@ -97,7 +97,7 @@ fos_user:
             name: fos_user_registration_form
             validation_groups: [Registration, Default]
         confirmation:
-            enabled: true
+            enabled: false
             template: '@FOSUser/Registration/email.txt.twig'
     profile:
         form:
@@ -108,6 +108,3 @@ fos_user:
             template: '@FOSUser/Resetting/email.txt.twig'
     group:
         group_class: Scrumify\MainBundle\Entity\Group
-    from_email:
-        address: mail@domain.tld
-        sender_name: user

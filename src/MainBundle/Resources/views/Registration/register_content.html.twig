@@ -1,22 +1,31 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{%  block body %}
-<form action="{{ path("fos_user_registration_register") }}" method="post"  id="sign-up-form">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
-        {% block fos_user_content %}
-            {% block title  %}<h1>Sign up</h1> {% endblock %}
-            {%  block content %}
-                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), }}) }}
-                {{ form_widget(form) }}
 
-                <div>
-                    <input type="submit" class="control-button in"  value="{{ 'registration.submit'|trans }}" />
-                </div></form>
+    <h2 class="form-title">Create account</h2>
+    <div class="form-group">
+        {{ form_widget(form.username, {'attr': {'class': 'form-input','placeholder':'Your username'}}) }}
 
-                {{ form_end(form) }}
-                {% endblock %}
-
-    {% endblock %}
-
-{% endblock %}
-
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.email, {'attr': {'class': 'form-input','placeholder':'Your Email'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-input','placeholder':'Password'}}) }}
+        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-input','placeholder':'Repeat your password'}}) }}
+    </div>
+    <div class="form-group">
+        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="_submit" id="submit" class="form-submit" value="Sign Up"/>
+    </div>
+{{ form_end(form) }}
+<p class="loginhere">
+    Have already an account ? <a href="{{ path('fos_user_security_login') }}"" class="loginhere-link">Login here</a>
+</p>

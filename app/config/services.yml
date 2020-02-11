@@ -32,7 +32,15 @@ services:
         resource: '../../src/AppBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
-
+    MainBundle\Controller\:
+        resource: '../../src/MainBundle/Controller'
+        autowire: true
+    MainBundle\Controller\RegistrationController:
+        tags: ['controller.service_arguments']
+        calls:
+            - [setContainer, ["@service_container"]]
+        bind:
+            $formFactory: "@fos_user.profile.form.factory"
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:

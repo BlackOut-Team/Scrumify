@@ -7,3 +7,10 @@ add_tasks:
 show_tasks:
     path:     /showTasks
     defaults: { _controller: TasksBundle:Tasks:showTasks }
+edit_tasks:
+    path:     /editTasks/{id}
+    defaults: { _controller: TasksBundle:Tasks:edit }
+
+archiver_tasks:
+    path:     /archiver/{id}
+    defaults: { _controller: TasksBundle:Tasks:archiver }

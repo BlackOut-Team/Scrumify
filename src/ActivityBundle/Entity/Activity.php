@@ -29,6 +29,30 @@ class Activity
     protected $action;
 
     /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->User;
+    }
+
+    /**
+     * @param mixed $User
+     */
+    public function setUser($User): void
+    {
+        $this->User = $User;
+    }
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id",referencedColumnName="id")
+     */
+    private $User;
+
+
+    /**
      * @return string
      */
     public function getAction(): string

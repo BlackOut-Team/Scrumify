@@ -47,7 +47,7 @@
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
                                     {% for project in project %}
-                                        {% if project.etat != 1 %}
+                                        {% if project.visible != 1 %}
                                         <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -61,16 +61,17 @@
                                                             <i class="material-icons">more_vert</i>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#">Edit</a>
+                                                            <a class="dropdown-item" href="{{ path('addProject', { 'id': project.id }) }}">Edit</a>
                                                             <a class="dropdown-item text-danger" href="{{ path('archiverProject', { 'id': project.id }) }}">Archive Project</a>
 
                                                         </div>
                                                     </div>
                                                     <div class="card-title">
-                                                        <a href="{{ path('Sprint_homepage')}}">
+                                                        <a href="{{ path('Sprint_homepage', { 'id': project.id })}}">
                                                             <h5 data-filter-by="text"> {{ project.name }}</h5>
                                                             <p> {{ project.description }}</p>
                                                         </a>
+
                                                     </div>
                                                     <ul class="avatars">
 
@@ -428,22 +429,24 @@
                                             <hr>
                                             <h6>Timeline</h6>
                                             <div class="form-group row align-items-center">
-                                                <label class="col-3">Start Date</label>
+                                                <label class="col-3">Due Date</label>
 
-                                                {{ form_widget(f.created,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_widget(f.finished,{'attr': {'data-format': "dd/MM/yyyy"} } , {'attr' : {'class': 'form-control col flatpickr-input input active'}})}}
                                             </div>
                                             <div class="form-group row align-items-center">
 
                                                 <label class="col-3">Sprints Number</label>
 
                                                 {{ form_widget(f.nbrSprints,{'attr': {'class': 'form-control col'}})}}
-                                                {{ form_widget(f.AddProject,{'attr': {'class': 'form-control col'}})}}
+                                                <hr>
+                                                {{ form_widget(f.AddProject,{'attr': {'class': 'btn btn-primary'}})}}
                                                 {{ form_end(f) }}
 
                                             </div>
                                         </div>
 
                                     </div>
+
                                     <div class="tab-pane fade" id="project-add-members" role="tabpanel">
                                         <div class="users-manage" data-filter-list="form-group-users">
                                             <div class="mb-3">

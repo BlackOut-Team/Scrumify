@@ -28,7 +28,7 @@
                             <div class="content-list">
                                 <div class="row content-list-head">
                                     <div class="col-auto">
-                                        <h3>Sprints</h3>
+                                        <h3>Sprints of {{ project.name }}</h3>
                                         <button class="btn btn-round" data-toggle="modal" data-target="#project-add-modal">
                                             <i class="material-icons">add</i>
                                         </button>
@@ -47,6 +47,7 @@
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
                                     {% for sprint in sprint %}
+                                        {% if sprint.etat != 0 %}
                                             <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -66,7 +67,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="card-title">
-                                                        <a href="{{ path('Sprint_homepage')}}">
+                                                        <a href="{{ path('Sprint_homepage' ,{ 'id': sprint.id })}}">
                                                             <h5 data-filter-by="text"> {{ sprint.name }}</h5>
                                                             <p> {{ sprint.description }}</p>
                                                         </a>
@@ -78,6 +79,7 @@
                                                                 <img alt="Kenny Tran" class="avatar" src={{ asset('assets/img/avatar-male-6.jpg') }} data-filter-by="alt" />
                                                             </a>
                                                         </li>
+                                                        <td><a href="{{ path('archiverSprint',{'id':sprint.id}) }}">Delete</a></td>
 
                                                         <li>
                                                             <a href="#" data-toggle="tooltip" title="Peggy">
@@ -103,7 +105,7 @@
                                             </div>
                                             </div>
 
-
+{% endif %}
                                     {% endfor %}
 
 
@@ -422,23 +424,21 @@
                                                 <label class="col-3">Description</label>
 
                                                 {{ form_widget(f.description,{'attr': {'class': 'form-control col'}})}}
+
                                             </div>
                                             <hr>
                                             <h6>Timeline</h6>
-                                            <div class="form-group row align-items-center">
-                                                <label class="col-3">Start Date</label>
 
-                                                {{ form_widget(f.updated,{'attr': {'class': 'form-control col'}})}}
-                                            </div>
                                             <div class="form-group row align-items-center">
 
-                                                <label class="col-3">Sprints Number</label>
+                                                <label class="col-3">Deadline </label>
 
-                                                {{ form_widget(f.duedate,{'attr': {'class': 'form-control col'}})}}
-                                                {{ form_widget(f.AddSprint,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_widget(f.duedate,{'attr': {'data-format': "dd/MM/yyyy"} } , {'attr' : {'class': 'form-control col flatpickr-input input active'}})}}
+                                                <hr>
+                                                {{ form_widget(f.AddSprint,{'attr': {'class': 'btn btn-primary'}})}}
 
                                                 {{ form_end(f) }}
-
+                                            </div>
                                             </div>
                                         </div>
 

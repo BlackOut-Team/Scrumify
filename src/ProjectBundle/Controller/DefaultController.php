@@ -8,6 +8,7 @@ use ProjectBundle\Form\ProjectType;
 use ProjectBundle\ProjectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use TasksBundle\Entity\Tasks;
 
 class DefaultController extends Controller
 {
@@ -22,6 +23,8 @@ class DefaultController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $p->setCreated(new \DateTime('now'));
+            $p->setvisible(1);
+
             $em->persist($p);
             $em->flush($p);
 
@@ -44,5 +47,18 @@ class DefaultController extends Controller
         $em->flush();
         return $this->redirectToRoute('addProject');
 
+    }
+    public function editPAction(Request $request, Project $project){
+        $editForm=$this->createForm('ProjectBundle\Form\ProjectType',$project);
+        $editForm->handleRequest($request);
+
+        if($editForm->isSubmitted() && $editForm->isValid())
+        {
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('addProject');
+        }
+        return $this->render('@Project/Default/createProject.html.twig', array(
+            'edit_form' => $editForm->createView()
+        ));
     }
 }

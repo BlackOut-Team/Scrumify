@@ -3,6 +3,8 @@
 namespace SprintBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Sprint
@@ -29,15 +31,15 @@ class Sprint
     private $name;
 
     /**
-     * @var string
+     * @var text
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\GreaterThan(propertyPath="created")
      * @ORM\Column(name="duedate", type="date")
      */
     private $duedate;
@@ -52,9 +54,9 @@ class Sprint
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated", type="datetime")
+     * @ORM\Column(name="created", type="datetime")
      */
-    private $updated;
+    private $created;
 
 
     /**
@@ -164,27 +166,27 @@ class Sprint
     }
 
     /**
-     * Set updated
+     * Set created
      *
-     * @param \DateTime $updated
+     * @param \DateTime $created
      *
      * @return Sprint
      */
-    public function setUpdated($updated)
+    public function setcreated($created)
     {
-        $this->updated = $updated;
+        $this->created = $created;
 
         return $this;
     }
 
     /**
-     * Get updated
+     * Get created
      *
      * @return \DateTime
      */
-    public function getUpdated()
+    public function getcreated()
     {
-        return $this->updated;
+        return $this->created;
     }
 }
 

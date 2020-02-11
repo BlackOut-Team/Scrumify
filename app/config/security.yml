@@ -11,10 +11,15 @@ security:
             id: fos_user.user_provider.username
 
     firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        # Firewall pour la page de connexion, et récupération du mot de passe
+
         main:
             pattern: ^/
             form_login:
-                provider: fos_userbundle
+                remember_me: true
                 csrf_token_generator: security.csrf.token_manager
 
             logout:       true
@@ -26,3 +31,5 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+
+

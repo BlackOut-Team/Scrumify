@@ -5,7 +5,9 @@ team:
 userstory:
     resource: "@UserstoryBundle/Resources/config/routing.yml"
     prefix:   /
-
+main:
+    resource: "@MainBundle/Resources/config/routing.yml"
+    prefix:   /
 feature:
     resource: "@FeatureBundle/Resources/config/routing.yml"
     prefix:   /
@@ -27,10 +29,6 @@ tasks:
     resource: "@TasksBundle/Resources/config/routing.yml"
     prefix:   /
 
-main:
-    resource: "@MainBundle/Controller/"
-    type:     annotation
-    prefix:   /
 
 app:
     resource: '@AppBundle/Controller/'
@@ -55,3 +53,4 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+

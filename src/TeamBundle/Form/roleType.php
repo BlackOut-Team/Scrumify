@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class roleType extends AbstractType
+class ttroleType extends AbstractType
 {
     /**
      * {@inheritdoc}

@@ -2,29 +2,18 @@
 
 namespace TeamBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * role
- *
- * @ORM\Table(name="role")
- * @ORM\Entity(repositoryClass="TeamBundle\Repository\roleRepository")
  */
 class role
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=255)
      */
     private $role;
 

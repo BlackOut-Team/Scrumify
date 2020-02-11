@@ -152,6 +152,7 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="s doctrine:generate:entity" />
+      <command value="s doctrine:generate:entity role" />
       <command value="s doctrine:schema:update --force" />
     </option>
   </component>
@@ -167,7 +168,7 @@
       <updated>1581438239399</updated>
       <workItem from="1581438243800" duration="13401000" />
       <workItem from="1581457100661" duration="1444000" />
-      <workItem from="1581462386552" duration="224000" />
+      <workItem from="1581462386552" duration="2232000" />
     </task>
     <servers />
   </component>
@@ -175,6 +176,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581463510225">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="530" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1474.864@62.0.1474.864" timestamp="1581463510225" />
     <state x="530" y="188" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581439087763">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -187,6 +192,22 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="579" y="175" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1581462606153" />
+    <state width="1431" height="224" key="GridCell.Tab.0.bottom" timestamp="1581463561143">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="224" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1581463561143" />
+    <state width="1431" height="224" key="GridCell.Tab.0.center" timestamp="1581463561142">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="224" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1581463561142" />
+    <state width="1431" height="224" key="GridCell.Tab.0.left" timestamp="1581463561142">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="224" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1581463561142" />
+    <state width="1431" height="224" key="GridCell.Tab.0.right" timestamp="1581463561143">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="224" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1581463561143" />
     <state x="308" y="76" key="SettingsEditor" timestamp="1581462618567">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -203,9 +224,9 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="496" y="258" key="com.intellij.ide.util.TipDialog/62.0.1474.864@62.0.1474.864" timestamp="1581457104759" />
-    <state x="456" y="197" width="672" height="677" key="run.anything.popup" timestamp="1581462624544">
+    <state x="456" y="197" width="672" height="677" key="run.anything.popup" timestamp="1581463561222">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="456" y="197" width="672" height="677" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1581462624544" />
+    <state x="456" y="197" width="672" height="677" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1581463561222" />
   </component>
 </project>

@@ -1,0 +1,21 @@
+TeamBundle\Entity\team:
+    type: entity
+    table: null
+    repositoryClass: TeamBundle\Repository\teamRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        created:
+            type: datetime
+        updated:
+            type: datetime
+        etat:
+            type: integer
+    lifecycleCallbacks: {  }

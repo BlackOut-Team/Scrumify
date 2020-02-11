@@ -11,13 +11,13 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@Team/Default/index.html.twig');
+        return $this->render('@Team/Role/index.html.twig');
     }
 
     public function affRoleAction()
     {
         $role=$this->getDoctrine()->getRepository('TeamBundle:Role')->findAll();
-        return $this->render('@Team/Default/createRole.html.twig',
+        return $this->render('@Team/Role/createRole.html.twig',
             array('p'=>$role));
     }
 

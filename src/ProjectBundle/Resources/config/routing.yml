@@ -1,14 +1,9 @@
-project_homepage:
-    path:   /Project
-    defaults: { _controller: ProjectBundle:Default:indexP }
-
-showProject:
-    path:   /Show
-    defaults: { _controller: ProjectBundle:Default:ShowP }
-
 addProject:
     path:   /Add
     defaults: { _controller: ProjectBundle:Default:AddP }
+editProject:
+    path:   /EditP
+    defaults: { _controller: ProjectBundle:Default:editP }
 archiverProject:
     path:     /archiver/{id}
     defaults: { _controller: ProjectBundle:Default:archiverP }

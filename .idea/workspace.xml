@@ -142,6 +142,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ExamenS2020" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
@@ -151,8 +158,35 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="s doctrine:schema:update --force" />
       <command value="s doctrine:generate:entity" />
+      <command value="s doctrine:schema:create" />
+      <command value="s doctrine:generate:entity " />
+      <command value="s doctrine:mapping:info" />
+      <command value="s doctrine:mapping:import" />
+      <command value="s doctrine:mapping:import --em project" />
+      <command value="s doctrine:mapping:import --em Project project" />
+      <command value="s doctrine:schema:validate" />
+      <command value="s doctrine:cache:clear-metadata" />
+      <command value="make:entity" />
+      <command value="s doctrine:cache:clear-entity-region" />
+      <command value="s doctrine:generate:entity projectScrum" />
+      <command value="s doctrine:cache:clear" />
+      <command value="c dump-autoload" />
+      <command value="s doctrine:generate:entity projet" />
+      <command value="s doctrine:generate:entity ProjectBundle:Project" />
+      <command value="s doctrine:schema:update --force" />
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -173,10 +207,35 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="530" y="188" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581439087763">
-      <screen x="62" y="0" width="1474" height="864" />
+    <state x="443" y="61" key="#com.intellij.ide.util.MemberChooser" timestamp="1581461021210">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="443" y="61" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1581461021210" />
+    <state x="406" y="148" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581463329713">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="406" y="148" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1581463329713" />
     <state x="530" y="188" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/62.0.1474.864@62.0.1474.864" timestamp="1581439087763" />
+    <state x="421" y="100" key="FileChooserDialogImpl" timestamp="1581461576506">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="100" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581461576506" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1581464150336">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581464150336" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1581464150335">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581464150335" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1581464150335">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581464150335" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1581464150336">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581464150336" />
     <state x="308" y="76" key="SettingsEditor" timestamp="1581438304525">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -189,9 +248,14 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="496" y="258" key="com.intellij.ide.util.TipDialog/62.0.1474.864@62.0.1474.864" timestamp="1581438247397" />
-    <state x="456" y="197" width="672" height="677" key="run.anything.popup" timestamp="1581455682467">
-      <screen x="62" y="0" width="1474" height="864" />
+    <state x="342" y="155" width="672" height="533" key="run.anything.popup" timestamp="1581464150357">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="342" y="155" width="672" height="533" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1581464150357" />
     <state x="456" y="197" width="672" height="677" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1581455682467" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581460195693">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1581460195693" />
   </component>
 </project>

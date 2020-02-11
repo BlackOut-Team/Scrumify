@@ -17,7 +17,7 @@ class ProjectType extends AbstractType
     {
         $builder->add('name')
             ->add('description',TextareaType::class)
-            ->add('created')
+            ->add('finished')
             ->add('nbrSprints')
             ->add('AddProject',SubmitType::class );    }/**
      * {@inheritdoc}

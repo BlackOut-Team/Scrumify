@@ -2,7 +2,9 @@
 
 namespace SprintBundle\Form;
 
+use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,8 +20,6 @@ class SprintType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('duedate')
-            ->add('etat')
-            ->add('updated')
         ->add('AddSprint',SubmitType::class );
 
 }/**

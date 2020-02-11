@@ -32,19 +32,19 @@ class QuestionController extends Controller
     {
 
         $question = new Question() ;
+        $question->setDislikes(0);
+        $question->setLikes(0);
 
         $Form=$this->createForm(QuestionType::class,$question);
         $Form->handleRequest($request);
         $em=$this->getDoctrine()->getManager();
         if($Form->isSubmitted() && $Form->isValid()){
-            $user=$this->getDoctrine()
-                ->getRepository(User::class)
-                ->find(1);
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
             $question->setUser($user);
             $em->persist($question);
             $em->flush();
             $activityGenerator = $this->get(ActivityGenerator::class);
-            $activity = $activityGenerator->AjouterActivity('question added');
+            $activity = $activityGenerator->AjouterActivity('a ajouter un question', $user);
             $this->addFlash('success', $activity);
             return $this->redirectToRoute('_display_questions');
         }

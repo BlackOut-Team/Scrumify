@@ -31,7 +31,7 @@ class Question
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
@@ -41,6 +41,58 @@ class Question
      * @ORM\Column(name="category", type="string", length=255)
      */
     private $category;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="likes", type="integer")
+     */
+    private $likes;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="dislikes", type="integer")
+     */
+    private $dislikes;
+
+    /**
+     * @return int
+     */
+    public function getLikes(): int
+    {
+        return $this->likes;
+    }
+
+    /**
+     * @param int $likes
+     */
+    public function setLikes(int $likes): void
+    {
+        $this->likes = $likes;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDislikes(): int
+    {
+        return $this->dislikes;
+    }
+
+    /**
+     * @param int $dislikes
+     */
+    public function setDislikes(int $dislikes): void
+    {
+        $this->dislikes = $dislikes;
+    }
 
     /**
      * @var
@@ -112,12 +164,7 @@ class Question
         $this->type = $type;
     }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=255)
-     */
-    private $type;
+
     /**
      * Get id
      *

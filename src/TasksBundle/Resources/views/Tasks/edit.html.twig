@@ -1,3 +1,141 @@
+{% extends'base.html.twig' %}
+{% block title %}Project's Tasks{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+{% block contents %}
+
+<div class="breadcrumb-bar navbar bg-white sticky-top">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index-2.html">Feature</a>
+            </li>
+            <li class="breadcrumb-item"><a href="pages-app.html#">User Story</a>
+            </li>
+            <li class="breadcrumb-item"><a href="pages-app.html#">Tasks board</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Task</li>
+        </ol>
+    </nav>
+
+
+    <!--Menu li ala jnab -->
+    <div class="dropdown">
+        <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
+            <i class="material-icons">settings</i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
+            <a class="dropdown-item" href="#">Share</a>
+            <a class="dropdown-item" href="#">Mark as Complete</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger" href="#">Archive</a>
+
+        </div>
+    </div>
+
+</div>
+
+
 {{ form_start(edit_form) }}
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit  Task</h5>
+            </div>
+            <!--end of modal head-->
+            <ul class="nav nav-tabs nav-fill" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="task-add-details-tab" data-toggle="tab" href="#task-add-details" role="tab" aria-controls="task-add-details" aria-selected="true">Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="task-add-members-tab" data-toggle="tab" href="#task-add-members" role="tab" aria-controls="task-add-members" aria-selected="false">Members</a>
+                </li>
+            </ul>
+            <div class="modal-body">
+
+                <div class="tab-content">
+                    <!--formulaire ajout task -->
+
+                    <div class="tab-pane fade show active" id="task-add-details" role="tabpanel">
+                        <h6>General Details</h6>
+                        <div class="form-group row align-items-center">
+                            <label class="col-3">Title</label>
+                            {{ form_widget(edit_form.title, {'attr': {'class': 'form-control col'}}) }}
+
+                        </div>
+                        <div class="form-group row align-items-center">
+                            <label class="col-3">Priority</label>
+                            {{ form_widget(edit_form.priority, {'attr': {'class': 'form-control col'}}) }}
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3">Description</label>
+                            {{ form_widget(edit_form.description, {'attr': {'class': 'form-control col'}}) }}
+                        </div>
+                        <hr>
+                        <div class="form-group row align-items-center">
+                            <label class="col-3">Due Date</label>
+                            {{ form_widget(edit_form.finished, {'attr': {'class': 'form-control col'}}) }}
+
+                        </div>
+                        <div class="alert alert-warning text-small" role="alert">
+                            <span>You can change due dates at any time.</span>
+                        </div>
+                    </div>
+
+                    <!-- end form-->
+                    <div class="tab-pane fade" id="task-add-members" role="tabpanel">
+                        <div class="users-manage" data-filter-list="form-group-users">
+
+                            <div class="input-group input-group-round">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                  <i class="material-icons">filter_list</i>
+                                </span>
+                                </div>
+                                <input type="search" class="form-control filter-list-input" placeholder="Filter members" aria-label="Filter Members">
+                            </div>
+                            <div class="form-group-users">
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="task-user-1" checked>
+                                    <label class="custom-control-label" for="task-user-1">
+                                  <span class="d-flex align-items-center">
+                                    <img alt="Claire Connors" src={{ asset('assets/img/avatar-female-1.jpg') }} class="avatar mr-2" />
+                                    <span class="h6 mb-0" data-filter-by="text">Claire Connors</span>
+                                  </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end of modal body-->
+            <div class="modal-footer">
+
+                {{ form_widget(edit_form.addTasks, {'attr': {'class': 'btn btn-primary'}}) }}
+            </div>
+        </div>
+
+
+    </div>
+
 
 {{ form_end(edit_form) }}
+
+
+
+
+{% endblock %}
+{% endblock %}

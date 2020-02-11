@@ -39,7 +39,7 @@ class DefaultController extends Controller
     public function archiverPAction(Request $request, Project $project){
 
         $em= $this->getDoctrine()->getManager();
-        $project->setEtat(1);
+        $project->setstate(1);
         $em->persist($project);
         $em->flush();
         return $this->redirectToRoute('addProject');

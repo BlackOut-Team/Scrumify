@@ -42,12 +42,7 @@
 
 </div>
 
-
-
     <div class="main-container">
-
-
-
         <div class="kanban-board container-fluid mt-lg-3">
             <!-- colone to do-->
             <div class="kanban-col">
@@ -67,8 +62,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item text-danger" href="#">Archive Card</a>
+                                        <a class="dropdown-item" href="{{ path('edit_tasks', { 'id': TaskTodo.id }) }}" >Edit</a>
+                                        <a class="dropdown-item text-danger" href="{{ path('archiver_tasks', { 'id': TaskTodo.id }) }}">Archive Card</a>
                                     </div>
                                 </div>
 
@@ -78,18 +73,25 @@
                                         <h6> {{ TaskTodo.description }} </h6>
                                     </a>
                                 </div>
+                                <div class="card-meta d-flex justify-content-between">
+
+                                    <span class="text-small">Due {{ TaskTodo.finished|date('Y-m-d H:i:s') }}</span>
+
+                                </div>
 
                             </div>
                         </div>
+
                         {% endfor %}
                     </div>
                     <div class="card-list-footer">
-                        <button class="btn btn-link btn-sm text-small" data-toggle="modal" data-target="#myModal">Add task</button>
+                        <button class="btn btn-link btn-sm text-small" data-toggle="modal" data-target="#myModal1">Add task</button>
                     </div>
 
                 </div>
             </div>
-            <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal fade" id="myModal1" role="dialog">
+
                 <div class="modal-dialog">
 
                     <!-- Modal content-->
@@ -110,54 +112,40 @@
                             </li>
                         </ul>
                         <div class="modal-body">
+                            {{ form_start(form) }}
                             <div class="tab-content">
+                                <!--formulaire ajout task -->
+
                                 <div class="tab-pane fade show active" id="task-add-details" role="tabpanel">
                                     <h6>General Details</h6>
                                     <div class="form-group row align-items-center">
-                                        <label class="col-3">Name</label>
-                                        <input class="form-control col" type="text" placeholder="Task name" name="title" />
+                                        <label class="col-3">Title</label>
+                                        {{ form_widget(form.title, {'attr': {'class': 'form-control col'}}) }}
+
                                     </div>
                                     <div class="form-group row align-items-center">
                                         <label class="col-3">Priority</label>
-                                        <input class="form-control col" type="number" placeholder="Task name" name="priority" />
+                                        {{ form_widget(form.priority, {'attr': {'class': 'form-control col'}}) }}
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-3">Description</label>
-                                        <textarea class="form-control col" rows="3" placeholder="Task description" name="description"></textarea>
+                                        {{ form_widget(form.description, {'attr': {'class': 'form-control col'}}) }}
                                     </div>
                                     <hr>
                                     <div class="form-group row align-items-center">
                                         <label class="col-3">Due Date</label>
-                                        <input class="form-control col" type="datetime-local" name="finished" placeholder="Select a date" data-flatpickr data-default-date="2021-09-15" data-alt-input="true" />
+                                        {{ form_widget(form.finished, {'attr': {'class': 'form-control col'}}) }}
 
                                     </div>
                                     <div class="alert alert-warning text-small" role="alert">
                                         <span>You can change due dates at any time.</span>
                                     </div>
                                 </div>
+
+                                <!-- end form-->
                                 <div class="tab-pane fade" id="task-add-members" role="tabpanel">
                                     <div class="users-manage" data-filter-list="form-group-users">
-                                        <div class="mb-3">
-                                            <ul class="avatars text-center">
 
-                                                <li>
-                                                    <img alt="Claire Connors" src="assets/img/avatar-female-1.jpg" class="avatar" data-toggle="tooltip" data-title="Claire Connors" />
-                                                </li>
-
-                                                <li>
-                                                    <img alt="Marcus Simmons" src="assets/img/avatar-male-1.jpg" class="avatar" data-toggle="tooltip" data-title="Marcus Simmons" />
-                                                </li>
-
-                                                <li>
-                                                    <img alt="Peggy Brown" src="assets/img/avatar-female-2.jpg" class="avatar" data-toggle="tooltip" data-title="Peggy Brown" />
-                                                </li>
-
-                                                <li>
-                                                    <img alt="Harry Xai" src="assets/img/avatar-male-2.jpg" class="avatar" data-toggle="tooltip" data-title="Harry Xai" />
-                                                </li>
-
-                                            </ul>
-                                        </div>
                                         <div class="input-group input-group-round">
                                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -172,122 +160,11 @@
                                                 <input type="checkbox" class="custom-control-input" id="task-user-1" checked>
                                                 <label class="custom-control-label" for="task-user-1">
                                   <span class="d-flex align-items-center">
-                                    <img alt="Claire Connors" src="assets/img/avatar-female-1.jpg" class="avatar mr-2" />
+                                    <img alt="Claire Connors" src={{ asset('assets/img/avatar-female-1.jpg') }} class="avatar mr-2" />
                                     <span class="h6 mb-0" data-filter-by="text">Claire Connors</span>
                                   </span>
                                                 </label>
                                             </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-2" checked>
-                                                <label class="custom-control-label" for="task-user-2">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Marcus Simmons" src="assets/img/avatar-male-1.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Marcus Simmons</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-3" checked>
-                                                <label class="custom-control-label" for="task-user-3">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Peggy Brown" src="assets/img/avatar-female-2.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Peggy Brown</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-4" checked>
-                                                <label class="custom-control-label" for="task-user-4">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Harry Xai" src="assets/img/avatar-male-2.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Harry Xai</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-5">
-                                                <label class="custom-control-label" for="task-user-5">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Sally Harper" src="assets/img/avatar-female-3.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Sally Harper</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-6">
-                                                <label class="custom-control-label" for="task-user-6">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Ravi Singh" src="assets/img/avatar-male-3.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Ravi Singh</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-7">
-                                                <label class="custom-control-label" for="task-user-7">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Kristina Van Der Stroem" src="assets/img/avatar-female-4.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Kristina Van Der Stroem</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-8">
-                                                <label class="custom-control-label" for="task-user-8">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="David Whittaker" src="assets/img/avatar-male-4.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">David Whittaker</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-9">
-                                                <label class="custom-control-label" for="task-user-9">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Kerri-Anne Banks" src="assets/img/avatar-female-5.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Kerri-Anne Banks</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-10">
-                                                <label class="custom-control-label" for="task-user-10">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Masimba Sibanda" src="assets/img/avatar-male-5.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Masimba Sibanda</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-11">
-                                                <label class="custom-control-label" for="task-user-11">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Krishna Bajaj" src="assets/img/avatar-female-6.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Krishna Bajaj</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-12">
-                                                <label class="custom-control-label" for="task-user-12">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Kenny Tran" src="assets/img/avatar-male-6.jpg" class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Kenny Tran</span>
-                                  </span>
-                                                </label>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -295,13 +172,14 @@
                         </div>
                         <!--end of modal body-->
                         <div class="modal-footer">
-                            <button role="button" class="btn btn-primary" type="submit" name="addTasks">
-                                Create Task
-                            </button>
+
+                            {{ form_widget(form.addTasks, {'attr': {'class': 'btn btn-primary'}}) }}
                         </div>
                     </div>
 
+
                 </div>
+                {{ form_end(form) }}
             </div>
 
             <!--end colone to do -->
@@ -324,7 +202,7 @@
                                         <i class="material-icons">more_vert</i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" href="#" >Edit</a>
                                         <a class="dropdown-item text-danger" href="#">Archive Card</a>
                                     </div>
                                 </div>

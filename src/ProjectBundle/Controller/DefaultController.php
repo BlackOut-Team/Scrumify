@@ -14,38 +14,25 @@ class DefaultController extends Controller
     {
         return $this->render('@Project/Default/createProject.html.twig');
     }
-    public function createPAction()
-    {
-        return $this->render('@Project/Default/createProject.html.twig');
-    }
     public function  AddPAction(Request $request)
     {
+        $project=$this->getDoctrine()->getRepository('ProjectBundle:Project')->findAll();
         $p= new Project();
         $Form=$this->createForm(ProjectType::class,$p);
         $Form->handleRequest($request);
 
 
-        if ($Form->isSubmitted() && $Form->isValid()) {
+        if ($Form->isSubmitted() ) {
             $em = $this->getDoctrine()->getManager();
+            $p->setCreated(new \DateTime('now'));
             $em->persist($p);
             $em->flush();
-            $this->addFlash('info', 'Created Successfully !');
-            return $this->redirectToRoute('project_homepage');
+            return $this->redirectToRoute('addProject');
         }
 
 
-        return $this->render('@Test/Default/add.html.twig',array(
-         'f'=>$Form->createView()));
+        return $this->render('@Project/Default/createProject.html.twig',array('f'=>$Form->createView(),'p'=>$project));
 
-    }
-    public function ShowPAction()
-    {
-
-        $project=$this->getDoctrine()->getRepository('ProjectBundle:Project')->findAll();
-
-
-            return $this->render('@Project/Default/createProject.html.twig',
-            array('p'=>$project));
     }
 
     public function ArchivePAction($id)
@@ -54,7 +41,7 @@ class DefaultController extends Controller
         $project=$em->getRepository(Project::class)->find($id);
         $em->remove($project);
         $em->flush();
-        return $this->redirectToRoute('@Project/Default/show_project.html.twig');
+        return $this->redirectToRoute('@Project/Default/createProject.html.twig');
 
     }
 }

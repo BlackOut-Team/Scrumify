@@ -18,7 +18,7 @@
     <meta name="description" content="A project management Bootstrap theme by Medium Rare">
     {% block stylesheets %}
     {% endblock %}
-        <link href={{ asset('assets/img/favicon.ico') }} rel="icon" type="image/x-icon">
+        <link rel="icon" type="image/png" href="../../web/Front/Index/images/scrumify.png" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
         <link href={{ asset('assets/css/theme.css') }} rel="stylesheet" type="text/css" media="all" />
@@ -41,7 +41,10 @@
                     <div class="dropdown">
                         <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img alt="Image" src={{ asset('assets/img/avatar-male-4.png') }} class="avatar" />
+
+
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="nav-side-user.html" class="dropdown-item">Profile</a>
                             <a href="utility-account-settings.html" class="dropdown-item">Account Settings</a>
@@ -78,7 +81,7 @@
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Team</a>
-                            <a class="dropdown-item" href={{ path('showProject') }}>Project</a>
+                            <a class="dropdown-item" href={{ path('addProject') }}>Project</a>
                             <a class="dropdown-item" href="#">Task</a>
                         </div>
                     </div>
@@ -124,7 +127,7 @@
                         <p>
                             You have to add a project or get an invitation to be a team member
                         </p>
-                        <a class="btn btn-primary btn-sm" href={{path('showProject') }}>Create Project</a>
+                        <a class="btn btn-primary btn-sm" href={{path('addProject') }}>Create Project</a>
                     </div>
                 </div>
 

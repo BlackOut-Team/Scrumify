@@ -6,3 +6,7 @@ team_homepage:
 affiche_role:
     path:     /aff
     defaults: { _controller: TeamBundle:Default:affRole }
+
+ajout_role:
+    path:     /ADD
+    defaults: { _controller: TeamBundle:Default:ajoutRole }

@@ -1,3 +1,7 @@
+sprint:
+    resource: "@SprintBundle/Resources/config/routing.yml"
+    prefix:   /
+
 
 team:
     resource: "@TeamBundle/Resources/config/routing.yml"
@@ -10,10 +14,6 @@ main:
     prefix:   /
 feature:
     resource: "@FeatureBundle/Resources/config/routing.yml"
-    prefix:   /
-
-sprint:
-    resource: "@SprintBundle/Resources/config/routing.yml"
     prefix:   /
 
 project:

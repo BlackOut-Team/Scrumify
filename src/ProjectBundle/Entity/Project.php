@@ -36,6 +36,10 @@ class Project
      */
     private $nbrSprints;
 
+    /**
+     * @var int
+     */
+    private $state;
 
     /**
      * Get id
@@ -60,6 +64,7 @@ class Project
 
         return $this;
     }
+
 
     /**
      * Get name
@@ -158,5 +163,24 @@ class Project
     {
         return $this->nbrSprints;
     }
+
+    /**
+     * @return int
+     */
+    public function getState(): int
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param int $state
+     */
+    public function setState(int $state): void
+    {
+        $this->state = $state;
+    }
+
+
+
 }
 

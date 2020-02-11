@@ -22,7 +22,8 @@ class ProjectType extends AbstractType
                 ->add('description',TextareaType::class)
                 ->add('created')
                 ->add('nbrSprints')
-                ->add('Add Project',SubmitType::class , ['attr'=>['class'=>'btn btn-primary'],]);
+                ->add('AddProject',SubmitType::class );
+
 
     }/**
      * {@inheritdoc}

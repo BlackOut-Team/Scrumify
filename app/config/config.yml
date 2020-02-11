@@ -89,7 +89,7 @@ fos_user:
     service:
         mailer: fos_user.mailer.twig_swift
     from_email:
-        address: "amiradoghri0@esprit.tn"
+        address: "amiradoghri0@gmail.com"
         sender_name: "Scrumify Team"
     registration:
         form:

@@ -2,6 +2,7 @@
 
 namespace ProjectBundle\Controller;
 
+use ActivityBundle\Entity\Activity;
 use ProjectBundle\Entity\Project;
 use ProjectBundle\Form\ProjectType;
 use ProjectBundle\ProjectBundle;
@@ -10,38 +11,38 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexPAction()
-    {
-        return $this->render('@Project/Default/createProject.html.twig');
-    }
     public function  AddPAction(Request $request)
     {
-        $project=$this->getDoctrine()->getRepository('ProjectBundle:Project')->findAll();
+        $project=$this->getDoctrine()->getRepository(Project::class)->findAll();
         $p= new Project();
-        $Form=$this->createForm(ProjectType::class,$p);
-        $Form->handleRequest($request);
+        $f=$this->createForm('ProjectBundle\Form\ProjectType',$p);
+        //dump($f,$request);exit;
+        $f->handleRequest($request);
+        if ($f->isSubmitted() && $f->isValid()) {
 
-
-        if ($Form->isSubmitted() ) {
             $em = $this->getDoctrine()->getManager();
             $p->setCreated(new \DateTime('now'));
             $em->persist($p);
-            $em->flush();
+            $em->flush($p);
+
             return $this->redirectToRoute('addProject');
+
         }
+        return $this->render('@Project/Default/createProject.html.twig',array(
+            'f'=>$f->createView(),
+            'project'=>$project
 
-
-        return $this->render('@Project/Default/createProject.html.twig',array('f'=>$Form->createView(),'p'=>$project));
+        ));
 
     }
 
-    public function ArchivePAction($id)
-    {
-        $em=$this->getDoctrine()->getManager();
-        $project=$em->getRepository(Project::class)->find($id);
-        $em->remove($project);
+    public function archiverPAction(Request $request, Project $project){
+
+        $em= $this->getDoctrine()->getManager();
+        $project->setEtat(1);
+        $em->persist($project);
         $em->flush();
-        return $this->redirectToRoute('@Project/Default/createProject.html.twig');
+        return $this->redirectToRoute('addProject');
 
     }
 }

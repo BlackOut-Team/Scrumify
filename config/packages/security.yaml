@@ -6,8 +6,7 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: true
+
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

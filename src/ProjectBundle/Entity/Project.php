@@ -2,44 +2,59 @@
 
 namespace ProjectBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Project
+ *
+ * @ORM\Table(name="project")
+ * @ORM\Entity(repositoryClass="ProjectBundle\Repository\ProjectRepository")
  */
 class Project
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
+
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="duedate", type="datetime")
      */
     private $duedate;
 
     /**
      * @var int
+     *
+     * @ORM\Column(name="nbrSprints", type="integer")
      */
     private $nbrSprints;
-
-    /**
-     * @var int
-     */
-    private $state;
 
     /**
      * Get id
@@ -65,7 +80,6 @@ class Project
         return $this;
     }
 
-
     /**
      * Get name
      *
@@ -74,22 +88,6 @@ class Project
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDuedate(): \DateTime
-    {
-        return $this->duedate;
-    }
-
-    /**
-     * @param \DateTime $duedate
-     */
-    public function setDuedate(\DateTime $duedate): void
-    {
-        $this->duedate = $duedate;
     }
 
     /**
@@ -141,9 +139,33 @@ class Project
     }
 
     /**
+     * Set duedate
+     *
+     * @param \DateTime $duedate
+     *
+     * @return Project
+     */
+    public function setDuedate($duedate)
+    {
+        $this->duedate = $duedate;
+
+        return $this;
+    }
+
+    /**
+     * Get duedate
+     *
+     * @return \DateTime
+     */
+    public function getDuedate()
+    {
+        return $this->duedate;
+    }
+
+    /**
      * Set nbrSprints
      *
-     * @param string $nbrSprints
+     * @param integer $nbrSprints
      *
      * @return Project
      */
@@ -157,28 +179,13 @@ class Project
     /**
      * Get nbrSprints
      *
-     * @return string
+     * @return int
      */
     public function getNbrSprints()
     {
         return $this->nbrSprints;
     }
 
-    /**
-     * @return int
-     */
-    public function getState(): int
-    {
-        return $this->state;
-    }
-
-    /**
-     * @param int $state
-     */
-    public function setState(int $state): void
-    {
-        $this->state = $state;
-    }
 
 
 

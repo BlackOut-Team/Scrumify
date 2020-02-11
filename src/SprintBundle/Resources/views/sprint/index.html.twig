@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sprints list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Created</th>
+                <th>Finished</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sprint in sprints %}
+            <tr>
+                <td><a href="{{ path('sprint_show', { 'id': sprint.id }) }}">{{ sprint.id }}</a></td>
+                <td>{% if sprint.created %}{{ sprint.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ sprint.finished }}</td>
+                <td>{{ sprint.etat }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sprint_show', { 'id': sprint.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sprint_edit', { 'id': sprint.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sprint_new') }}">Create a new sprint</a>
+        </li>
+    </ul>
+{% endblock %}

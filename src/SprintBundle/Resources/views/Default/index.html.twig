@@ -1,1 +1,15 @@
+{% extends'base.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
 
+    {% block contents %}
+        {% block  title %}
+            <a class="nav-link" href={{ path('project_homepage') }}>Sprints Homepage</a>
+        {%  endblock %}
+    {% endblock %}
+{% endblock %}

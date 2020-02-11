@@ -11,13 +11,6 @@ class DefaultController extends Controller
     {
         return $this->render('@Sprint/Default/index.html.twig');
     }
-    public function indexPAction()
-    {
-        return $this->render('@Sprint/Default/index.html.twig');
-    }
-    public function createPAction()
-    {
-        return $this->render('@Sprint/Default/createProject.html.twig');
-    }
+
 
 }

@@ -9,4 +9,6 @@ showProject:
 addProject:
     path:   /Add
     defaults: { _controller: ProjectBundle:Default:AddP }
-
+archiverProject:
+    path:     /archiver/{id}
+    defaults: { _controller: ProjectBundle:Default:archiverP }

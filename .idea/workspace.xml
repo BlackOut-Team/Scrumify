@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="92636477-0e43-4707-b1cd-a9f3848bcd74" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_08_02_2020_19_07_c.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_11_02_2020_14_51_c.xml" beforeDir="false" />
@@ -26,16 +27,21 @@
       <change beforePath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig" afterDir="false" />
 >>>>>>> 1564b96387284b09432474abb9b64e605e557a50
     </list>
+=======
+    <list default="true" id="016bad1b-d6a8-48d2-8cfa-d7fdfd5c6930" name="Default Changelist" comment="" />
+>>>>>>> 6c4db6766b81108ca37be0895b027891600aad3a
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -157,6 +163,11 @@
     </option>
   </component>
 >>>>>>> 1564b96387284b09432474abb9b64e605e557a50
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+>>>>>>> 6c4db6766b81108ca37be0895b027891600aad3a
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
@@ -274,6 +285,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
     </include_path>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -424,30 +436,46 @@
       <pane id="Scope" />
     </panes>
 >>>>>>> 1564b96387284b09432474abb9b64e605e557a50
+=======
+  <component name="ProjectId" id="1XfXh3bceuKRwgP1sfZGUK2HvAD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+>>>>>>> 6c4db6766b81108ca37be0895b027891600aad3a
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\wamp64\www\Scrumify\src\TeamBundle\Resources\views\Role" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="s doctrine:generate:entity" />
+      <command value="s doctrine:schema:update --force" />
     </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="016bad1b-d6a8-48d2-8cfa-d7fdfd5c6930" name="Default Changelist" comment="" />
+      <created>1581438239399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581438239399</updated>
+      <workItem from="1581438243800" duration="13401000" />
+      <workItem from="1581457100661" duration="618000" />
+    </task>
     <servers />
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -581,5 +609,31 @@
       </provider>
     </entry>
 >>>>>>> 1564b96387284b09432474abb9b64e605e557a50
+=======
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="530" y="188" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581439087763">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="530" y="188" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/62.0.1474.864@62.0.1474.864" timestamp="1581439087763" />
+    <state x="308" y="76" key="SettingsEditor" timestamp="1581438304525">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="308" y="76" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1581438304525" />
+    <state width="514" height="446" key="SwitcherDM" timestamp="1581444239077">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="514" height="446" key="SwitcherDM/62.0.1474.864@62.0.1474.864" timestamp="1581444239077" />
+    <state x="496" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1581457104759">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="496" y="258" key="com.intellij.ide.util.TipDialog/62.0.1474.864@62.0.1474.864" timestamp="1581457104759" />
+    <state x="456" y="197" width="672" height="677" key="run.anything.popup" timestamp="1581455682467">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="456" y="197" width="672" height="677" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1581455682467" />
+>>>>>>> 6c4db6766b81108ca37be0895b027891600aad3a
   </component>
 </project>

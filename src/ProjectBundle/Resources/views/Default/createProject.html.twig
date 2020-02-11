@@ -10,9 +10,7 @@
 
 
     {% block contents %}
-        {% block  title %}
-            <a class="nav-link" href={{ path('project_homepage') }}>Project Homepage</a>
-        {%  endblock %}
+
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-10 col-lg-11">
@@ -49,7 +47,7 @@
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
                                     {% for project in project %}
-                                        {% if project.state != 1 %}
+                                        {% if project.etat != 1 %}
                                         <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -69,7 +67,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="card-title">
-                                                        <a href="{{ path('sprint_homepage')}}">
+                                                        <a href="{{ path('Sprint_homepage')}}">
                                                             <h5 data-filter-by="text"> {{ project.name }}</h5>
                                                             <p> {{ project.description }}</p>
                                                         </a>
@@ -391,6 +389,7 @@
                             </div>
                         </div>
                     </form>
+
                     <div class="modal fade" id="project-add-modal" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">

@@ -3,6 +3,7 @@
 namespace SprintBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,9 +15,14 @@ class SprintType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('created')
-            ->add('finished');
-    }/**
+            ->add('name')
+            ->add('description')
+            ->add('duedate')
+            ->add('etat')
+            ->add('updated')
+        ->add('AddSprint',SubmitType::class );
+
+}/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

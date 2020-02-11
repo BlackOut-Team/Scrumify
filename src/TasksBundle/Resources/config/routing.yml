@@ -11,5 +11,5 @@ edit_tasks:
     path:     /editTasks/{id}
     defaults: { _controller: TasksBundle:Tasks:edit }
 archiver_tasks:
-    path:     /archiver/{id}
+    path:     /archiveTasks/{id}
     defaults: { _controller: TasksBundle:Tasks:archiver }

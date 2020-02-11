@@ -22,18 +22,25 @@ class Sprint
     private $id;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="created", type="datetime")
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $created;
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="finished", type="string", length=255)
+     * @ORM\Column(name="duedate", type="date")
      */
-    private $finished;
+    private $duedate;
 
     /**
      * @var int
@@ -41,6 +48,13 @@ class Sprint
      * @ORM\Column(name="etat", type="integer")
      */
     private $etat;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime")
+     */
+    private $updated;
 
 
     /**
@@ -54,51 +68,75 @@ class Sprint
     }
 
     /**
-     * Set created
+     * Set name
      *
-     * @param \DateTime $created
+     * @param string $name
      *
      * @return Sprint
      */
-    public function setCreated($created)
+    public function setName($name)
     {
-        $this->created = $created;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set finished
-     *
-     * @param string $finished
-     *
-     * @return Sprint
-     */
-    public function setFinished($finished)
-    {
-        $this->finished = $finished;
-
-        return $this;
-    }
-
-    /**
-     * Get finished
+     * Get name
      *
      * @return string
      */
-    public function getFinished()
+    public function getName()
     {
-        return $this->finished;
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Sprint
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set duedate
+     *
+     * @param \DateTime $duedate
+     *
+     * @return Sprint
+     */
+    public function setDuedate($duedate)
+    {
+        $this->duedate = $duedate;
+
+        return $this;
+    }
+
+    /**
+     * Get duedate
+     *
+     * @return \DateTime
+     */
+    public function getDuedate()
+    {
+        return $this->duedate;
     }
 
     /**
@@ -123,6 +161,30 @@ class Sprint
     public function getEtat()
     {
         return $this->etat;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Sprint
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }
 

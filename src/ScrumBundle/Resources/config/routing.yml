@@ -7,3 +7,6 @@ editProject:
 archiverProject:
     path:   /archiver/{id}
     defaults: { _controller: ScrumBundle:Default:archiverP }
+showProject:
+    path:   /projects
+    defaults: { _controller: ScrumBundle:Default:showP }

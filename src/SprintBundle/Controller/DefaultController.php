@@ -22,7 +22,7 @@ class DefaultController extends Controller
         if ($f->isSubmitted() && $f->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-            $s->setProject($projet);
+            //$s->setProject($projet);
             $s->setEtat(1);
             $s->setCreated(new \DateTime('now'));
             $em->persist($s);

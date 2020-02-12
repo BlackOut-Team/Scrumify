@@ -67,7 +67,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="card-title">
-                                                        <a href="{{ path('Sprint_homepage' ,{ 'id': sprint.id })}}">
+                                                        <a href="{{ path('tasks_homepage' )}}">
                                                             <h5 data-filter-by="text"> {{ sprint.name }}</h5>
                                                             <p> {{ sprint.description }}</p>
                                                         </a>
@@ -79,7 +79,6 @@
                                                                 <img alt="Kenny Tran" class="avatar" src={{ asset('assets/img/avatar-male-6.jpg') }} data-filter-by="alt" />
                                                             </a>
                                                         </li>
-                                                        <td><a href="{{ path('archiverSprint',{'id':sprint.id}) }}">Delete</a></td>
 
                                                         <li>
                                                             <a href="#" data-toggle="tooltip" title="Peggy">
@@ -99,7 +98,7 @@
                                                             <i class="material-icons mr-1">playlist_add_check</i>
                                                             <span class="text-small">6/10</span>
                                                         </div>
-                                                        <span class="text-small" data-filter-by="text">Due 4 days</span>
+                                                        <span class="text-small" data-filter-by="text">Due {{ sprint.duedate | date('d-M-Y') }}</span>
                                                     </div>
                                                 </div>
                                             </div>

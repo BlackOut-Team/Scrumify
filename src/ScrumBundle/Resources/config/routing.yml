@@ -1,0 +1,9 @@
+addProject:
+    path:   /Add
+    defaults: { _controller: ScrumBundle:Default:AddP }
+editProject:
+    path:   /EditP/{id}
+    defaults: { _controller: ScrumBundle:Default:editP }
+archiverProject:
+    path:   /archiver/{id}
+    defaults: { _controller: ScrumBundle:Default:archiverP }

@@ -22,11 +22,11 @@ class AppKernel extends Kernel
             new TasksBundle\TasksBundle(),
             new ForumBundle\ForumBundle(),
             new ActivityBundle\ActivityBundle(),
-            new ProjectBundle\ProjectBundle(),
             new TeamBundle\TeamBundle(),
             new FeatureBundle\FeatureBundle(),
             new UserstoryBundle\UserstoryBundle(),
             new SprintBundle\SprintBundle(),
+            new ScrumBundle\ScrumBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

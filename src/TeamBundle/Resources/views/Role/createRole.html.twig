@@ -46,6 +46,7 @@
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
                                     {% for con in con %}
+                                        {% if con.ind != 1 %}
                                         <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -60,7 +61,7 @@
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a class="dropdown-item" href="{{ path('edit_role', {'id': con.id}) }}">Edit</a>
-                                                            <a class="dropdown-item text-danger" href="{{ path('archive_team', { 'id': con.id }) }}">Archive role</a>
+                                                            <a class="dropdown-item text-danger" href="{{ path('archive_role', { 'id': con.id }) }}">Archive role</a>
 
                                                         </div>
                                                     </div>
@@ -75,7 +76,7 @@
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>{% endif %}
                                     {% endfor %}
 
 

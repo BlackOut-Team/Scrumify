@@ -11,21 +11,38 @@
         <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
     <div class="card-body">
-        <a href="{{ path('delete_meeting',{'id':mm.id}) }}">
-            <button  type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                <span aria-hidden="true">×</span>
+        <div class="dropdown card-options">
+            <button class="btn-options" type="button" id="project-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons">more_vert</i>
             </button>
-        </a>
-        <a href="{{ path('update_meeting',{'id':mm.id}) }}">
-            <button  type="button" class="ml-2 mb-1 btn-sm  close" data-dismiss="toast" >
-                <span aria-hidden="true">edit</span>
-            </button>
-        </a>
+
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="{{ path('update_meeting',{'id':mm.id}) }}">Edit</a>
+            <a class="dropdown-item text-danger" href="{{ path('delete_meeting',{'id':mm.id}) }}">Delete</a>
+
+        </div>
+        </div>
         <div class="card-title">
             <a href="#" data-toggle="modal" data-target="#task-modal"><h6>{{ mm.type }}</h6></a>
         </div>
         <ul class="avatars">
-            ...
+            <li>
+                <a href="#" data-toggle="tooltip" title="Kenny">
+                    <img alt="Kenny Tran" class="avatar" src={{ asset('assets/img/avatar-male-6.jpg') }} data-filter-by="alt" />
+                </a>
+            </li>
+
+            <li>
+                <a href="#" data-toggle="tooltip" title="Peggy">
+                    <img alt="Peggy Brown" class="avatar" src={{ asset('assets/img/avatar-female-2.jpg') }} data-filter-by="alt" />
+                </a>
+            </li>
+
+            <li>
+                <a href="#" data-toggle="tooltip" title="Ravi">
+                    <img alt="Ravi Singh" class="avatar" src={{ asset('assets/img/avatar-male-3.jpg') }} data-filter-by="alt" />
+                </a>
+            </li>
         </ul>
         <div class="card-meta d-flex justify-content-between">
             <div class="d-flex align-items-center">

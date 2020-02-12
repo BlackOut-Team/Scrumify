@@ -10,8 +10,5 @@ class DefaultController extends Controller
     {
         return $this->render('@Activity/Default/index.html.twig');
     }
-    public function AfficherAction()
-    {
-        return $this->render('@Activity/Default/meetings.html.twig');
-    }
+
 }

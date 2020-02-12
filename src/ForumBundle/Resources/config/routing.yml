@@ -11,3 +11,9 @@ _display_question:
 _add_question:
     path:     /AddQuestion
     defaults: { _controller: ForumBundle:Question:AddQuestion }
+_delete_question:
+    path:     /DeleteQuestion/{id}
+    defaults: { _controller: ForumBundle:Question:DeleteQuestion }
+_delete_answer:
+    path:     /DeleteAnswer/{id}
+    defaults: { _controller: ForumBundle:Answer:DeleteAnswer }

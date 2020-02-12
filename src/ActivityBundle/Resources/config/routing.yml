@@ -4,6 +4,16 @@ activity_homepage:
 delete_activity:
     path:     /delete_activity/{id}
     defaults: { _controller: ActivityBundle:Activity:Supprimer}
-afficherMeeting:
-    path:     /afficherMeeting
-    defaults: { _controller: ActivityBundle:Default:Afficher}
+
+ajoutermeeting:
+    path:     /ajouter_meetings
+    defaults: { _controller: ActivityBundle:Meetings:ajouter }
+affichermeeting:
+    path:     /afficher_meetings
+    defaults: { _controller: ActivityBundle:Meetings:AfficheMetting }
+delete_meeting:
+    path:     /delete_meeting/{id}
+    defaults: { _controller: ActivityBundle:Meetings:Supprimer}
+update_meeting:
+    path:     /update_meeting/{id}
+    defaults: { _controller: ActivityBundle:Meetings:modifier}

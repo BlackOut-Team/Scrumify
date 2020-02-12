@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Home{% endblock %}
+{% extends'base.html.twig' %}
+{% block title %}Team{% endblock %}
+{% block soustitle %}   <a class="nav-link" }}>Role Homepage</a> {% endblock %}
 {% block head %}
     {{ parent() }}
     <style type="text/css">
@@ -8,10 +8,7 @@
     </style>
 {% endblock %}
 {% block content %}
-    <h1>Index</h1>
-    <p class="important">
-        Welcome on my awesome homepage.
-    </p>
+
 
 
     {% block contents %}
@@ -21,7 +18,7 @@
                     <hr>
                     <ul class="nav nav-tabs nav-fill" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#Roles" role="tab" aria-controls="roles" aria-selected="true">Roles</a>
+                            <a class="nav-link active" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Role</a>
                         </li>
 
                     </ul>
@@ -30,8 +27,8 @@
                             <div class="content-list">
                                 <div class="row content-list-head">
                                     <div class="col-auto">
-                                        <h3>Roles</h3>
-                                        <button class="btn btn-round" data-toggle="modal" data-target="#role-add-modal">
+                                        <h3>Role</h3>
+                                        <button class="btn btn-round" data-toggle="modal" data-target="#project-add-modal">
                                             <i class="material-icons">add</i>
                                         </button>
                                     </div>
@@ -42,42 +39,45 @@
                               <i class="material-icons">filter_list</i>
                             </span>
                                             </div>
-                                            <input type="search" class="form-control filter-list-input" placeholder="Filter Roles" aria-label="Filter Roles">
+                                            <input type="search" class="form-control filter-list-input" placeholder="Filter teams" aria-label="Filter Teams">
                                         </div>
                                     </form>
                                 </div>
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
-                                                                        {% for p in p %}
-                                    <div class="col-lg-6">
-                                        <div class="card card-project">
+                                    {% for con in con %}
+                                        <div class="col-lg-6">
+                                            <div class="card card-project">
 
-                                            <div class="progress">
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-
-                                            <div class="card-body">
-                                                <div class="dropdown card-options">
-                                                    <button class="btn-options" type="button" id="project-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="material-icons">more_vert</i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Share</a>
-                                                    </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                                                                                    <div class="card-title">
-                                                                                                        <a href="#">
-                                                                                                            <h5 data-filter-by="text"> {{ p.role }}</h5>
 
-                                                                                                        </a>
-                                                                                                    </div>
+                                                <div class="card-body">
+                                                    <div class="dropdown card-options">
+                                                        <button class="btn-options" type="button" id="project-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="material-icons">more_vert</i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="{{ path('edit_role', {'id': con.id}) }}">Edit</a>
+                                                            <a class="dropdown-item text-danger" href="{{ path('archive_team', { 'id': con.id }) }}">Archive role</a>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-title">
+                                                        <a href="#">
+                                                            <h5 data-filter-by="text"> {{ con.role }}</h5>
 
 
+                                                        </a>
+                                                    </div>
+
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                                                   {% endfor %}
+                                    {% endfor %}
+
 
 
                                 </div>
@@ -90,55 +90,63 @@
                     </div>
 
 
-                </div>
-            </div>
-        </div>
 
-        <form class="modal fade" id="role-add-modal" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="project-add-modal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">New Role</h5>
+                                    <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </div>
+                                <!--end of modal head-->
+                                <ul class="nav nav-tabs nav-fill" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="project-add-details-tab" data-toggle="tab" href="#project-add-details" role="tab" aria-controls="project-add-details" aria-selected="true">Details</a>
+                                    </li>
 
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">New Role</h5>
-                        <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
-                            <i class="material-icons">close</i>
-                        </button>
-                    </div>
-                    <!--end of modal head-->
-                    <ul class="nav nav-tabs nav-fill" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="role-add-details-tab" data-toggle="tab" href="#role-add-details" role="tab" aria-controls="role-add-details" aria-selected="true">Details</a>
-                        </li>
+                                </ul>
+                                <div class="modal-body">
 
-                    </ul>
-                    <div class="modal-body">
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
-                                <h6>General Details</h6>
-                                <div class="form-group row align-items-center">
-                                    <label class="col-3">Name</label>
-                                    <div class="tt-value-wrapper">
 
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
+                                            <h6>General Details</h6>
+                                            <div class="form-group row align-items-center">
+                                                <label class="col-3">Role Name</label>
+                                                {{ form_start(form) }}
+                                                {{ form_widget(form.role ,{'attr': {'class': 'form-control col'}})}}
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="form-group row align-items-center">
+
+                                                <label class="col-3">Ajouter</label>
+
+
+                                                {{ form_widget(form.Ajouter,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_end(form) }}
+
+                                            </div>
+                                        </div>
 
                                     </div>
 
                                 </div>
+                            </div>
+                            <!--end of modal body-->
+                            <div class="modal-footer">
 
                             </div>
                         </div>
-                        <!--end of modal body-->
-                        <div class="modal-footer">
-                            <button role="button" class="btn btn-primary" type="submit">
-                                Create Role
-                            </button>
-                        </div>
                     </div>
                 </div>
-        </form>
-        <button class="btn btn-primary btn-round btn-floating btn-lg" type="button" data-toggle="collapse" data-target="#floating-chat" aria-expanded="false">
-            <i class="material-icons">chat_bubble</i>
-            <i class="material-icons">close</i>
-        </button>
+
+            </div>
+        </div>
+        </div>
 
 
         </div>

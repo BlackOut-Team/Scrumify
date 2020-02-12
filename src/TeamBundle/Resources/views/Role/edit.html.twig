@@ -1,0 +1,41 @@
+{% extends'base.html.twig' %}
+{% block title %}Team{% endblock %}
+{% block soustitle %}   <a class="nav-link" }}>Team Homepage</a> {% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+
+
+    {% block contents %}
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
+                <h6>General Details</h6>
+
+                <div class="form-group row align-items-center">
+                    <label class="col-3">Team name</label>
+                    {{ form_start(form) }}
+                    {{ form_widget(form.role ,{'attr': {'class': 'form-control col'}})}}
+                </div>
+
+                <hr>
+
+                <div class="form-group row align-items-center">
+
+                    <label class="col-3">Modifier Role</label>
+
+
+                    {{ form_widget(form.Modifier,{'attr': {'class': 'form-control col'}})}}
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+
+        </div>
+
+    {% endblock %}
+{% endblock %}

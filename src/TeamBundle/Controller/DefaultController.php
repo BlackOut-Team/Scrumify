@@ -29,7 +29,7 @@ class DefaultController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted()&&$form->isValid()) {
 
-
+            $p->setInd(0);
             $em = $this->getDoctrine()->getManager();
             $em->persist($p);
 
@@ -55,7 +55,7 @@ class DefaultController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
 
-
+            $p->setInd(0);
             $em = $this->getDoctrine()->getManager();
             $em->persist($p);
             $em->flush();
@@ -84,7 +84,7 @@ class DefaultController extends Controller
                 ->getForm();
             $form->handleRequest($request);
             if ($form->isSubmitted()) {
-
+                $con->setInd(0);
 
                 $em = $this->getDoctrine()->getManager();
 
@@ -98,4 +98,13 @@ class DefaultController extends Controller
 
     }
 
+    public function archiveAction(Request $request, $id){
+
+        $con = $this -> getDoctrine()->getRepository('TeamBundle:role')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $con->setInd(1);
+        $em->persist($con);
+        $em->flush();
+        return $this->redirectToRoute('affiche_role');
+    }
 }

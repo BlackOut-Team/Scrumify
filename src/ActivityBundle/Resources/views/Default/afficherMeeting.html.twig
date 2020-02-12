@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}Activity{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block contents %}
+<div class="text-center d-flex align-items-center justify-content-center pt-md-5 flex-column">
+    {% for mm in m %}
+<div class="card card-kanban w-25">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="card-body">
+        <a href="{{ path('delete_meeting',{'id':mm.id}) }}">
+            <button  type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </a>
+        <a href="{{ path('update_meeting',{'id':mm.id}) }}">
+            <button  type="button" class="ml-2 mb-1 btn-sm  close" data-dismiss="toast" >
+                <span aria-hidden="true">edit</span>
+            </button>
+        </a>
+        <div class="card-title">
+            <a href="#" data-toggle="modal" data-target="#task-modal"><h6>{{ mm.type }}</h6></a>
+        </div>
+        <ul class="avatars">
+            ...
+        </ul>
+        <div class="card-meta d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <i class="material-icons">playlist_add_check</i>
+                <span>-/-</span>
+            </div>
+            <span class="text-small">Due 2 days</span>
+        </div>
+    </div>
+</div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

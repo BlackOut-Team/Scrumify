@@ -24,18 +24,26 @@
             </button>
         </div>
         <!--end of modal head-->
-
+        {{ form_start(f) }}
         <div class="modal-body">
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="task-add-details" role="tabpanel">
                     <h6>General Details</h6>
                     <div class="form-group row align-items-center">
                         <label class="col-3">Name</label>
-                        <input class="form-control col" type="text" placeholder="Task name" name="task-name">
+                        {{ form_widget(f.name, {'attr': {'class': 'form-control col',"placeholder":"meeting name", "name":"meeting-name","type":"text"}}) }}
+
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label class="col-3">place</label>
+                        {{ form_widget(f.place, {'attr': {'class': 'form-control col',"placeholder":"meeting place", "name":"meeting-place","type":"text"}}) }}
+
                     </div>
                     <div class="form-group row">
-                        <label class="col-3">Description</label>
-                        <textarea class="form-control col" rows="3" placeholder="Task description" name="task-description"></textarea>
+                        <label class="col-3">type</label>
+                        {{ form_widget(f.type, {'attr': {'class': 'form-control col',"placeholder":"meeting type", "name":"meeting-type"}}) }}
+
+
                     </div>
                     <hr>
                     <h6>Timeline</h6>
@@ -48,6 +56,7 @@
                         <input class="form-control col flatpickr-input" type="hidden" name="task-due" placeholder="Select a date" data-flatpickr="" data-default-date="2021-09-15" data-alt-input="true" value="2021-09-15"><input class="form-control col flatpickr-input form-control input" placeholder="Select a date" tabindex="0" type="text" readonly="readonly">
 
                     </div>
+
                     <div class="alert alert-warning text-small" role="alert">
                         <span>You can change due dates at any time.</span>
                     </div>
@@ -186,12 +195,12 @@
         </div>
         <!--end of modal body-->
         <div class="modal-footer">
-            <button role="button" class="btn btn-primary" type="submit">
-                Create Task
-            </button>
+            {{ form_widget(f.submit, {'attr': {'class': 'btn btn-primary', "type":"submit"}}) }}
+
         </div>
     </div>
     </div>
+    {{ form_end(f) }}
     <script type="text/javascript" src={{ asset('assets/js/theme.js') }}></script>
     <script type="text/javascript" src={{ asset('assets/js/flatpickr.min.js') }}></script>
 {% endblock %}

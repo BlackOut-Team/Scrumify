@@ -23,6 +23,15 @@ class QuestionController extends Controller
         return $this->render('@Forum/Question/display_questions.html.twig',
             array('questions'=>$questions, 'user' => $user ));
     }
+    public function DisplayBackQuestionsAction()
+    {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $questions=$this->getDoctrine()
+            ->getRepository(Question::class)
+            ->findAll();
+        return $this->render('@Forum/back/back.html.twig',
+            array('questions'=>$questions, 'user' => $user ));
+    }
 
     public function DisplayQuestionAction($id, Request $request)
     {

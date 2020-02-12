@@ -1,10 +1,9 @@
 <?php
 
-namespace ProjectBundle;
+namespace ScrumBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ProjectBundle extends Bundle
+class ScrumBundle extends Bundle
 {
-
 }

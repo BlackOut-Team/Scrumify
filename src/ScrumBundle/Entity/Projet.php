@@ -1,16 +1,16 @@
 <?php
 
-namespace ProjectBundle\Entity;
+namespace ScrumBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Project
+ * Projet
  *
- * @ORM\Table(name="project")
- * @ORM\Entity(repositoryClass="ProjectBundle\Repository\ProjectRepository")
+ * @ORM\Table(name="projet")
+ * @ORM\Entity(repositoryClass="ScrumBundle\Repository\ProjetRepository")
  */
-class Project
+class Projet
 {
     /**
      * @var int
@@ -79,7 +79,7 @@ class Project
      *
      * @param string $name
      *
-     * @return Project
+     * @return Projet
      */
     public function setName($name)
     {
@@ -103,7 +103,7 @@ class Project
      *
      * @param string $description
      *
-     * @return Project
+     * @return Projet
      */
     public function setDescription($description)
     {
@@ -127,7 +127,7 @@ class Project
      *
      * @param \DateTime $created
      *
-     * @return Project
+     * @return Projet
      */
     public function setCreated($created)
     {
@@ -151,7 +151,7 @@ class Project
      *
      * @param \DateTime $duedate
      *
-     * @return Project
+     * @return Projet
      */
     public function setDuedate($duedate)
     {
@@ -173,9 +173,9 @@ class Project
     /**
      * Set nbrSprints
      *
-     * @param integer $nbrSprints
+     * @param string $nbrSprints
      *
-     * @return Project
+     * @return Projet
      */
     public function setNbrSprints($nbrSprints)
     {
@@ -187,7 +187,7 @@ class Project
     /**
      * Get nbrSprints
      *
-     * @return int
+     * @return string
      */
     public function getNbrSprints()
     {
@@ -199,7 +199,7 @@ class Project
      *
      * @param integer $etat
      *
-     * @return Project
+     * @return Projet
      */
     public function setEtat($etat)
     {

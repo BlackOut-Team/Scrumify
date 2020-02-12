@@ -47,7 +47,7 @@
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
                                     {% for project in project %}
-                                        {% if project.visible != 1 %}
+                                        {% if project.etat != 0 %}
                                         <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -61,7 +61,7 @@
                                                             <i class="material-icons">more_vert</i>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="{{ path('addProject', { 'id': project.id }) }}">Edit</a>
+                                                            <a class="dropdown-item" href="{{ path('editProject', { 'id': project.id }) }}">Edit</a>
                                                             <a class="dropdown-item text-danger" href="{{ path('archiverProject', { 'id': project.id }) }}">Archive Project</a>
 
                                                         </div>
@@ -99,7 +99,7 @@
                                                             <i class="material-icons mr-1">playlist_add_check</i>
                                                             <span class="text-small">6/10</span>
                                                         </div>
-                                                        <span class="text-small" data-filter-by="text">Due 4 days</span>
+                                                        <span class="text-small" data-filter-by="text">Due {{ project.duedate | date('d-M-Y') }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -431,15 +431,16 @@
                                             <div class="form-group row align-items-center">
                                                 <label class="col-3">Due Date</label>
 
-                                                {{ form_widget(f.finished,{'attr': {'data-format': "dd/MM/yyyy"} } , {'attr' : {'class': 'form-control col flatpickr-input input active'}})}}
+                                                {{ form_widget(f.duedate,{'attr': {'data-format': "dd/MM/yyyy"} } , {'attr' : {'class': 'form-control col flatpickr-input input active'}})}}
                                             </div>
                                             <div class="form-group row align-items-center">
 
                                                 <label class="col-3">Sprints Number</label>
 
                                                 {{ form_widget(f.nbrSprints,{'attr': {'class': 'form-control col'}})}}
+
                                                 <hr>
-                                                {{ form_widget(f.AddProject,{'attr': {'class': 'btn btn-primary'}})}}
+                                                {{ form_widget(f.Submit,{'attr': {'class': 'btn btn-primary'}})}}
                                                 {{ form_end(f) }}
 
                                             </div>

@@ -41,7 +41,28 @@ class Media
      * @ORM\Column(name="path", type="string", length=255)
      */
     private $path;
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="TasksBundle\Entity\Tasks")
+     * @ORM\JoinColumn(name="task_id",referencedColumnName="id")
+     */
+    private $tasks;
 
+    /**
+     * @return mixed
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
+    }
+
+    /**
+     * @param mixed $tasks
+     */
+    public function setTasks($tasks): void
+    {
+        $this->tasks = $tasks;
+    }
 
     /**
      * Get id

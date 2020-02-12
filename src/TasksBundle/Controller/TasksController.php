@@ -82,6 +82,7 @@ class TasksController extends Controller
         return $this->render('@Tasks/Tasks/home.html.twig',array(
             'form'=>$form->CreateView(),
             'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3));
+
     }
 
 

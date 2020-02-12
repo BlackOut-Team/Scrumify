@@ -57,7 +57,28 @@ class Sprint
      * @ORM\Column(name="created", type="datetime")
      */
     private $created;
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="ScrumBundle\Entity\Projet")
+     * @ORM\JoinColumn(name="project_id",referencedColumnName="id")
+     */
+    private $project;
 
+    /**
+     * @return mixed
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param mixed $project
+     */
+    public function setProject($project): void
+    {
+        $this->project = $project;
+    }
 
     /**
      * Get id

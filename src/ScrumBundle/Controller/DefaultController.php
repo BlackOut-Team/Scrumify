@@ -1,29 +1,25 @@
 <?php
 
-namespace ProjectBundle\Controller;
+namespace ScrumBundle\Controller;
 
-use ActivityBundle\Entity\Activity;
-use ProjectBundle\Entity\Project;
-use ProjectBundle\Form\ProjectType;
-use ProjectBundle\ProjectBundle;
+use ScrumBundle\Entity\Projet;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use TasksBundle\Entity\Tasks;
 
 class DefaultController extends Controller
 {
     public function  AddPAction(Request $request)
     {
-        $project=$this->getDoctrine()->getRepository(Project::class)->findAll();
-        $p= new Project();
-        $f=$this->createForm('ProjectBundle\Form\ProjectType',$p);
+        $project=$this->getDoctrine()->getRepository(Projet::class)->findAll();
+        $p= new Projet();
+        $f=$this->createForm('ScrumBundle\Form\ProjetType',$p);
         //dump($f,$request);exit;
         $f->handleRequest($request);
         if ($f->isSubmitted() && $f->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
             $p->setCreated(new \DateTime('now'));
-            $p->setvisible(1);
+            $p->setEtat(1);
 
             $em->persist($p);
             $em->flush($p);
@@ -31,7 +27,7 @@ class DefaultController extends Controller
             return $this->redirectToRoute('addProject');
 
         }
-        return $this->render('@Project/Default/createProject.html.twig',array(
+        return $this->render('@Scrum/Default/createProject.html.twig',array(
             'f'=>$f->createView(),
             'project'=>$project
 
@@ -39,17 +35,17 @@ class DefaultController extends Controller
 
     }
 
-    public function archiverPAction(Request $request, Project $project){
+    public function archiverPAction(Request $request, Projet $project){
 
         $em= $this->getDoctrine()->getManager();
-        $project->setstate(1);
+        $project->setEtat(0);
         $em->persist($project);
         $em->flush();
         return $this->redirectToRoute('addProject');
 
     }
-    public function editPAction(Request $request, Project $project){
-        $editForm=$this->createForm('ProjectBundle\Form\ProjectType',$project);
+    public function editPAction(Request $request, Projet $project){
+        $editForm=$this->createForm('ScrumBundle\Form\ProjetType',$project);
         $editForm->handleRequest($request);
 
         if($editForm->isSubmitted() && $editForm->isValid())
@@ -57,8 +53,9 @@ class DefaultController extends Controller
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('addProject');
         }
-        return $this->render('@Project/Default/createProject.html.twig', array(
+        return $this->render('@Scrum/Default/editP.html.twig', array(
             'edit_form' => $editForm->createView()
         ));
     }
+
 }

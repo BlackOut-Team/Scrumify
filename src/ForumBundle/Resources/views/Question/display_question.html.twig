@@ -1,7 +1,7 @@
 
 {% extends "base.html.twig" %}
 
-{% block title %}Forum{% endblock %}
+{% block title %}<a href="{{ path('_display_questions') }}">Forum</a>{% endblock %}
 {% block stylesheets %}
 
     <link rel="shortcut icon" href="favicon/favicon.ico">
@@ -43,15 +43,15 @@
         <div class="tt-item-info info-bottom">
             <a href="#" class="tt-icon-btn">
                 <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                <span class="tt-text">671</span>
+                <span class="tt-text">{{ question.likes }}</span>
             </a>
             <a href="#" class="tt-icon-btn">
                 <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                <span class="tt-text">39</span>
+                <span class="tt-text">{{ question.dislikes }}</span>
             </a>
             <a href="#" class="tt-icon-btn">
                 <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                <span class="tt-text">12</span>
+                <span class="tt-text">0</span>
             </a>
             <div class="col-separator"></div>
             <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
@@ -68,16 +68,75 @@
             </div>
 
 
+            {% for answer in answers %}
+            {% if user.username == answer.User.username %}
+                <div  class="tt-item tt-wrapper-success">
+                    <a href="{{ path('_delete_answer',{'id':answer.id}) }}"  class="ml-2 mb-1 close z-100" >
+
+                            <span >×</span>
+                    </a>
+                    {% endif %}
+                    {% if user.username != answer.User.username %}
+                    <div class="tt-item ">
+                        {% endif %}
+                <div class="tt-single-topic">
+                    <div class="tt-item-header pt-noborder">
+                        <div class="tt-item-info info-top">
+                            <div class="tt-avatar-icon">
+                                <i class="tt-icon"><svg><use xlink:href="#icon-ava-t"></use></svg></i>
+                            </div>
+                            <div class="tt-avatar-title">
+                                <a href="#">{{ answer.User.username }}</a>
+                            </div>
+                            <a href="#" class="tt-info-time">
+                                <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tt-item-description">
+                        {{ answer.content }}
+                    </div>
+                    <div class="tt-item-info info-bottom">
+                        <a href="#" class="tt-icon-btn">
+                            <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
+                            <span class="tt-text">0</span>
+                        </a>
+                        <a href="#" class="tt-icon-btn">
+                            <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
+                            <span class="tt-text">0</span>
+                        </a>
+                        <a href="#" class="tt-icon-btn">
+                            <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
+                            <span class="tt-text">0</span>
+                        </a>
+                        <div class="col-separator"></div>
+                        <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
+                            <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
+                        </a>
+                        <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
+                            <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
+                        </a>
+                        <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
+                            <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+
+
+
             <div class="tt-wrapper-inner">
                 <h4 class="tt-title-separator"><span>You’ve reached the end of replies</span></h4>
             </div>
 
-
+            {{ form_start(f2) }}
             <div class="tt-wrapper-inner">
                 <div class="pt-editor form-default">
                     <h6 class="pt-title">Post Your Reply</h6>
                     <div class="form-group">
-                        <textarea name="message" class="form-control" rows="5" placeholder="Lets get started"></textarea>
+                        {{ form_widget(f2.content, {'attr': {'class': 'form-control',"placeholder":"Lets get started", "name":"message", "rows":"5"}}) }}
+
                     </div>
                     <div class="pt-row">
                         <div class="col-auto">
@@ -91,11 +150,13 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <a href="#" class="btn btn-secondary btn-width-lg">Reply</a>
+                            {{ form_widget(f2.submit, {'attr': {'class': 'btn btn-secondary btn-width-lg', "type":"submit", "value":""}}) }}
                         </div>
                     </div>
                 </div>
             </div>
+
+            {{ form_end(f2) }}
         </div>
     </div>
 </main>

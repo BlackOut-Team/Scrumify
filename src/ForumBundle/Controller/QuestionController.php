@@ -3,30 +3,52 @@
 namespace ForumBundle\Controller;
 
 
+use ForumBundle\Entity\Answer;
 use ForumBundle\Entity\Question;
+use ForumBundle\Form\AnswerType;
 use ForumBundle\Form\QuestionType;
-use MainBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use ActivityBundle\Service\ActivityGenerator;
 
 class QuestionController extends Controller
 {
+
     public function DisplayQuestionsAction()
     {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $questions=$this->getDoctrine()
             ->getRepository(Question::class)
             ->findAll();
         return $this->render('@Forum/Question/display_questions.html.twig',
-            array('questions'=>$questions));
+            array('questions'=>$questions, 'user' => $user ));
     }
 
-    public function DisplayQuestionAction($id)
+    public function DisplayQuestionAction($id, Request $request)
     {
-        $em= $this->getDoctrine()->getManager();
+        $answer = new Answer();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $em=$this->getDoctrine()->getManager();
         $question =$em->getRepository('ForumBundle:Question')->find($id);
+
+
+        $answers = $em->getRepository('ForumBundle:Answer')->findBy(['Question'=>$question]);
+        $Form2=$this->createForm(AnswerType::class,$answer);
+        $Form2->handleRequest($request);
+        if($Form2->isSubmitted() && $Form2->isValid()){
+            $answer ->setQuestion($question);
+            $answer->setUser($user);
+            $em->persist($answer);
+            $em->flush();
+            $activityGenerator = $this->get(ActivityGenerator::class);
+            $activity = $activityGenerator->AjouterActivity('a ajouter une reponse', $user);
+            $this->addFlash('success', $activity);
+            return $this->redirectToRoute('_display_question',['id' => $id]);
+
+
+        }
         return $this->render('@Forum/Question/display_question.html.twig',array(
-            'question'=> $question));
+            'question'=> $question, 'f2'=>$Form2->createView(), "answers"=>$answers, 'user' => $user));
     }
     public function AddQuestionAction(Request $request)
     {
@@ -51,6 +73,20 @@ class QuestionController extends Controller
 
         return $this->render('@Forum/Question/add_question.html.twig',
             array('f'=>$Form->createView()));
+    }
+
+    public function DeleteQuestionAction($id){
+        $activityGenerator = $this->get(ActivityGenerator::class);
+
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $activity = $activityGenerator->AjouterActivity('a supprimer un question', $user);
+        $this->addFlash('success', $activity);
+        $em=$this->getDoctrine()->getManager();
+        $question=$em->getRepository(Question::class)
+            ->find($id);
+        $em->remove($question);
+        $em->flush();
+        return $this->redirectToRoute('_display_questions');
     }
 
 

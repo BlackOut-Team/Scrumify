@@ -34,6 +34,14 @@ class team
 
 
     /**
+     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\JoinTable(name="user-team",
+     *     joinColumns={@ORM\JoinColumn(name="user_id",referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="team_id",referencedColumnName="id")})
+     *
+     */
+
+    /**
      * Get id.
      *
      * @return int

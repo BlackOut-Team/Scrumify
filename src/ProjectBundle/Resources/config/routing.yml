@@ -1,9 +1,0 @@
-addProject:
-    path:   /Add
-    defaults: { _controller: ProjectBundle:Default:AddP }
-editProject:
-    path:   /EditP
-    defaults: { _controller: ProjectBundle:Default:editP }
-archiverProject:
-    path:     /archiver/{id}
-    defaults: { _controller: ProjectBundle:Default:archiverP }

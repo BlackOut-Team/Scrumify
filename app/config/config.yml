@@ -4,7 +4,6 @@ imports:
     - { resource: services.yml }
     - { resource: "@MainBundle/Resources/config/services.yml" }
     - { resource: "@TasksBundle/Resources/config/services.yml" }
-    - { resource: "@ProjectBundle/Resources/config/services.yml" }
     - { resource: "@ActivityBundle/Resources/config/services.yml" }
     - { resource: "@ForumBundle/Resources/config/services.yml" }
 
@@ -13,6 +12,7 @@ imports:
     - { resource: "@FeatureBundle/Resources/config/services.yml" }
     - { resource: "@UserstoryBundle/Resources/config/services.yml" }
     - { resource: "@SprintBundle/Resources/config/services.yml" }
+    - { resource: "@ScrumBundle/Resources/config/services.yml" }
 
 
 # Put parameters here that don't need to change on each machine where the app is deployed

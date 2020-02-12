@@ -1,15 +1,15 @@
 <?php
 
-namespace SprintBundle\Form;
+namespace ScrumBundle\Form;
 
-use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SprintType extends AbstractType
+class ProjetType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -18,20 +18,20 @@ class SprintType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description')
+            ->add('description',TextareaType::class)
             ->add('duedate',DateTimeType::class, [
                 // renders it as a single text box
                 'widget' => 'single_text',
             ])
-        ->add('AddSprint',SubmitType::class );
-
-}/**
+            ->add('nbrSprints')
+            ->add('Submit',SubmitType::class );
+    }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SprintBundle\Entity\Sprint'
+            'data_class' => 'ScrumBundle\Entity\Projet'
         ));
     }
 
@@ -40,7 +40,7 @@ class SprintType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'sprintbundle_sprint';
+        return 'scrumbundle_projet';
     }
 
 

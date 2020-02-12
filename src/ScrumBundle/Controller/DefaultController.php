@@ -58,4 +58,15 @@ class DefaultController extends Controller
         ));
     }
 
+    public function  showPAction(Request $request)
+    {
+        $project=$this->getDoctrine()->getRepository(Projet::class)->findAll();
+
+
+        return $this->render('@Scrum/Back/projects.html.twig',array(
+            'pp'=>$project
+
+        ));
+
+    }
 }

@@ -1,7 +1,7 @@
 
 {% extends "base.html.twig" %}
 
-{% block title %}Forum{% endblock %}
+{% block title %}<a href="{{ path('_display_questions') }}">Forum</a>{% endblock %}
 {% block stylesheets %}
 
     <link rel="shortcut icon" href="favicon/favicon.ico">
@@ -21,13 +21,12 @@
                 <label for="inputTopicTitle">Topic Title</label>
                 <div class="tt-value-wrapper">
                     {{ form_widget(f.title, {'attr': {'class': 'form-control', "id":"inputTopicTitle","placeholder":"Subject of your topic", "name":"name", "type":"text"}}) }}
-                    <span class="tt-value-input">99</span>
+                    <span class="tt-value-input"></span>
                 </div>
-                <div class="tt-note">Describe your topic well, while keeping the subject as short as possible.</div>
+                <div class="tt-note pt-4" >Describe your topic well, while keeping the subject as short as possible.</div>
             </div>
             <div class="form-group">
                 {{ form_widget(f.type, {'attr': {'class': 'form-control d-none','value':'0'}}) }}
-                {{ form_widget(f.User, {'attr': {'class': 'form-control d-none'}}) }}
 
                 <label>Topic Type</label>
                 <div class="tt-js-active-btn tt-wrapper-btnicon">

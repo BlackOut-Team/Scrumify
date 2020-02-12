@@ -2,106 +2,124 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="016bad1b-d6a8-48d2-8cfa-d7fdfd5c6930" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_2_12_20__12_09_AM_c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_2_12_20__12_10_AM_s.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Amira_Doghri.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProjectBundle/Repository/projectScrumRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProjectBundle/Repository/projetRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Controller/TeamController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Entity/team.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Repository/teamRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/config/doctrine/team.orm.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/team/ajoutTeam.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/team/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/team/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamBundle/Tests/Controller/TeamControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Controller/AnswerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/Answer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Form/AnswerType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Repository/AnswerRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Tests/Controller/AnswerControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_08_02_2020_19_07_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_08_02_2020_19_07_c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_2_12_20__12_09_AM_c.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_08_02_2020_19_07_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_08_02_2020_19_07_s.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_2_12_20__12_10_AM_s.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Form/ProjectType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Form/ProjectType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Default/createProject.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Default/createProject.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Entity/Sprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Entity/Sprint.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Form/SprintType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Form/SprintType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/config/routing/sprint.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SprintBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SprintBundle/Tests/Controller/SprintControllerTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TasksBundle/Entity/Tasks.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TasksBundle/Entity/Tasks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TasksBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TasksBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TasksBundle/Resources/views/Tasks/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TasksBundle/Resources/views/Tasks/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TeamBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TeamBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TeamBundle/Resources/views/Default/createRole.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/Role/createRole.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TeamBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamBundle/Resources/views/Role/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Controller/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Controller/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Form/QuestionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Form/QuestionType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/add_question.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/add_question.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_question.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_question.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ForumBundle/Controller/QuestionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-330">
+              <caret line="50" column="100" selection-start-line="50" selection-start-column="100" selection-end-line="50" selection-end-column="100" />
+              <folding>
+                <element signature="e#43#73#0#PHP" expanded="true" />
+                <element signature="e#563#608#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Controller/ActivityController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="34" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_question.html.twig">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ForumBundle/Form/AnswerType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ForumBundle/Controller/AnswerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+              <folding>
+                <element signature="e#41#86#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/meetings.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
+            <state relative-caret-position="687">
               <caret line="195" column="80" selection-start-line="195" selection-start-column="80" selection-end-line="195" selection-end-column="80" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/Default/createProject.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5777" />
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/activity.html.twig">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TasksBundle/Resources/views/Tasks/home.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="336">
+              <caret line="14" column="65" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TasksBundle/Resources/views/Tasks/edit.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserstoryBundle/Resources/views/Default/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/Default/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/activity.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="41" selection-end-column="23" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -111,6 +129,9 @@
       <find>#icon-ava-d</find>
       <find>icon-ava-d</find>
       <find>nav nav-tabs nav-fill</find>
+      <find>form-control col flatpickr-input form-control input</find>
+      <find>user</find>
+      <find>tt-btn-create-topic</find>
     </findStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
@@ -118,29 +139,37 @@
       <command text="s doctrine:schema:update --force" />
       <command text="s doctrine:schema:validate" />
       <command text="s doctrine:schema:update --force" />
+      <command text="s generate:controller ForumBundle:Answer" />
+      <command text="s doctrine:generate:entity " />
+      <command text="s doctrine:schema:update --force" />
+      <command text="s doctrine:generate:form ForumBundle:Answer" />
+      <command text="s doctrine:schema:update --force" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/ActivityBundle/Controller/ActivityController.php" />
-        <option value="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig" />
-        <option value="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_question.html.twig" />
         <option value="$PROJECT_DIR$/src/ActivityBundle/Entity/Activity.php" />
         <option value="$PROJECT_DIR$/src/ActivityBundle/Service/ActivityGenerator.php" />
         <option value="$PROJECT_DIR$/src/ForumBundle/Entity/Question.php" />
-        <option value="$PROJECT_DIR$/src/ForumBundle/Controller/QuestionController.php" />
         <option value="$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/src/ActivityBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/ActivityBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/meetings.html.twig" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Form/AnswerType.php" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Entity/Answer.php" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/add_question.html.twig" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Form/QuestionType.php" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Controller/QuestionController.php" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_question.html.twig" />
+        <option value="$PROJECT_DIR$/src/ForumBundle/Controller/AnswerController.php" />
       </list>
     </option>
   </component>
@@ -271,6 +300,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,6 +317,12 @@
               <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -298,27 +334,27 @@
               <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UserstoryBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="ActivityBundle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UserstoryBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="ActivityBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UserstoryBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="ActivityBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UserstoryBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="ActivityBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -326,10 +362,69 @@
               <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UserstoryBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="ActivityBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Default" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ForumBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ForumBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ForumBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ForumBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ForumBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ForumBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ForumBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrumify" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ForumBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Question" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scrumify" type="b2602c69:ProjectViewProjectNode" />
@@ -508,7 +603,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -532,24 +626,26 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="016bad1b-d6a8-48d2-8cfa-d7fdfd5c6930" name="Default Changelist" comment="" />
+      <created>1581470820970</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581470820970</updated>
+      <workItem from="1581470828092" duration="6180000" />
+    </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10935000" />
+    <option name="totallyTimeSpent" value="23062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Command Line Tools Console" visible="true" weight="0.3296582" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -557,30 +653,22 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="10" visible="true" weight="0.3296582" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.3296582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_question.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="209" selection-start-line="209" selection-end-line="209" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -602,27 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="643">
           <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Entity/Question.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="93" column="35" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Controller/QuestionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Controller/ActivityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -649,13 +716,6 @@
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainBundle/Controller/RegistrationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/bundles/FOS/UserBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -681,18 +741,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/add_question.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/base.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="26" selection-start-line="7" selection-end-line="8" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -715,9 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/activity.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/Default/createProject.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5777" />
@@ -736,22 +783,133 @@
     <entry file="file://$PROJECT_DIR$/src/UserstoryBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/show.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/new.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/sprint/edit.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/SprintBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2237" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-389" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainBundle/Controller/RegistrationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding>
+            <element signature="e#295#344#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Entity/Answer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1032">
+          <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Entity/Question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2304">
+          <caret line="96" column="2" selection-start-line="96" selection-start-column="2" selection-end-line="101" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/add_question.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Form/QuestionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Controller/ActivityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="34" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/meetings.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
+        <state relative-caret-position="687">
           <caret line="195" column="80" selection-start-line="195" selection-start-column="80" selection-end-line="195" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/activity.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Form/AnswerType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActivityBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="65" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_questions.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="41" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Resources/views/Question/display_question.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Controller/QuestionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="50" column="100" selection-start-line="50" selection-start-column="100" selection-end-line="50" selection-end-column="100" />
+          <folding>
+            <element signature="e#43#73#0#PHP" expanded="true" />
+            <element signature="e#563#608#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ForumBundle/Controller/AnswerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding>
+            <element signature="e#41#86#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -21,11 +21,12 @@ class QuestionType extends AbstractType
             ->add('category',ChoiceType::class,
                 array(
                     'choices'=>
-                        [ 'programming'=>"programming"]
+                        [ 'programming'=>"programming",
+                            'marketing' => 'marketing'
+                        ]
 
                 ))
             ->add('type')
-            ->add('User')
             ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}

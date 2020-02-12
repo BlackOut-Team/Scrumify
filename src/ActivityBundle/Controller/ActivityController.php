@@ -26,13 +26,5 @@ class ActivityController extends Controller
         return $this->redirectToRoute('activity_homepage');
 
     }
-    function SupprimerAction2($id){
-        $em=$this->getDoctrine()->getManager();
-        $Activity=$em->getRepository(Activity::class)
-            ->find($id);
-        $em->remove($Activity);
-        $em->flush();
-        return $this->redirectToRoute('activity_homepage');
 
-    }
 }

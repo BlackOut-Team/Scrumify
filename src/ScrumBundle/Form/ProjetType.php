@@ -19,7 +19,10 @@ class ProjetType extends AbstractType
         $builder
             ->add('name')
             ->add('description',TextareaType::class)
-            ->add('duedate',DateTimeType::class)
+            ->add('duedate',DateTimeType::class, [
+                // renders it as a single text box
+                'widget' => 'single_text',
+            ])
             ->add('nbrSprints')
             ->add('Submit',SubmitType::class );
     }/**

@@ -13,3 +13,9 @@ edit_tasks:
 archiver_tasks:
     path:     /archiveTasks/{id}
     defaults: { _controller: TasksBundle:Tasks:archiver }
+desarchiver:
+    path:     /desarchive/{id}
+    defaults: { _controller: TasksBundle:Tasks:desarchiver }
+show_tasks_back:
+    path:   /showBack
+    defaults: { _controller: TasksBundle:Tasks:showTasksB }

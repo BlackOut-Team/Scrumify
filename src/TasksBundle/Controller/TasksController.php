@@ -33,7 +33,25 @@ class TasksController extends Controller
             return $this->redirectToRoute('show_tasks');
 
     }
+    public function desarchiverAction(Request $request, Tasks $pp){
 
+        $em= $this->getDoctrine()->getManager();
+        $pp->setEtat(0);
+        $em->persist($pp);
+        $em->flush();
+        return $this->redirectToRoute('show_tasks_back');
+    }
+
+    public function showTasksBAction (Request $request){
+
+        $taskB=$this->getDoctrine()->getRepository(Tasks::class)->findAll();
+
+
+        return $this->render('@Tasks/Tasks/homeBack.html.twig',array(
+            'pp'=>$taskB
+
+        ));
+    }
     public function showTasksAction(Request $request){
 
         $em= $this->getDoctrine()->getManager();

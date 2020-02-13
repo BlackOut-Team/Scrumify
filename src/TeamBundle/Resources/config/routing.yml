@@ -7,9 +7,19 @@ affiche_role:
     path:     /listRole
     defaults: { _controller: TeamBundle:Default:affRole }
 
+
+
 ajout_role:
-    path:     /aff
-    defaults: { _controller: TeamBundle:Default:ajoutRole }
+    path:     /ajjrole
+    defaults: { _controller: TeamBundle:Default:AddP }
+
+edit_role:
+    path:     /editrole/{id}
+    defaults: { _controller: TeamBundle:Default:edit}
+
+archive_role:
+    path:     /archteam/{id}
+    defaults: { _controller: TeamBundle:Default:archive }
 
 ajout_team:
     path:     /ajtteam

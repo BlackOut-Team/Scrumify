@@ -2,44 +2,60 @@
 
 namespace TeamBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * team
+ *
+ * @ORM\Table(name="team")
+ * @ORM\Entity(repositoryClass="TeamBundle\Repository\teamRepository")
  */
 class team
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime")
      */
     private $updated;
 
     /**
-     * @var string
+     * @var int
+     *
+     * @ORM\Column(name="etat", type="integer")
      */
     private $etat;
 
-
     /**
-     * @ORM\ManyToMany(targetEntity="User")
-     * @ORM\JoinTable(name="user-team",
-     *     joinColumns={@ORM\JoinColumn(name="user_id",referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="team_id",referencedColumnName="id")})
+     * @var int
      *
+     * @ORM\Column(name="ind", type="integer")
      */
+    private $ind;
+
 
     /**
      * Get id.
@@ -126,7 +142,7 @@ class team
     /**
      * Set etat.
      *
-     * @param string $etat
+     * @param int $etat
      *
      * @return team
      */
@@ -140,10 +156,34 @@ class team
     /**
      * Get etat.
      *
-     * @return string
+     * @return int
      */
     public function getEtat()
     {
         return $this->etat;
+    }
+
+    /**
+     * Set ind.
+     *
+     * @param int $ind
+     *
+     * @return team
+     */
+    public function setInd($ind)
+    {
+        $this->ind = $ind;
+
+        return $this;
+    }
+
+    /**
+     * Get ind.
+     *
+     * @return int
+     */
+    public function getInd()
+    {
+        return $this->ind;
     }
 }

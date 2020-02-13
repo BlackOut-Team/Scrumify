@@ -10,3 +10,6 @@ archiverProject:
 showProject:
     path:   /projects
     defaults: { _controller: ScrumBundle:Default:showP }
+desarchiverProject:
+    path:   /undelete/{id}
+    defaults: { _controller: ScrumBundle:Default:desarchiverP }

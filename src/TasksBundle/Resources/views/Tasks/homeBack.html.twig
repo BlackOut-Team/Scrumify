@@ -25,32 +25,52 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
+
+                    <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Date of creation</th>
-                            <th>Due date</th>
-                            <th>State</th>
-
+                            <th style="width: 10px">ID</th>
+                            <th>Task</th>
+                            <th>Progress</th>
+                            <th style="width: 40px">Status</th>
                         </tr>
                         {% for pp in pp %}
-                            <tr>
-                                <td>{{ pp.id}}</td>
-                                <td>{{ pp.title }}</td>
-                                <td>{{ pp.description }}</td>
-                                <td>{{ pp.created  | date('d-M-Y')}}</td>
-                                <td>{{ pp.updated | date('d-M-Y')}}</td>
-                                <td>{{ pp.finished | date('d-M-Y')}}</td>
-                                <td>{{ pp.etat }}</td>
-                                <td>{{ pp.status }}</td>
-                                <td> <a href="{{ path('desarchiver', { 'id': pp.id }) }}">Desarchive</a>
-                                </td>
+                        <tr>
+                            <td>{{ pp.id}}</td>
+                            <td>{{ pp.title }}</td>
+                            {%  if pp.status=="To do" %}
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 0%"></div>
+                                </div>
+                            </td>
+                                {% elseif pp.status=="Doing" %}
+                                    <td>
+                                        <div class="progress progress-xs">
+                                            <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
+                                        </div>
+                                    </td>
+                                {% elseif pp.status=="Done" %}
+                                    <td>
+                                        <div class="progress progress-xs">
+                                            <div class="progress-bar progress-bar-danger" style="width: 100%"></div>
+                                        </div>
+                                    </td>
+                                {% elseif pp.status=="Block" %}
+                                    <td>
+                                        <span class="badge text-white bg-red">Problem</span>
+                                    </td>
+                            {% endif %}
+
+                            {% if pp.etat==0 %}
+
+                            <td><span class="badge text-white bg-green" >Active</span>
+                                {% else %}
+                            <td> <a class="badge text-white bg-red"  href="{{ path('desarchiver', { 'id': pp.id }) }}">Disabled</a>
 
 
-                            </tr>
+                                {% endif %}
+                        </tr>
                         {% endfor %}
                         </tbody>
                     </table>

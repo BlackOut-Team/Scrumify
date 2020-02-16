@@ -50,11 +50,31 @@ class team
     private $etat;
 
     /**
-     * @var int
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User")
+     * @ORM\JoinTable(name="team_user",
      *
-     * @ORM\Column(name="ind", type="integer")
+    joinColumns={@ORM\JoinColumn(name="team_id" , referencedColumnName="id")} ,
+     *
+    inverseJoinColumns={@ORM\JoinColumn(name="user_id" , referencedColumnName="id")}
+     * )
      */
-    private $ind;
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
+    {
+        $this->user = $user;
+    }
 
 
     /**

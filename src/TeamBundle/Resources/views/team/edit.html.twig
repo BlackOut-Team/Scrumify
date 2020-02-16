@@ -41,7 +41,7 @@
         </div>
 
 
-        {{ form_start(edit_form) }}
+        {{ form_start(form) }}
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -58,71 +58,40 @@
                         <a class="nav-link" id="task-add-members-tab" data-toggle="tab" href="#task-add-members" role="tab" aria-controls="task-add-members" aria-selected="false">Members</a>
                     </li>
                 </ul>
-                <div class="modal-body">
+                <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
+                    <h6>General Details</h6>
 
-                    <div class="tab-content">
-                        <!--formulaire ajout task -->
-
-                        <div class="tab-pane fade show active" id="task-add-details" role="tabpanel">
-                            <h6>General Details</h6>
-                            <div class="form-group row align-items-center">
-                                <label class="col-3">Project Title</label>
-                                {{ form_widget(edit_form.name, {'attr': {'class': 'form-control col'}}) }}
-
-                            </div>
-                            <div class="form-group row align-items-center">
-                                <label class="col-3">Description</label>
-                                {{ form_widget(edit_form.etat, {'attr': {'class': 'form-control col'}}) }}
-                            </div>
-
-
-
-
-                            <div class="alert alert-warning text-small" role="alert">
-                                <span>You can change due dates at any time.</span>
-                            </div>
-                        </div>
-
-                        <!-- end form-->
-                        <div class="tab-pane fade" id="task-add-members" role="tabpanel">
-                            <div class="users-manage" data-filter-list="form-group-users">
-
-                                <div class="input-group input-group-round">
-                                    <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                  <i class="material-icons">filter_list</i>
-                                </span>
-                                    </div>
-                                    <input type="search" class="form-control filter-list-input" placeholder="Filter members" aria-label="Filter Members">
-                                </div>
-                                <div class="form-group-users">
-
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="task-user-1" checked>
-                                        <label class="custom-control-label" for="task-user-1">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Claire Connors" src={{ asset('assets/img/avatar-female-1.jpg') }} class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Claire Connors</span>
-                                  </span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group row align-items-center">
+                        <label class="col-3">Team name</label>
+                        {{ form_start(form) }}
+                        {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
                     </div>
-                </div>
-                <!--end of modal body-->
-                <div class="modal-footer">
+                    <div class="form-group row">
 
-                    {{ form_widget(edit_form.Submit, {'attr': {'class': 'btn btn-primary'}}) }}
-                </div>
+                        <label class="col-3">Etat</label>
+
+                        {{ form_widget(form.etat,{'attr': {'class': 'form-control col'}})}}
+                    </div>
+                    <hr>
+
+                    <div class="form-group row align-items-center">
+
+                        <label class="col-3">Modifier Team</label>
+
+
+                        {{ form_widget(form.Modifier,{'attr': {'class': 'form-control col'}})}}
+                        {{ form_end(form) }}
+
+                    </div>
+                <!--end of modal body-->
+
             </div>
 
 
         </div>
 
 
-        {{ form_end(edit_form) }}
+        {{ form_end(form) }}
 
 
 

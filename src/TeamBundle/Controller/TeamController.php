@@ -68,7 +68,7 @@ class TeamController extends Controller
 
             $p->setCreated(new \DateTime('now'));
             $p->setUpdated(new \DateTime('now'));
-
+           $p->setInd(0);
             $em = $this->getDoctrine()->getManager();
             $em->persist($p);
             var_dump($p);
@@ -116,5 +116,25 @@ class TeamController extends Controller
         $em->flush();
         return $this->redirectToRoute('affiche_team');
     }
+
+    public function archiveBAction(Request $request, $id){
+
+        $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $con->setInd(1);
+        $em->persist($con);
+        $em->flush();
+        return $this->redirectToRoute('show_team_back');
+    }
+    public function showbackAction (Request $request){
+
+        $taskB=$this->getDoctrine()->getRepository(team::class)->findAll();
+
+
+        return $this->render('@Team/team/back.html.twig',array(
+            'pp'=>$taskB
+
+        ));
+}
 
 }

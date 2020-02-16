@@ -1,0 +1,61 @@
+{% extends'baseF.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block contents %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"> Teams </h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input name="table_search" class="form-control float-right" placeholder="Search"
+                                   type="text">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-secondary"><i class="icon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Date of creation</th>
+                            <th>Date of updating</th>
+                            <th>State</th>
+                            <th>Action</th>
+
+                        </tr>
+                        {% for pp in pp %}
+                            {% if pp.ind != 1 %}
+                            <tr>
+                                <td>{{ pp.id}}</td>
+                                <td>{{ pp.name }}</td>
+                                <td>{{ pp.created  | date('d-M-Y')}}</td>
+                                <td>{{ pp.updated | date('d-M-Y')}}</td>
+                                <td>{{ pp.etat }}</td>
+                                <td> <a href="{{ path('archive_team1', { 'id': pp.id }) }}">Archiver</a>
+                                </td>
+
+
+                            </tr>{% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+{% endblock %}

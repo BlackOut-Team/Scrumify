@@ -1,0 +1,46 @@
+{% extends "baseF.html.twig" %}
+{% block contents %}
+    <div class="col-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title mt-5">Forum quetions</h3>
+                <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input name="table_search" class="form-control float-right" placeholder="Search" type="text">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-secondary"><i class="icon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <th>Question</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Content</th>
+                    </tr>
+                    {% for a in answers %}
+                        <tr>
+                            <td>{{ a.id }}</td>
+                            <td>{{ a.Question.title }}</td>
+                            <td>11-7-2019</td>
+                            <td><span class="badge text-white badge text-white-pill badge text-white-success bg-blue">Approved</span>
+                            </td>
+                            <td>{{ a.content }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+
+{% endblock %}

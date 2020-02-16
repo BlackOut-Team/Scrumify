@@ -2,6 +2,7 @@
 
 namespace ForumBundle\Form;
 
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,7 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title')
-            ->add('description', TextareaType::class)
+            ->add('description', CKEditorType::class)
             ->add('category',ChoiceType::class,
                 array(
                     'choices'=>

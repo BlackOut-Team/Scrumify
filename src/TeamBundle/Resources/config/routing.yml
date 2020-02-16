@@ -3,13 +3,6 @@ team_homepage:
     defaults: { _controller: TeamBundle:Default:index }
 
 
-affiche_role:
-    path:     /listRole
-    defaults: { _controller: TeamBundle:Default:affRole }
-
-ajout_role:
-    path:     /aff
-    defaults: { _controller: TeamBundle:Default:ajoutRole }
 
 ajout_team:
     path:     /ajtteam
@@ -25,4 +18,12 @@ edit_team:
 
 archive_team:
     path:     /archteam/{id}
-    defaults: { _controller: TeamBundle:Team:archive }
+    defaults: { _controller: TeamBundle:Team:archive}
+
+archive_team1:
+    path:     /archt/{id}
+    defaults: { _controller: TeamBundle:Team:archiveB}
+
+show_team_back:
+    path:   /backteam
+    defaults: { _controller: TeamBundle:Team:showback }

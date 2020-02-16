@@ -3,6 +3,7 @@
 namespace ScrumBundle\Controller;
 
 use ScrumBundle\Entity\Projet;
+use SprintBundle\Entity\Sprint;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -11,6 +12,7 @@ class DefaultController extends Controller
     public function  AddPAction(Request $request)
     {
         $project=$this->getDoctrine()->getRepository(Projet::class)->findAll();
+      //  $sprint=$this->getDoctrine()->getRepository(Sprint::class)->findBy(['project_id'=> $project-]);
         $p= new Projet();
         $f=$this->createForm('ScrumBundle\Form\ProjetType',$p);
         //dump($f,$request);exit;
@@ -38,10 +40,10 @@ class DefaultController extends Controller
     public function archiverPAction(Request $request, Projet $project){
 
         $em= $this->getDoctrine()->getManager();
-        $project->setEtat(0);
+        $project->setEtat(1);
         $em->persist($project);
         $em->flush();
-        return $this->redirectToRoute('addProject');
+        return $this->redirectToRoute('affiche_role');
 
     }
     public function editPAction(Request $request, Projet $project){
@@ -67,6 +69,15 @@ class DefaultController extends Controller
             'pp'=>$project
 
         ));
+
+    }
+    public function desarchiverPAction(Request $request, Projet $pp){
+
+        $em= $this->getDoctrine()->getManager();
+        $pp->setEtat(1);
+        $em->persist($pp);
+        $em->flush();
+        return $this->redirectToRoute('showProject');
 
     }
 }

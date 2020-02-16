@@ -7,3 +7,6 @@ archiverSprint:
 addSprint:
     path:   /AddSprint
     defaults: { _controller: SprintBundle:Default:AddS }
+editSprint:
+    path:   /editSprint/{id}
+    defaults: { _controller: SprintBundle:Default:editS }

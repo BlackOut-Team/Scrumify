@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title pt-4">Projects on Scrumify</h3>
+                    <h3 class="box-title"> Teams </h3>
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
                             <input name="table_search" class="form-control float-right" placeholder="Search"
@@ -30,39 +30,25 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Description</th>
                             <th>Date of creation</th>
-                            <th>Due date</th>
+                            <th>Date of updating</th>
                             <th>State</th>
+                            <th>Action</th>
 
                         </tr>
                         {% for pp in pp %}
-                        <tr>
-                            <td>{{ pp.id}}</td>
-                            <td>{{ pp.name }}</td>
-                            <td>{{ pp.description }}</td>
-                            <td>{{ pp.created  | date('d-M-Y')}}</td>
-                            <td>{{ pp.duedate | date('d-M-Y')}}</td>
-                            {% if pp.etat==1 %}
-                            <td><span class="badge text-white bg-green" style="color:green">Active</span>
-                            {% else %}
-                            <td><span class="badge text-white bg-red" style="color:red">Disabled</span>
-
-                                {% endif %}
-                            </td>
-                            {% if pp.etat==0 %}
-
-                            <td>
+                            {% if pp.ind != 1 %}
+                            <tr>
+                                <td>{{ pp.id}}</td>
+                                <td>{{ pp.name }}</td>
+                                <td>{{ pp.created  | date('d-M-Y')}}</td>
+                                <td>{{ pp.updated | date('d-M-Y')}}</td>
+                                <td>{{ pp.etat }}</td>
+                                <td> <a href="{{ path('archive_team1', { 'id': pp.id }) }}">Archiver</a>
+                                </td>
 
 
-                            <a href="{{ path('desarchiverProject', { 'id': pp.id })}}" class="badge text-white bg-yellow" style="color:yellow">
-
-                          <span>Activate</span>
-                            </a>
-                                {% endif %}
-
-                            </td>
-                        </tr>
+                            </tr>{% endif %}
                         {% endfor %}
                         </tbody>
                     </table>

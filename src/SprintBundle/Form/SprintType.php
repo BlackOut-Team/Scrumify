@@ -23,7 +23,7 @@ class SprintType extends AbstractType
                 // renders it as a single text box
                 'widget' => 'single_text',
             ])
-        ->add('AddSprint',SubmitType::class );
+        ->add('Submit',SubmitType::class );
 
 }/**
      * {@inheritdoc}

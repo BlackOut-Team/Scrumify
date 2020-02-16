@@ -18,6 +18,9 @@ class User extends BaseUser
     const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
     const ROLE_ADMIN = 'ROLE_ADMIN';
     const ROLE_USER = 'ROLE_USER';
+    const ROLE_MASTER = 'ROLE_MASTER';
+    const ROLE_MEMBER = 'ROLE_MEMBER';
+    const ROLE_OWNER = 'ROLE_OWNER';
     /**
      * @var int
      *

@@ -2,44 +2,105 @@
 
 namespace TeamBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * team
+ *
+ * @ORM\Table(name="team")
+ * @ORM\Entity(repositoryClass="TeamBundle\Repository\teamRepository")
  */
 class team
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime")
      */
     private $updated;
 
     /**
-     * @var string
+     * @var int
+     *
+     * @ORM\Column(name="etat", type="integer")
      */
     private $etat;
 
+    /**
+     * @return int
+     */
+    public function getInd(): int
+    {
+        return $this->ind;
+    }
 
     /**
-     * @ORM\ManyToMany(targetEntity="User")
-     * @ORM\JoinTable(name="user-team",
-     *     joinColumns={@ORM\JoinColumn(name="user_id",referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="team_id",referencedColumnName="id")})
-     *
+     * @param int $ind
      */
+    public function setInd(int $ind): void
+    {
+        $this->ind = $ind;
+    }
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="ind", type="integer")
+     */
+    private $ind;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User")
+     * @ORM\JoinTable(name="team_user",
+     *
+    joinColumns={@ORM\JoinColumn(name="team_id" , referencedColumnName="id")} ,
+     *
+    inverseJoinColumns={@ORM\JoinColumn(name="user_id" , referencedColumnName="id")}
+     * )
+     */
+    private $user;
+
+    /**
+     * @return int
+     */
+    public function getUser(): int
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param int $user
+     */
+    public function setUser(int $user): void
+    {
+        $this->user = $user;
+    }
+
+
+
 
     /**
      * Get id.
@@ -126,7 +187,7 @@ class team
     /**
      * Set etat.
      *
-     * @param string $etat
+     * @param int $etat
      *
      * @return team
      */
@@ -140,10 +201,13 @@ class team
     /**
      * Get etat.
      *
-     * @return string
+     * @return int
      */
     public function getEtat()
     {
         return $this->etat;
     }
+
+
+
 }

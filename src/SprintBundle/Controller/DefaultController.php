@@ -22,15 +22,14 @@ class DefaultController extends Controller
         if ($f->isSubmitted() && $f->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-            //$s->setProject($projet);
+            $s->setProject($projet);
             $s->setEtat(1);
             $s->setCreated(new \DateTime('now'));
             $em->persist($s);
 
             $em->flush($s);
 
-            return $this->redirectToRoute('addSprint');
-
+            return $this->redirect($request->getUri());
         }
         return $this->render('@Sprint/Default/index.html.twig',array(
             'f'=>$f->createView(),
@@ -51,4 +50,18 @@ class DefaultController extends Controller
         return $this->redirectToRoute('addSprint');
 
     }
+    public function editSAction(Request $request, Sprint $sprint){
+        $editForm=$this->createForm('SprintBundle\Form\SprintType',$sprint);
+        $editForm->handleRequest($request);
+
+        if($editForm->isSubmitted() && $editForm->isValid())
+        {
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('Sprint_homepage');
+        }
+        return $this->render('@Sprint/Default/editS.html.twig', array(
+            'edit_form' => $editForm->createView()
+        ));
+    }
+
 }

@@ -48,6 +48,31 @@ class Question
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
+
+
+
+    /**
+     * @var /datetime
+     *
+     * @ORM\Column(name="questionDate", type="datetime")
+     */
+    private $questionDate;
+
+    /**
+     * @return mixed
+     */
+    public function getQuestionDate()
+    {
+        return $this->questionDate;
+    }
+
+    /**
+     * @param mixed $questionDate
+     */
+    public function setQuestionDate($questionDate)
+    {
+        $this->questionDate = $questionDate;
+    }
     /**
      * @var int
      *

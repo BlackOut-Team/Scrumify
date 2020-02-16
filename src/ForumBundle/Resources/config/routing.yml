@@ -20,3 +20,7 @@ _delete_answer:
 _display_back_questions:
     path:     /DisplayBackQuestions
     defaults: { _controller: ForumBundle:Question:DisplayBackQuestions }
+
+_display_back_answer:
+    path:     /DisplayBackAnswers/{question}
+    defaults: { _controller: ForumBundle:Answer:DisplayBackAnswers }

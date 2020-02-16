@@ -107,6 +107,14 @@ class TeamController extends Controller
         }
 
     }
-   
+    public function archiveAction(Request $request, $id){
+
+        $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $con->setInd(1);
+        $em->persist($con);
+        $em->flush();
+        return $this->redirectToRoute('affiche_team');
+    }
 
 }

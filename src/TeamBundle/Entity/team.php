@@ -50,6 +50,29 @@ class team
     private $etat;
 
     /**
+     * @return int
+     */
+    public function getInd(): int
+    {
+        return $this->ind;
+    }
+
+    /**
+     * @param int $ind
+     */
+    public function setInd(int $ind): void
+    {
+        $this->ind = $ind;
+    }
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="ind", type="integer")
+     */
+    private $ind;
+
+    /**
      * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User")
      * @ORM\JoinTable(name="team_user",
      *

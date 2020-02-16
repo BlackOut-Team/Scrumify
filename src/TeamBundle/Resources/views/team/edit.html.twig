@@ -1,46 +1,100 @@
 {% extends'base.html.twig' %}
-{% block title %}Team{% endblock %}
-{% block soustitle %}   <a class="nav-link" }}>Team Homepage</a> {% endblock %}
+{% block title %}Project Details{% endblock %}
 {% block head %}
     {{ parent() }}
     <style type="text/css">
         .important { color: #336699; }
     </style>
 {% endblock %}
+
 {% block content %}
 
-
-
     {% block contents %}
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
-                <h6>General Details</h6>
 
-                <div class="form-group row align-items-center">
-                    <label class="col-3">Team name</label>
-                    {{ form_start(form) }}
-                    {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
-                </div>
-                <div class="form-group row">
+        <div class="breadcrumb-bar navbar bg-white sticky-top">
 
-                    <label class="col-3">Etat</label>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-2.html">Project</a>
+                    </li>
 
-                    {{ form_widget(form.etat,{'attr': {'class': 'form-control col'}})}}
-                </div>
-                <hr>
-
-                <div class="form-group row align-items-center">
-
-                    <label class="col-3">Modifier Team</label>
+                    <li class="breadcrumb-item active" aria-current="page">Details</li>
+                </ol>
+            </nav>
 
 
-                    {{ form_widget(form.Modifier,{'attr': {'class': 'form-control col'}})}}
-                    {{ form_end(form) }}
+            <!--Menu li ala jnab -->
+            <div class="dropdown">
+                <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons">settings</i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+
+                    <a class="dropdown-item"  data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
+                    <a class="dropdown-item" href="#">Mark as Complete</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#">Archive</a>
 
                 </div>
             </div>
 
         </div>
+
+
+        {{ form_start(form) }}
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit  Project</h5>
+                </div>
+                <!--end of modal head-->
+                <ul class="nav nav-tabs nav-fill" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="task-add-details-tab" data-toggle="tab" href="#task-add-details" role="tab" aria-controls="task-add-details" aria-selected="true">Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="task-add-members-tab" data-toggle="tab" href="#task-add-members" role="tab" aria-controls="task-add-members" aria-selected="false">Members</a>
+                    </li>
+                </ul>
+                <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
+                    <h6>General Details</h6>
+
+                    <div class="form-group row align-items-center">
+                        <label class="col-3">Team name</label>
+                        {{ form_start(form) }}
+                        {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
+                    </div>
+                    <div class="form-group row">
+
+                        <label class="col-3">Etat</label>
+
+                        {{ form_widget(form.etat,{'attr': {'class': 'form-control col'}})}}
+                    </div>
+                    <hr>
+
+                    <div class="form-group row align-items-center">
+
+                        <label class="col-3">Modifier Team</label>
+
+
+                        {{ form_widget(form.Modifier,{'attr': {'class': 'form-control col'}})}}
+                        {{ form_end(form) }}
+
+                    </div>
+                <!--end of modal body-->
+
+            </div>
+
+
+        </div>
+
+
+        {{ form_end(form) }}
+
+
+
 
     {% endblock %}
 {% endblock %}

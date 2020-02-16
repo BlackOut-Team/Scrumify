@@ -3,23 +3,6 @@ team_homepage:
     defaults: { _controller: TeamBundle:Default:index }
 
 
-affiche_role:
-    path:     /listRole
-    defaults: { _controller: TeamBundle:Default:affRole }
-
-
-
-ajout_role:
-    path:     /ajjrole
-    defaults: { _controller: TeamBundle:Default:AddP }
-
-edit_role:
-    path:     /editrole/{id}
-    defaults: { _controller: TeamBundle:Default:edit}
-
-archive_role:
-    path:     /archteam/{id}
-    defaults: { _controller: TeamBundle:Default:archive }
 
 ajout_team:
     path:     /ajtteam
@@ -35,4 +18,8 @@ edit_team:
 
 archive_team:
     path:     /archteam/{id}
-    defaults: { _controller: TeamBundle:Team:archive }
+    defaults: { _controller: TeamBundle:Team:archive}
+    
+show_team_back:
+    path:   /backteam
+    defaults: { _controller: TasksBundle:Tasks:showback }

@@ -46,6 +46,7 @@
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
                                     {% for con in con %}
+                                        {% if con.ind != 1 %}
                                         <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -77,7 +78,7 @@
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>{% endif %}
                                     {% endfor %}
 
 

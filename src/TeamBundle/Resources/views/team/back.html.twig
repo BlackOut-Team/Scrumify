@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title"> Tasks </h3>
+                    <h3 class="box-title"> Teams </h3>
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
                             <input name="table_search" class="form-control float-right" placeholder="Search"
@@ -30,27 +30,25 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Description</th>
                             <th>Date of creation</th>
-                            <th>Due date</th>
+                            <th>Date of updating</th>
                             <th>State</th>
+                            <th>Action</th>
 
                         </tr>
                         {% for pp in pp %}
+                            {% if pp.ind != 1 %}
                             <tr>
                                 <td>{{ pp.id}}</td>
-                                <td>{{ pp.title }}</td>
-                                <td>{{ pp.description }}</td>
+                                <td>{{ pp.name }}</td>
                                 <td>{{ pp.created  | date('d-M-Y')}}</td>
                                 <td>{{ pp.updated | date('d-M-Y')}}</td>
-                                <td>{{ pp.finished | date('d-M-Y')}}</td>
                                 <td>{{ pp.etat }}</td>
-                                <td>{{ pp.status }}</td>
-                                <td> <a href="{{ path('desarchiver', { 'id': pp.id }) }}">Desarchive</a>
+                                <td> <a href="{{ path('archive_team1', { 'id': pp.id }) }}">Archiver</a>
                                 </td>
 
 
-                            </tr>
+                            </tr>{% endif %}
                         {% endfor %}
                         </tbody>
                     </table>

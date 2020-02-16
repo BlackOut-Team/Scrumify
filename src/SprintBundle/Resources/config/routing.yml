@@ -1,6 +1,6 @@
 Sprint_homepage:
     path:     /sprint/{id}
-    defaults: { _controller: SprintBundle:Default:AddS }
+    defaults: { _controller: SprintBundle:Default:index }
 archiverSprint:
     path:     /archiver/{id}
     defaults: { _controller: SprintBundle:Default:archiverS }

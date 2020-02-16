@@ -18,9 +18,6 @@ class User extends BaseUser
     const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
     const ROLE_ADMIN = 'ROLE_ADMIN';
     const ROLE_USER = 'ROLE_USER';
-    const ROLE_MASTER = 'ROLE_MASTER';
-    const ROLE_MEMBER = 'ROLE_MEMBER';
-    const ROLE_OWNER = 'ROLE_OWNER';
     /**
      * @var int
      *
@@ -31,8 +28,6 @@ class User extends BaseUser
     protected $id;
 
 
-
-
     /**
      * Get id
      *
@@ -41,38 +36,6 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTeam()
-    {
-        return $this->team;
-    }
-
-    /**
-     * @param mixed $team
-     */
-    public function setTeam($team): void
-    {
-        $this->team = $team;
-    }
-
-    /**
-     * @return array
-     */
-    public function getRoles(): array
-    {
-        return $this->roles;
-    }
-
-    /**
-     * @param array $roles
-     */
-    public function setRoles(array $roles): void
-    {
-        $this->roles = $roles;
     }
 
 

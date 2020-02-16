@@ -28,9 +28,8 @@ class DefaultController extends Controller
             $em->persist($s);
 
             $em->flush($s);
-            return $this->redirect($request->getUri());
 
-         //   return $this->redirectToRoute('Sprint_homepage');
+            return $this->redirectToRoute('addProject');
 
         }
         return $this->render('@Sprint/Default/index.html.twig',array(

@@ -56,14 +56,16 @@ class TasksController extends Controller
 
 
     public function addMedia(Request $request,Media $media,Tasks $task){
+       // dump($task);exit;
+        //dump($media);exit;
         $file = $media->getPath();
-        $fileName = md5(uniqid()).'.'.$file->guessExtension();
-        $file->move($this->getParameter('document_directory'), $fileName);
+        $fileName = md5(uniqid()).'.'.$file->getClientOriginalExtension();
+        $file->move($this->getParameter('media_directory'), $fileName);
         $media->setPath($fileName);
         $media->setTasks($task);
         //
         $media->setName($file);
-        $media->setType($file->guessExtension());
+        $media->setType($file->getClientOriginalExtension());
         $em= $this->getDoctrine()->getManager();
         $em->persist($media);
         $em->flush();
@@ -72,6 +74,7 @@ class TasksController extends Controller
     public function showTasksAction(Request $request){
 
         $em= $this->getDoctrine()->getManager();
+
         $Tasks =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'To do'],['priority' => 'ASC']);
         $Tasks1 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Doing'],['priority' => 'ASC']);
         $Tasks2 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Done'],['priority' => 'ASC']);
@@ -80,10 +83,10 @@ class TasksController extends Controller
         $task=new Tasks();
         $media = new Media();
         $form=$this->createForm('TasksBundle\Form\TasksType',$task);
-        $form2=$this->createForm('TasksBundle\Form\MediaType',$media);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
 
+            $media->setPath($request->files->get('file'));
             $em = $this->getDoctrine()->getManager();
             $task->setEtat(0);
             $task->setCreated(new \DateTime('now'));
@@ -91,18 +94,17 @@ class TasksController extends Controller
             $task->setUpdated(new \DateTime('now'));
             $em->persist($task);
             $em->flush($task);
-            addMedia($request, $media,$task);
+           $this->addMedia($request, $media,$task);
+            //dump($request);exit;
             return $this->render('@Tasks/Tasks/home.html.twig',array(
                 'task'=>$task,
                 'form'=>$form->CreateView(),
-                'form2'=>$form2->CreateView(),
                 'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3
             )) ;
         }
 
         return $this->render('@Tasks/Tasks/home.html.twig',array(
             'form'=>$form->CreateView(),
-            'form2'=>$form2->CreateView(),
             'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3));
 
     }

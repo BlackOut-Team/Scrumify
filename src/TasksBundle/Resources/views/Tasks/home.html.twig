@@ -113,7 +113,7 @@
                             </li>
                         </ul>
                         <div class="modal-body">
-                            {{ form_start(form) }}
+                            {{ form_start(form, {'multipart': true}) }}
                             <div class="tab-content">
                                 <!--maynjmch yji wost l form hada ? nn baad ma tsaker hedha hel le5er chmanha  -->
 
@@ -174,17 +174,16 @@
                         </div>
                         <!--end of modal body-->
                         <div class="modal-footer">
+                            <input type="file"  name="file">
 
-                            {{ form_widget(form.addTasks, {'attr': {'class': 'btn btn-primary'}}) }}
+                         <input type="submit" value="ok">
+                            {{ form_end(form) }}
+
                         </div>
                     </div>
 
 
                 </div>
-                {{ form_end(form) }}
-                {{ form_start(form2) }}
-                {{ form_widget(form2.path, {'attr': {'class': 'btn btn-primary'}}) }}
-                {{ form_end(form2) }}
 
             </div>
 

@@ -43,23 +43,29 @@
         </div>
         <ul class="nav nav-tabs nav-fill" style="width: fit-content; margin: auto;margin-top: 17px;" >
             <li class="nav-item">
-                <a class="nav-link " href="{{path('show_tasks')}}" role="tab" >General</a>
+                <a class="nav-link " href="{{path('show_tasks')}}" role="tab" >Scrum Board</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active"  href=" {{path('graphe_homepage')}}" >Daily</a>
+                <a class="nav-link active"  href=" {{path('graphe_homepage')}}" >General Overview</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link"  href="#task-add-media" >Media</a>
             </li>
         </ul>
+
         <div class="main-container">
-            <div id="div_chart" style="margin: auto; margin-top: -5px"></div>
+            <figure>
+                <img src="/scrumify/web/Front/Index/images/undraw_investing_7u741.png" alt="Image" width="auto" height="300">
+            </figure>
+            <div id="div_chart" style="margin: unset; margin-top: 20px; background-color: transparent"></div>
 
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
                 {{ gc_draw(piechart, 'div_chart') }}
             </script>
+
         </div>
+
 
 
 

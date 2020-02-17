@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use TasksBundle\Entity\Media;
 use TasksBundle\Entity\Tasks;
 use TasksBundle\Form\TasksType;
+use ActivityBundle\Service\ActivityGenerator;
 
 class TasksController extends Controller
 {
@@ -23,6 +24,7 @@ class TasksController extends Controller
             $media->setPath($request->files->get('file'));
             $this->getDoctrine()->getManager()->flush();
             $this->addMedia($request, $media,$task);
+            $task->setUpdated(new \DateTime('now'));
             return $this->redirectToRoute('show_tasks');
         }
         return $this->render('@Tasks/Tasks/edit.html.twig', array(
@@ -91,6 +93,10 @@ class TasksController extends Controller
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
 
+
+            //$activityGenerator = $this->get(ActivityGenerator::class);
+            //$activity = $activityGenerator->AjouterActivity('a ajouter une tache', 'hidaya');
+            //$this->addFlash('success', $activity);
             $media->setPath($request->files->get('file'));
             $em = $this->getDoctrine()->getManager();
             $task->setEtat(0);

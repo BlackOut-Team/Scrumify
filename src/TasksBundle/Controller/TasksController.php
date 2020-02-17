@@ -12,6 +12,8 @@ class TasksController extends Controller
 {
 
     public function editAction(Request $request, Tasks $task){
+        $em= $this->getDoctrine()->getManager();
+        $m =$em->getRepository('TasksBundle:Media')->findby(array('tasks'=>$task->getId()));
         $editForm=$this->createForm('TasksBundle\Form\TasksType',$task);
         $editForm->handleRequest($request);
         $media = new Media();
@@ -24,7 +26,7 @@ class TasksController extends Controller
             return $this->redirectToRoute('show_tasks');
         }
         return $this->render('@Tasks/Tasks/edit.html.twig', array(
-            'edit_form' => $editForm->createView()
+            'edit_form' => $editForm->createView() ,'m'=>$m
         ));
     }
 

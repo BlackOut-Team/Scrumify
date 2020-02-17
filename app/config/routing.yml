@@ -1,5 +1,10 @@
+
+my_app_mail:
+    resource: "@MyAppMailBundle/Resources/config/routing.yml"
+
 graphe:
     resource: "@GrapheBundle/Resources/config/routing.yml"
+
     prefix:   /
 
 scrum:

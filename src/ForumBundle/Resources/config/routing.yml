@@ -17,3 +17,10 @@ _delete_question:
 _delete_answer:
     path:     /DeleteAnswer/{id}
     defaults: { _controller: ForumBundle:Answer:DeleteAnswer }
+_display_back_questions:
+    path:     /DisplayBackQuestions
+    defaults: { _controller: ForumBundle:Question:DisplayBackQuestions }
+
+_display_back_answer:
+    path:     /DisplayBackAnswers/{question}
+    defaults: { _controller: ForumBundle:Answer:DisplayBackAnswers }

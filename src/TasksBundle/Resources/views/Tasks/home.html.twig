@@ -113,9 +113,8 @@
                             </li>
                         </ul>
                         <div class="modal-body">
-                            {{ form_start(form) }}
+                            {{ form_start(form, {'multipart': true}) }}
                             <div class="tab-content">
-                                <!--formulaire ajout task -->
 
                                 <div class="tab-pane fade show active" id="task-add-details" role="tabpanel">
                                     <h6>General Details</h6>
@@ -174,14 +173,17 @@
                         </div>
                         <!--end of modal body-->
                         <div class="modal-footer">
+                            <input type="file"  class="dropzone dz-clickable" name="file">
 
-                            {{ form_widget(form.addTasks, {'attr': {'class': 'btn btn-primary'}}) }}
+                         <input type="submit" class="btn btn-primary" value="ok">
+                            {{ form_end(form) }}
+
                         </div>
                     </div>
 
 
                 </div>
-                {{ form_end(form) }}
+
             </div>
 
             <!--end colone to do -->

@@ -19,7 +19,11 @@ edit_team:
 archive_team:
     path:     /archteam/{id}
     defaults: { _controller: TeamBundle:Team:archive}
-    
+
+archive_team1:
+    path:     /archt/{id}
+    defaults: { _controller: TeamBundle:Team:archiveB}
+
 show_team_back:
     path:   /backteam
-    defaults: { _controller: TasksBundle:Tasks:showback }
+    defaults: { _controller: TeamBundle:Team:showback }

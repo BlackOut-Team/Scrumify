@@ -61,6 +61,9 @@
                 <li class="nav-item">
                     <a class="nav-link" id="task-add-members-tab" data-toggle="tab" href="#task-add-members" role="tab" aria-controls="task-add-members" aria-selected="false">Members</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="task-add-members-tab" data-toggle="tab" href="#task-add-media" role="tab" aria-controls="task-add-members" aria-selected="false">Media</a>
+                </li>
             </ul>
             <div class="modal-body">
 
@@ -119,12 +122,35 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="task-add-media" role="tabpanel">
+                        <div class="users-manage" data-filter-list="form-group-users">
+
+                            <div class="content-list">
+                                <div class="row content-list-head">
+                                    <div class="col-auto">
+                                        <h3>Files</h3>
+                                    </div>
+
+                                </div>
+                                <!--end of content list head-->
+                                <div class="content-list-body">
+
+                                    <div class="dropzone dz-clickable" action="https://mediumra.re/dropzone/upload.php">
+                                        <input type="file"  class="dropzone dz-clickable" name="file">
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <!--end of modal body-->
             <div class="modal-footer">
-
-                {{ form_widget(edit_form.addTasks, {'attr': {'class': 'btn btn-primary'}}) }}
+                <input class="btn btn-primary" type="submit" value="ok">
             </div>
         </div>
 

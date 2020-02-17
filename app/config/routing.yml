@@ -1,3 +1,7 @@
+graphe:
+    resource: "@GrapheBundle/Resources/config/routing.yml"
+    prefix:   /
+
 scrum:
     resource: "@ScrumBundle/Resources/config/routing.yml"
     prefix:   /

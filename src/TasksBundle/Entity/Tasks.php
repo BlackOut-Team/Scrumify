@@ -78,6 +78,29 @@ class Tasks
      */
     private $etat;
 
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="UserstoryBundle\Entity\Userstory")
+     * @ORM\JoinColumn(name="Userstory_id",referencedColumnName="id")
+     */
+    private $Userstory;
+
+    /**
+     * @return mixed
+     */
+    public function getUserstory()
+    {
+        return $this->Userstory;
+    }
+
+    /**
+     * @param mixed $Userstory
+     */
+    public function setUserstory($Userstory): void
+    {
+        $this->Userstory = $Userstory;
+    }
+
 
     /**
      * Get id

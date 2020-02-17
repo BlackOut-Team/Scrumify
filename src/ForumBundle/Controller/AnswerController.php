@@ -23,4 +23,11 @@ class AnswerController extends Controller
         $em->flush();
         return $this->redirectToRoute('_display_questions');
     }
+    public function DisplayBackAnswersAction($question){
+        $em=$this->getDoctrine()->getManager();
+
+        $answers = $em->getRepository('ForumBundle:Answer')->findBy(['Question'=>$question]);
+        return $this->render('@Forum/back/backAnswers.html.twig',array(
+            'answers'=> $answers));
+    }
 }

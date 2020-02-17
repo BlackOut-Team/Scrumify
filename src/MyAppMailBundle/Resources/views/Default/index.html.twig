@@ -1,0 +1,28 @@
+<body>
+<h2> <strong> Formulaire De Contact</strong> </h2>
+<hr> <h3><p> Contacter nous </p></h3>
+{{ form_start (form) }}
+<table>
+    <tr>
+        <td> Nom </td>
+        <td> {{ form_widget (form.nom) }} </td>
+    </tr>
+    <tr>
+        <td> Prenom </td>
+        <td> {{ form_widget (form.prenom) }} </td>
+    </tr>
+    <tr>
+        <td> Téléphone </td>
+        <td> {{ form_widget (form.tel) }} </td>
+    </tr>
+    <tr>
+        <td> Email </td>
+        <td> {{ form_widget (form.email) }} </td>
+    </tr>
+    <tr>
+        <td> Text </td>
+        <td> {{ form_widget (form.text) }} </td>
+    </tr>
+</table>
+{{ form_end (form) }}
+</body>

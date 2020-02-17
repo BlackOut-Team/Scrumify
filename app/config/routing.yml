@@ -1,3 +1,7 @@
+my_app_mail:
+    resource: "@MyAppMailBundle/Resources/config/routing.yml"
+    prefix:   /
+
 scrum:
     resource: "@ScrumBundle/Resources/config/routing.yml"
     prefix:   /

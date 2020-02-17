@@ -71,7 +71,7 @@ class TeamController extends Controller
            $p->setInd(0);
             $em = $this->getDoctrine()->getManager();
             $em->persist($p);
-            var_dump($p);
+
             $em->flush();
             return $this->redirectToRoute("affiche_team");
         }

@@ -3313,7 +3313,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "abandoned": "symfony/maker-bundle",
+            "abandoned": true,
             "time": "2017-12-07T15:36:41+00:00"
         },
         {

@@ -3,6 +3,7 @@
 namespace ForumBundle\Controller;
 
 
+use Doctrine\DBAL\Types\DateTimeImmutableType;
 use ForumBundle\Entity\Answer;
 use ForumBundle\Entity\Question;
 use ForumBundle\Form\AnswerType;
@@ -23,6 +24,15 @@ class QuestionController extends Controller
         return $this->render('@Forum/Question/display_questions.html.twig',
             array('questions'=>$questions, 'user' => $user ));
     }
+    public function DisplayBackQuestionsAction()
+    {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $questions=$this->getDoctrine()
+            ->getRepository(Question::class)
+            ->findAll();
+        return $this->render('@Forum/back/back.html.twig',
+            array('questions'=>$questions, 'user' => $user ));
+    }
 
     public function DisplayQuestionAction($id, Request $request)
     {
@@ -38,6 +48,7 @@ class QuestionController extends Controller
         if($Form2->isSubmitted() && $Form2->isValid()){
             $answer ->setQuestion($question);
             $answer->setUser($user);
+            $answer->setAnswerDate(new \DateTime());
             $em->persist($answer);
             $em->flush();
             $activityGenerator = $this->get(ActivityGenerator::class);
@@ -56,7 +67,7 @@ class QuestionController extends Controller
         $question = new Question() ;
         $question->setDislikes(0);
         $question->setLikes(0);
-
+        $question->setQuestionDate(new \DateTime());
         $Form=$this->createForm(QuestionType::class,$question);
         $Form->handleRequest($request);
         $em=$this->getDoctrine()->getManager();

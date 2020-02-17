@@ -2,6 +2,7 @@
 
 namespace ForumBundle\Form;
 
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,7 +15,7 @@ class AnswerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('content')
+        $builder->add('content', CKEditorType::class)
         ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}

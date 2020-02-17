@@ -1,0 +1,48 @@
+{% extends "baseF.html.twig" %}
+{% block contents %}
+<div class="col-12">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title mt-5">Forum quetions</h3>
+            <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <input name="table_search" class="form-control float-right" placeholder="Search" type="text">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-secondary"><i class="icon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Title</th>
+                    <th>questions</th>
+                </tr>
+                {% for q in questions %}
+                <tr>
+                    <td>{{ q.id }}</td>
+                    <td>{{ q.User.username }}</td>
+                    <td>11-7-2014</td>
+                    <td><span class="badge text-white badge text-white-pill badge text-white-success bg-blue">Approved</span>
+                    </td>
+                    <td>{{ q.title }}</td>
+                    <td><a href="{{ path('_display_back_answer', {'question' : q.id}) }}" ><span class="badge text-white badge text-white-pill badge text-white-success bg-green">view</span></a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+</div>
+
+{% endblock %}

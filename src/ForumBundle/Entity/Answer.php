@@ -38,6 +38,30 @@ class Answer
      */
     private $User;
 
+
+    /**
+     * @var /datetime
+     *
+     * @ORM\Column(name="answerDate", type="datetime")
+     */
+    private $answerDate;
+
+    /**
+     * @return mixed
+     */
+    public function getAnswerDate()
+    {
+        return $this->answerDate;
+    }
+
+    /**
+     * @param mixed $answerDate
+     */
+    public function setAnswerDate($answerDate)
+    {
+        $this->answerDate = $answerDate;
+    }
+
     /**
      * @return string
      */

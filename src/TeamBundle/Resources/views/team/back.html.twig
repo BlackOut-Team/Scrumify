@@ -32,7 +32,6 @@
                             <th>Name</th>
                             <th>Date of creation</th>
                             <th>Date of updating</th>
-                            <th>State</th>
                             <th>Action</th>
                             <th>information</th>
 
@@ -45,8 +44,8 @@
                                 <td>{{ pp.name }}</td>
                                 <td>{{ pp.created  | date('d-M-Y')}}</td>
                                 <td>{{ pp.updated | date('d-M-Y')}}</td>
-                                <td>{{ pp.etat }}</td>
-                                <td> <a href="{{ path('archive_team1', { 'id': pp.id }) }}">Archiver</a>
+                                <td> <a href="{{ path('archive_team1', { 'id': pp.id }) }}">Archiver</a><br>
+                                    <a href="{{ path('desarchive_team1', { 'id': pp.id }) }}">Desarchiver</a>
                                 </td>
                                 {% if pp.ind == 1 %}
                                 <td>Archived</td>

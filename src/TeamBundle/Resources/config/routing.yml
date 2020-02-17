@@ -24,6 +24,10 @@ archive_team1:
     path:     /archt/{id}
     defaults: { _controller: TeamBundle:Team:archiveB}
 
+desarchive_team1:
+    path:     /desar/{id}
+    defaults: { _controller: TeamBundle:Team:desar}
+
 show_team_back:
     path:   /backteam
     defaults: { _controller: TeamBundle:Team:showback }

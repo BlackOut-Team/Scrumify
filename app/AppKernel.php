@@ -31,6 +31,8 @@ class AppKernel extends Kernel
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new GrapheBundle\GrapheBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+
 
         ];
 

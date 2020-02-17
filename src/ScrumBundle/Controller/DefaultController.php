@@ -5,6 +5,8 @@ namespace ScrumBundle\Controller;
 use ScrumBundle\Entity\Projet;
 use SprintBundle\Entity\Sprint;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -17,6 +19,17 @@ class DefaultController extends Controller
         $f=$this->createForm('ScrumBundle\Form\ProjetType',$p);
         //dump($f,$request);exit;
         $f->handleRequest($request);
+        $projet=new Projet();
+        $Form=$this->createFormBuilder($projet)
+            ->add('name')
+            ->add('Recherche',SubmitType::class,
+                ['attr'=>['formvalidate'=>'formvalidate']])
+            ->getForm();
+        $Form->handleRequest($request);
+        if($Form->isSubmitted()){
+            $projet=$this->getDoctrine()->getRepository(Projet::class)->findBy(array('name'=>$projet->getName()));
+        }
+
         if ($f->isSubmitted() && $f->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
@@ -31,7 +44,8 @@ class DefaultController extends Controller
         }
         return $this->render('@Scrum/Default/createProject.html.twig',array(
             'f'=>$f->createView(),
-            'project'=>$project
+            'project'=>$project ,
+            'r'=>$Form->createView()
 
         ));
 
@@ -80,4 +94,25 @@ class DefaultController extends Controller
         return $this->redirectToRoute('showProject');
 
     }
+    function searchPAction(Request $request){
+
+
+    }
+   /* function SearchAction(Request $request){
+        $projet=new Projet();
+        $em=$this->getDoctrine()->getManager();
+        $Form=$this->createForm(SearchType::class,$projet);
+        $Form->handleRequest($request);
+        if($Form->isSubmitted()){
+            $club=$em->getRepository(Projet::class)
+                ->findBy(array('nom'=>$projet->getName()));
+        }
+        else{
+            $club=$em->getRepository(Projet::class)
+                ->findAll();
+        }
+        //var_dump($club->ge);
+        return $this->render('@Club/Club/createProject.html.twig',
+            array('project'=>$projet,'r'=>$Form->createView()));
+    }*/
 }

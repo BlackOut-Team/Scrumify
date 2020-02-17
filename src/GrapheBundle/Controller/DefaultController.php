@@ -9,20 +9,29 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        $em= $this->getDoctrine()->getManager();
         $pieChart = new PieChart();
+        $Tasks =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'To do']);
+        $Tasks1 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Doing']);
+        $Tasks2 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Done']);
+        $Tasks3 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Block']);
+        $sizeToDo = count($Tasks);
+        $sizeDone = count($Tasks2);
+        $sizeDoing = count($Tasks1);
+        $sizeBlock = count($Tasks3);
         $pieChart->getData()->setArrayToDataTable(
             [['Task', 'number'],
-                ['Done',     11],
-                ['Doing',      2],
-                ['To Do',  2],
-                ['Block', 5],
+                ['Done',     $sizeDone],
+                ['Doing',      $sizeDoing],
+                ['To Do',  $sizeToDo],
+                ['Block', $sizeBlock],
             ]
         );
         $pieChart->getOptions()->setTitle('Daily Activities');
         $pieChart->getOptions()->setHeight(500);
         $pieChart->getOptions()->setWidth(900);
         $pieChart->getOptions()->getTitleTextStyle()->setBold(true);
-        $pieChart->getOptions()->getTitleTextStyle()->setColor('#009900');
+        $pieChart->getOptions()->getTitleTextStyle()->setColor('#16CABD');
         $pieChart->getOptions()->getTitleTextStyle()->setItalic(true);
         $pieChart->getOptions()->getTitleTextStyle()->setFontName('Arial');
         $pieChart->getOptions()->getTitleTextStyle()->setFontSize(20);

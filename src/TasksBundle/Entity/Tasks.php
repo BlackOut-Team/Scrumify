@@ -84,7 +84,32 @@ class Tasks
      * @ORM\JoinColumn(name="Userstory_id",referencedColumnName="id")
      */
     private $Userstory;
+    /**
+     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User")
+     * @ORM\JoinTable(name="task_user",
+     *
+    joinColumns={@ORM\JoinColumn(name="task_id" , referencedColumnName="id")} ,
+     *
+    inverseJoinColumns={@ORM\JoinColumn(name="user_id" , referencedColumnName="id")}
+     * )
+     */
+    private $user;
 
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
+    {
+        $this->user = $user;
+    }
     /**
      * @return mixed
      */

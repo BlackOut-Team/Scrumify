@@ -27,12 +27,12 @@ class AppKernel extends Kernel
             new UserstoryBundle\UserstoryBundle(),
             new SprintBundle\SprintBundle(),
             new ScrumBundle\ScrumBundle(),
-
             new MyAppMailBundle\MyAppMailBundle(),
-
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new GrapheBundle\GrapheBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+
 
         ];
 

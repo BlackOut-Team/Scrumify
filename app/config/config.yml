@@ -116,3 +116,7 @@ fos_user:
             template: '@FOSUser/Resetting/email.txt.twig'
     group:
         group_class: Scrumify\MainBundle\Entity\Group
+fos_message:
+    db_driver : orm
+    thread_class: MainBundle\Entity\Thread
+    message_class: MainBundle\Entity\Message

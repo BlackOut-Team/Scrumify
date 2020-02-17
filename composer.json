@@ -20,6 +20,7 @@
         "doctrine/orm": "^2.5",
         "friendsofsymfony/ckeditor-bundle": "^2.2",
         "friendsofsymfony/elastica-bundle": "^5.1",
+        "friendsofsymfony/message-bundle": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "sensio/distribution-bundle": "^5.0.19",

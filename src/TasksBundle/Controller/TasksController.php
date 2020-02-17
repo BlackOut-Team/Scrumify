@@ -62,12 +62,12 @@ class TasksController extends Controller
        // dump($task);exit;
         //dump($media);exit;
         $file = $media->getPath();
-        $fileName = md5(uniqid()).'.'.$file->getClientOriginalExtension();
+        $fileName = $file->getClientOriginalName();
         $file->move($this->getParameter('media_directory'), $fileName);
-        $media->setPath($fileName);
+        $media->setPath($file);
         $media->setTasks($task);
         //
-        $media->setName($file);
+        $media->setName($fileName);
         $media->setType($file->getClientOriginalExtension());
         $em= $this->getDoctrine()->getManager();
         $em->persist($media);

@@ -29,7 +29,7 @@ class DefaultController extends Controller
             return $this->redirectToRoute('addProject');
 
         }
-        return $this->render('@Scrum/Default/createProject.html.twig',array(
+        return $this->render('@Scrum/Default/f.html.twig',array(
             'f'=>$f->createView(),
             'project'=>$project
 

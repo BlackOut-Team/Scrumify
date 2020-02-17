@@ -41,7 +41,17 @@
     </div>
 
 </div>
-
+    <ul class="nav nav-tabs nav-fill" style="width: fit-content; margin: auto;margin-top: 17px;" >
+        <li class="nav-item">
+            <a class="nav-link active" href="{{path('show_tasks')}}" role="tab" >General</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  href="#task-add-members" >Daily</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  href="#task-add-media" >Media</a>
+        </li>
+    </ul>
     <div class="main-container">
         <div class="kanban-board container-fluid mt-lg-3">
             <!-- colone to do-->
@@ -326,6 +336,8 @@
             <figure>
                 <img src={{ asset('Front/Index/images/Image10.png') }} alt="Image" width="250" height="300">
             </figure>
+        </div>
+    </div>
 
 
 

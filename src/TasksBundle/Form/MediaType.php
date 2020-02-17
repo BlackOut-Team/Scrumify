@@ -17,8 +17,7 @@ class MediaType extends AbstractType
     {
         $builder
             ->add('path',FileType::class);
-        //2 secondes nthabet fi haja
-        //tasti ya bb
+
     }/**
      * {@inheritdoc}
      */

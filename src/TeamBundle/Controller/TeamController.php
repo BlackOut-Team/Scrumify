@@ -27,7 +27,6 @@ class TeamController extends Controller
         $form = $this->createFormBuilder($p)
 
             ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
-            ->add('etat', IntegerType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "etat"))
 
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
 
@@ -37,6 +36,7 @@ class TeamController extends Controller
 
             $p->setCreated(new \DateTime('now'));
             $p->setUpdated(new \DateTime('now'));
+            $p->setEtat(0);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($p);
@@ -58,7 +58,7 @@ class TeamController extends Controller
         $form = $this->createFormBuilder($p)
 
             ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
-            ->add('etat', IntegerType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "etat"))
+
 
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
 
@@ -69,6 +69,7 @@ class TeamController extends Controller
             $p->setCreated(new \DateTime('now'));
             $p->setUpdated(new \DateTime('now'));
            $p->setInd(0);
+            $p->setEtat(0);
             $em = $this->getDoctrine()->getManager();
             $em->persist($p);
 
@@ -88,13 +89,14 @@ class TeamController extends Controller
             $form = $this->createFormBuilder($con)
 
                 ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
-                ->add('etat', IntegerType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "etat"))
 
                 ->add('Modifier', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
                 ->getForm();
             $form->handleRequest($request);
             if ($form->isSubmitted()) {
+
                 $con->setUpdated(new \DateTime('now'));
+                $con->setEtat(0);
 
                 $em = $this->getDoctrine()->getManager();
 
@@ -128,11 +130,33 @@ class TeamController extends Controller
     }
     public function showbackAction (Request $request){
 
-        $taskB=$this->getDoctrine()->getRepository(team::class)->findAll();
+        // 1. Obtain doctrine manager
+        $em = $this->getDoctrine()->getManager();
+        // 2. Setup repository of some entity
+        $repoTeam = $em->getRepository(team::class);
+        // 3. Query how many rows are there in the Articles table
+        $totalTeam = $repoTeam->createQueryBuilder('a')
+            // Filter by some parameter if you want
+            // ->where('a.published = 1')
+            ->select('count(a.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
 
+        $repoArch = $em->getRepository(team::class);
+        // 3. Query how many rows are there in the Articles table
+        $totalarchv = $repoArch->createQueryBuilder('a')
+            // Filter by some parameter if you want
+             ->where('a.ind = 1')
+            ->select('count(a.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
 
+        $team=$this->getDoctrine()->getRepository(team::class)->findAll();
+         $persent=$totalarchv/$totalTeam*100;
+//dump($persent);exit;
         return $this->render('@Team/team/back.html.twig',array(
-            'pp'=>$taskB
+            'pp'=>$team,
+            'pr'=>$persent
 
         ));
 }

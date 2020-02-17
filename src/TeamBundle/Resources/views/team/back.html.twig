@@ -64,6 +64,28 @@
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
+
         </div>
+        <div class="col-md-7">
+            <div class="card no-b p-3">
+                <div class="card-title">
+                    <h4>Archived Teams</h4>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-3">
+                             <span class="easy-pie-chart" data-percent={{ pr |round }} data-options="{&quot;lineWidth&quot;: 10, &quot;barColor&quot;: &quot;#7dc855&quot;}">
+                                    <span class="percent"> {{ pr |round }}</span>
+                            <canvas height="137" width="137" style="height: 110px; width: 110px;"></canvas></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
+
+

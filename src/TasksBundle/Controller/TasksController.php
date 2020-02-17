@@ -14,10 +14,13 @@ class TasksController extends Controller
     public function editAction(Request $request, Tasks $task){
         $editForm=$this->createForm('TasksBundle\Form\TasksType',$task);
         $editForm->handleRequest($request);
+        $media = new Media();
 
         if($editForm->isSubmitted() && $editForm->isValid())
         {
+            $media->setPath($request->files->get('file'));
             $this->getDoctrine()->getManager()->flush();
+            $this->addMedia($request, $media,$task);
             return $this->redirectToRoute('show_tasks');
         }
         return $this->render('@Tasks/Tasks/edit.html.twig', array(

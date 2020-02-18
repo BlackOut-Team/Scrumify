@@ -165,18 +165,23 @@
                                             </div>
                                             <input type="search" class="form-control filter-list-input" placeholder="Filter members" aria-label="Filter Members">
                                         </div>
+
                                         <div class="form-group-users">
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="task-user-1" checked>
+                                                {% for users in users %}
+                                                <input type="checkbox" class="custom-control-input" id="task-user" <!--checked--> >
                                                 <label class="custom-control-label" for="task-user-1">
-                                  <span class="d-flex align-items-center">
-                                    <img alt="Claire Connors" src={{ asset('assets/img/avatar-female-1.jpg') }} class="avatar mr-2" />
-                                    <span class="h6 mb-0" data-filter-by="text">Claire Connors</span>
-                                  </span>
+                                                   <span class="d-flex align-items-center">
+                                                       <img alt="Claire Connors" src={{ asset('assets/img/avatar-female-1.jpg') }} class="avatar mr-2" />
+                                                       <span class="h6 mb-0" data-filter-by="text">{{users.username}}</span>
+                                                   </span>
                                                 </label>
+                                                {% endfor %}
                                             </div>
+
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

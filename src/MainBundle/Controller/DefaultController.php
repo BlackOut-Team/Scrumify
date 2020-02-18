@@ -49,10 +49,7 @@ class DefaultController extends Controller
 
         ));
 
-            return $this->render('@Main/Default/index.html.twig',array(
-                'p'=>$f->CreateView()
 
-            ));
 
     }
 

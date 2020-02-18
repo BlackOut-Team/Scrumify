@@ -118,6 +118,19 @@ fos_user:
     group:
         group_class: Scrumify\MainBundle\Entity\Group
 fos_message:
-    db_driver: orm
-    thread_class: MessagingBundle\Entity\Thread
-    message_class: MessagingBundle\Entity\Message
+    db_driver : orm
+    thread_class: MainBundle\Entity\Thread
+    message_class: MainBundle\Entity\Message
+knp_snappy:
+    temporary_folder: "%kernel.cache_dir%/snappy"
+    process_timeout: 20 # In seconds
+    pdf:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltopdf #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\"" for Windows users
+        options:    []
+    image:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltoimage #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" for Windows users
+        options:    []
+
+

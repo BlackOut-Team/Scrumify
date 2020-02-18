@@ -30,6 +30,7 @@
         "headsnet/sms-bundle": "^0.1.12",
 >>>>>>> 7352b2a1636977ed0c18c3bf61837e068d7d6bc3
         "incenteev/composer-parameter-handler": "^2.0",
+        "knplabs/knp-snappy-bundle": "^1.7",
         "pugx/autocompleter-bundle": "^1.5",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",

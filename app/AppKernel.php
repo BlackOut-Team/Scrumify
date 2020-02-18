@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new FOS\MessageBundle\FOSMessageBundle(),
 
 
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

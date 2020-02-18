@@ -49,16 +49,6 @@ class DefaultController extends Controller
 
             ));
     }
-    public function contactBackAction(Request $request )
-    {
-        $em= $this->getDoctrine()->getManager();
-
-        $c=$em->getRepository('MainBundle:Contact')->findAll();
-        return $this->render('@Main/Default/contactBack.html.twig',array(
-            'c'=>$c
-
-        ));
-    }
 
 
 }

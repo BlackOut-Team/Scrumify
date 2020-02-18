@@ -29,8 +29,8 @@ class DefaultController extends Controller
     }
     public function contactAction( Request $request)
     {
-        $p= new Contact();
-        $f=$this->createForm('MainBundle\Form\ContactType',$p);
+        $p = new Contact();
+        $f = $this->createForm('MainBundle\Form\ContactType', $p);
         $f->handleRequest($request);
 
         if ($f->isSubmitted() && $f->isValid()) {
@@ -45,13 +45,12 @@ class DefaultController extends Controller
             return $this->redirectToRoute('homepage');
         }
 
-        return $this->render('@Main/Default/index.html.twig',array(
-            'p'=>$f->CreateView()
+        return $this->render('@Main/Default/index.html.twig', array(
+            'p' => $f->CreateView()
 
         ));
-
-
     }
+
 
 
 }

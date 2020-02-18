@@ -3,6 +3,7 @@
 namespace MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller
@@ -25,8 +26,6 @@ class DefaultController extends Controller
     {
         return $this->render('@Main/Registration/register.html.twig');
     }
-<<<<<<< HEAD
-=======
     public function contactAction( Request $request)
     {
         $p= new Contact();
@@ -44,12 +43,11 @@ class DefaultController extends Controller
 
             return $this->redirectToRoute('homepage');
         }
-            return $this->render('@Main/Default/index.html.twig',array(
-                'p'=>$f->CreateView()
+        return $this->render('@Main/Default/index.html.twig',array(
+            'p'=>$f->CreateView()
 
-            ));
+        ));
     }
->>>>>>> parent of cf3e3f7... contact us part 2
 
 
 }

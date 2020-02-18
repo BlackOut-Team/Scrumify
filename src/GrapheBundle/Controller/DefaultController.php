@@ -43,6 +43,7 @@ class DefaultController extends Controller
     public function indexBackAction()
     {
         $em= $this->getDoctrine()->getManager();
+        $pieChart = new PieChart();
         $Tasks =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'To do']);
         $Tasks1 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Doing']);
         $Tasks2 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Done']);
@@ -62,6 +63,22 @@ class DefaultController extends Controller
                 ['Block', $sizeBlock],
             ]
         );
+        $pieChart->getData()->setArrayToDataTable(
+            [['Task', 'number'],
+                ['Done',     $sizeDone],
+                ['Doing',      $sizeDoing],
+                ['To Do',  $sizeToDo],
+                ['Block', $sizeBlock],
+            ]
+        );
+        $pieChart->getOptions()->setTitle('Daily Activities');
+        $pieChart->getOptions()->setHeight(500);
+        $pieChart->getOptions()->setWidth(900);
+        $pieChart->getOptions()->getTitleTextStyle()->setBold(true);
+        $pieChart->getOptions()->getTitleTextStyle()->setColor('#16CABD');
+        $pieChart->getOptions()->getTitleTextStyle()->setItalic(true);
+        $pieChart->getOptions()->getTitleTextStyle()->setFontName('Arial');
+        $pieChart->getOptions()->getTitleTextStyle()->setFontSize(20);
         $oldColumnChart->getOptions()->getLegend()->setPosition('top');
         $oldColumnChart->getOptions()->setWidth(450);
         $oldColumnChart->getOptions()->setHeight(250);
@@ -80,6 +97,7 @@ class DefaultController extends Controller
         return $this->render('@Tasks/Tasks/DailyB.html.twig', array(
             'oldColumnChart' => $oldColumnChart,
             'newColumnChart' => $newColumnChart,
+            'piechart' => $pieChart
 
         ));
     }

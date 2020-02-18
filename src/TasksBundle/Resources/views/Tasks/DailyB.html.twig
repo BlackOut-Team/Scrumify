@@ -48,6 +48,13 @@
                         {{ gc_draw([oldColumnChart, newColumnChart], ['oldColumnChart', 'newColumnChart']) }}
                     </script>
                     </div>
+                    <div id="div_chart" style="margin: unset; margin-top: 20px; margin-left: 290px; background-color: transparent">
+
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript" >
+                        {{ gc_draw(piechart, 'div_chart') }}
+                    </script>
+                    </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->

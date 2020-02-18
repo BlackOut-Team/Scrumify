@@ -1,15 +1,11 @@
-<<<<<<< HEAD
 messaging:
     resource: "@MessagingBundle/Resources/config/routing.yml"
-=======
 
 my_app_mail:
     resource: "@MyAppMailBundle/Resources/config/routing.yml"
 
 graphe:
     resource: "@GrapheBundle/Resources/config/routing.yml"
-
->>>>>>> 7352b2a1636977ed0c18c3bf61837e068d7d6bc3
     prefix:   /
 
 scrum:
@@ -71,14 +67,6 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
-<<<<<<< HEAD
 fos_message:
     resource: "@FOSMessageBundle/Resources/config/routing.xml"
     prefix: /
-=======
-
-fos_message :
-    resource: "@FOSMessageBundle/Resources/config/routing.xml"
-    prefix: /message
-
->>>>>>> 7352b2a1636977ed0c18c3bf61837e068d7d6bc3

@@ -29,17 +29,13 @@ class AppKernel extends Kernel
             new ScrumBundle\ScrumBundle(),
             new MyAppMailBundle\MyAppMailBundle(),
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
-<<<<<<< HEAD
             new FOS\MessageBundle\FOSMessageBundle(),
             new MessagingBundle\MessagingBundle(),
-=======
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new GrapheBundle\GrapheBundle(),
-            new FOS\MessageBundle\FOSMessageBundle(),
             //new Headsnet\SmsBundle\HeadsnetSmsBundle(),
 
 
->>>>>>> 7352b2a1636977ed0c18c3bf61837e068d7d6bc3
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

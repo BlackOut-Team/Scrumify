@@ -125,6 +125,11 @@
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/message-bundle" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/elastica-bundle" />
       <path value="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch" />
+      <path value="$PROJECT_DIR$/vendor/esendex/sdk" />
+      <path value="$PROJECT_DIR$/vendor/misd/phone-number-bundle" />
+      <path value="$PROJECT_DIR$/vendor/headsnet/sms-bundle" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

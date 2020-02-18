@@ -22,6 +22,7 @@
         "friendsofsymfony/elastica-bundle": "^5.1",
         "friendsofsymfony/message-bundle": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0",
+        "headsnet/sms-bundle": "^0.1.12",
         "incenteev/composer-parameter-handler": "^2.0",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",

@@ -29,10 +29,14 @@ class AppKernel extends Kernel
             new ScrumBundle\ScrumBundle(),
             new MyAppMailBundle\MyAppMailBundle(),
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+            new MessagingBundle\MessagingBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new GrapheBundle\GrapheBundle(),
-            new FOS\MessageBundle\FOSMessageBundle(),
             //new Headsnet\SmsBundle\HeadsnetSmsBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+
+
 
 
         ];

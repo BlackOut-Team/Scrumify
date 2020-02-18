@@ -1,0 +1,204 @@
+{% extends'baseF.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block contents %}
+    <div class="has-sidebar-left">
+        <header class="blue accent-3 relative nav-sticky">
+            <div class="container-fluid text-white">
+                <div class="row">
+                    <div class="col">
+                        <h4>
+                            <i class="icon-package"></i>
+                            Inbox
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="nav nav-material nav-material-white responsive-tab" id="v-pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#"><i class="icon icon-list"></i>All</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#modalCreateMessage" data-toggle="modal"
+                               data-target="#modalCreateMessage">
+                                <i class="icon icon-clipboard-add"></i> Compose New Message
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#modalCreateMessage" data-toggle="modal"
+                               data-target="#modalCreateMessage"><i class="icon icon-trash-can"></i>Trash</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid animatedParent animateOnce p-0">
+            <div class="animated fadeInUpShort">
+                <div class="row no-gutters">
+                    <div class="col-md-3 white sticky">
+                        <div class="sticky white">
+                            <ul class="nav nav-tabs nav-material">
+                                <li class="nav-item">
+                                    <a class="nav-link p-3 active show" id="w2--tab1" data-toggle="tab" href="#w2-tab1"><i
+                                                class="icon icon-mail-envelope-closed s-18 text-success"></i>New</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slimScroll">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="w2-tab1" role="tabpanel"
+                                     aria-labelledby="w2-tab1">
+                                    <ul class="list-unstyled ">
+                                        {% for c in c  %}
+                                            <li class="media p-3 b-b has-hover">
+
+                                                <div class="media-body text-truncate">
+                                                    <small class="float-right">
+                                                        <span>{{c.send|date('Y-m-d H:i:s')}}</span>
+                                                        <a href="#" class="mr-2 ml-2">
+                                                            <i class="icon-star-o "></i>
+                                                        </a>
+                                                    </small>
+                                                    <h6 class="mt-0 mb-1 font-weight-normal">{{c.name}} </h6>
+                                                    <span>{{c.status}} </span>
+                                                    <br>
+                                                    <small>{{c.subject}}</small>
+                                                </div>
+
+                                            </li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="w2-tab2" role="tabpanel" aria-labelledby="w2-tab2">
+                                    <ul>
+                                        <li class="media p-3 b-b">
+                                            <img class="d-flex mr-3 height-50" src="assets/img/dummy/u3.png"
+                                                 alt="Generic placeholder image">
+                                            <div class="media-body text-truncate">
+                                                <h6 class="mt-0 mb-1 font-weight-normal">Doe Joe</h6>
+                                                <span>Message sent via your  Market </span>
+                                                <br>
+                                                <small>Congratulations! Your update to WeRock Multipurpose</small>
+                                            </div>
+                                        </li>
+                                        <li class="media p-3 b-b">
+                                            <img class="d-flex mr-3 height-50" src="assets/img/dummy/u4.png"
+                                                 alt="Generic placeholder image">
+                                            <div class="media-body text-truncate">
+                                                <h6 class="mt-0 mb-1 font-weight-normal">Doe Joe</h6>
+                                                <span>Message sent via your  Market </span>
+                                                <br>
+                                                <small>Congratulations! Your update to WeRock Multipurpose</small>
+                                            </div>
+                                        </li>
+                                        <li class="media p-3 b-b">
+                                            <img class="d-flex mr-3 height-50" src="assets/img/dummy/u5.png"
+                                                 alt="Generic placeholder image">
+                                            <div class="media-body text-truncate">
+                                                <h6 class="mt-0 mb-1 font-weight-normal">Doe Joe</h6>
+                                                <span>Message sent via your  Market </span>
+                                                <br>
+                                                <small>Congratulations! Your update to WeRock Multipurpose</small>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="w2-tab3" role="tabpanel" aria-labelledby="w2-tab3">
+                                    <ul>
+                                        <li class="media p-3 b-b">
+                                            <img class="d-flex mr-3 height-50" src="assets/img/dummy/u9.png"
+                                                 alt="Generic placeholder image">
+                                            <div class="media-body text-truncate">
+                                                <h6 class="mt-0 mb-1 font-weight-normal">Doe Joe</h6>
+                                                <span>Message sent via your  Market </span>
+                                                <br>
+                                                <small>Congratulations! Your update to WeRock Multipurpose</small>
+                                            </div>
+                                        </li>
+                                        <li class="media p-3 b-b">
+                                            <img class="d-flex mr-3 height-50" src="assets/img/dummy/u11.png"
+                                                 alt="Generic placeholder image">
+                                            <div class="media-body text-truncate">
+                                                <h6 class="mt-0 mb-1 font-weight-normal">Doe Joe</h6>
+                                                <span>Message sent via your  Market </span>
+                                                <br>
+                                                <small>Congratulations! Your update to WeRock Multipurpose</small>
+                                            </div>
+                                        </li>
+                                        <li class="media p-3 b-b">
+                                            <img class="d-flex mr-3 height-50" src="assets/img/dummy/u10.png"
+                                                 alt="Generic placeholder image">
+                                            <div class="media-body text-truncate">
+                                                <h6 class="mt-0 mb-1 font-weight-normal">Doe Joe</h6>
+                                                <span>Message sent via your  Market </span>
+                                                <br>
+                                                <small>Congratulations! Your update to WeRock Multipurpose</small>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 b-l">
+                        <div class="m-md-3">
+                            <!--Message Start-->
+
+                            {% for c in c %}
+                                <div class="card b-0 m-2">
+
+                                    <div class="card-body" >
+                                        <div data-toggle="collapse" data-target="#message1" aria-expanded="true" class="">
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h6 class="mt-0 mb-1 font-weight-normal">{{c.name}}</h6>
+                                                    <span>{{c.status}}</span>
+                                                    <br>
+                                                    <small>{{c.send|date('Y-m-d H:i:s')}}</small>
+                                                    <div class="my-3 collapse show" id="message1" style="">
+                                                        <div>
+                                                            <p>{{c.subject}}</p>
+                                                            <p> {{ c.message }} </p>
+                                                        </div>
+                                                        <div class="btn-group float-right">
+                                                            <a class="btn btn-outline-primary btn-xs" href="#modalCreateMessage" data-toggle="modal" data-target="#modalCreateMessage">Forward</a>
+                                                            <a class="btn btn-outline-primary btn-xs" href="#modalCreateMessage" data-toggle="modal" data-target="#modalCreateMessage">Reply</a>
+                                                            <a class="btn btn-outline-primary btn-xs" href="#modalCreateMessage" data-toggle="modal" data-target="#modalCreateMessage">Save</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            {% endfor %}
+
+                            <!--Message End-->
+
+                            <!--Message Start-->
+
+                            <!--Message End-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Add New Message Fab Button-->
+        <a href="#modalCreateMessage" data-toggle="modal"
+           data-target="#modalCreateMessage" class="btn-fab btn-fab-md fab-right fab-right-bottom-fixed shadow btn-primary"><i
+                    class="icon-add"></i></a>
+    </div>
+    <div class="m-md-3" style="width: 647px;">
+
+
+    </div>
+
+{% endblock %}

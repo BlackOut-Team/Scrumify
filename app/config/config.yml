@@ -15,6 +15,11 @@ imports:
     - { resource: "@ScrumBundle/Resources/config/services.yml" }
     - { resource: "@MessagingBundle/Resources/config/services.yml" }
 
+    - { resource: "@MyAppMailBundle/Resources/config/services.yml" }
+
+    - { resource: "@GrapheBundle/Resources/config/services.yml" }
+
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -113,6 +118,12 @@ fos_user:
     group:
         group_class: Scrumify\MainBundle\Entity\Group
 fos_message:
+<<<<<<< HEAD
     db_driver: orm
     thread_class: MessagingBundle\Entity\Thread
     message_class: MessagingBundle\Entity\Message
+=======
+    db_driver : orm
+    thread_class: MainBundle\Entity\Thread
+    message_class: MainBundle\Entity\Message
+>>>>>>> 7352b2a1636977ed0c18c3bf61837e068d7d6bc3

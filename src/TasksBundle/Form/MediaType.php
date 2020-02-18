@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use TasksBundle\Entity\Media;
 
 class MediaType extends AbstractType
 {
@@ -16,15 +17,14 @@ class MediaType extends AbstractType
     {
         $builder
             ->add('path',FileType::class);
-        //2 secondes nthabet fi haja
-        //tasti ya bb
+
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'TasksBundle\Entity\Media'
+            'data_class' => Media::class
         ));
     }
 

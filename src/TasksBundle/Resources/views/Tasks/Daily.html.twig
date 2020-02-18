@@ -1,0 +1,75 @@
+{% extends'base.html.twig' %}
+{% block title %}Project's Tasks{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    {% block contents %}
+
+        <div class="breadcrumb-bar navbar bg-white sticky-top">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-2.html">Feature</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="pages-app.html#">User Story</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
+                </ol>
+            </nav>
+
+
+            <!--Menu li ala jnab -->
+            <div class="dropdown">
+                <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons">settings</i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
+                    <a class="dropdown-item" href="#">Share</a>
+                    <a class="dropdown-item" href="#">Mark as Complete</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#">Archive</a>
+
+                </div>
+            </div>
+
+        </div>
+        <ul class="nav nav-tabs nav-fill" style="width: fit-content; margin: auto;margin-top: 17px;" >
+            <li class="nav-item">
+                <a class="nav-link " href="{{path('show_tasks')}}" role="tab" >Scrum Board</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active"  href=" {{path('graphe_homepage')}}" >General Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="#task-add-media" >Media</a>
+            </li>
+        </ul>
+
+        <div class="main-container">
+            <figure>
+                <img src="/scrumify/web/Front/Index/images/undraw_investing_7u741.png" alt="Image" width="auto" height="300">
+            </figure>
+            <div id="div_chart" style="margin: unset; margin-top: 20px; background-color: transparent"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw(piechart, 'div_chart') }}
+            </script>
+
+        </div>
+
+
+
+
+
+
+    {% endblock %}
+{% endblock %}

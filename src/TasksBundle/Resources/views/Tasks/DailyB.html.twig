@@ -1,0 +1,63 @@
+{% extends'baseF.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block contents %}
+<div class="page has-sidebar-left height-full">
+    <header class="blue accent-3 relative nav-sticky">
+        <div class="container-fluid text-white">
+
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+                    <li>
+                        <a class="nav-link "  href={{path('show_tasks_back')}}>
+                            <i class="icon icon-home2" href={{ path('show_tasks_back' ) }}></i>Scrum Board</a>
+                    </li>
+                    <li>
+
+                        <a class="nav-link active"  href="{{ path('graphe_back' ) }}"><i class="icon icon-plus-circle mb-3"></i>General Overview</a>
+                    </li>
+                    <li>
+                        <a class="nav-link"  href="#v-pills-3"><i class="icon icon-calendar"></i>By Date</a>
+                    </li>
+                </ul>
+                <a class="btn-fab fab-right btn-primary" data-toggle="control-sidebar">
+                    <i class="icon icon-menu"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+</div>
+    <div class="container-fluid relative animatedParent animateOnce" style="margin-top: -700px;">
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-header" >
+                        <h3 class="box-title"> Tasks </h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div style="margin-left: auto; display: -webkit-inline-box;">
+                    <div id="oldColumnChart"></div>
+                    <div id="newColumnChart"></div>
+
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                        {{ gc_draw([oldColumnChart, newColumnChart], ['oldColumnChart', 'newColumnChart']) }}
+                    </script>
+                    </div>
+                    <div id="div_chart" style="margin: unset; margin-top: 20px; margin-left: 290px; background-color: transparent">
+
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript" >
+                        {{ gc_draw(piechart, 'div_chart') }}
+                    </script>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        {% endblock %}

@@ -67,10 +67,10 @@
                                                     </div>
                                                     <div class="card-title">
                                                         <a href="#">
-                                                            <h5 data-filter-by="text"> {{ con.name }}</h5>
-                                                            <h5 data-filter-by="text"> {{ con.created |date("m/d/Y")}}</h5>
-                                                            <h5 data-filter-by="text"> {{ con.updated|date("m/d/Y") }}</h5>
-                                                            <h5 data-filter-by="text"> {{ con.etat }}</h5>
+                                                            <h5 data-filter-by="text"> Team Name: {{ con.name }}</h5>
+                                                            <h5 data-filter-by="text"> Creation Date: {{ con.created |date("m/d/Y")}}</h5>
+                                                            <h5 data-filter-by="text"> Updated Date:  {{ con.updated|date("m/d/Y") }}</h5>
+
 
                                                         </a>
                                                     </div>
@@ -121,12 +121,7 @@
                                                 {{ form_start(form) }}
                                                 {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
                                             </div>
-                                            <div class="form-group row">
 
-                                                <label class="col-3">Etat</label>
-
-                                                {{ form_widget(form.etat,{'attr': {'class': 'form-control col'}})}}
-                                            </div>
                                             <hr>
 
                                             <div class="form-group row align-items-center">

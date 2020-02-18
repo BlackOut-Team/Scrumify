@@ -20,8 +20,8 @@ class TasksType extends AbstractType
             ->add('title')
             ->add('description', TextareaType::class)
             ->add('finished', DateTimeType::class)
-            ->add('priority')
-            ->add('addTasks', SubmitType::class);
+            ->add('priority');
+           // ->add('addTasks', SubmitType::class);
     }/**
      * {@inheritdoc}
      */

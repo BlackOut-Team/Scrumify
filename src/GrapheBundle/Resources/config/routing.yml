@@ -1,0 +1,6 @@
+graphe_homepage:
+    path:     /graph
+    defaults: { _controller: GrapheBundle:Default:index }
+graphe_back:
+    path:     /graphB
+    defaults: { _controller: GrapheBundle:Default:indexBack }

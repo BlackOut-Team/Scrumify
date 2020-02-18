@@ -48,6 +48,7 @@ class Media
      */
     private $tasks;
 
+
     /**
      * @return mixed
      */

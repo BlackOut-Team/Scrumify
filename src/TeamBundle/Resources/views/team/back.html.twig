@@ -28,27 +28,35 @@
                     <table class="table table-hover">
                         <tbody>
                         <tr>
-                            <th>ID</th>
+
                             <th>Name</th>
                             <th>Date of creation</th>
                             <th>Date of updating</th>
-                            <th>State</th>
                             <th>Action</th>
+                            <th>information</th>
+
 
                         </tr>
                         {% for pp in pp %}
-                            {% if pp.ind != 1 %}
+
                             <tr>
-                                <td>{{ pp.id}}</td>
+
                                 <td>{{ pp.name }}</td>
                                 <td>{{ pp.created  | date('d-M-Y')}}</td>
                                 <td>{{ pp.updated | date('d-M-Y')}}</td>
-                                <td>{{ pp.etat }}</td>
-                                <td> <a href="{{ path('archive_team1', { 'id': pp.id }) }}">Archiver</a>
+                                <td> <a href="{{ path('archive_team1', { 'id': pp.id }) }}">Archiver</a><br>
+                                    <a href="{{ path('desarchive_team1', { 'id': pp.id }) }}">Desarchiver</a>
                                 </td>
+                                {% if pp.ind == 1 %}
+                                <td>Archived</td>
+                                {% endif %}
+                                {% if pp.ind == 0 %}
+                                    <td>Unarchived</td>
+                                {% endif %}
 
 
-                            </tr>{% endif %}
+
+                            </tr>
                         {% endfor %}
                         </tbody>
                     </table>
@@ -56,6 +64,28 @@
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
+
         </div>
+        <div class="col-md-7">
+            <div class="card no-b p-3">
+                <div class="card-title">
+                    <h4>Archived Teams</h4>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-3">
+                             <span class="easy-pie-chart" data-percent={{ pr |round }} data-options="{&quot;lineWidth&quot;: 10, &quot;barColor&quot;: &quot;#7dc855&quot;}">
+                                    <span class="percent"> {{ pr |round }}</span>
+                            <canvas height="137" width="137" style="height: 110px; width: 110px;"></canvas></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
+
+

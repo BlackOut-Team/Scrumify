@@ -45,7 +45,7 @@
 </div>
 
 
-{{ form_start(edit_form) }}
+{{ form_start(edit_form, {'multipart': true}) }}
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -60,6 +60,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="task-add-members-tab" data-toggle="tab" href="#task-add-members" role="tab" aria-controls="task-add-members" aria-selected="false">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="task-add-members-tab" data-toggle="tab" href="#task-add-media" role="tab" aria-controls="task-add-members" aria-selected="false">Media</a>
                 </li>
             </ul>
             <div class="modal-body">
@@ -119,12 +122,53 @@
                             </div>
                         </div>
                     </div>
+                    <!--page files-->
+                    <div class="tab-pane fade" id="task-add-media" role="tabpanel">
+                        <div class="users-manage" data-filter-list="form-group-users">
+
+                            <div class="content-list">
+                                <div class="row content-list-head">
+                                    <div class="col-auto">
+                                        <h3>Files</h3>
+                                    </div>
+
+                                </div>
+                                <!--end of content list head-->
+                                <div class="content-list-body">
+
+                                    <div  >
+                                        <input type="file"  class="dropzone dz-clickable" name="file">
+                                    </div>
+
+                                    <ul class="list-group list-group-activity dropzone-previews flex-column-reverse">
+                                        <!--kaaba affiche file -->
+                                        {% for m in m %}
+                                        <li class="list-group-item" data-t="null" data-i="null" data-l="null" data-e="null">
+                                            <div class="media align-items-center">
+                                                <div class="media-body d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <a href={{ m.path }} data-filter-by="text" class="A-filter-by-text">{{m.name}}</a>
+                                                        <br>
+                                                        <span class="text-small SPAN-filter-by-text" data-filter-by="text">{{m.type}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+          <!--end page file-->
+                    </div>
                 </div>
             </div>
             <!--end of modal body-->
             <div class="modal-footer">
-
-                {{ form_widget(edit_form.addTasks, {'attr': {'class': 'btn btn-primary'}}) }}
+                <input class="btn btn-primary" type="submit" value="ok">
             </div>
         </div>
 

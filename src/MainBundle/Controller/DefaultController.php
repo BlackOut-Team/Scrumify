@@ -43,10 +43,17 @@ class DefaultController extends Controller
 
             return $this->redirectToRoute('homepage');
         }
+
         return $this->render('@Main/Default/index.html.twig',array(
             'p'=>$f->CreateView()
 
         ));
+
+            return $this->render('@Main/Default/index.html.twig',array(
+                'p'=>$f->CreateView()
+
+            ));
+
     }
 
 

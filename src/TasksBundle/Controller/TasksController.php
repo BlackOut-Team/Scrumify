@@ -86,6 +86,7 @@ class TasksController extends Controller
         $Tasks1 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Doing'],['priority' => 'ASC']);
         $Tasks2 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Done'],['priority' => 'ASC']);
         $Tasks3 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Block'],['priority' => 'ASC']);
+        $users =$em->getRepository('MainBundle:User')->findall();
 
         $task=new Tasks();
         $media = new Media();
@@ -110,13 +111,13 @@ class TasksController extends Controller
             return $this->render('@Tasks/Tasks/home.html.twig',array(
                 'task'=>$task,
                 'form'=>$form->CreateView(),
-                'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3
+                'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3, 'users'=>$users
             )) ;
         }
 
         return $this->render('@Tasks/Tasks/home.html.twig',array(
             'form'=>$form->CreateView(),
-            'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3));
+            'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3,'users'=>$users));
 
     }
 

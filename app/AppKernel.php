@@ -34,7 +34,6 @@ class AppKernel extends Kernel
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new GrapheBundle\GrapheBundle(),
             //new Headsnet\SmsBundle\HeadsnetSmsBundle(),
-            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
 
 
 

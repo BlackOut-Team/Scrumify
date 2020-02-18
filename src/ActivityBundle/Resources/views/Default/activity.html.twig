@@ -12,20 +12,22 @@
             <div class="col-md-3 d-none d-md-block text-truncate white b-r ">
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 906px;"><div class="sticky slimScroll" style="overflow: hidden; width: auto; height: 906px;">
                         <div class="card-header white ">
+                            <form>
                                 <div class="form-group has-right-icon m-0 focused">
                                     <input class="form-control light r-30" placeholder="Search" type="text" id="listSearch">
                                     <i class="icon-search"></i>
                                 </div>
+                            </form>
                         </div>
                         <div class="card-body pt-0 light">
-                            <ul class="list-unstyled list-group p-3">
+                            <ul class="list-unstyled p-3">
                                 <!-- Alphabet with number of contacts -->
                                 <div class="alert alert-primary " role="alert">
                                     {{ newActivities | length }} new activities
                                 </div>
                                 <!-- Single contact -->
                                 {% for activity in newActivities %}
-                                    <li class="my-1">
+                                    <li class="my-1 ">
                                         <div class="card no-b p-3 " style="background-color: #c8eaca">
                                             <div class="">
                                                 <div class="float-right">
@@ -41,7 +43,7 @@
                                                 </div>
                                                 <div>
                                                     <div>
-                                                        <strong  class="list-group-item ">{{ activity.User.username }}</strong>
+                                                        <strong>{{ activity.User.username }}</strong>
                                                     </div>
                                                     <small> {{ activity.action }}</small>
                                                 </div>

@@ -334,7 +334,7 @@ __webpack_require__(2).inspectSource = function (it) {
   }
 // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
 })(Function.prototype, TO_STRING, function toString() {
-  return typeof this == 'function' && this[SRC] || $toString.call(this);
+  return typeof this == 'function' && this[SRC] || $toString.call(this);.
 });
 
 

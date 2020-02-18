@@ -120,10 +120,3 @@ fos_message:
     db_driver : orm
     thread_class: MainBundle\Entity\Thread
     message_class: MainBundle\Entity\Message
-headsnet_sms:
-    dispatcher:          esendex
-    esendex:
-        account_reference: ~
-        username:          ~
-        password:          ~
-        vmn:               ~  # Virtual Mobile Number

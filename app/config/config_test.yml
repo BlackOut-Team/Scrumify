@@ -14,5 +14,3 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
-headsnet_sms:
-    dispatcher: dummy

@@ -25,6 +25,31 @@ class DefaultController extends Controller
     {
         return $this->render('@Main/Registration/register.html.twig');
     }
+<<<<<<< HEAD
+=======
+    public function contactAction( Request $request)
+    {
+        $p= new Contact();
+        $f=$this->createForm('MainBundle\Form\ContactType',$p);
+        $f->handleRequest($request);
+
+        if ($f->isSubmitted() && $f->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $p->setSend(new \DateTime('now'));
+            $p->setReplied(new \DateTime('now'));
+            $p->setStatus('Send');
+            $p->setEtat(1);
+            $em->persist($p);
+            $em->flush($p);
+
+            return $this->redirectToRoute('homepage');
+        }
+            return $this->render('@Main/Default/index.html.twig',array(
+                'p'=>$f->CreateView()
+
+            ));
+    }
+>>>>>>> parent of cf3e3f7... contact us part 2
 
 
 }

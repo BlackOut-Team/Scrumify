@@ -40,5 +40,3 @@ monolog:
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
 
-headsnet_sms:
-    delivery_override:   '+21623668213'

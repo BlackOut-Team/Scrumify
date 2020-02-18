@@ -41,26 +41,29 @@ class DefaultController extends Controller
 
     }
 
-    public function archiverSAction(Request $request, Sprint $sprint){
+    public function archiverSAction(Request $request, Projet $projet,Sprint $sprint){
 
         $em= $this->getDoctrine()->getManager();
         $sprint->setEtat(0);
         $em->persist($sprint);
-        $em->flush($sprint);
-        return $this->redirectToRoute('addSprint');
+        $em->flush();
+        return $this->redirectToRoute('addProject');
 
     }
-    public function editSAction(Request $request, Sprint $sprint){
+    public function editSAction(Request $request, Projet $projet  , Sprint $sprint){
+
         $editForm=$this->createForm('SprintBundle\Form\SprintType',$sprint);
         $editForm->handleRequest($request);
 
         if($editForm->isSubmitted() && $editForm->isValid())
         {
+            $sprint->setProject($projet);
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('Sprint_homepage');
+            return $this->redirectToRoute('addProject');
         }
         return $this->render('@Sprint/Default/editS.html.twig', array(
-            'edit_form' => $editForm->createView()
+            'edit_form' => $editForm->createView(),
+            'project' => $projet,
         ));
     }
 

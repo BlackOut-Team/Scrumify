@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new FOS\MessageBundle\FOSMessageBundle(),
             //new Headsnet\SmsBundle\HeadsnetSmsBundle(),
 
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

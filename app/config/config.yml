@@ -13,6 +13,7 @@ imports:
     - { resource: "@UserstoryBundle/Resources/config/services.yml" }
     - { resource: "@SprintBundle/Resources/config/services.yml" }
     - { resource: "@ScrumBundle/Resources/config/services.yml" }
+    - { resource: "@MessagingBundle/Resources/config/services.yml" }
 
 
 # Put parameters here that don't need to change on each machine where the app is deployed
@@ -111,3 +112,7 @@ fos_user:
             template: '@FOSUser/Resetting/email.txt.twig'
     group:
         group_class: Scrumify\MainBundle\Entity\Group
+fos_message:
+    db_driver: orm
+    thread_class: MessagingBundle\Entity\Thread
+    message_class: MessagingBundle\Entity\Message

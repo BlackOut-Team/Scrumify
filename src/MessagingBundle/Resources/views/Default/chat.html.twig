@@ -1,0 +1,105 @@
+
+{% extends "@Main/Default/index.html.twig" %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href={{ asset('Forum/css/style.css') }}>
+    <link href={{ asset('assets/css/theme.css') }} rel="stylesheet" type="text/css" media="all" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/chat.css') }}" rel="stylesheet">
+
+{% endblock %}
+{% block contents %}
+    <div class="container bootstrap snippet">
+        <div class="row " style="padding-top: 150px;">
+            <div class="col-md-4 bg-white ">
+                <div class=" row border-bottom padding-sm" style="height: 40px;">
+                    Member
+                </div>
+
+                <!-- =============================================================== -->
+                <!-- member list -->
+                <ul class="friend-list">
+                    <li class="active bounceInDown">
+                        <a href="#" class="clearfix">
+                            <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+                            <div class="friend-name">
+                                <strong>John Doe</strong>
+                            </div>
+                            <div class="last-message text-muted">Hello, Are you there?</div>
+                            <small class="time text-muted">Just now</small>
+                            <small class="chat-alert label label-danger">1</small>
+                        </a>
+                    </li>
+                    {% for t in threads %}
+                    <li>
+                        <a href="{{ url('messaging_homepage',{'id':t.id}) }}" class="clearfix">
+                            <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
+                            <div class="friend-name">
+                                <strong>{{ t.otherParticipants( user) | last}}</strong>
+                            </div>
+                            <div class="last-message text-muted">{{ t.lastMessage.body }}</div>
+                            <small class="time text-muted">5 mins ago</small>
+                            <small class="chat-alert text-muted"><i class="fa fa-check"></i></small>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!--=========================================================-->
+            <!-- selected chat -->
+            <div class="col-md-8 bg-white ">
+                <div class="chat-message">
+                    <ul class="chat">
+                        {% for m in thread.messages %}
+                            {% if  m.sender.username == user.username %}
+                        <li class="left clearfix">
+                    	<span class="chat-img pull-left">
+                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+                    	</span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">{{ m.sender.username }}</strong>
+                                    <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+                                </div>
+                                <p>
+                                    {{ m.body }}
+                                </p>
+                            </div>
+                        </li>
+                            {% else %}
+                                <li class="right clearfix">
+                    	<span class="chat-img pull-right">
+                    		<img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
+                    	</span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">{{ m.sender.username }}</strong>
+                                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+                                        </div>
+                                        <p>
+                                            {{ m.body }}
+                                        </p>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="chat-box bg-white">
+                    <form action="{{ url('messaging_homepage', {'id': thread.id}) }}" method="post">
+
+                        <div class="input-group">
+                            {{ form_widget(form.body, {'attr': {'class': 'form-control border no-shadow no-rounded',"placeholder":"Write your message here",'id':"message_body", "name":"message[body]", "type":"textarea"}}) }}
+
+                            {{ form_widget(form._token) }}
+                        <span class="input-group-btn">
+            			<button class="btn btn-success no-rounded" type="submit">Send</button>
+            		</span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

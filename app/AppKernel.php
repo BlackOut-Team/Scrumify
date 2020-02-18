@@ -28,7 +28,8 @@ class AppKernel extends Kernel
             new SprintBundle\SprintBundle(),
             new ScrumBundle\ScrumBundle(),
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
-
+            new FOS\MessageBundle\FOSMessageBundle(),
+            new MessagingBundle\MessagingBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

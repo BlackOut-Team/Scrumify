@@ -2,6 +2,7 @@
 
 namespace MainBundle\Controller;
 
+use MainBundle\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -49,10 +50,6 @@ class DefaultController extends Controller
 
         ));
 
-            return $this->render('@Main/Default/index.html.twig',array(
-                'p'=>$f->CreateView()
-
-            ));
 
     }
 

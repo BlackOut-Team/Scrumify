@@ -33,6 +33,9 @@ class AppKernel extends Kernel
             new GrapheBundle\GrapheBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
             //new Headsnet\SmsBundle\HeadsnetSmsBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+
+
 
 
         ];

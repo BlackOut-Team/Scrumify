@@ -72,7 +72,7 @@ class TasksController extends Controller
         $file->move($this->getParameter('media_directory'), $fileName);
         $media->setPath($file);
         $media->setTasks($task);
-        //
+
         $media->setName($fileName);
         $media->setType($file->getClientOriginalExtension());
         $em= $this->getDoctrine()->getManager();

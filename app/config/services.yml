@@ -3,6 +3,7 @@
 parameters:
     #parameter_name: value
     media_directory: '%kernel.root_dir%/../web/uploads/media'
+    brochures_directory: '%kernel.project_dir%/web/uploads/files'
 
 services:
     # default configuration for services in *this* file
@@ -46,3 +47,4 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+

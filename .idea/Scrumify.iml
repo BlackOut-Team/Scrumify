@@ -11,6 +11,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/ringphp" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/streams" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/headsnet/sms-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/misd/phone-number-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/pagerfanta/pagerfanta" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/pugx/autocompleter-bundle" />

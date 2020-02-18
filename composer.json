@@ -19,10 +19,16 @@
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/ckeditor-bundle": "^2.2",
+<<<<<<< HEAD
+        "friendsofsymfony/message-bundle": "^2.0",
+        "friendsofsymfony/user-bundle": "~2.0",
+        "gos/web-socket-bundle": "^2.2",
+=======
         "friendsofsymfony/elastica-bundle": "^5.1",
         "friendsofsymfony/message-bundle": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0",
         "headsnet/sms-bundle": "^0.1.12",
+>>>>>>> 7352b2a1636977ed0c18c3bf61837e068d7d6bc3
         "incenteev/composer-parameter-handler": "^2.0",
         "knplabs/knp-snappy-bundle": "^1.7",
         "pugx/autocompleter-bundle": "^1.5",
@@ -33,7 +39,8 @@
         "symfony/security": "^3.4",
         "symfony/swiftmailer-bundle": "^2.6.4",
         "symfony/symfony": "3.4.*",
-        "twig/twig": "^1.0||^2.0"
+        "twig/twig": "^1.0||^2.0",
+        "twilio/sdk": "^5.42"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

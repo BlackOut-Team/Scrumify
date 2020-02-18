@@ -13,6 +13,7 @@ imports:
     - { resource: "@UserstoryBundle/Resources/config/services.yml" }
     - { resource: "@SprintBundle/Resources/config/services.yml" }
     - { resource: "@ScrumBundle/Resources/config/services.yml" }
+    - { resource: "@MessagingBundle/Resources/config/services.yml" }
 
     - { resource: "@MyAppMailBundle/Resources/config/services.yml" }
 
@@ -131,3 +132,5 @@ knp_snappy:
         enabled:    true
         binary:     /usr/local/bin/wkhtmltoimage #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" for Windows users
         options:    []
+
+

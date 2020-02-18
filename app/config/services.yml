@@ -43,8 +43,3 @@ services:
             - [setContainer, ["@service_container"]]
         bind:
             $formFactory: "@fos_user.profile.form.factory"
-    # add more services, or override services that need manual wiring
-    # AppBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'
-

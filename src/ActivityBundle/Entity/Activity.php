@@ -22,27 +22,6 @@ class Activity
     private $id;
 
     /**
-     * @return int
-     */
-    public function getViewed(): int
-    {
-        return $this->viewed;
-    }
-
-    /**
-     * @param int $viewed
-     */
-    public function setViewed(int $viewed): void
-    {
-        $this->viewed = $viewed;
-    }
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="viewed", type="integer")
-     */
-    private $viewed;
-    /**
      * @var string
      *
      * @ORM\Column(name="action", type="string")

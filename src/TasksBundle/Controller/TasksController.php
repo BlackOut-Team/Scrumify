@@ -8,19 +8,9 @@ use TasksBundle\Entity\Media;
 use TasksBundle\Entity\Tasks;
 use TasksBundle\Form\TasksType;
 use ActivityBundle\Service\ActivityGenerator;
-use Headsnet\Sms\SmsSendingInterface;
-
 
 class TasksController extends Controller
 {
-
-    public function changeStatusAction(Request $request, Tasks $task,string $statut){
-        $em= $this->getDoctrine()->getManager();
-        $task->setStatus($statut);
-        $em->persist($task);
-        $em->flush();
-        return $this->redirectToRoute('show_tasks');
-    }
 
     public function editAction(Request $request, Tasks $task){
         $em= $this->getDoctrine()->getManager();
@@ -80,7 +70,7 @@ class TasksController extends Controller
         $file->move($this->getParameter('media_directory'), $fileName);
         $media->setPath($file);
         $media->setTasks($task);
-
+        //
         $media->setName($fileName);
         $media->setType($file->getClientOriginalExtension());
         $em= $this->getDoctrine()->getManager();
@@ -118,7 +108,11 @@ class TasksController extends Controller
             $em->flush($task);
            $this->addMedia($request, $media,$task);
             //dump($request);exit;
-            return $this->redirectToRoute('show_tasks') ;
+            return $this->render('@Tasks/Tasks/home.html.twig',array(
+                'task'=>$task,
+                'form'=>$form->CreateView(),
+                'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3, 'users'=>$users
+            )) ;
         }
 
         return $this->render('@Tasks/Tasks/home.html.twig',array(

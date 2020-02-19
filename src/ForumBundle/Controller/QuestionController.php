@@ -11,23 +11,18 @@ use ForumBundle\Form\QuestionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use ActivityBundle\Service\ActivityGenerator;
-use Twilio\Rest\Client;
+
 class QuestionController extends Controller
 {
 
     public function DisplayQuestionsAction()
     {
-
-        $provider = $this->container->get('fos_message.provider');
-        $nbr = $provider->getNbUnreadMessages();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $questions=$this->getDoctrine()
-            ->getRepository(Question::class)->getOtherQuestions($user);
-        $myQuestions=$this->getDoctrine()
             ->getRepository(Question::class)
-            ->findBy(['User' => $user]);
+            ->findAll();
         return $this->render('@Forum/Question/display_questions.html.twig',
-            array('questions'=>$questions, 'user' => $user,'myQuestions'=>$myQuestions,'nbr'=>$nbr  ));
+            array('questions'=>$questions, 'user' => $user ));
     }
     public function DisplayBackQuestionsAction()
     {

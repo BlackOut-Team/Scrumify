@@ -2,14 +2,11 @@ Sprint_homepage:
     path:     /sprint/{id}
     defaults: { _controller: SprintBundle:Default:AddS }
 archiverSprint:
-    path:     /archiver/{projet}/{sprint}
+    path:     /archiver/{id}
     defaults: { _controller: SprintBundle:Default:archiverS }
-    requirements:
-        page: '\d+'
 addSprint:
     path:   /AddSprint
     defaults: { _controller: SprintBundle:Default:AddS }
 editSprint:
-    path:   /editSprint/{projet}/{sprint}
+    path:   /editSprint/{id}
     defaults: { _controller: SprintBundle:Default:editS }
-

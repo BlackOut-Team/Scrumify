@@ -64,7 +64,6 @@ class Projet
     private $etat;
 
 
-
     /**
      * Get id
      *

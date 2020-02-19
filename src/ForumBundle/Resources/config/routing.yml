@@ -1,21 +1,21 @@
 forum_homepage:
-    path:     /forum
+    path:     /Forum
     defaults: { _controller: ForumBundle:Default:index }
 
 _display_questions:
-    path:     /forum/
+    path:     /DisplayQuestions
     defaults: { _controller: ForumBundle:Question:DisplayQuestions }
 _display_question:
-    path:     /forum/display_question/{id}
+    path:     /DisplayQuestion/{id}
     defaults: { _controller: ForumBundle:Question:DisplayQuestion }
 _add_question:
-    path:     /forum/add_question
+    path:     /AddQuestion
     defaults: { _controller: ForumBundle:Question:AddQuestion }
 _delete_question:
-    path:     /forum/delete_question/{id}
+    path:     /DeleteQuestion/{id}
     defaults: { _controller: ForumBundle:Question:DeleteQuestion }
 _delete_answer:
-    path:     /forum/delete_answer/{id}
+    path:     /DeleteAnswer/{id}
     defaults: { _controller: ForumBundle:Answer:DeleteAnswer }
 _display_back_questions:
     path:     /DisplayBackQuestions

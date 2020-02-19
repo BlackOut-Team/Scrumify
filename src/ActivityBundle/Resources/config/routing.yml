@@ -17,6 +17,3 @@ delete_meeting:
 update_meeting:
     path:     /update_meeting/{id}
     defaults: { _controller: ActivityBundle:Meetings:modifier}
-ChangeActivityState:
-    path:   /change_activity/{id}
-    defaults: { _controller: ActivityBundle:Activity:ChangeActivityState}

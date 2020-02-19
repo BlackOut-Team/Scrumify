@@ -14,9 +14,22 @@ class DefaultController extends Controller
     public function  AddPAction(Request $request)
     {
         $project=$this->getDoctrine()->getRepository(Projet::class)->findAll();
+      //  $sprint=$this->getDoctrine()->getRepository(Sprint::class)->findBy(['project_id'=> $project-]);
         $p= new Projet();
         $f=$this->createForm('ScrumBundle\Form\ProjetType',$p);
+        //dump($f,$request);exit;
         $f->handleRequest($request);
+        $projet=new Projet();
+        $Form=$this->createFormBuilder($projet)
+            ->add('name')
+            ->add('Recherche',SubmitType::class,
+                ['attr'=>['formvalidate'=>'formvalidate']])
+            ->getForm();
+        $Form->handleRequest($request);
+        if($Form->isSubmitted()){
+            $projet=$this->getDoctrine()->getRepository(Projet::class)->findBy(array('name'=>$projet->getName()));
+        }
+
         if ($f->isSubmitted() && $f->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
@@ -31,7 +44,9 @@ class DefaultController extends Controller
         }
         return $this->render('@Scrum/Default/createProject.html.twig',array(
             'f'=>$f->createView(),
-            'project'=>$project
+            'project'=>$project ,
+            'r'=>$Form->createView()
+
         ));
 
     }
@@ -39,10 +54,10 @@ class DefaultController extends Controller
     public function archiverPAction(Request $request, Projet $project){
 
         $em= $this->getDoctrine()->getManager();
-        $project->setEtat(0);
+        $project->setEtat(1);
         $em->persist($project);
         $em->flush();
-        return $this->redirectToRoute('addProject');
+        return $this->redirectToRoute('affiche_role');
 
     }
     public function editPAction(Request $request, Projet $project){
@@ -80,20 +95,24 @@ class DefaultController extends Controller
 
     }
     function searchPAction(Request $request){
-         $projet=new Projet();
-            $Form=$this->createFormBuilder($projet)
-                ->add('Name')
-                ->add('Recherche',SubmitType::class,
-                    ['attr'=>['formvalidate'=>'formvalidate']])
-                ->getForm();
-            $Form->handleRequest($request);
-            if($Form->isSubmitted()){
-                $projet=$this->getDoctrine()->getRepository(Projet::class)->findBy(array('name'=>$projet->getName()));
-            }
-            return $this->render('@Projet/Default/createProject.html.twig',
-                array('S'=>$Form->createView(),'p'=>$projet));
 
 
     }
-
+   /* function SearchAction(Request $request){
+        $projet=new Projet();
+        $em=$this->getDoctrine()->getManager();
+        $Form=$this->createForm(SearchType::class,$projet);
+        $Form->handleRequest($request);
+        if($Form->isSubmitted()){
+            $club=$em->getRepository(Projet::class)
+                ->findBy(array('nom'=>$projet->getName()));
+        }
+        else{
+            $club=$em->getRepository(Projet::class)
+                ->findAll();
+        }
+        //var_dump($club->ge);
+        return $this->render('@Club/Club/createProject.html.twig',
+            array('project'=>$projet,'r'=>$Form->createView()));
+    }*/
 }

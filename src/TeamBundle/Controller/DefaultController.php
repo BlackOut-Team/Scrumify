@@ -2,83 +2,109 @@
 
 namespace TeamBundle\Controller;
 
-use MainBundle\Entity\User;
-use MyAppMailBundle\Entity\team_user;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use TeamBundle\Entity\role;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-
 class DefaultController extends Controller
 {
-    public function affecterAction($id,Request $request)
+    public function indexAction()
     {
-        $con3 = $this->getDoctrine()->getRepository('MyAppMailBundle:team_user')->findBy(array('teamId' =>$id));
+        return $this->render('@Team/Role/index.html.twig');
+    }
 
-        $data=array();
-        foreach ( $con3 as $item) {
-            $a = array(
-                'username'=> $this ->getDoctrine()->getRepository('MainBundle:User')->find($item->getUserId())->getUsername() ,
-                'email'=>  $this ->getDoctrine()->getRepository('MainBundle:User')->find($item->getUserId())->getEmail()
-            );
-            array_push($data,$a);
-        }
+    public function affRoleAction(Request $request)
+    {
+        $p= new role();
+        $form = $this->createFormBuilder($p)
 
+            ->add('role', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
 
-        $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->find($id);
-        $con1 = new User;
-        $x = new team_user();
-
-        $form = $this->createFormBuilder()
-
-            ->add('email', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "email"))
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
+
             ->getForm();
-
         $form->handleRequest($request);
+        if ($form->isSubmitted()&&$form->isValid()) {
 
+            $p->setInd(0);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($p);
 
+            $em->flush();
+            return $this->redirectToRoute("affiche_role");
+        }
+        $con = $this -> getDoctrine()->getRepository('TeamBundle:role')->findAll();
+        return $this->render('@Team/Role/createRole.html.twig',array('con'=> $con,"form" => $form->createView()));
+
+    }
+
+    public function  AddPAction(Request $request)
+    {
+        $project=$this->getDoctrine()->getRepository(role::class)->findAll();
+        $p= new role();
+        $form = $this->createFormBuilder($p)
+
+            ->add('role', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+
+            ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
+
+            ->getForm();
+        $form->handleRequest($request);
         if ($form->isSubmitted()) {
 
-        $con2 = $this ->getDoctrine()->getRepository('MainBundle:User')->findAll();
-
-            foreach ($con2 as $u) {
-
-                if(strtoupper($u->getEmail())==strtoupper($form['email']->getData()))
-                {
-
-                    $message = \Swift_Message::newInstance()
-                        ->setSubject('affectation au team')
-                        ->setFrom('iheb.rekik@esprit.tn')
-                        ->setTo($form['email']->getData())
-                        ->setBody(
-                            $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                                array('team' => $con->getName(),'text/html')));
-                    $this->get('mailer')->send($message);
-
-                    $x->setTeamId($id);
-                    $x->setUserId($u->getId());
-                    $em = $this->getDoctrine()->getManager();
-                     $em->persist($x);
-                    $em->flush();
-
-
-                }else
-                $message = \Swift_Message::newInstance()
-                    ->setSubject('affectation au team')
-                    ->setFrom('iheb.rekik@esprit.tn')
-                    ->setTo($form['email']->getData())
-                    ->setBody(
-                        $this->renderView('@MyAppMail/Mail/mail1.html.twig',
-                            array('team' => $con->getName(),'text/html')));
-                $this->get('mailer')->send($message);
-            }
+            $p->setInd(0);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($p);
+            $em->flush();
+            return $this->redirectToRoute("ajout_team");
 
         }
 
-        return $this->render('@Team/Default/affMembre.html.twig',array("form" => $form->createView(),"info"=>$data));
+        return $this->render('@Team/Role/createRole.html.twig',array("form" => $form->createView())
+        );
+  
+}
+
+    public function  editAction(Request $request,$id)
+    {
+        {
+            $con = $this -> getDoctrine()->getRepository('TeamBundle:role')->find($id);
+            $con->setRole($con->getRole());
+
+
+            $form = $this->createFormBuilder($con)
+
+                ->add('role', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+
+
+                ->add('Modifier', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
+                ->getForm();
+            $form->handleRequest($request);
+            if ($form->isSubmitted()) {
+                $con->setInd(0);
+
+                $em = $this->getDoctrine()->getManager();
+
+                $em->flush();
+                return $this->redirectToRoute("affiche_role");
+
+            }
+            return $this->render('@Team/role/edit.html.twig',array("form" => $form->createView()));
+
+        }
+
+    }
+
+    public function archiveAction(Request $request, $id){
+
+        $con = $this -> getDoctrine()->getRepository('TeamBundle:role')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $con->setInd(1);
+        $em->persist($con);
+        $em->flush();
+        return $this->redirectToRoute('affiche_role');
     }
 }

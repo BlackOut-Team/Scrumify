@@ -15,9 +15,7 @@ class AnswerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('content', CKEditorType::class, array(
-            'base_path' => 'ckeditor',
-            'js_path'   => 'ckeditor/ckeditor.js',))
+        $builder->add('content', CKEditorType::class)
         ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}

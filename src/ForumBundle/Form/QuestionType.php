@@ -18,9 +18,7 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title')
-            ->add('description', CKEditorType::class, array(
-                'base_path' => 'ckeditorQuestion',
-                'js_path'   => 'ckeditorQuestion/ckeditor.js',))
+            ->add('description', CKEditorType::class)
             ->add('category',ChoiceType::class,
                 array(
                     'choices'=>

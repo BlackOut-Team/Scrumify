@@ -7,13 +7,5 @@ namespace ForumBundle\Repository;
  * repository methods below.
  */
 class QuestionRepository extends \Doctrine\ORM\EntityRepository
-{public function getOtherQuestions($user)
 {
-    $qb = $this->createQueryBuilder('u');
-    $qb->where('u.User != :user')
-        ->setParameter('user', $user);
-
-    return $qb->getQuery()
-        ->getResult();
-}
 }

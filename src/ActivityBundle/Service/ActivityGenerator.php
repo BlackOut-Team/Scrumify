@@ -19,7 +19,6 @@ class ActivityGenerator
         $activity=new Activity();
         $activity->setAction($description);
         $activity->setUser($user);
-        $activity->setViewed(0);
         $this->em->persist($activity);
         $this->em->flush();
     }

@@ -1,29 +1,23 @@
 
-{% extends "@Main/Default/index.html.twig" %}
+{% extends "base.html.twig" %}
 
 {% block title %}<a href="{{ path('_display_questions') }}">Forum</a>{% endblock %}
 {% block stylesheets %}
 
+    <link rel="shortcut icon" href="favicon/favicon.ico">
     <link rel="stylesheet" href={{ asset('Forum/css/style.css') }}>
-    <link href={{ asset('assets/css/theme.css') }} rel="stylesheet" type="text/css" media="all" />
-
 {% endblock %}
- {% block notif %}
-
-     <a href="{{ path('inbox') }}"  class="nav-link" >
-         <i class="icon-message "></i>
-         <span class="badge badge-success badge-mini rounded-circle">{{ nbr }}</span>
-     </a>
- {% endblock %}
 {% block contents %}
-
-    <div class="d-flex  p-5 ">
-    <div class="tt-topic-list w-75  float-left shadow-lg" style="margin-top:100px">
-<a href="{{ path('_add_question') }}" >
-                <button class="btn-lg btn-round m-auto mb-lg-4 mt-lg-4" >
-                    <i class="material-icons icon-add"></i>
-                </button>
+    <a href="{{ path('_add_question',{'id':1}) }}" class="tt-btn-create-topic mt-4 float-right" >
+    <span class="tt-icon">
+        <svg>
+          <use xlink:href="#icon-create_new"></use>
+        </svg>
+    </span>
     </a>
+    <div class="d-flex align-self-center justify-content-center pt-5 mt-5">
+
+    <div class="tt-topic-list w-50">
 
         <div class="tt-list-header">
             <div class="tt-col-topic">Topic</div>
@@ -33,49 +27,23 @@
             <div class="tt-col-value hide-mobile">Views</div>
             <div class="tt-col-value">Activity</div>
         </div>
-        {% for q in myQuestions %}
-            <div class="tt-item tt-itemselect">
+
+        {% for q in questions %}
+            {% if user.username == q.User.username %}
+                <div class="tt-item tt-itemselect">
                 <a href="{{ path('_delete_question',{'id':q.id}) }}">
                 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                </a>
-            <div class="tt-col-avatar">
-                <svg class="tt-icon">
-                    <use xlink:href="#icon-ava-{{ q.User.username | lower | first  }}"></use>
-                </svg>
-            </div>
-            <div class="tt-col-description">
-                <h6 class="tt-title"><a href="{{ path('_display_question',{'id': q.id }) }}" >
-                        {{ q.title }}
-                    </a></h6>
-                <div class="row align-items-center no-gutters">
-                    <div class="col-11">
-                        <ul class="tt-list-badge">
-                            <li class="show-mobile"><a href="#"><span class="tt-color01 tt-badge">politics</span></a></li>
-                            <li><a href="#"><span class="tt-badge">videohive</span></a></li>
-                            <li><a href="#"><span class="tt-badge">photodune</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-1 ml-auto show-mobile">
-                        <div class="tt-value">1d</div>
-                    </div>
-                </div>
-            </div>
-            <div class="tt-col-category"><span class="tt-color01 tt-badge">{{ q.category }}</span></div>
-            <div class="tt-col-value  hide-mobile">308</div>
-            <div class="tt-col-value tt-color-select  hide-mobile">660</div>
-            <div class="tt-col-value  hide-mobile">8.3k</div>
-            <div class="tt-col-value hide-mobile">1d</div>
-        </div>
-                </a>
-        {% endfor %}
-        {% for q in questions %}
+            </a>
+            {% endif %}
+            {% if user.username != q.User.username %}
                 <div class="tt-item ">
+            {% endif %}
 
             <div class="tt-col-avatar">
                 <svg class="tt-icon">
-                    <use xlink:href="#icon-ava-{{ q.User.username | first  }}"></use>
+                    <use xlink:href="#icon-ava-c"></use>
                 </svg>
             </div>
             <div class="tt-col-description">
@@ -110,41 +78,7 @@
                 </svg>
             </button>
         </div>
-
-
     </div>
-        <div class="tt-categories-list float-right w-25"  style="margin-top:80px">
-            <div class="row pl-5">
-                <div class="col-md-6 col-lg-10">
-                    <div class="tt-item shadow rounded-lg">
-                        <div class="tt-item-header">
-                            <ul class="tt-list-badge">
-                                <li><a href="#"><span class="tt-color01 tt-badge">politics</span></a></li>
-                            </ul>
-                            <h6 class="tt-title"><a href="page-categories-single.html">Threads - 1,245</a></h6>
-                        </div>
-                        <div class="tt-item-layout">
-                            <div class="innerwrapper">
-                                Lets discuss about whats happening around the world politics.
-                            </div>
-                            <div class="innerwrapper">
-                                <h6 class="tt-title">Similar TAGS</h6>
-                                <ul class="tt-list-badge">
-                                    <li><a href="#"><span class="tt-badge">world politics</span></a></li>
-                                    <li><a href="#"><span class="tt-badge">human rights</span></a></li>
-                                    <li><a href="#"><span class="tt-badge">trump</span></a></li>
-                                    <li><a href="#"><span class="tt-badge">climate change</span></a></li>
-                                    <li><a href="#"><span class="tt-badge">foreign policy</span></a></li>
-                                </ul>
-                            </div>
-                            <a href="#" class="tt-btn-icon">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 {% endblock %}
 {% block javascripts %}
 <script src={{ asset('Forum/js/bundle.js') }}></script>

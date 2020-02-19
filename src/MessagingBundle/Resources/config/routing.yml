@@ -1,9 +1,0 @@
-messaging_homepage:
-    path:     /message/{id}
-    defaults: { _controller: MessagingBundle:Default:index }
-create_thread:
-    path:   /create_thread/{id}
-    defaults:   {_controller: MessagingBundle:Default:createThread}
-inbox:
-    path:   /inbox
-    defaults:   {_controller: MessagingBundle:Default:inbox}

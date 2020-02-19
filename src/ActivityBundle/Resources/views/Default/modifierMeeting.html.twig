@@ -49,7 +49,12 @@
                         <h6>Timeline</h6>
                         <div class="form-group row align-items-center">
                             <label class="col-3">Start Date</label>
-                            {{ form_widget(f.meetingDate) }}
+                            <input class="form-control col flatpickr-input" type="hidden" name="task-start" placeholder="Select a date" data-flatpickr="" data-default-date="2021-04-21" data-alt-input="true" value="2021-04-21"><input class="form-control col flatpickr-input form-control input" placeholder="Select a date" tabindex="0" type="text" readonly="readonly">
+                        </div>
+                        <div class="form-group row align-items-center">
+                            <label class="col-3">Due Date</label>
+                            <input class="form-control col flatpickr-input" type="hidden" name="task-due" placeholder="Select a date" data-flatpickr="" data-default-date="2021-09-15" data-alt-input="true" value="2021-09-15"><input class="form-control col flatpickr-input form-control input" placeholder="Select a date" tabindex="0" type="text" readonly="readonly">
+
                         </div>
 
                         <div class="alert alert-warning text-small" role="alert">

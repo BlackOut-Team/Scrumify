@@ -3,6 +3,7 @@
 namespace ActivityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Meetings
@@ -22,8 +23,35 @@ class Meetings
     private $id;
 
     /**
+     * @var /datetime
+     * @Assert\GreaterThan("today UTC")
+     * @ORM\Column(name="meetingDate", type="datetime")
+     */
+    private $meetingDate;
+
+    /**
+     * @return mixed
+     */
+    public function getMeetingDate()
+    {
+        return $this->meetingDate;
+    }
+
+    /**
+     * @param mixed $meetingDate
+     */
+    public function setMeetingDate($meetingDate): void
+    {
+        $this->meetingDate = $meetingDate;
+    }
+    /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 10,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -31,6 +59,7 @@ class Meetings
     /**
      * @var string
      *
+     * @Assert\NotBlank
      * @ORM\Column(name="place", type="string", length=255)
      */
     private $place;
@@ -38,6 +67,7 @@ class Meetings
     /**
      * @var string
      *
+     * @Assert\NotBlank
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;

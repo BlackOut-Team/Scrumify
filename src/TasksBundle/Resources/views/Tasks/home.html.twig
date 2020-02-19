@@ -63,7 +63,8 @@
                     <div class="card-list-body">
                         <!--kaaba sticky note -->
                         {%  for TaskTodo in TaskTodo %}
-                        <div class="card card-kanban">
+                            <div class="card card-kanban" draggable="true"  onmouseup="drop('{{ path('statut_task',{ 'id': TaskTodo.id ,'statut':'Doing'}) }}')">
+
 
                             <div class="card-body">
                                 <!--menu sticky note-->
@@ -97,6 +98,7 @@
                     <div class="card-list-footer">
                         <button class="btn btn-link btn-sm text-small" data-toggle="modal" data-target="#myModal1">Add task</button>
                     </div>
+
 
                 </div>
             </div>
@@ -170,7 +172,7 @@
 
                                             <div class="custom-control custom-checkbox">
                                                 {% for users in users %}
-                                                <input type="checkbox" class="custom-control-input" id="task-user" <!--checked--> >
+                                                <input type="checkbox" class="custom-control-input" id="task-user" checked >
                                                 <label class="custom-control-label" for="task-user-1">
                                                    <span class="d-flex align-items-center">
                                                        <img alt="Claire Connors" src={{ asset('assets/img/avatar-female-1.jpg') }} class="avatar mr-2" />
@@ -213,7 +215,7 @@
                     </div>
                     <div class="card-list-body">
                         {%  for TaskDoing in TaskDoing %}
-                        <div class="card card-kanban">
+                        <div class="card card-kanban" draggable="true" onmouseup="drop('{{ path('statut_task',{ 'id': TaskDoing.id ,'statut':'Done'}) }}')">
 
                             <div class="card-body">
                                 <div class="dropdown card-options">
@@ -246,6 +248,7 @@
                 </div>
             </div>
             <!--end doing-->
+
             <!--start done-->
             <div class="kanban-col">
                 <div class="card-list">
@@ -344,7 +347,28 @@
         </div>
     </div>
 
+    <script>
+        function drop(x) {
+            console.log(x)
+            $.ajax({
+                url: x,
+                method:"POST", //First change type to method here
 
+                data:{
+                    item_id: "id", // Second add quotes on the value.
+                },
+                success:function(response) {
+                    console.log(response)
+                },
+                error:function(){
+                    alert("error");
+                }
+
+            });
+
+
+        }
+    </script>
 
 
 

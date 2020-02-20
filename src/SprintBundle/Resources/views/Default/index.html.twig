@@ -61,8 +61,8 @@
                                                             <i class="material-icons">more_vert</i>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="{{ path('editSprint', { 'id': sprint.id }) }}">Edit</a>
-                                                            <a class="dropdown-item text-danger" href="{{ path('archiverSprint', { 'id': sprint.id }) }}">Archive Sprint</a>
+                                                            <a class="dropdown-item" href="{{ path('editSprint',{'projet':project.id , 'sprint' :sprint.id}) }}">Edit</a>
+                                                            <a class="dropdown-item text-danger" href="{{ path('archiverSprint',{'projet':project.id , 'sprint' : sprint.id}) }}">Archive Sprint</a>
 
                                                         </div>
                                                     </div>

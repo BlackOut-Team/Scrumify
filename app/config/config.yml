@@ -9,6 +9,7 @@ imports:
 
     - { resource: "@TeamBundle/Resources/config/services.yml" }
 
+    - { resource: "@FeatureBundle/Resources/config/services.yml" }
     - { resource: "@UserstoryBundle/Resources/config/services.yml" }
     - { resource: "@SprintBundle/Resources/config/services.yml" }
     - { resource: "@ScrumBundle/Resources/config/services.yml" }
@@ -119,14 +120,3 @@ fos_message:
     db_driver : orm
     thread_class: MainBundle\Entity\Thread
     message_class: MainBundle\Entity\Message
-
-# Windows configuration
-knp_snappy:
-    pdf:
-        enabled:    true
-        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
-        options:    []
-    image:
-        enabled:    true
-        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
-        options: []

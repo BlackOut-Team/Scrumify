@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new ForumBundle\ForumBundle(),
             new ActivityBundle\ActivityBundle(),
             new TeamBundle\TeamBundle(),
+            new FeatureBundle\FeatureBundle(),
             new UserstoryBundle\UserstoryBundle(),
             new SprintBundle\SprintBundle(),
             new ScrumBundle\ScrumBundle(),
@@ -31,7 +32,6 @@ class AppKernel extends Kernel
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new GrapheBundle\GrapheBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
-            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
 
 
         ];

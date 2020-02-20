@@ -1,3 +1,0 @@
-feature_homepage:
-    path:     /feature
-    defaults: { _controller: FeatureBundle:Default:index }

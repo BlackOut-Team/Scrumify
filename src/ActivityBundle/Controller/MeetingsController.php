@@ -40,13 +40,13 @@ class MeetingsController extends Controller
             $em->flush();
 
             //send sms when adding meeting (extern bundle)
-            $sid = "ACfa0d7e8561f3c6a338c4ddee27aa9512"; // Your Account SID from www.twilio.com/console
-            $token = "f83e84fb31bbc18e08745e5ee5239962"; // Your Auth Token from www.twilio.com/console
+            $sid = "ACabcbc80d4384e812cad9003a0e0572df"; // Your Account SID from www.twilio.com/console
+            $token = "88420746fc00b5b421774e629777891a"; // Your Auth Token from www.twilio.com/console
             $client = new Client($sid, $token);
             $client->messages->create(
-                '+21650963557', // Text this number
+                '+21655515552', // Text this number
                 array(
-                    'from' => '+19175125796', // From a valid Twilio number
+                    'from' => '+12563636360', // From a valid Twilio number
                     'body' => "you have a meeting (". $meetingadd->getName() .") in " . $meetingadd->getPlace() ." at ". $meetingadd->getMeetingDate()->format('Y-m-d H:i')
                 )
             );

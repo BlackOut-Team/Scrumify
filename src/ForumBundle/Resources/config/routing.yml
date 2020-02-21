@@ -18,9 +18,12 @@ _delete_answer:
     path:     /forum/delete_answer/{id}
     defaults: { _controller: ForumBundle:Answer:DeleteAnswer }
 _display_back_questions:
-    path:     /DisplayBackQuestions
+    path:     /adminn/display_questions
     defaults: { _controller: ForumBundle:Question:DisplayBackQuestions }
 
 _display_back_answer:
-    path:     /DisplayBackAnswers/{question}
+    path:     /adminn/display_answers/{question}
     defaults: { _controller: ForumBundle:Answer:DisplayBackAnswers }
+_edit_question:
+    path:     /edit_question/{id}
+    defaults: { _controller: ForumBundle:Question:EditQuestion }

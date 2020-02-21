@@ -10,4 +10,6 @@ namespace MessagingBundle\Repository;
  */
 class MessageRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllThreadMessages($id)
+    {}
 }

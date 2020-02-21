@@ -10,14 +10,39 @@
 {% endblock %}
 {% block contents %}
 
-    <div class="float-left  pl-5 w-75 " style="margin-top:200px" >
-        <div class="tt-single-topic-list ">
-            <div class="tt-item shadow rounded-lg">
-    <div class="tt-single-topic">
+    <div class="float-left  pl-5 w-100 " style=" background-color: #ecf0f1;padding-top:200px" >
+        <div class="tt-categories-list float-right w-25"  style="">
+            <div class="row pl-5">
+                <div class="col-md-6 col-lg-10">
+                    {% for c in categories %}
+                        <div class="tt-item rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
+                            <div class="tt-item-header">
+                                <ul class="tt-list-badge">
+                                    <li><a href="#"><span class="tt-color01 tt-badge" style="{{ c.color }}">{{ c.cname }}</span></a></li>
+                                </ul>
+                                <h6 class="tt-title"><a href="page-categories-single.html">Threads - 1,245</a></h6>
+                            </div>
+                            <div class="tt-item-layout">
+                                <div class="innerwrapper">
+                                    {{ c.description }}
+                                </div>
+                                <a href="#" class="tt-btn-icon">
+                                    <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
+                                </a>
+                            </div>
+                        </div>
+                    {%  endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="tt-single-topic-list w-75">
+            <div class="tt-item  rounded-lg">
+    <div class="tt-single-topic rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
         <div class="tt-item-header">
             <div class="tt-item-info info-top">
                 <div class="tt-avatar-icon">
-                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-d"></use></svg></i>
+                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-{{ question.User.username | lower | first }}"></use></svg></i>
                 </div>
                 <div class="tt-avatar-title">
                     <a href="#">{{ question.User.username }}</a>
@@ -29,13 +54,7 @@
             <h3 class="tt-item-title">
                 <a href="#">{{ question.title }}</a>
             </h3>
-            <div class="tt-item-tag">
-                <ul class="tt-list-badge">
-                    <li><a href="#"><span class="tt-color03 tt-badge">exchange</span></a></li>
-                    <li><a href="#"><span class="tt-badge">themeforest</span></a></li>
-                    <li><a href="#"><span class="tt-badge">elements</span></a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="tt-item-description">
             <h6 class="tt-title">{{ question.description | raw}}</h6>
@@ -70,17 +89,17 @@
 
             {% for answer in answers %}
             {% if user.username == answer.User.username %}
-                <div  class="tt-item tt-wrapper-success shadow rounded-lg">
+                <div  class="tt-item tt-wrapper-success  rounded-lg">
 
                     {% endif %}
-                    {% if user.username != answer.User.username %}
-                    <div class="tt-item shadow rounded-lg">
+                    {% if user.username != question.User.username %}
+                    <div class="tt-item  rounded-lg">
                         {% endif %}
-                <div class="tt-single-topic">
+                <div class="tt-single-topic rounded-lg" style="margin-top:20px;box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
                     <div class="tt-item-header pt-noborder">
                         <div class="tt-item-info info-top">
                             <div class="tt-avatar-icon">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-ava-t"></use></svg></i>
+                                <i class="tt-icon"><svg><use xlink:href="#icon-ava-{{ question.User.username | lower | first }}"></use></svg></i>
                             </div>
                             <div class="tt-avatar-title">
                                 <a href="#">{{ answer.User.username }}</a>
@@ -112,7 +131,8 @@
                         <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
                             <i class="icon-edit"></i>
                         </a>
-                        <a href={{ path('_delete_answer',{'id':answer.id}) }} class="tt-icon-btn tt-hover-02 tt-small-indent">
+                        <a href="{{ path('_delete_answer',{'id':answer.id}) }}" class="tt-icon-btn tt-hover-02 tt-small-indent">
+
                             <i class="icon-delete"></i>
                         </a>
                         {%  endif %}
@@ -128,7 +148,7 @@
             </div>
 
             {{ form_start(f2) }}
-            <div class="tt-wrapper-inner">
+            <div class="tt-wrapper-inner w-75">
                 <div class="pt-editor form-default">
                     <h6 class="pt-title">Post Your Reply</h6>
                     <div class="form-group">
@@ -154,39 +174,9 @@
             </div>
 
             {{ form_end(f2) }}
+
         </div> </div>
-            <div class="tt-categories-list float-right w-25"  style="margin-top:180px">
-                <div class="row pl-5">
-                    <div class="col-md-6 col-lg-10">
-                        <div class="tt-item shadow rounded-lg">
-                            <div class="tt-item-header">
-                                <ul class="tt-list-badge">
-                                    <li><a href="#"><span class="tt-color01 tt-badge">politics</span></a></li>
-                                </ul>
-                                <h6 class="tt-title"><a href="page-categories-single.html">Threads - 1,245</a></h6>
-                            </div>
-                            <div class="tt-item-layout">
-                                <div class="innerwrapper">
-                                    Lets discuss about whats happening around the world politics.
-                                </div>
-                                <div class="innerwrapper">
-                                    <h6 class="tt-title">Similar TAGS</h6>
-                                    <ul class="tt-list-badge">
-                                        <li><a href="#"><span class="tt-badge">world politics</span></a></li>
-                                        <li><a href="#"><span class="tt-badge">human rights</span></a></li>
-                                        <li><a href="#"><span class="tt-badge">trump</span></a></li>
-                                        <li><a href="#"><span class="tt-badge">climate change</span></a></li>
-                                        <li><a href="#"><span class="tt-badge">foreign policy</span></a></li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="tt-btn-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
     </div>
 
     <svg width="0" height="0" class="hidden" >

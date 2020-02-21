@@ -20,29 +20,34 @@
                 <!-- =============================================================== -->
                 <!-- member list -->
                 <ul class="friend-list">
-                    <li class="active bounceInDown">
-                        <a href="#" class="clearfix">
-                            <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
-                            <div class="friend-name">
-                                <strong>John Doe</strong>
-                            </div>
-                            <div class="last-message text-muted">Hello, Are you there?</div>
-                            <small class="time text-muted">Just now</small>
-                            <small class="chat-alert label label-danger">1</small>
-                        </a>
-                    </li>
+
                     {% for t in threads %}
-                    <li>
-                        <a href="{{ url('messaging_homepage',{'id':t.id}) }}" class="clearfix">
-                            <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
-                            <div class="friend-name">
-                                <strong>{{ t.otherParticipants( user) | last}}</strong>
-                            </div>
-                            <div class="last-message text-muted">{{ t.lastMessage.body }}</div>
-                            <small class="time text-muted">5 mins ago</small>
-                            <small class="chat-alert text-muted"><i class="fa fa-check"></i></small>
-                        </a>
-                    </li>
+                        {% if not fos_message_is_read(t) %}
+                            <li class="active bounceInDown">
+                                <a href="{{ url('messaging_homepage',{'id':t.id}) }}" class="clearfix">
+                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
+                                    <div class="friend-name">
+                                        <strong>{{ t.otherParticipants( user) | last}}</strong>
+                                    </div>
+                                    <div class="last-message text-muted">{{ t.lastMessage.body }}</div>
+                                    <small class="time text-muted">Just now</small>
+                                    <small class="chat-alert label label-danger">1</small>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="{{ url('messaging_homepage',{'id':t.id}) }}" class="clearfix">
+                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
+                                    <div class="friend-name">
+                                        <strong>{{ t.otherParticipants( user) | last}}</strong>
+                                    </div>
+                                    <div class="last-message text-muted">{{ t.lastMessage.body }}</div>
+                                    <small class="time text-muted">5 mins ago</small>
+                                    <small class="chat-alert text-muted"><i class="fa fa-check"></i></small>
+                                </a>
+                            </li>
+                        {% endif %}
+
                     {% endfor %}
                 </ul>
             </div>
@@ -50,56 +55,139 @@
             <!--=========================================================-->
             <!-- selected chat -->
             <div class="col-md-8 bg-white ">
-                <div class="chat-message">
-                    <ul class="chat">
-                        {% for m in thread.messages %}
-                            {% if  m.sender.username == user.username %}
-                        <li class="left clearfix">
-                    	<span class="chat-img pull-left">
-                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
-                    	</span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">{{ m.sender.username }}</strong>
-                                    <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
-                                </div>
-                                <p>
-                                    {{ m.body }}
-                                </p>
-                            </div>
-                        </li>
-                            {% else %}
-                                <li class="right clearfix">
-                    	<span class="chat-img pull-right">
-                    		<img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">
-                    	</span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">{{ m.sender.username }}</strong>
-                                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
-                                        </div>
-                                        <p>
-                                            {{ m.body }}
-                                        </p>
-                                    </div>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
+                <div class="chat-message  overflow-auto" style="max-height: 500px" id="overflow">
+                    <ul class="chat  h-50 " id="chat"  >
+
                     </ul>
                 </div>
                 <div class="chat-box bg-white">
-                    <form action="{{ url('messaging_homepage', {'id': thread.id}) }}" method="post">
 
                         <div class="input-group">
                             {{ form_widget(form.body, {'attr': {'class': 'form-control border no-shadow no-rounded',"placeholder":"Write your message here",'id':"message_body", "name":"message[body]", "type":"textarea"}}) }}
 
-                            {{ form_widget(form._token) }}
+                            {{ form_widget(form._token, {'attr': {'id':"csrf_token"}}) }}
+                            <input type="hidden" id="thread" value="{{ thread.id }}">
                         <span class="input-group-btn">
-            			<button class="btn btn-success no-rounded" type="submit">Send</button>
+            			<button class="btn btn-success no-rounded"  id="form_login">Send</button>
             		</span>
                     </div><!-- /input-group -->
                 </div>
+
+
+                </div>
             </div>
         </div>
-    </div>
     {% endblock %}
+
+  {% block javascripts %}
+
+      <script type="text/javascript">
+          $(document).ready(function() {
+              var previousResult= "";
+              setInterval(function(){
+
+                  refresh();
+              }, 3000);
+              function getPreviousChat(){
+                  $.ajax({
+                      url: '{{ path('refresh') }}',
+                      type: 'POST',
+                      dataType: "json",
+                      data: {
+                          refresh: 'true',
+                          thread: $('#thread').val(),
+                      },
+                      success: function(response) {
+                          $result = JSON.parse(response);
+                          previousResult = $result;
+                      }
+                  });
+              }
+
+              function refresh(){
+                  $.ajax({
+                      url: '{{ path('refresh') }}',
+                      type: 'POST',
+                      dataType: "json",
+                      data: {
+                          refresh: 'true',
+                          thread: $('#thread').val(),
+                      },
+                      success: function (response) {
+                          $result = JSON.parse(response);
+                          if( JSON.stringify(previousResult) !=  JSON.stringify($result)) {
+                              $('#chat').html('');
+                              for (var k in $result) {
+                                  var seconds = Math.round(new Date().getTime() / 1000) - $result[k].timestamp;
+                                  time = new Date(seconds * 1000).toISOString().substr(11, 8);
+
+                                  if ($result[k].sender.username === "{{ user.username }}") {
+
+                                      var e = '<li class="left clearfix">\n' +
+                                          '                    <span class="chat-img pull-left">' +
+                                          '                    <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">' +
+                                          '                    </span>' +
+                                          '                            <div class="chat-body clearfix">\n' +
+                                          '                                <div class="header">\n' +
+                                          '                                    <strong class="primary-font">' + $result[k].sender.username + '</strong>' +
+                                          '                                    <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> ' + time + '</small>' +
+                                          '                                </div>' +
+                                          '                                <p>' +
+                                          $result[k].body +
+                                          '                                </p>' +
+                                          '                            </div>' +
+                                          '                        </li>'
+                                      $('#chat').append(e);
+                                  } else {
+                                      var ee = ' <li class="right clearfix">\n' +
+                                          '                    <span class="chat-img pull-right">' +
+                                          '                    <img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">' +
+                                          '                    </span>' +
+                                          '                                    <div class="chat-body clearfix">' +
+                                          '                                        <div class="header">' +
+                                          '                                            <strong class="primary-font">' + $result[k].sender.username + '</strong>' +
+                                          '                                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>' + time + '</small>' +
+                                          '                                        </div>' +
+                                          '                                        <p>' +
+                                          $result[k].body +
+                                          '                                        </p>' +
+                                          '                                    </div>' +
+                                          '                                </li>'
+                                      $('#chat').append(ee);
+
+                                  }
+                                  var x = $('#overflow')[0].scrollHeight;
+                                  scrolling = (x - 500);
+                                  $('#overflow').scrollTop(scrolling);
+                              }
+
+                              getPreviousChat();
+                          }
+
+                      }
+                  })
+              }
+              $('#form_login').click(function (e) {
+                  e.preventDefault();
+                  console.log('click');
+                  $.ajax({
+                      url: "{{ path('reply') }}",
+                      dataType: 'json',
+                      type: "post",
+                      data: {
+                          thread: $('#thread').val(),
+                          message: $('#message_body').val(),
+                      },
+                      success: function (response) {
+                          $result = JSON.parse(response);
+                          console.log('done');
+
+                      },
+                  });
+                  refresh();
+                  $('#message_body').val('');
+              });
+
+          });
+      </script>
+  {% endblock %}

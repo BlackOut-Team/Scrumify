@@ -1,11 +1,10 @@
-messaging:
-    resource: "@MessagingBundle/Resources/config/routing.yml"
 
 my_app_mail:
     resource: "@MyAppMailBundle/Resources/config/routing.yml"
 
 graphe:
     resource: "@GrapheBundle/Resources/config/routing.yml"
+
     prefix:   /
 
 scrum:
@@ -20,18 +19,11 @@ sprint:
 team:
     resource: "@TeamBundle/Resources/config/routing.yml"
 
-userstory:
-    resource: "@UserstoryBundle/Resources/config/routing.yml"
-    prefix:   /
+
 main:
     resource: "@MainBundle/Resources/config/routing.yml"
     prefix:   /
-Messaging:
-    resource: "@MessagingBundle/Resources/config/routing.yml"
-    prefix:   /
-feature:
-    resource: "@FeatureBundle/Resources/config/routing.yml"
-    prefix:   /
+
 
 forum:
     resource: "@ForumBundle/Resources/config/routing.yml"
@@ -67,3 +59,6 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+
+

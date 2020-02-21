@@ -166,6 +166,8 @@
                         <span class="badge r-3 badge-success pull-right">20</span>
                     </a>
                     <ul class="treeview-menu">
+                        <li><a href="panel-page-inbox.html"><i class="icon icon-circle-o"></i>All Messages</a>
+                        </li>
                         <li><a href="panel-page-inbox-create.html"><i class="icon icon-add"></i>Compose</a>
                         </li>
                     </ul>
@@ -419,8 +421,31 @@
             </div>
         </div>
     </div>
-    {% block contents %}
+    <div class="page has-sidebar-left height-full">
+        <header class="blue accent-3 relative nav-sticky">
+            <div class="container-fluid text-white">
 
+                <div class="row">
+                    <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+                        <li>
+                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                                <i class="icon icon-home2"></i>Today</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"><i class="icon icon-plus-circle mb-3"></i>Yesterday</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3"><i class="icon icon-calendar"></i>By Date</a>
+                        </li>
+                    </ul>
+                    <a class="btn-fab fab-right btn-primary" data-toggle="control-sidebar">
+                        <i class="icon icon-menu"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid relative animatedParent animateOnce">
+            {% block contents %}
             {% endblock %}
             <!-- container -->
         </div>

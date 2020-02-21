@@ -9,11 +9,9 @@ imports:
 
     - { resource: "@TeamBundle/Resources/config/services.yml" }
 
-    - { resource: "@FeatureBundle/Resources/config/services.yml" }
     - { resource: "@UserstoryBundle/Resources/config/services.yml" }
     - { resource: "@SprintBundle/Resources/config/services.yml" }
     - { resource: "@ScrumBundle/Resources/config/services.yml" }
-    - { resource: "@MessagingBundle/Resources/config/services.yml" }
 
     - { resource: "@MyAppMailBundle/Resources/config/services.yml" }
 
@@ -119,5 +117,6 @@ fos_user:
         group_class: Scrumify\MainBundle\Entity\Group
 fos_message:
     db_driver : orm
-    thread_class: MessagingBundle\Entity\Thread
-    message_class: MessagingBundle\Entity\Message
+    thread_class: MainBundle\Entity\Thread
+    message_class: MainBundle\Entity\Message
+

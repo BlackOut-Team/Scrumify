@@ -8,32 +8,24 @@ use ActivityBundle\Form\MeetingsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Twilio\Rest\Client;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class MeetingsController extends Controller
 {
 
-    function AfficheMettingAction(Request $request,ValidatorInterface $validator){
-        //afficher meetings
+    function AfficheMettingAction(Request $request){
         $meetingadd = new Meetings();
-        $errors = $validator->validate($meetingadd);
         $meeting=$this->getDoctrine()
             ->getRepository(Meetings::class)
             ->findAll();
-
-        //afficher activite
         $Activities=$this->getDoctrine()
             ->getRepository(Activity::class)
             ->findBy(['viewed' => 1]);
-
-        //afficher new activite
         $NewActivities=$this->getDoctrine()
             ->getRepository(Activity::class)
             ->findBy(['viewed'=>0]);
-
-        //form to add meeting
         $ajouterFrorm = $this->createForm(MeetingsType::class, $meetingadd);
         $ajouterFrorm->handleRequest($request);
+
         if ($ajouterFrorm->isSubmitted() && $ajouterFrorm->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($meetingadd);
@@ -42,6 +34,7 @@ class MeetingsController extends Controller
             //send sms when adding meeting (extern bundle)
             $sid = "ACabcbc80d4384e812cad9003a0e0572df"; // Your Account SID from www.twilio.com/console
             $token = "88420746fc00b5b421774e629777891a"; // Your Auth Token from www.twilio.com/console
+
             $client = new Client($sid, $token);
             $client->messages->create(
                 '+21655515552', // Text this number

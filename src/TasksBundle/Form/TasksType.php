@@ -3,6 +3,7 @@
 namespace TasksBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -21,6 +22,7 @@ class TasksType extends AbstractType
             ->add('description', TextareaType::class)
             ->add('finished', DateTimeType::class)
             ->add('priority');
+            //->add('user_id', ChoiceType::class, array('choices' => array(),'expanded' => true ));
            // ->add('addTasks', SubmitType::class);
     }/**
      * {@inheritdoc}

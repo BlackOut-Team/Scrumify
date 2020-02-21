@@ -27,7 +27,9 @@ class CategoriesType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'ForumBundle\Entity\Categories'
         ));
+
     }
+
 
     /**
      * {@inheritdoc}

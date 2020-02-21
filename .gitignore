@@ -17,7 +17,7 @@
 /web/bundles/
 /README.md
 /.idea
-.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
+/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml

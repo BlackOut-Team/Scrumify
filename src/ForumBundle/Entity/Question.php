@@ -34,14 +34,6 @@ class Question
      * @ORM\Column(name="description", type="text")
      */
     private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=255)
-     */
-    private $category;
-
     /**
      * @var string
      *
@@ -49,7 +41,28 @@ class Question
      */
     private $type;
 
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->Categories;
+    }
 
+    /**
+     * @param mixed $Categories
+     */
+    public function setCategories($Categories)
+    {
+        $this->Categories = $Categories;
+    }
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="ForumBundle\Entity\Categories")
+     * @ORM\JoinColumn(name="category_name",referencedColumnName="id")
+     */
+    private $Categories;
 
     /**
      * @var /datetime
@@ -79,6 +92,28 @@ class Question
      * @ORM\Column(name="likes", type="integer")
      */
     private $likes;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="views", type="integer")
+     */
+    private $views;
+
+    /**
+     * @return int
+     */
+    public function getViews(): int
+    {
+        return $this->views;
+    }
+
+    /**
+     * @param int $views
+     */
+    public function setViews(int $views): void
+    {
+        $this->views = $views;
+    }
 
     /**
      * @var int
@@ -157,21 +192,7 @@ class Question
         $this->description = $description;
     }
 
-    /**
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 
-    /**
-     * @param string $category
-     */
-    public function setCategory(string $category): void
-    {
-        $this->category = $category;
-    }
 
     /**
      * @return string

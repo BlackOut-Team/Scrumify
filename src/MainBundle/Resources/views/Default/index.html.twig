@@ -95,8 +95,10 @@
                 {% endif %}
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                   <li>
-                    {% block notif %}
-                    {% endblock %}
+                    <a href="{{ path('inbox') }}"  class="nav-link" >
+                      <i class="icon-message "></i>
+                      <span class="badge badge-success badge-mini rounded-circle">{{ fos_message_nb_unread() }}</span>
+                    </a>
                   </li>
                   <li><a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary mr-2 mb-2"  style="color: white; background-color: #16cabd"><strong>LogOut</strong></a></li>
 
@@ -620,48 +622,6 @@
 
             
 
-            <div action="#" class="p-5 bg-white">
-              
-              <h2 class="h4 text-black mb-5">Contact Form</h2>
-              {{ form_start(p)}}
-
-              <div class="row form-group">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">First Name</label>
-                  {{ form_widget(p.name, {'attr': {'class': 'form-control rounded-0'}}) }}
-                </div>
-
-              </div>
-
-              <div class="row form-group">
-                
-                <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label>
-                  {{ form_widget(p.email, {'attr': {'class': 'form-control rounded-0'}}) }}                </div>
-              </div>
-
-              <div class="row form-group">
-                
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label>
-                  {{ form_widget(p.subject, {'attr': {'class': 'form-control rounded-0'}}) }}                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Message</label>
-                  {{ form_widget(p.message, {'attr': {'class': 'form-control rounded-0'}}) }}                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-
-                  {{ form_widget(p.sendM, {'attr': {'class': 'btn btn-primary mr-2 mb-2'}}) }}                </div>
-              </div>
-
-              {{ form_end(p) }}
-
-            </div>
           </div>
         
         </div>
@@ -695,9 +655,9 @@
     </div>
     {% endblock %}
   </div> <!-- .site-wrap -->
+  <script src="{{ asset('Front/Index/js/jquery-3.3.1.min.js') }}"></script>
   {% block javascripts %}
   {% endblock %}
-  <script src="{{ asset('Front/Index/js/jquery-3.3.1.min.js') }}"></script>
   <script src="{{ asset('Front/Index/js/jquery-ui.js') }}"></script>
   <script src="{{ asset('Front/Index/js/popper.min.js') }}"></script>
   <script src="{{ asset('Front/Index/js/bootstrap.min.js') }}"></script>
@@ -712,6 +672,6 @@
 
 
   <script src="{{ asset('Front/Index/js/main.js') }}"></script>
-  
+
   </body>
 </html>

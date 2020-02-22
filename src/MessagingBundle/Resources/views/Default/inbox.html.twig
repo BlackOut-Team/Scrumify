@@ -20,17 +20,6 @@
                 <!-- =============================================================== -->
                 <!-- member list -->
                 <ul class="friend-list">
-                    <li class="active bounceInDown">
-                        <a href="#" class="clearfix">
-                            <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
-                            <div class="friend-name">
-                                <strong>John Doe</strong>
-                            </div>
-                            <div class="last-message text-muted">Hello, Are you there?</div>
-                            <small class="time text-muted">Just now</small>
-                            <small class="chat-alert label label-danger">1</small>
-                        </a>
-                    </li>
                     {% for t in threads %}
                         <li>
                             <a href="{{ url('messaging_homepage',{'id':t.id}) }}" class="clearfix">

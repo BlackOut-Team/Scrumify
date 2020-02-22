@@ -1,6 +1,6 @@
 homepage:
   path:     /
-  defaults: { _controller: MainBundle:Default:contact }
-contactBack:
-  path:     /contactBack
-  defaults: { _controller: MainBundle:Default:contactBack }
+  defaults: { _controller: MainBundle:Default:index }
+homepageback:
+  path:     /dashboard
+  defaults: { _controller: MainBundle:Default:indexback }

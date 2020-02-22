@@ -7,3 +7,12 @@ create_thread:
 inbox:
     path:   /inbox
     defaults:   {_controller: MessagingBundle:Default:inbox}
+
+reply:
+    path: /reply
+    defaults:   {_controller: MessagingBundle:Default:reply}
+    methods: [post]
+refresh:
+    path: /refresh
+    defaults:   {_controller: MessagingBundle:Default:refresh}
+    methods: [post]

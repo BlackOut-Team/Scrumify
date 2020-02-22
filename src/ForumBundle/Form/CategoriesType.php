@@ -1,14 +1,13 @@
 <?php
 
-namespace MainBundle\Form;
+namespace ForumBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use function Sodium\add;
 
-class ContactType extends AbstractType
+class CategoriesType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -16,18 +15,17 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('subject')
-            ->add('message')
-            ->add('email')
-            ->add('sendM' , SubmitType::class);
+            ->add('cname')
+            ->add('description')
+            ->add('color')
+        ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MainBundle\Entity\Contact'
+            'data_class' => 'ForumBundle\Entity\Categories'
         ));
 
     }
@@ -38,7 +36,7 @@ class ContactType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'mainbundle_contact';
+        return 'forumbundle_categories';
     }
 
 

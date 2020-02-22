@@ -72,15 +72,7 @@ class team
      */
     private $ind;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="MainBundle\Entity\User")
-     * @ORM\JoinTable(name="team_user",
-     *
-    joinColumns={@ORM\JoinColumn(name="team_id" , referencedColumnName="id")} ,
-     *
-    inverseJoinColumns={@ORM\JoinColumn(name="user_id" , referencedColumnName="id")}
-     * )
-     */
+
     private $user;
 
     /**

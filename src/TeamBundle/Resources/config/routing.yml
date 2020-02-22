@@ -31,3 +31,11 @@ desarchive_team1:
 show_team_back:
     path:   /backteam
     defaults: { _controller: TeamBundle:Team:showback }
+
+affecter:
+    path:   /afcteam/{id}
+    defaults: { _controller: TeamBundle:Default:affecter }
+
+
+
+

@@ -79,6 +79,33 @@ class TeamController extends Controller
         $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->findAll();
         return $this->render('@Team/team/index.html.twig',array('con'=> $con,"form" => $form->createView()));
     }
+    public function affBAction(Request $request)
+    {
+        $p= new team();
+        $form = $this->createFormBuilder($p)
+
+            ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+
+
+            ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
+
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted()&&$form->isValid()) {
+
+            $p->setCreated(new \DateTime('now'));
+            $p->setUpdated(new \DateTime('now'));
+            $p->setInd(0);
+            $p->setEtat(0);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($p);
+
+            $em->flush();
+            return $this->redirectToRoute("affiche_team");
+        }
+        $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->findAll();
+        return $this->render('@Team/team/test.html.twig',array('con'=> $con,"form" => $form->createView()));
+    }
     public function  editAction(Request $request,$id)
     {
         {
@@ -160,6 +187,8 @@ class TeamController extends Controller
 
         ));
 }
+
+
 
     public function desarAction(Request $request, $id){
 

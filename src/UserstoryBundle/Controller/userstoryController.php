@@ -5,16 +5,13 @@ namespace UserstoryBundle\Controller;
 use http\Env\Response;
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 use PHPMailer\PHPMailer\PHPMailer;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use TasksBundle\Entity\Tasks;
 use UserstoryBundle\Entity\feature;
 use UserstoryBundle\Entity\userstory;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 use UserstoryBundle\Entity\userstorycomment;
-use UserstoryBundle\Form\userstoryType;
-use Swift_Message;
+
 require_once('PHPMailer-master/src/PHPMailer.php');
 require_once('PHPMailer-master/src/SMTP.php');
 require 'PHPMailer-master/PHPMailerAutoload.php';
@@ -38,8 +35,6 @@ class userstoryController extends Controller
         $userstory = new Userstory();
         $form = $this->createForm('UserstoryBundle\Form\userstoryType', $userstory);
         $form->handleRequest($request);
-        $this->PdfAction();
-
 
         $userstories = $em->getRepository('UserstoryBundle:userstory')->findBy( ['isDeleted' => 0]);
         return $this->render('@Userstory/userstory/index.html.twig', array(
@@ -81,7 +76,7 @@ class userstoryController extends Controller
             $userstory->setIsDeleted(0);
             $em->persist($userstory);
             $em->flush();
-            $this->sendMailAction();
+            $this->mailAction();
 
             return $this->redirectToRoute('userstory_show', array('id' => $userstory->getId()));
         }
@@ -91,27 +86,42 @@ class userstoryController extends Controller
             'form' => $form->createView(),
         ));
     }
-    /**
-    public function sendMailAction(Request $request) {
-        $to = "amine.ghribi1@esprit.tn ";
-        $mail = new mail();
-        $form= $this->createForm(new userstoryType(), $mail);
-        $request->get(‘request’);
-        $form->handleRequest($request) ;
-        if ($form->isValid()) {
-            $message = Swift_Message::newInstance()
-                ->setSubject($mail->getNom())
-                ->setFrom($mail-> getFrom())
-                ->setTo($to)
-                ->setBody($mail->getText());
-            $this->get('mailer')->send($message);
-            return $this->render('@Userstory/userstory/index.html.twig', array('to' => $to,
-                'from' => $mail-> getFrom()
-            ));
-        }
-        return $this->redirect($this->generateUrl('userstory_index'));}
-**/
+    public function mailAction()
+    {
+        $mail = new PHPMailer(true);
+        $mail->isSMTP(); // Paramétrer le Mailer pour utiliser SMTP
+        $mail->SMTPOptions = array('ssl' =>
+            array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true));
+        $mail->Host = 'smtp.gmail.com'; // Spécifier le serveur SMTP
+        $mail->SMTPAuth = true; // Activer authentication SMTP
+        $mail->Username = 'amine.ghribi1@esprit.tn'; // Votre adresse email d'envoi
+        $mail->Password = '193JMT0980'; // Le mot de passe de cette adresse email
+        $mail->SMTPSecure = 'ssl'; // Accepter SSL
+        $mail->Port = 465;
 
+        $mail->setFrom('moez.jouini@esprit.tn', 'user story'); // Personnaliser l'envoyeur
+        //$em = $this->getDoctrine()->getManager();
+        //$clients = $em->getRepository('MoezBackBundle:promotion')->findAll();
+            $mail->addAddress('amine.ghribi1@esprit.tn'); // Ajouter le destinataire
+
+
+        $mail->isHTML(true); // Paramétrer le format des emails en HTML ou non
+
+        $mail->Subject = 'Nouvelle ';
+        $mail->Body = 'qqqqq' ;
+
+        $mail->SMTPDebug = 1;
+
+        if(!$mail->send()) {
+            echo 'Erreur, message non envoyé.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Le message a bien été envoyé !';
+        }
+    }
     /**
      * Finds and displays a userstory entity.
      *
@@ -184,60 +194,16 @@ class userstoryController extends Controller
         $userstories = $em->getRepository('UserstoryBundle:userstory')->findBy( ['isDeleted' => 0]);
 
         $snappy = $this->get('knp_snappy.pdf');
-        $html = $this->render('@Userstory/userstory/pdf.html.twig',array(
-                "title" => "backlog"
+        $html = $this->render('@Userstory/userstory/index.html.twig',array(
+                'userstories' => $userstories,
             )
 
         );
-
-        $filename = "custom_twig";
         return new PdfResponse(
-            $snappy-> getOutputFromHtml($html),
-            200,
-            array(
-                'content-type' => 'application/pdf',
-                'content-Disposition' => 'attachment; filename"'.$filename.'.pdf"'
-            )
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            'file.pdf'
         );
-   }
-    /**public function PdfViewAction($id)
-    {
 
-        $em = $this->getDoctrine()->getManager();
-
-        $userstory = $em->getRepository('UserstoryBundle:userstory')->find($id);
-        $html = $this->renderView('@UserstoryBundle/userstory/pdf.html.twig', array(
-            'userstory'=> $userstory,
-
-        ));
-        $filename = 'backlog.pdf';
-        $pdf = $this->get("knp_snappy.pdf")->getOutputFromHtml($html);
-        $user =$em->getRepository('UserstoryBundle:userstory')->find($this->getUser()->getId());
-
-        # Setup the message
-        $message = \Swift_Message::newInstance()
-            ->setBody('Bonjour Mr/Mme new userstory ')
-            ->setFrom('amine.ghribi1@esprit.tn')
-            ->setTo('amine.ghribi1@esprit.tn')
-            ->setSubject('new userstory');
-
-        $attachement = \Swift_Attachment::newInstance($pdf, $filename, 'application/pdf' );
-        $message->attach($attachement);
-
-        # Send the message
-        $this->get('mailer')->send($message);
-        $referer = $request->headers->get('referer');
-        return new RedirectResponse($referer);
-    }
-**/
-    public function showUserstoryAction (Request $request){
-
-        $userstory=$this->getDoctrine()->getRepository('UserstoryBundle:userstory')->findBy( ['isDeleted' => 0]);
-
-
-        return $this->render('@Userstory/userstory/back.html.twig',array(
-            'pp'=>$userstory
-        ));
     }
 
 

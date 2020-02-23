@@ -34,11 +34,7 @@ ajout_comment:
 userstory_edit:
     path:     /edituserstory
     defaults: { _controller: UserstoryBundle:userstory:edit }
-show_userstory_back:
-    path:   /showBack
-    defaults: { _controller: UserstoryBundle:userstory:showUserstory }
-show_feature_back:
-    path:   /showBackf
-    defaults: { _controller: UserstoryBundle:feature:showFeatureBack}
+
+
 
 

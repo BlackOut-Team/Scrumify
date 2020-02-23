@@ -116,20 +116,5 @@ class featureController extends Controller
             $em->flush();
         return $this->redirectToRoute('userstory_index');
     }
-    public function showFeatureBackAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $feature = new Feature();
-        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
-        $form->handleRequest($request);
-
-        $features = $em->getRepository('UserstoryBundle:feature')->findAll();
-
-        return $this->render('@Userstory/feature/back.html.twig', array(
-            'features' => $features,
-            'form' => $form->createView(),
-        ));
-    }
-
 
 }

@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use TeamBundle\Entity\team;
 
 
 class DefaultController extends Controller
@@ -40,9 +41,17 @@ class DefaultController extends Controller
 
         $form->handleRequest($request);
 
-
         if ($form->isSubmitted()) {
 
+     $test=$this ->getDoctrine()->getRepository('MyAppMailBundle:team_user')->findBy(array('teamId'=>$id));
+foreach ($test as $ts)
+            {
+                $b =array(
+                    $ts->getUserId()
+
+                ); array_push($data,$b);
+                var_dump($b);exit;
+            }
         $con2 = $this ->getDoctrine()->getRepository('MainBundle:User')->findAll();
 
             foreach ($con2 as $u) {

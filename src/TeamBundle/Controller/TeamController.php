@@ -64,17 +64,23 @@ class TeamController extends Controller
 
             ->getForm();
         $form->handleRequest($request);
+
         if ($form->isSubmitted()&&$form->isValid()) {
 
-            $p->setCreated(new \DateTime('now'));
-            $p->setUpdated(new \DateTime('now'));
-           $p->setInd(0);
-            $p->setEtat(0);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($p);
+            if ($form['name']->getData()=='a')
+            {
 
-            $em->flush();
-            return $this->redirectToRoute("affiche_team");
+                $p->setCreated(new \DateTime('now'));
+                $p->setUpdated(new \DateTime('now'));
+                $p->setInd(0);
+                $p->setEtat(0);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($p);
+
+                $em->flush();
+                return $this->redirectToRoute("affiche_team");
+            } $this->addFlash('success', 'hahaha');
+
         }
         $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->findAll();
         return $this->render('@Team/team/index.html.twig',array('con'=> $con,"form" => $form->createView()));

@@ -24,7 +24,8 @@
                     <th>Date</th>
                     <th>Status</th>
                     <th>Title</th>
-                    <th>questions</th>
+                    <th>answers</th>
+                    <th>delete</th>
                 </tr>
                 {% for q in questions %}
                 <tr>
@@ -35,11 +36,14 @@
                     </td>
                     <td>{{ q.title }}</td>
                     <td><a href="{{ path('_display_back_answer', {'question' : q.id}) }}" ><span class="badge text-white badge text-white-pill badge text-white-success bg-green">view</span></a></td>
+                    <td><a href="{{ path('_delete_question', {'id' : q.id}) }}" ><span class="badge text-white badge text-white-pill badge text-white-success bg-red">delete</span></a></td>
+
                 </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
+        {{ form(f) }}
         <!-- /.box-body -->
     </div>
     <!-- /.box -->

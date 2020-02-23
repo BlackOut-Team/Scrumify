@@ -23,7 +23,7 @@ security:
             form_login:
                 remember_me: true
                 csrf_token_generator: security.csrf.token_manager
-                default_target_path: 'userstory_index'
+                default_target_path: 'addProject'
 
             logout:       true
             anonymous:    true
@@ -34,5 +34,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/forum/, role: ROLE_USER }
 
 

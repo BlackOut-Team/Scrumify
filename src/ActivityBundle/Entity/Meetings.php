@@ -22,6 +22,28 @@ class Meetings
     private $id;
 
     /**
+     * @var /datetime
+     *
+     * @ORM\Column(name="meetingDate", type="datetime")
+     */
+    private $meetingDate;
+
+    /**
+     * @return mixed
+     */
+    public function getMeetingDate()
+    {
+        return $this->meetingDate;
+    }
+
+    /**
+     * @param mixed $meetingDate
+     */
+    public function setMeetingDate($meetingDate): void
+    {
+        $this->meetingDate = $meetingDate;
+    }
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)

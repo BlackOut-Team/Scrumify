@@ -1,0 +1,18 @@
+messaging_homepage:
+    path:     /message/{id}
+    defaults: { _controller: MessagingBundle:Default:index }
+create_thread:
+    path:   /create_thread/{id}
+    defaults:   {_controller: MessagingBundle:Default:createThread}
+inbox:
+    path:   /inbox
+    defaults:   {_controller: MessagingBundle:Default:inbox}
+
+reply:
+    path: /reply
+    defaults:   {_controller: MessagingBundle:Default:reply}
+    methods: [post]
+refresh:
+    path: /refresh
+    defaults:   {_controller: MessagingBundle:Default:refresh}
+    methods: [post]

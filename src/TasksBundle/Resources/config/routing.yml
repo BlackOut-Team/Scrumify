@@ -13,6 +13,10 @@ edit_tasks:
 archiver_tasks:
     path:     /archiveTasks/{id}
     defaults: { _controller: TasksBundle:Tasks:archiver }
+statut_task:
+    path:     /statutTask/{id}/{statut}
+    defaults: { _controller: TasksBundle:Tasks:changeStatus }
+
 desarchiver:
     path:     /desarchive/{id}
     defaults: { _controller: TasksBundle:Tasks:desarchiver }

@@ -8,6 +8,7 @@ imports:
     - { resource: "@ForumBundle/Resources/config/services.yml" }
 
     - { resource: "@TeamBundle/Resources/config/services.yml" }
+    - { resource: "@MessagingBundle/Resources/config/services.yml" }
 
     - { resource: "@UserstoryBundle/Resources/config/services.yml" }
     - { resource: "@SprintBundle/Resources/config/services.yml" }
@@ -34,7 +35,7 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
+    serializer: { enable_annotations: true }
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
@@ -117,16 +118,29 @@ fos_user:
         group_class: Scrumify\MainBundle\Entity\Group
 fos_message:
     db_driver : orm
-    thread_class: MainBundle\Entity\Thread
-    message_class: MainBundle\Entity\Message
+    thread_class: MessagingBundle\Entity\Thread
+    message_class: MessagingBundle\Entity\Message
 
 # Windows configuration
 knp_snappy:
     pdf:
         enabled:    true
+        # If you have wkhtmltopdf as an environment variable you don't need to provide the
+        # full path to the executable, use it in the same way as you use in the console
+        #binary:  "wkhtmltopdf"
         binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
-        options:    []
+        options:
+            no-outline: true
+<<<<<<< HEAD
+            page-size:  LETTER
+            encoding:   UTF-8
+=======
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8
+
+>>>>>>> f17457c2554dded6a82cae564b8377ea20f4b950
     image:
         enabled:    true
         binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
-        options: []
+        options:    []

@@ -24,7 +24,9 @@ main:
     resource: "@MainBundle/Resources/config/routing.yml"
     prefix:   /
 
-
+messaging:
+    resource: "@MessagingBundle/Resources/config/routing.yml"
+    prefix:   /
 forum:
     resource: "@ForumBundle/Resources/config/routing.yml"
     prefix:   /
@@ -34,9 +36,7 @@ activity:
 tasks:
     resource: "@TasksBundle/Resources/config/routing.yml"
     prefix:   /
-userstory:
-    resource: "@UserstoryBundle/Resources/config/routing.yml"
-    prefix:   /
+
 
 app:
     resource: '@AppBundle/Controller/'

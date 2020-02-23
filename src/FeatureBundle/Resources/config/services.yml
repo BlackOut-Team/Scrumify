@@ -1,0 +1,4 @@
+services:
+#    feature.example:
+#        class: FeatureBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,5 +1,5 @@
 {% extends'base.html.twig' %}
-{% block title %}Team{% endblock %}
+
 {% block soustitle %}   <a class="nav-link" }}>Team Homepage</a> {% endblock %}
 {% block head %}
     {{ parent() }}
@@ -22,6 +22,7 @@
                         </li>
 
                     </ul>
+
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="projects" role="tabpanel" data-filter-list="content-list-body">
                             <div class="content-list">
@@ -32,17 +33,17 @@
                                             <i class="material-icons">add</i>
                                         </button>
                                     </div>
-                                    <form class="col-md-auto">
-                                        <div class="input-group input-group-round">
-                                            <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="material-icons">filter_list</i>
-                            </span>
-                                            </div>
-                                            <input type="search" class="form-control filter-list-input" placeholder="Filter teams" aria-label="Filter Teams">
-                                        </div>
-                                    </form>
+
+                                    <div>
+
+                                        <input type="search" class="form-control filter-list-input" placeholder="Filter teams" aria-label="Filter Teams"> <br>
+                                        <form>
+                                            <button type="submit" class="btn btn-primary" href="{{ path('pdfexample')}}">Export to PDF</button>
+
+                                        </form>
+                                    </div>
                                 </div>
+
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
                                     {% for con in con %}
@@ -62,6 +63,8 @@
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a class="dropdown-item" href="{{ path('edit_team', {'id': con.id}) }}">Edit</a>
                                                             <a class="dropdown-item text-danger" href="{{ path('archive_team', { 'id': con.id }) }}">Archive Team</a>
+                                                            <a class="dropdown-item text-succes" href="{{ path('affecter', { 'id': con.id }) }}">Affecter membre</a>
+                                                            <a class="dropdown-item text-succes" href="{{ path('pdfexample')}}">Affecter membre</a>
 
                                                         </div>
                                                     </div>

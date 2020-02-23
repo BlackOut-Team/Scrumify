@@ -1,6 +1,7 @@
 userstory_homepage:
     path:     /userstory
     defaults: { _controller: UserstoryBundle:Default:index }
+<<<<<<< HEAD
 userstory_ajoutfeature:
     path:     /ajoutfeature
     defaults: { _controller: UserstoryBundle:feature:ajoutfeature }
@@ -34,7 +35,15 @@ ajout_comment:
 userstory_edit:
     path:     /edituserstory
     defaults: { _controller: UserstoryBundle:userstory:edit }
+show_userstory_back:
+    path:   /showBack
+    defaults: { _controller: UserstoryBundle:userstory:showUserstory }
+show_feature_back:
+    path:   /showBackf
+    defaults: { _controller: UserstoryBundle:feature:showFeatureBack}
 
 
 
 
+=======
+>>>>>>> f17457c2554dded6a82cae564b8377ea20f4b950

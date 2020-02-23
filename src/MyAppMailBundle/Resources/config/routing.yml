@@ -1,6 +1,7 @@
 my_app_mail_homepage:
     path:     /send
     defaults: { _controller: MyAppMailBundle:Mail:index }
+
 my_app_mail_success:
     path:     /success
     defaults: { _controller: MyAppMailBundle:Mail:success }

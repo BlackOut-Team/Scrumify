@@ -131,15 +131,9 @@ knp_snappy:
         binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
         options:
             no-outline: true
-<<<<<<< HEAD
             page-size:  LETTER
             encoding:   UTF-8
-=======
-            page-size: LETTER
-            # Recommended to set UTF-8 as default encoding :)
-            encoding: UTF-8
 
->>>>>>> f17457c2554dded6a82cae564b8377ea20f4b950
     image:
         enabled:    true
         binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""

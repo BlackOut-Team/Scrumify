@@ -23,10 +23,12 @@ class DefaultController extends Controller
         foreach ( $con3 as $item) {
             $a = array(
                 'username'=> $this ->getDoctrine()->getRepository('MainBundle:User')->find($item->getUserId())->getUsername() ,
-                'email'=>  $this ->getDoctrine()->getRepository('MainBundle:User')->find($item->getUserId())->getEmail()
+                'email'=>  $this ->getDoctrine()->getRepository('MainBundle:User')->find($item->getUserId())->getEmail(),
+                'image'=>  $this ->getDoctrine()->getRepository('MainBundle:User')->find($item->getUserId())->getImage()
             );
             array_push($data,$a);
         }
+
 
 
         $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->find($id);
@@ -45,14 +47,15 @@ class DefaultController extends Controller
             $test=$this ->getDoctrine()->getRepository('MyAppMailBundle:team_user')->findBy(array('teamId'=>$id));
 
 
-            $u = $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
+            $u = $this->getDoctrine()->getRepository('MainBundle:User')->findBy(array('email'=>$form['email']->getData()));
+
             foreach ($u as $y )
             {
 
-                if($y->getEmail()!=$form['email']->getData())
+                if($y->getEmail()==$form['email']->getData())
 
                 {
-                    var_dump("hello");exit;
+
                     $con2 = $this ->getDoctrine()->getRepository('MainBundle:User')->findAll();
                     foreach ($con2 as $u) {
 

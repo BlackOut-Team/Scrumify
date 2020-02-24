@@ -42,49 +42,58 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
+            $test=$this ->getDoctrine()->getRepository('MyAppMailBundle:team_user')->findBy(array('teamId'=>$id));
 
-     $test=$this ->getDoctrine()->getRepository('MyAppMailBundle:team_user')->findBy(array('teamId'=>$id));
-foreach ($test as $ts)
+
+            $u = $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
+            foreach ($u as $y )
             {
-                $b =array(
-                    $ts->getUserId()
+                if($y->getEmail()!=$form['email']->getData())
 
-                ); array_push($data,$b);
-                var_dump($b);exit;
-            }
-        $con2 = $this ->getDoctrine()->getRepository('MainBundle:User')->findAll();
-
-            foreach ($con2 as $u) {
-
-                if(strtoupper($u->getEmail())==strtoupper($form['email']->getData()))
                 {
+                    $con2 = $this ->getDoctrine()->getRepository('MainBundle:User')->findAll();
+                    foreach ($con2 as $u) {
 
-                    $message = \Swift_Message::newInstance()
-                        ->setSubject('affectation au team')
-                        ->setFrom('iheb.rekik@esprit.tn')
-                        ->setTo($form['email']->getData())
-                        ->setBody(
-                            $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                                array('team' => $con->getName(),'text/html')));
-                    $this->get('mailer')->send($message);
+                        if(strtoupper($u->getEmail())==strtoupper($form['email']->getData()))
+                        {
 
-                    $x->setTeamId($id);
-                    $x->setUserId($u->getId());
-                    $em = $this->getDoctrine()->getManager();
-                     $em->persist($x);
-                    $em->flush();
+                            $message = \Swift_Message::newInstance()
+                                ->setSubject('affectation au team')
+                                ->setFrom('iheb.rekik@esprit.tn')
+                                ->setTo($form['email']->getData())
+                                ->setBody(
+                                    $this->renderView('@MyAppMail/Mail/mail.html.twig',
+                                        array('team' => $con->getName(),'text/html')));
+                            $this->get('mailer')->send($message);
 
+                            $x->setTeamId($id);
+                            $x->setUserId($u->getId());
+                            $em = $this->getDoctrine()->getManager();
+                            $em->persist($x);
+                            $em->flush();
+                            return $this->redirectToRoute('affiche_team');
+
+                        }else
+                            $message = \Swift_Message::newInstance()
+                                ->setSubject('affectation au team')
+                                ->setFrom('iheb.rekik@esprit.tn')
+                                ->setTo($form['email']->getData())
+                                ->setBody(
+                                    $this->renderView('@MyAppMail/Mail/mail1.html.twig',
+                                        array('team' => $con->getName(),'text/html')));
+                        $this->get('mailer')->send($message);
+                    }
 
                 }else
-                $message = \Swift_Message::newInstance()
-                    ->setSubject('affectation au team')
-                    ->setFrom('iheb.rekik@esprit.tn')
-                    ->setTo($form['email']->getData())
-                    ->setBody(
-                        $this->renderView('@MyAppMail/Mail/mail1.html.twig',
-                            array('team' => $con->getName(),'text/html')));
-                $this->get('mailer')->send($message);
+                {
+                    return $this->redirectToRoute('show_team_back');
+
+
+                }
             }
+
+
+
 
         }
 

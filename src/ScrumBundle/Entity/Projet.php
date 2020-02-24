@@ -49,12 +49,7 @@ class Projet
      */
     private $duedate;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbrSprints", type="integer")
-     */
-    private $nbrSprints;
+
 
     /**
      * @var int
@@ -171,29 +166,7 @@ class Projet
         return $this->duedate;
     }
 
-    /**
-     * Set nbrSprints
-     *
-     * @param string $nbrSprints
-     *
-     * @return Projet
-     */
-    public function setNbrSprints($nbrSprints)
-    {
-        $this->nbrSprints = $nbrSprints;
 
-        return $this;
-    }
-
-    /**
-     * Get nbrSprints
-     *
-     * @return string
-     */
-    public function getNbrSprints()
-    {
-        return $this->nbrSprints;
-    }
 
     /**
      * Set etat

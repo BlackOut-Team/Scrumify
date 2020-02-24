@@ -48,9 +48,11 @@ class DefaultController extends Controller
             $u = $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
             foreach ($u as $y )
             {
+
                 if($y->getEmail()!=$form['email']->getData())
 
                 {
+                    var_dump("hello");exit;
                     $con2 = $this ->getDoctrine()->getRepository('MainBundle:User')->findAll();
                     foreach ($con2 as $u) {
 
@@ -85,11 +87,12 @@ class DefaultController extends Controller
                     }
 
                 }else
-                {
+
+                    
                     return $this->redirectToRoute('show_team_back');
 
 
-                }
+
             }
 
 

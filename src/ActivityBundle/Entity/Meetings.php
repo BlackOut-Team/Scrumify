@@ -4,13 +4,16 @@ namespace ActivityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 /**
  * Meetings
  *
  * @ORM\Table(name="meetings")
  * @ORM\Entity(repositoryClass="ActivityBundle\Repository\MeetingsRepository")
+ * @Notifiable(name="Meetings")
  */
-class Meetings
+class Meetings implements NotifiableInterface
 {
     /**
      * @var int
@@ -49,6 +52,29 @@ class Meetings
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
+    /**
+     * @return mixed
+     */
+    public function getSprint()
+    {
+        return $this->sprint;
+    }
+
+    /**
+     * @param mixed $sprint
+     */
+    public function setSprint($sprint): void
+    {
+        $this->sprint = $sprint;
+    }
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="SprintBundle\Entity\Sprint")
+     * @ORM\JoinColumn(name="sprint",referencedColumnName="id")
+     */
+    private $sprint;
 
     /**
      * @var string

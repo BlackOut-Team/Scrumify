@@ -5,46 +5,20 @@
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52115242-14"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'UA-52115242-14');
-    </script>
     <meta charset="utf-8">
     <title>{% block title %}Scrumify!{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A project management Bootstrap theme by Medium Rare">
     {% block stylesheets %}
     {% endblock %}
+
     <link rel="icon" type="image/png" href="../../web/Front/Index/images/scrumify.png" />
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
+
     <link href={{ absolute_url(asset('assets/css/theme.css')) }} rel="stylesheet" type="text/css" media="all" />
-    <!-- Required vendor scripts (Do not remove) -->
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/jquery.min.js'))}}></script>
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/popper.min.js')) }}></script>
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/bootstrap.js')) }}></script>
-
-    <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
-
-    <!-- Autosize - resizes textarea inputs as user types -->
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/autosize.min.js')) }}></script>
-    <!-- Flatpickr (calendar/date/time picker UI) -->
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/flatpickr.min.js')) }}></script>
-    <!-- Prism - displays formatted code boxes -->
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/prism.js')) }}></script>
-    <!-- Shopify Draggable - drag, drop and sort items on page -->
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/draggable.bundle.legacy.js')) }}></script>
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/swap-animation.js')) }}></script>
-    <!-- Dropzone - drag and drop files onto the page for uploading -->
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/dropzone.min.js')) }}></script>
-    <!-- List.js - filter list elements -->
-    <script type="text/javascript" src={{ absolute_url(asset('assets/js/list.min.js')) }}></script>
-
-    <!-- Required theme scripts (Do not remove) -->
-    <script type="text/javascript" src={{ asset('assets/js/theme.js') }}></script>
 </head>
 
 <body>
@@ -57,9 +31,20 @@
                 <img alt="Scrumify" width="50" height="50" src={{ asset('Front/Index/images/scrumify.png')}} />
             </a>
             <div class="d-flex align-items-center">
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+
+                <div class="dropdown" >
+                    <a href="{{ mgilet_notification_generate_path('notification_mark_all_as_seen', app.user) }}"  id="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Notifications <span class="badge badge-light" id="notifications">{{ mgilet_notification_unseen_count(app.user)  }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" id="dropcontent">
+                    </div>
+                </div>
+
                 <div class="d-block d-lg-none ml-2">
                     <div class="dropdown">
                         <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -179,6 +164,50 @@
         @media all and (max-width: 767px){ .layout-switcher{ display: none; } }
     </style>
 
+
+    <!-- Required vendor scripts (Do not remove) -->
+    <script src="{{ asset('Front/Index/js/jquery-3.3.1.min.js') }}"></script>
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/popper.min.js')) }}></script>
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/bootstrap.js')) }}></script>
+
+    <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
+
+    <!-- Autosize - resizes textarea inputs as user types -->
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/autosize.min.js')) }}></script>
+    <!-- Flatpickr (calendar/date/time picker UI) -->
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/flatpickr.min.js')) }}></script>
+    <!-- Prism - displays formatted code boxes -->
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/prism.js')) }}></script>
+    <!-- Shopify Draggable - drag, drop and sort items on page -->
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/draggable.bundle.legacy.js')) }}></script>
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/swap-animation.js')) }}></script>
+    <!-- Dropzone - drag and drop files onto the page for uploading -->
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/dropzone.min.js')) }}></script>
+    <!-- List.js - filter list elements -->
+    <script type="text/javascript" src={{ absolute_url(asset('assets/js/list.min.js')) }}></script>
+
+    <!-- Required theme scripts (Do not remove) -->
+    <script type="text/javascript" src={{ asset('assets/js/theme.js') }}></script>
+
+        <script>
+            $('#dropdown').click(() =>{
+                $.ajax({
+                    url: '{{ path('getNotif') }}',
+                    type: 'POST',
+                    dataType: "json",
+                    success: function(response) {
+                        $result = JSON.parse(response);
+                        console.log($result);
+                        $('#dropcontent').val('');
+                        $('#notifications').html($result.length);
+                        for (var k in $result) {
+                            var e = '<a href="nav-side-user.html" class="dropdown-item">' + $result[k].notification.message +'</a>'
+                            $('#dropcontent').append(e);
+                        }
+                    }
+                });
+            })
+        </script>
     {% block javascripts %}
     {% endblock %}
     <div class="layout-switcher" tabindex="1">
@@ -191,6 +220,7 @@
         </div>
     </div>
 {% endblock %}
+
 </body>
 
 

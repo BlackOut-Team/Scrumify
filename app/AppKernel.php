@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new GrapheBundle\GrapheBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
+            new Mgilet\NotificationBundle\MgiletNotificationBundle(),
 
 
         ];

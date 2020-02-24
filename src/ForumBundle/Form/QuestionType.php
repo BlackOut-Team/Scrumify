@@ -4,6 +4,7 @@ namespace ForumBundle\Form;
 
 use ForumBundle\Entity\Categories;
 use ForumBundle\Entity\Question;
+use ForumBundle\Form\Type\TagsType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Form\AbstractType;
@@ -31,6 +32,7 @@ class QuestionType extends AbstractType
                 'choice_label'=>'cname',
                 'multiple'=>false
             ))
+            ->add('tags', TagsType::class)
 
             ->add('submit',SubmitType::class);
     }/**

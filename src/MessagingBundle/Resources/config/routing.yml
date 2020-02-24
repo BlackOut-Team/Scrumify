@@ -16,3 +16,13 @@ refresh:
     path: /refresh
     defaults:   {_controller: MessagingBundle:Default:refresh}
     methods: [post]
+SendRequest:
+    path: /Send_request
+    defaults:   {_controller: MessagingBundle:FriendShip:SendRequest}
+    methods: [post]
+DisplayUsers:
+    path: /display_users
+    defaults:   {_controller: MessagingBundle:FriendShip:DisplayUsers}
+AddFriend:
+    path: /add_friend/{id}
+    defaults:   {_controller: MessagingBundle:FriendShip:AddFriend}

@@ -15,6 +15,7 @@
     },
     "require": {
         "php": ">=7.2.18",
+        "botman/installer": "^1.0",
         "cmen/google-charts-bundle": "^3.2",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",

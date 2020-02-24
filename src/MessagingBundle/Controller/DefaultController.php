@@ -2,6 +2,7 @@
 
 namespace MessagingBundle\Controller;
 
+use MessagingBundle\Entity\FriendShip;
 use MessagingBundle\Entity\Message;
 use MessagingBundle\Entity\Thread;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -27,6 +28,10 @@ class DefaultController extends Controller
         $thread->getLastMessage()->SetIsReadByParticipant($user, 1);
         $form = $this->container->get('fos_message.reply_form.factory')->create($thread);
         $formHandler = $this->container->get('fos_message.reply_form.handler');
+        $em=$this->getDoctrine()->getManager();
+
+        $friendRequest = $em->getRepository(FriendShip::class)->findBy(['friend' => $user, 'isFriend' => 0]);
+
 
         if ($message = $formHandler->process($form)) {
             return new RedirectResponse($this->container->get('router')->generate('messaging_homepage', array(
@@ -36,12 +41,15 @@ class DefaultController extends Controller
         }
 
         $provider = $this->container->get('fos_message.provider');
-        $threads = $provider->getInboxThreads();
+        $threadsInbox = $provider->getInboxThreads();
+        $threads = $provider->getSentThreads();
         return $this->render('@Messaging/Default/chat.html.twig', array(
             'form' => $form->createView(),
             'thread' => $thread,
             'threads' => $threads,
             'user' =>$user,
+            'requests' => $friendRequest,
+            'threadsInbox' => $threadsInbox
         ));
     }
 

@@ -10,21 +10,26 @@
 
 {% endblock %}
 {% block contents %}
-    <div class="container bootstrap snippet">
-        <div class="row " style="padding-top: 150px;">
+    <div class="container bootstrap snippet"style="padding-top: 180px;">
+        <div class="row " style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
             <div class="col-md-4 bg-white ">
                 <div class=" row border-bottom padding-sm" style="height: 40px;">
-                    Member
+
                 </div>
 
                 <!-- =============================================================== -->
                 <!-- member list -->
                 <ul class="friend-list">
+                    <center><a href="{{ path('DisplayUsers') }}"><button type="button" class="btn btn-info  mb-2 mt-2">Add Friends</button></a></center>
+
+                    <div class="alert alert-primary" role="alert">
+                        you have {{ requests | length }} friend requests
+                    </div>
 
                     {% for t in threads %}
                         {% if not fos_message_is_read(t) %}
-                            <li class="active bounceInDown">
-                                <a href="{{ url('messaging_homepage',{'id':t.id}) }}" class="clearfix">
+                            <li class="active bounceInDown" style="background-color: #ecf0f1;">
+                                <a href="{{ url('messaging_homepage',{'id':t.id}) }}"  class="clearfix">
                                     <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
                                     <div class="friend-name">
                                         <strong>{{ t.otherParticipants( user) | last}}</strong>
@@ -47,6 +52,27 @@
                                 </a>
                             </li>
                         {% endif %}
+
+                    {% endfor %}
+                </ul>
+                <ul class="friend-list">
+                    <div class="alert alert-primary" role="alert">
+                        inbox
+                    </div>
+
+                    {% for t in threadsInbox %}
+                            <li class="active bounceInDown" style="background-color: #ecf0f1;">
+                                <a href="{{ url('messaging_homepage',{'id':t.id}) }}"  class="clearfix">
+                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
+                                    <div class="friend-name">
+                                        <strong>{{ t.otherParticipants( user) | last}}</strong>
+                                    </div>
+                                    <div class="last-message text-muted">{{ t.lastMessage.body }}</div>
+                                    <small class="time text-muted">Just now</small>
+                                    <small class="chat-alert label label-danger">1</small>
+                                </a>
+                            </li>
+
 
                     {% endfor %}
                 </ul>

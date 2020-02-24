@@ -63,4 +63,6 @@ fos_user_change_password:
     prefix: /profile
 
 
-
+mgilet_notification:
+    resource: "@MgiletNotificationBundle/Controller/"
+    prefix: /afficher_meetings

@@ -9,7 +9,7 @@ ajoutermeeting:
     path:     /ajouter_meetings
     defaults: { _controller: ActivityBundle:Meetings:ajouter }
 affichermeeting:
-    path:     /afficher_meetings
+    path:     /afficher_meetings/{id}
     defaults: { _controller: ActivityBundle:Meetings:AfficheMetting }
 delete_meeting:
     path:     /delete_meeting/{id}
@@ -20,3 +20,7 @@ update_meeting:
 ChangeActivityState:
     path:   /change_activity/{id}
     defaults: { _controller: ActivityBundle:Activity:ChangeActivityState}
+getNotif:
+    path:   /getNotif
+    defaults: { _controller: ActivityBundle:Activity:getNotif}
+    methods: [post]

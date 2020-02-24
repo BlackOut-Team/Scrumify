@@ -13,12 +13,12 @@
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 906px;"><div class="sticky slimScroll" style="overflow: hidden; width: auto; height: 906px;">
                         <div class="card-header white ">
                                 <div class="form-group has-right-icon m-0 focused">
-                                    <input class="form-control light r-30" placeholder="Search" type="text" id="listSearch">
+                                    <input class="form-control light r-30" placeholder="Search" type="text" id="myInput">
                                     <i class="icon-search"></i>
                                 </div>
                         </div>
                         <div class="card-body pt-0 light">
-                            <ul class="list-unstyled list-group p-3">
+                            <ul class="list-unstyled  p-3" id="myList">
                                 <!-- Alphabet with number of contacts -->
                                 <div class="alert alert-primary " role="alert">
                                     {{ newActivities | length }} new activities
@@ -40,8 +40,8 @@
                                                     <img class="w-40px" src="{{ asset('Back/img/dummy/u1.png') }}" alt="User Image">
                                                 </div>
                                                 <div>
-                                                    <div>
-                                                        <strong  class="list-group-item ">{{ activity.User.username }}</strong>
+                                                    <div class="username">
+                                                        <strong >{{ activity.User.username }}</strong>
                                                     </div>
                                                     <small> {{ activity.action }}</small>
                                                 </div>
@@ -79,68 +79,75 @@
                     </div><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.95); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 906px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
 
             </div>
+
+                        {% for sprint in sprints %}
             <div class="col-md-9 col-sm-12 light pt-5  ">
                 <button class="btn-lg btn-round m-auto mb-lg-4" data-toggle="modal" data-target="#task-add-modal">
                     <i class="material-icons">add</i>
                 </button><div class="card-list w-75 m-auto" style="background-color: #dee2e6">
                     <div class="card-list-head">
-                        <h6>Meetings</h6>
+                        <h6>{{ sprint.name }}</h6>
                     </div>
-                {% for mm in m %}
 
-                        <div class="card-list-body filter-list-1581930131283 mb-2"><div class="card card-task">
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <a href="#">
-                                            <h6 data-filter-by="text" class="H6-filter-by-text">{{ mm.name }}</h6>
-                                        </a>
-                                        <span class="text-small">{{ mm.type }}</span>
-                                    </div>
-                                    <div class="card-meta">
-                                        <ul class="avatars">
+                    {% for mm in m %}
+                            {% if mm.sprint.id == sprint.id %}
 
-                                            <li>
-                                                <a href="#" data-toggle="tooltip" title="Marcus">
-                                                    <img alt="Marcus Simmons" class="avatar" src="{{ asset('assets/img/avatar-male-1.jpg') }}">
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#" data-toggle="tooltip" title="Harry">
-                                                    <img alt="Harry Xai" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#" data-toggle="tooltip" title="Kristina">
-                                                    <img alt="Kristina Van Der Stroem" class="avatar" src="{{ asset('assets/img/avatar-female-4.jpg') }}">
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                        <div class="d-flex align-items-center">
-                                            <i class="material-icons">playlist_add_check</i>
-                                            <span>-/-</span>
+                                <div class="card-list-body filter-list-1581930131283 mb-2"><div class="card card-task">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="dropdown card-options">
-                                            <button class="btn-options" type="button" id="task-dropdown-button-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="material-icons">more_vert</i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="{{ path('update_meeting',{'id':mm.id}) }}">Edit</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item text-danger" href="{{ path('delete_meeting',{'id':mm.id}) }}">Archive</a>
+                                        <div class="card-body">
+                                            <div class="card-title">
+                                                <a href="#">
+                                                    <h6 data-filter-by="text" class="H6-filter-by-text">{{ mm.name }}</h6>
+                                                </a>
+                                                <span class="text-small">{{ mm.type }}</span>
+                                            </div>
+                                            <div class="card-meta">
+                                                <ul class="avatars">
+
+                                                    <li>
+                                                        <a href="#" data-toggle="tooltip" title="Marcus">
+                                                            <img alt="Marcus Simmons" class="avatar" src="{{ asset('assets/img/avatar-male-1.jpg') }}">
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" data-toggle="tooltip" title="Harry">
+                                                            <img alt="Harry Xai" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" data-toggle="tooltip" title="Kristina">
+                                                            <img alt="Kristina Van Der Stroem" class="avatar" src="{{ asset('assets/img/avatar-female-4.jpg') }}">
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="material-icons">playlist_add_check</i>
+                                                    <span>-/-</span>
+                                                </div>
+                                                <div class="dropdown card-options">
+                                                    <button class="btn-options" type="button" id="task-dropdown-button-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="material-icons">more_vert</i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="{{ path('update_meeting',{'id':mm.id}) }}">Edit</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item text-danger" href="{{ path('delete_meeting',{'id':mm.id}) }}">Archive</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div></div>
+                                    </div></div>
+                            {% endif %}
+                        {% endfor %}
 
-                {% endfor %}
+
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -176,14 +183,20 @@
 
 
                             </div>
+                            <div class="form-group row">
+
+                                <label class="col-3">Sprint Name</label>
+                                {{ form_widget(f.sprint, {'attr': {'class': 'form-control col', "name":"meeting-sprint"}}) }}
+                            </div>
+
                             <hr>
                             <h6>Timeline</h6>
                             <div class="form-group row align-items-center">
                                 <label class="col-3">Start Date</label>
 
                                 {{ form_widget(f.meetingDate) }}
-
                             </div>
+
 
                             <div class="alert alert-warning text-small" role="alert">
                                 <span>You can change due dates at any time.</span>
@@ -332,4 +345,18 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myList li").filter(function() {
+
+                    $(this).toggle($(this).find('.username').text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
 {% endblock %}

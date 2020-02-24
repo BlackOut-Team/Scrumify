@@ -1,0 +1,130 @@
+
+{% extends "@Main/Default/index.html.twig" %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href={{ asset('Forum/css/style.css') }}>
+    <link href={{ asset('assets/css/theme.css') }} rel="stylesheet" type="text/css" media="all" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/chat.css') }}" rel="stylesheet">
+
+{% endblock %}
+{% block contents %}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4"><a href="#custom-modal" class="btn btn-custom waves-effect waves-light mb-4" data-animation="fadein" data-plugin="custommodal" data-overlayspeed="200" data-overlaycolor="#36404a"><i class="mdi mdi-plus"></i> Add Member</a></div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+            <div class="row" style="padding-top: 150px;">
+                {% for request in friendRequest %}
+                    <div class="col-lg-2 m-2">
+                        <div class="text-center card-box">
+                            <div class="member-card pt-2 pb-2">
+                                <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                                <div class="">
+                                    <h4>{{ request.user.username }}</h4>
+                                </div>
+                                <ul class="social-links list-inline">
+                                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                                </ul>
+                                <a href="{{ url('AddFriend',{'id':request.user.id}) }}" disabled class="btn btn-primary  btn-rounded waves-effect w-md waves-light accept" data-id="{{ request.user.id }}"> Accept</a>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+                {% for request in pending %}
+                    <div class="col-lg-2 m-2">
+                        <div class="text-center card-box">
+                            <div class="member-card pt-2 pb-2">
+                                <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                                <div class="">
+                                    <h4>{{ request.friend.username }}</h4>
+                                </div>
+                                <ul class="social-links list-inline">
+                                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                                </ul>
+                                <button type="button" disabled class="btn btn-primary  btn-rounded waves-effect w-md waves-light" data-id="{{ request.friend.id }}"> Request Sent</button>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {%  for user in users %}
+                <div class="col-lg-2 m-2">
+                    <div class="text-center card-box">
+                        <div class="member-card pt-2 pb-2">
+                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="">
+                                <h4>{{ user.username }}</h4>
+                            </div>
+                            <ul class="social-links list-inline">
+                                <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                            </ul>
+                            <button type="button" class="btn btn-primary  btn-rounded waves-effect w-md waves-light requested" data-id="{{ user.id }}">Send Request</button>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- container -->
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".requested").click(function() {
+            console.log(this);
+            $(this).html('request sent');
+            $(this).prop( "disabled", true );
+            $.ajax({
+                url: '{{ path('SendRequest') }}',
+                type: 'POST',
+                dataType: "json",
+                data: {
+                    refresh: 'true',
+                    FriendId: $(this).attr("data-id"),
+                },
+                success: function (response) {
+                    console.log(response);
+                }
+            })
+            })
+
+        $(".requested").click(function() {
+            console.log(this);
+            $(this).html('request sent');
+            $(this).prop( "disabled", true );
+            $.ajax({
+                url: '{{ path('SendRequest') }}',
+                type: 'POST',
+                dataType: "json",
+                data: {
+                    refresh: 'true',
+                    FriendId: $(this).attr("data-id"),
+                },
+                success: function (response) {
+                    console.log(response);
+                }
+            })
+        })
+        })
+
+
+    </script>
+{% endblock %}

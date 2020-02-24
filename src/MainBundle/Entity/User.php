@@ -6,6 +6,8 @@ use FOS\MessageBundle\Model\ParticipantInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 
 
 /**
@@ -13,8 +15,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @package MainBundle\Entity
  * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="MainBundle\Repository\UserRepository")
+ * @Notifiable(name="Meetings")
  */
-class User extends BaseUser implements ParticipantInterface
+class User extends BaseUser implements ParticipantInterface,NotifiableInterface
 {
     const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
     const ROLE_ADMIN = 'ROLE_ADMIN';
@@ -42,7 +45,25 @@ class User extends BaseUser implements ParticipantInterface
         return $this->id;
     }
 
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Ajouter une image jpg")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+    private $image;
 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 
 
 

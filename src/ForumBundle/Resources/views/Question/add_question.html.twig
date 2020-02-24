@@ -1,11 +1,13 @@
 
-{% extends "base.html.twig" %}
+{% extends "@Main/Default/index.html.twig" %}
 
 {% block title %}<a href="{{ path('_display_questions') }}">Forum</a>{% endblock %}
 {% block stylesheets %}
 
     <link rel="shortcut icon" href="favicon/favicon.ico">
     <link rel="stylesheet" href={{ asset('Forum/css/style.css') }}>
+
+    <link rel="stylesheet" href={{ asset('Forum/js/dist/bootstrap-tagsinput.css') }}>
 {% endblock %}
 {% block contents %}
 <div class="text-center d-flex align-items-center justify-content-center pt-5">
@@ -79,9 +81,10 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <div class="form-group">
+                        <div class="form-group mt-4">
                             <label for="inputTopicTags">Tags</label>
-                            <input type="text" name="name" class="form-control" id="inputTopicTags" placeholder="Use comma to separate tags">
+                            {{ form_widget(f.tags, {'attr': {'class': 'form-control', 'placeholder':"Use comma to separate tags"}}) }}
+
                         </div>
                     </div>
                 </div>
@@ -208,4 +211,25 @@
     {% endblock %}
         {% block javascripts %}
             <script src={{ asset('Forum/js/bundle.js') }}></script>
+            <script src={{ asset('Forum/js/dist/bootstrap-tagsinput.min.js') }}></script>
+            <script src={{ asset('Forum/js/typehead.js') }}></script>
+            <script >
+                var tags = new Bloodhound({
+                    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    prefetch:   '{{ path('tag.index') }}'
+                });
+
+                tags.initialize();
+                $('#forumbundle_question_tags').tagsinput({
+                    typeaheadjs: [{
+                        highlights: true
+                    }, {
+                        name: 'tags',
+                        display: 'name',
+                        value: 'name',
+                        source: tags.ttAdapter()
+                    }]
+                });
+            </script>
         {% endblock %}

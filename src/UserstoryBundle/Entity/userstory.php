@@ -49,7 +49,19 @@ class userstory
      */
     private $etat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="feature")
+     * @ORM\JoinColumn(name="feature_id",referencedColumnName="id")
+     */
 
+    private $feature;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="isDeleted", type="integer")
+     */
+    private $isDeleted;
     /**
      * Get id
      *
@@ -155,5 +167,45 @@ class userstory
     {
         return $this->etat;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getFeature()
+    {
+        return $this->feature;
+    }
+
+    /**
+     * @param mixed $feature
+     */
+    public function setFeature($feature): void
+    {
+        $this->feature = $feature;
+    }
+
+
+    /**
+     * Set isDeleted
+     *
+     * @param integer $isDeleted
+     *
+     * @return userstory
+     */
+    public function setIsDeleted($isDeleted)
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Get isDeleted
+     *
+     * @return integer
+     */
+    public function getIsDeleted()
+    {
+        return $this->isDeleted;
+    }
+}

@@ -1,0 +1,136 @@
+{% extends'pdf.html.twig' %}
+
+
+
+
+
+    {% block contents %}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-11">
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="projects" role="tabpanel" data-filter-list="content-list-body">
+                            <div class="content-list">
+                                <div class="row content-list-head">
+                                    <div class="col-auto">
+                                        <h3>Team</h3>
+
+                                    </div>
+
+                                </div>
+                                <!--end of content list head-->
+                                <div class="content-list-body row">
+                                    {% for con in con %}
+                                        {% if con.ind != 1 %}
+                                            <div class="col-lg-6">
+                                            <div class="card card-project">
+
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+
+                                                <div class="card-body">
+                                                    <div class="dropdown card-options">
+                                                        <button class="btn-options" type="button" id="project-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="material-icons">more_vert</i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="{{ path('edit_team', {'id': con.id}) }}">Edit</a>
+                                                            <a class="dropdown-item text-danger" href="{{ path('archive_team', { 'id': con.id }) }}">Archive Team</a>
+                                                            <a class="dropdown-item text-succes" href="{{ path('affecter', { 'id': con.id }) }}">Affecter membre</a>
+                                                            <a class="dropdown-item text-succes" href="{{ path('pdfexample')}}">Affecter membre</a>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-title">
+                                                        <a href="#">
+                                                            <h5 data-filter-by="text"> Team Name: {{ con.name }}</h5>
+                                                            <h5 data-filter-by="text"> Creation Date: {{ con.created |date("m/d/Y")}}</h5>
+                                                            <h5 data-filter-by="text"> Updated Date:  {{ con.updated|date("m/d/Y") }}</h5>
+
+
+                                                        </a>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            </div>{% endif %}
+                                    {% endfor %}
+
+
+
+                                </div>
+                                <!--end of content list body-->
+                            </div>
+                            <!--end of content list-->
+                        </div>
+                        <!--end of tab-->
+
+                    </div>
+
+
+
+                    <div class="modal fade" id="project-add-modal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">New Team</h5>
+                                    <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </div>
+                                <!--end of modal head-->
+                                <ul class="nav nav-tabs nav-fill" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="project-add-details-tab" data-toggle="tab" href="#project-add-details" role="tab" aria-controls="project-add-details" aria-selected="true">Details</a>
+                                    </li>
+
+                                </ul>
+                                <div class="modal-body">
+
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
+                                            <h6>General Details</h6>
+                                            <div class="form-group row align-items-center">
+                                                <label class="col-3">Team name</label>
+                                                {{ form_start(form) }}
+                                                {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="form-group row align-items-center">
+
+                                                <label class="col-3">Ajouter</label>
+
+
+                                                {{ form_widget(form.Ajouter,{'attr': {'class': 'form-control col'}})}}
+                                                {{ form_end(form) }}
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--end of modal body-->
+                            <div class="modal-footer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+
+        </div>
+        </div>
+
+    {% endblock %}

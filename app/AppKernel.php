@@ -34,6 +34,8 @@ class AppKernel extends Kernel
             new FOS\MessageBundle\FOSMessageBundle(),
             new Mgilet\NotificationBundle\MgiletNotificationBundle(),
 
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+
 
         ];
 

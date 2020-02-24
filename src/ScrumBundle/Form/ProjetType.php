@@ -25,9 +25,8 @@ class ProjetType extends AbstractType
                 // renders it as a single text box
                 'widget' => 'single_text',
             ])
-            ->add('nbrSprints')
             ->add('brochure', FileType::class, [
-                'label' => 'Brochure (PDF file)',
+                'label' => 'Project file',
 
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => false,

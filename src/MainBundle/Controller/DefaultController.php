@@ -15,6 +15,10 @@ class DefaultController extends Controller
     {
         return $this->render('@Main/Default/index.html.twig');
     }
+    public function indexbackAction()
+    {
+        return $this->render('@Main/Default/indexback.html.twig');
+    }
     /**
      * @Route("/register")
      */

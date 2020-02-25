@@ -16,7 +16,6 @@ class featureType extends AbstractType
     {
         $builder->add('name')
             ->add('etat')
-            ->add('sprint')
             ->add('ajouter',SubmitType::class); ;
     }/**
      * {@inheritdoc}

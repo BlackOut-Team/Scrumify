@@ -44,6 +44,13 @@ class feature
      * @ORM\Column(name="isDeleted", type="integer")
      */
     private $isDeleted;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SprintBundle\Entity\Sprint")
+     * @ORM\JoinColumn(name="sprint_id",referencedColumnName="id")
+     */
+
+    private $sprint;
     /**
      * Get id
      *
@@ -131,5 +138,31 @@ class feature
     public function getIsDeleted()
     {
         return $this->isDeleted;
+    }
+
+
+
+    /**
+     * Set sprint.
+     *
+     * @param \SprintBundle\Entity\Sprint|null $sprint
+     *
+     * @return feature
+     */
+    public function setSprint(\SprintBundle\Entity\Sprint $sprint = null)
+    {
+        $this->sprint = $sprint;
+
+        return $this;
+    }
+
+    /**
+     * Get sprint.
+     *
+     * @return \SprintBundle\Entity\Sprint|null
+     */
+    public function getSprint()
+    {
+        return $this->sprint;
     }
 }

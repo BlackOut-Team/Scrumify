@@ -32,18 +32,29 @@ class userstoryController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $userstory = new userstory();
-        $form = $this->createForm('UserstoryBundle\Form\userstoryType', $userstory);
-        $form->handleRequest($request);
+        $userstories =$em->getRepository('UserstoryBundle:userstory')->findBy(['isDeleted' => 0]);
 
-        $userstories = $em->getRepository('UserstoryBundle:userstory')->findBy( ['isDeleted' => 0]);
+        $userstory = new userstory();
+        $form=$this->createForm('UserstoryBundle\Form\userstoryType',$userstory);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+
+
+            $em = $this->getDoctrine()->getManager();
+            $userstory->setIsDeleted(0);
+            $em->persist($userstory);
+            $em->flush($userstory);
+
+
+
+            return $this->redirectToRoute('userstory_index') ;
+
+    }
         return $this->render('@Userstory/userstory/index.html.twig', array(
             'userstories' => $userstories,
-            'form' => $form->createView(),
-
-
+            'form'=> $form->CreateView(),
+            'userstory' => $userstory
         ));
-
     }
     public function getDeletedUserstoryAction()
     {
@@ -81,7 +92,7 @@ class userstoryController extends Controller
             return $this->redirectToRoute('userstory_show', array('id' => $userstory->getId()));
         }
 
-        return $this->render('@Userstory/userstory/new.html.twig', array(
+        return $this->render('@Userstory/userstory/index.html.twig', array(
             'userstory' => $userstory,
             'form' => $form->createView(),
         ));
@@ -228,5 +239,6 @@ class userstoryController extends Controller
 
 
     }
+
 
 }

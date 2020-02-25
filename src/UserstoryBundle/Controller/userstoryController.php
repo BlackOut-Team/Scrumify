@@ -32,7 +32,7 @@ class userstoryController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $userstory = new Userstory();
+        $userstory = new userstory();
         $form = $this->createForm('UserstoryBundle\Form\userstoryType', $userstory);
         $form->handleRequest($request);
 
@@ -67,7 +67,7 @@ class userstoryController extends Controller
      */
     public function newAction(Request $request)
     {
-        $userstory = new Userstory();
+        $userstory = new userstory();
         $form = $this->createForm('UserstoryBundle\Form\userstoryType', $userstory);
         $form->handleRequest($request);
 
@@ -161,9 +161,11 @@ class userstoryController extends Controller
      * @Route("/{id}/edit", name="userstory_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, userstory $userstory)
+    public function editAction(Request $request, $id)
     {
-        $deleteForm = $this->createDeleteForm($userstory);
+        $em = $this->getDoctrine()->getManager();
+        $userstory = $em->getRepository('UserstoryBundle:userstory')->find($id);
+
         $editForm = $this->createForm('UserstoryBundle\Form\userstoryType', $userstory);
         $editForm->handleRequest($request);
 
@@ -176,7 +178,7 @@ class userstoryController extends Controller
         return $this->render('@Userstory/userstory/edit.html.twig', array(
             'userstory' => $userstory,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+
         ));
     }
     public function deleteAction($id)
@@ -190,7 +192,7 @@ class userstoryController extends Controller
 
     public function PdfAction(){
         $em = $this->getDoctrine()->getManager();
-
+        $filename= 'snappypdf';
         $userstories = $em->getRepository('UserstoryBundle:userstory')->findBy( ['isDeleted' => 0]);
 
         $snappy = $this->get('knp_snappy.pdf');
@@ -200,11 +202,31 @@ class userstoryController extends Controller
 
         );
         return new PdfResponse(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-            'file.pdf'
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'attachment; filename="'.$filename.'.pdf"'
+            )
         );
 
     }
+    public function BackAction(Request $request){
 
+        $em = $this->getDoctrine()->getManager();
+        $userstory = new userstory();
+        $form = $this->createForm('UserstoryBundle\Form\userstoryType', $userstory);
+        $form->handleRequest($request);
+
+        $userstories = $em->getRepository('UserstoryBundle:userstory')->findBy( ['isDeleted' => 0]);
+        return $this->render('@Userstory/userstory/back.html.twig', array(
+            'userstories' => $userstories,
+            'form' => $form->createView(),
+
+
+        ));
+
+
+    }
 
 }

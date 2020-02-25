@@ -3,6 +3,7 @@
 namespace UserstoryBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,8 @@ class userstoryType extends AbstractType
             ->add('priority')
             ->add('storyPoint')
             ->add('etat')
-            ->add('feature');
+            ->add('feature')
+            ->add('ajouter',SubmitType::class);
     }/**
      * {@inheritdoc}
      */

@@ -1,23 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block contents %}
+<div class="layout layout-nav-top layout-sidebar">
+
+
 
     <div class="main-container">
+        <div class="content-container">
 
-        <div class="navbar bg-white breadcrumb-bar">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index-2.html">Overview</a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="pages-app.html#">App Pages</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Task</li>
-                </ol>
-            </nav>
+            <div class="breadcrumb-bar navbar bg-white sticky-top">
 
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('feature_index') }}">Feature</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="{{ path('userstory_index') }}">User Story</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
+                    </ol>
+                </nav>
 
+                <div class="dropdown">
+                    <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <i class="material-icons">settings</i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
 
-        </div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
+                        <a class="dropdown-item" href="#">Share</a>
+                        <a class="dropdown-item" href="#">Mark as Complete</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Archive</a>
+
+                    </div>
+                </div>
+            </div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-11 col-xl-10">

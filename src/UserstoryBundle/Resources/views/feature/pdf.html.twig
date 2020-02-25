@@ -1,0 +1,78 @@
+{% extends 'pdf.html.twig' %}
+
+{% block contents %}
+    <h1>Features List</h1>
+{% for feature in features %}
+    <div class="col-md-6">
+        <div class="card card-team">
+            <div class="card-body">
+                <div class="dropdown card-options">
+                    <button class="btn-options" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right ">
+                        <a class="dropdown-item" href="{{ path('feature_show', { 'id': feature.id }) }}">Show</a>
+                        <a class="dropdown-item text-danger" href="{{ path('feature_edit', { 'id': feature.id }) }}">Edit</a>
+                        <a class="dropdown-item text-danger" href="{{ path('feature_delete', { 'id': feature.id }) }}">archive</a>
+
+                    </div>
+                </div>
+                <div class="card-title">
+                    <a href="#">
+                        <h5 data-filter-by="text">{{ feature.name }}</h5>
+                    </a>
+                    <span>{{ feature.etat }}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<!--end of tab-->
+</div>
+<form class="modal fade" id="feature-add-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Feature</h5>
+                <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <!--end of modal head-->
+            <ul class="nav nav-tabs nav-fill" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="team-add-details-tab" data-toggle="tab" href="#team-add-details" role="tab" aria-controls="team-add-details" aria-selected="true">Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="team-add-members-tab" data-toggle="tab" href="#team-add-members" role="tab" aria-controls="team-add-members" aria-selected="false">Members</a>
+                </li>
+            </ul>
+            {{ form_start(form) }}
+            <div class="modal-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="team-add-details" role="tabpanel">
+                        <h6>Feature Details</h6>
+                        <div class="form-group row align-items-center">
+                            <label class="col-3">Name</label>
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control col'}}) }}
+
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3">state</label>
+                            {{ form_widget(form.etat, {'attr': {'class': 'form-control col'}}) }}
+
+                        </div>
+                    </div>
+
+
+                    <button role="button" class="btn btn-primary" type="submit">
+                        Create Feature
+                    </button>
+
+                    {{ form_end(form) }}
+
+                    {% endblock %}
+                    {% block javascript %}
+{% endblock %}

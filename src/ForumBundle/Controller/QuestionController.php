@@ -7,24 +7,32 @@ use Doctrine\DBAL\Types\DateTimeImmutableType;
 use ForumBundle\Entity\Answer;
 use ForumBundle\Entity\Categories;
 use ForumBundle\Entity\Question;
+use ForumBundle\Entity\Tag;
 use ForumBundle\Form\AnswerType;
 use ForumBundle\Form\CategoriesType;
 use ForumBundle\Form\QuestionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use ActivityBundle\Service\ActivityGenerator;
-use Twilio\Rest\Client;
 class QuestionController extends Controller
 {
 
-    public function DisplayQuestionsAction()
+    public function DisplayQuestionsAction(Request $request)
     {
-
         $provider = $this->container->get('fos_message.provider');
         $nbr = $provider->getNbUnreadMessages();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $questions=$this->getDoctrine()
             ->getRepository(Question::class)->getOtherQuestions($user);
+
+        $tags=$this->getDoctrine()
+            ->getRepository(Tag::class)->findAll();
+        if($request->query->get('tag')){
+            $tag = $request->query->get('tag');
+            $questions=$this->getDoctrine()
+                ->getRepository(Question::class)->getOtherQuestionsByTag($user, $tag);
+
+        }
         $myQuestions=$this->getDoctrine()
             ->getRepository(Question::class)
             ->findBy(['User' => $user]);
@@ -32,7 +40,7 @@ class QuestionController extends Controller
         $categories = $this->getDoctrine()->getRepository(Categories::class)
             ->findAll();
         return $this->render('@Forum/Question/display_questions.html.twig',
-            array('questions'=>$questions, 'user' => $user,'myQuestions'=>$myQuestions,'nbr'=>$nbr, 'categories'=>$categories  ));
+            array('questions'=>$questions, 'user' => $user,'myQuestions'=>$myQuestions,'nbr'=>$nbr, 'categories'=>$categories, 'tags'=>$tags ));
     }
     public function DisplayBackQuestionsAction( Request $request)
     {
@@ -136,7 +144,6 @@ class QuestionController extends Controller
         $Form->handleRequest($request);
 
         if ($Form->isSubmitted()) {
-            $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute('_display_questions');
 

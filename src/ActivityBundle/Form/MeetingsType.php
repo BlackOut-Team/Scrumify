@@ -2,6 +2,7 @@
 
 namespace ActivityBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -35,6 +36,11 @@ class MeetingsType extends AbstractType
                     'data-provide' => 'datetimepicker',
                     'html5' => false,
             ]])
+            ->add('sprint', EntityType::class,array(
+                'class'=>'SprintBundle:Sprint',
+                'choice_label'=>'name',
+                'multiple'=>false
+            ))
             ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}

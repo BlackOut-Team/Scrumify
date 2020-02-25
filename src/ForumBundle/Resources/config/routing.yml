@@ -27,3 +27,6 @@ _display_back_answer:
 _edit_question:
     path:     /edit_question/{id}
     defaults: { _controller: ForumBundle:Question:EditQuestion }
+tag:
+    resource: "@ForumBundle/Controller/"
+    type:      annotation

@@ -1,4 +1,9 @@
 services:
+    tag.form.type.tags:
+      class: ForumBundle\Form\Type\TagsType
+      arguments: ['@doctrine.orm.entity_manager']
+      tags:
+        - { name: form.type }
 #    forum.example:
 #        class: ForumBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

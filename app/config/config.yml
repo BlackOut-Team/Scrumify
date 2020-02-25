@@ -15,7 +15,6 @@ imports:
     - { resource: "@ScrumBundle/Resources/config/services.yml" }
 
     - { resource: "@MyAppMailBundle/Resources/config/services.yml" }
-
     - { resource: "@GrapheBundle/Resources/config/services.yml" }
 
 
@@ -23,6 +22,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    images_directory: '%kernel.root_dir%/../web/uploads/images'
 
 framework:
     templating:
@@ -102,9 +102,8 @@ fos_user:
         sender_name: "Scrumify Team"
     registration:
         form:
-            type: FOS\UserBundle\Form\Type\RegistrationFormType
-            name: fos_user_registration_form
-            validation_groups: [Registration, Default]
+            type: MainBundle\Form\RegistrationType
+            name: app_user_registration
         confirmation:
             enabled: false
             template: '@FOSUser/Registration/email.txt.twig'

@@ -5,14 +5,16 @@
 {% block stylesheets %}
 
     <link rel="stylesheet" href={{ asset('Forum/css/style.css') }}>
-    <link href={{ asset('assets/css/theme.css') }} rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" type="text/css" media="all" />
 
 {% endblock %}
 {% block contents %}
 
-    <div class="d-flex  p-5 " style ="background-color: #ecf0f1;">
-    <div class="tt-topic-list w-75  float-left rounded-lg" style="margin-top:100px;box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
-<a href="{{ path('_add_question') }}" >
+<div class="d-flex  " style="padding-top: 180px;">
+
+    <div class="tt-wrapper-inner">
+    <div class="tt-topic-list w-75  float-left rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
+        <a href="{{ path('_add_question') }}" >
                 <button class="btn-lg btn-round m-auto mb-lg-4 mt-lg-4" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;" >
                     <i class="material-icons icon-add" ></i>
                 </button>
@@ -38,7 +40,7 @@
         {% endif %}
         {% for q in myQuestions %}
 
-            <div class="tt-item tt-item" style=" background-color: #b8c7ce">
+            <div class="tt-item tt-item mt-1" style=" background-color: #b8c7ce">
 
                 <a href="{{ path('_delete_question',{'id':q.id}) }}">
                 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -59,6 +61,18 @@
                 <h6 class="tt-title"><a href="{{ path('_display_question',{'id': q.id }) }}" >
                         {{ q.title }}
                     </a></h6>
+                <div class="row align-items-center no-gutters">
+                    <div class="col-11">
+                        <ul class="tt-list-badge">
+                            {% for tag in q.tags %}
+                                <li><a href="{{ path('_display_questions') }}?tag={{ tag.name }}" ><span class="tt-badge">{{ tag.name }}</span></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-1 ml-auto show-mobile">
+                        <div class="tt-value">1h</div>
+                    </div>
+                </div>
             </div>
             <div class="tt-col-category"><span class="tt-color01 tt-badge" style="background-color: {{ q.Categories.color }}">{{ q.Categories.cname }}</span></div>
             <div class="tt-col-value  hide-mobile">308</div>
@@ -69,7 +83,7 @@
                 </a>
         {% endfor %}
         {% for q in questions %}
-                <div class="tt-item ">
+                <div class="tt-item  mt-1">
 
             <div class="tt-col-avatar">
                 <svg class="tt-icon">
@@ -80,6 +94,18 @@
                 <h6 class="tt-title"><a href="{{ path('_display_question',{'id': q.id }) }}" >
                         {{ q.title }}
                     </a></h6>
+                <div class="row align-items-center no-gutters">
+                    <div class="col-11">
+                        <ul class="tt-list-badge">
+                            {% for tag in q.tags %}
+                                <li><a href="{{ path('_display_questions') }}?tag={{ tag.name }}" ><span class="tt-badge">{{ tag.name }}</span></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-1 ml-auto show-mobile">
+                        <div class="tt-value">1h</div>
+                    </div>
+                </div>
             </div>
             <div class="tt-col-category"><span class="tt-color01 tt-badge " style="background-color: {{ q.Categories.color }} ">{{ q.Categories.cname }}</span></div>
             <div class="tt-col-value  hide-mobile">308</div>
@@ -99,40 +125,59 @@
 
 
     </div>
-        <div class="tt-categories-list float-right w-25 "  style="margin-top:80px;">
+    <div class="tt-categories-list float-right w-25 ">
             <div class="row pl-5" style="">
                 <div class="col-md-6 col-lg-10">
-                    {% for c in categories %}
                     <div class="tt-item  rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
                         <div class="tt-item-header">
                             <ul class="tt-list-badge">
-                                <li><a href="#"><span class="tt-color01 tt-badge" style="background-color: {{ c.color }}">{{ c.cname }}</span></a></li>
+                                <li><a href="#"><span class="tt-color01 tt-badge" >Categories</span></a></li>
                             </ul>
                             <h6 class="tt-title"><a href="page-categories-single.html">Threads - 1,245</a></h6>
                         </div>
                         <div class="tt-item-layout">
                             <div class="innerwrapper">
-                                {{ c.description }}
+                               Popular Categories
                             </div>
                             <div class="innerwrapper">
-                                <h6 class="tt-title">Similar TAGS</h6>
                                 <ul class="tt-list-badge">
-                                    <li><a href="#"><span class="tt-badge">world politics</span></a></li>
-                                    <li><a href="#"><span class="tt-badge">human rights</span></a></li>
-                                    <li><a href="#"><span class="tt-badge">trump</span></a></li>
-                                    <li><a href="#"><span class="tt-badge">climate change</span></a></li>
-                                    <li><a href="#"><span class="tt-badge">foreign policy</span></a></li>
+
+                                    {% for c in categories %}
+                                    <li><a href="#"><span class="tt-badge " style="background-color: {{ c.color }}; color:white;">{{ c.cname }}</span></a></li>
+                                    {%  endfor %}
                                 </ul>
                             </div>
-                            <a href="#" class="tt-btn-icon">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                            </a>
                         </div>
                     </div>
-                    {%  endfor %}
+                </div>
+            </div>
+        <div class="row pl-5" style="">
+            <div class="col-md-6 col-lg-10">
+                <div class="tt-item  rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
+                    <div class="tt-item-header">
+                        <ul class="tt-list-badge">
+                            <li><a href="#"><span class="tt-color01 tt-badge bg-dark" >Tags</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="tt-item-layout">
+                        <div class="innerwrapper">
+                            Popular Tags
+                        </div>
+                        <div class="innerwrapper">
+                            <ul class="tt-list-badge">
+
+                                {% for t in tags %}
+                                    <li><a href="#"><span class="tt-badge " style="background-color: #d7dadc; color:black;">{{ t.name }}</span></a></li>
+                                {%  endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+</div>
 {% endblock %}
 {% block javascripts %}
 <script src={{ asset('Forum/js/bundle.js') }}></script>

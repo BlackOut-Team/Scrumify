@@ -3,6 +3,7 @@
 namespace ForumBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ForumBundle\Concern\Taggable;
 
 /**
  * Question
@@ -12,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Question
 {
+    use Taggable;
     /**
      * @var int
      *
@@ -244,5 +246,17 @@ class Question
     {
         return $this->title;
     }
-}
 
+
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

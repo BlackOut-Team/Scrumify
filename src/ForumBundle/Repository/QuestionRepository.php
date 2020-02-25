@@ -9,11 +9,25 @@ namespace ForumBundle\Repository;
 class QuestionRepository extends \Doctrine\ORM\EntityRepository
 {public function getOtherQuestions($user)
 {
-    $qb = $this->createQueryBuilder('u');
+    $qb = $this->createQueryBuilder('u')
+    ->join('u.tags', 't');
     $qb->where('u.User != :user')
-        ->setParameter('user', $user);
+        ->setParameter('user', $user)
+    ->select('u','t');
 
     return $qb->getQuery()
         ->getResult();
 }
+    public function getOtherQuestionsByTag($user, $tag)
+    {
+         $qb = $this->createQueryBuilder('u')
+            ->join('u.tags', 't')
+            ->addSelect('u','t')
+            ->where('u.User != :user AND t.name = :tag')
+            ->setParameter('user', $user)
+            ->setParameter('tag', $tag);
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

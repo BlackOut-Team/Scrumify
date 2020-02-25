@@ -46,3 +46,29 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    mgilet.twig_extension:
+        class: Mgilet\NotificationBundle\Twig\NotificationExtension
+        arguments: ['@mgilet.notification', '@security.token_storage', '@twig', '@router']
+        public: true
+        tags:
+            - { name: twig.extension }
+    mgilet.notification:
+        class: Mgilet\NotificationBundle\Manager\NotificationManager
+        arguments: ["@service_container", '@mgilet.notifiable_discovery']
+        public: true
+
+    mgilet.notifiable_discovery:
+        class: Mgilet\NotificationBundle\NotifiableDiscovery
+        arguments: [ '@doctrine.orm.entity_manager', '@annotation_reader']
+        public: true
+
+    resto.image_uploader:
+        class: MainBundle\ImageUpload
+        arguments: ['%images_directory%']
+
+    resto.doctrine_image_listener:
+        class: MainBundle\EventListener\ImageUploadListener
+        arguments: ['@resto.image_uploader']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }

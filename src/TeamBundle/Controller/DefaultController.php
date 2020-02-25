@@ -24,6 +24,7 @@ class DefaultController extends Controller
 
     }
 
+
     public function affecterUserAction($team_id, $user_id){
 
         $users= $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
@@ -31,10 +32,15 @@ class DefaultController extends Controller
         $team= $this->getDoctrine()->getRepository('TeamBundle:team')->find($team_id);
 
 
+
         $aff= new team_user();
+
 
         $aff->setTeamId($team);
         $aff->setUserId($user);
+
+            
+
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($aff);

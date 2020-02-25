@@ -80,7 +80,7 @@ class TeamController extends Controller
 
                 $em->flush();
                 return $this->redirectToRoute("affiche_team");
-            } $this->addFlash('success', 'hahaha');
+            }
 
 
         $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->findAll();
@@ -111,6 +111,7 @@ class TeamController extends Controller
         $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->findAll();
         return $this->render('@Team/team/test.html.twig',array('con'=> $con,"form" => $form->createView()));
     }
+
     public function  editAction(Request $request,$id)
     {
         {
@@ -120,7 +121,7 @@ class TeamController extends Controller
 
             $form = $this->createFormBuilder($con)
 
-                ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
+                ->add('name', TextType::class, array('attr' => array(),'label' => "name"))
 
                 ->add('Modifier', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
                 ->getForm();

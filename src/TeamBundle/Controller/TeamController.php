@@ -31,7 +31,9 @@ class TeamController extends Controller
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
 
             ->getForm();
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted()) {
 
             $p->setCreated(new \DateTime('now'));
@@ -67,8 +69,7 @@ class TeamController extends Controller
 
         if ($form->isSubmitted()&&$form->isValid()) {
 
-            if ($form['name']->getData()=='a')
-            {
+
 
                 $p->setCreated(new \DateTime('now'));
                 $p->setUpdated(new \DateTime('now'));
@@ -81,7 +82,7 @@ class TeamController extends Controller
                 return $this->redirectToRoute("affiche_team");
             } $this->addFlash('success', 'hahaha');
 
-        }
+
         $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->findAll();
         return $this->render('@Team/team/index.html.twig',array('con'=> $con,"form" => $form->createView()));
     }

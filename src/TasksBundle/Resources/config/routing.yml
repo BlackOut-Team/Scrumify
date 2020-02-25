@@ -23,3 +23,6 @@ desarchiver:
 show_tasks_back:
     path:   /showBack
     defaults: { _controller: TasksBundle:Tasks:showTasksB }
+affecterUserTask:
+    path:   /aff/{task_id}/{user_id}
+    defaults: { _controller: TasksBundle:Default:affUserTask }

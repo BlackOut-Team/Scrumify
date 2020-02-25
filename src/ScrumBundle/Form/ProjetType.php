@@ -2,6 +2,7 @@
 
 namespace ScrumBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -48,8 +49,20 @@ class ProjetType extends AbstractType
                     ])
                 ],
             ])
+            ->add('Team',EntityType::class,array(
+                'class'=>'TeamBundle:Team',
+                'choice_label'=>'name',
+                'multiple'=>false
+            ))
+            ->add('owner_id',EntityType::class,array(
+                'class'=>'MainBundle:User',
+                'choice_label'=>'username',
+                'multiple'=>false
+            ))
+
             ->add('Submit',SubmitType::class );
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

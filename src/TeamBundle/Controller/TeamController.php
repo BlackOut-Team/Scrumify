@@ -91,8 +91,6 @@ class TeamController extends Controller
         $form = $this->createFormBuilder($p)
 
             ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
-
-
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
 
             ->getForm();

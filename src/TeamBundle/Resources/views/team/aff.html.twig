@@ -38,7 +38,7 @@
 
                                         <input type="search" class="form-control filter-list-input" placeholder="Filter teams" aria-label="Filter Teams"> <br>
 
-                                            <a class="btn btn-primary" href="{{ path('pdfexample') }}">Export to PDF</a>
+                                        <a class="btn btn-primary" href="{{ path('pdfexample') }}">Export to PDF</a>
 
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                 <div class="content-list-body row">
                                     {% for con in con %}
                                         {% if con.ind != 1 %}
-                                        <div class="col-lg-6">
+                                            <div class="col-lg-6">
                                             <div class="card card-project">
 
                                                 <div class="progress">
@@ -63,7 +63,7 @@
                                                             <a class="dropdown-item" href="{{ path('edit_team', {'id': con.id}) }}">Edit</a>
                                                             <a class="dropdown-item text-danger" href="{{ path('archive_team', { 'id': con.id }) }}">Archive Team</a>
                                                             <a class="dropdown-item text-succes" href="{{ path('affecter', { 'id': con.id }) }}">Affecter membre</a>
-                                                         
+                                                            Affecter membre</a>
 
                                                         </div>
                                                     </div>
@@ -80,7 +80,7 @@
 
                                                 </div>
                                             </div>
-                                        </div>{% endif %}
+                                            </div>{% endif %}
                                     {% endfor %}
 
 

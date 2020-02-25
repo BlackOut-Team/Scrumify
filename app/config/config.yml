@@ -18,7 +18,6 @@ imports:
     - { resource: "@GrapheBundle/Resources/config/services.yml" }
 
 
-
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
@@ -26,6 +25,8 @@ parameters:
     images_directory: '%kernel.root_dir%/../web/uploads/images'
 
 framework:
+    templating:
+        engines: ['twig']
     #esi: ~
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -137,13 +138,3 @@ knp_snappy:
         enabled:    true
         binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
         options:    []
-knp_paginator:
-    page_range: 5
-    default_options:
-        page_name: page
-        sort_field_name: sort
-        sort_direction_name: direction
-        distinct: true
-    template:
-        pagination: 'KnpPaginatorBundle:Pagination:sliding.html.twig'
-        sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig'

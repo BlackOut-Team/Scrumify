@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new GrapheBundle\GrapheBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
             new Mgilet\NotificationBundle\MgiletNotificationBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
 

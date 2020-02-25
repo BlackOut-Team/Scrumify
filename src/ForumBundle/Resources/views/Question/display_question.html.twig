@@ -91,8 +91,7 @@
             {% if user.username == answer.User.username %}
                 <div  class="tt-item tt-wrapper-success  rounded-lg">
 
-                    {% endif %}
-                    {% if user.username != question.User.username %}
+                    {% else %}
                     <div class="tt-item  rounded-lg">
                         {% endif %}
                 <div class="tt-single-topic rounded-lg" style="margin-top:20px;box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">

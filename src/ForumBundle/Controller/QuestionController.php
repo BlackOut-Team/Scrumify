@@ -17,8 +17,10 @@ use ActivityBundle\Service\ActivityGenerator;
 class QuestionController extends Controller
 {
 
+
     public function DisplayQuestionsAction(Request $request)
     {
+
         $provider = $this->container->get('fos_message.provider');
         $nbr = $provider->getNbUnreadMessages();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();

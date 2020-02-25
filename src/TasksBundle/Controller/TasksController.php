@@ -3,6 +3,8 @@
 namespace TasksBundle\Controller;
 
 use MainBundle\Entity\User;
+use MyAppMailBundle\Entity\Mail;
+use MyAppMailBundle\Form\MailType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TasksBundle\Entity\Media;
@@ -127,6 +129,21 @@ class TasksController extends Controller
             $task->setUpdated(new \DateTime('now'));
             $task->setUserstory($userstory);
             $task->setUser($usersToAffect);
+        foreach ($usersToAffect as $item) {
+            $mail = new Mail();
+            $form = $this->createForm(MailType::class, $mail);
+            $form->handleRequest($request);
+            if ($form->isSubmitted()) {
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Accusé de réception')
+                    ->setFrom('iheb.rekik@esprit.tn')
+                    ->setTo($item->getEmail())
+                    ->setBody(
+                        $this->renderView('@MyAppMail/Mail/mail.html.twig',
+                            array('nom' => $mail->getNom(), 'prenom' => $mail->getPrenom())), 'text/html');
+                $this->get('mailer')->send($message);
+            }
+        }
 
 
             $em->persist($task);

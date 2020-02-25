@@ -37,7 +37,7 @@ class DefaultController extends Controller
     {
         $em= $this->getDoctrine()->getManager();
         $pieChart = new PieChart();
-        $project =$em->getRepository('ProjectBundle:Project')->findAll();
+        $project =$em->getRepository('ScrumBundle:Projet')->findAll();
         $user =$em->getRepository('MainBundle:User')->findAll();
         $team =$em->getRepository('TeamBundle:Team')->findAll();
 
@@ -48,8 +48,8 @@ class DefaultController extends Controller
         $pieChart->getData()->setArrayToDataTable(
             [['Task', 'number'],
                 ['Project',     $sizeP],
-                ['Doing',      $sizeU],
-                ['To Do',  $sizeT],
+                ['users',      $sizeU],
+                ['teams',  $sizeT],
 
             ]
         );

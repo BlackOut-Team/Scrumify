@@ -28,28 +28,33 @@ class userstoryController extends Controller
      * @Route("/", name="userstory_index")
      * @Method("GET")
      */
-    public function indexAction(Request $request)
+    //hada aff w ajout user story 3awed jareb
+    public function indexAction(Request $request, feature $feature)
     {
-
         $em = $this->getDoctrine()->getManager();
-        $userstories =$em->getRepository('UserstoryBundle:userstory')->findBy(['isDeleted' => 0]);
+        $userstories =$em->getRepository('UserstoryBundle:userstory')->findBy(['isDeleted' => 0,'feature'=>$feature]);
 
         $userstory = new userstory();
         $form=$this->createForm('UserstoryBundle\Form\userstoryType',$userstory);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
 
+
             $em = $this->getDoctrine()->getManager();
             $userstory->setIsDeleted(0);
+            $userstory->setFeature($feature);
             $em->persist($userstory);
             $em->flush($userstory);
 
-            return $this->redirectToRoute('userstory_index') ;
+
+
+            return $this->redirectToRoute('userstory_index',array('id' => $feature->getId())) ;
     }
         return $this->render('@Userstory/userstory/index.html.twig', array(
             'userstories' => $userstories,
             'form'=> $form->CreateView(),
-            'userstory' => $userstory
+            'userstory' => $userstory,
+            'feature' => $feature
         ));
     }
     public function getDeletedUserstoryAction()

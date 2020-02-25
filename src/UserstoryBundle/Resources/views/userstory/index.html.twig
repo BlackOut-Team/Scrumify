@@ -12,11 +12,11 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="">Sprint</a>
+            </li>
             <li class="breadcrumb-item"><a href="{{ path('feature_index') }}">Feature</a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ path('userstory_index') }}">User Story</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
+            <li class="breadcrumb-item active" aria-current="page">User Stories</li>
         </ol>
     </nav>
 
@@ -148,11 +148,7 @@
                                         {{ form_widget(form.etat,  {'attr': {'class': 'form-control col'}}) }}
 
                                     </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-3">Feature</label>
-                                        {{ form_widget(form.feature,  {'attr': {'class': 'form-control col'}}) }}
 
-                                    </div>
                                 </div>
 
 

@@ -8,7 +8,7 @@ feature_new:
     path:     /new
     defaults: { _controller: UserstoryBundle:feature:new }
 userstory_index:
-    path:     /indexuserstory
+    path:     /indexuserstory/{id}
     defaults: { _controller: UserstoryBundle:userstory:index }
 userstory_new:
     path:     /newuserstory

@@ -26,7 +26,7 @@ class TeamController extends Controller
         $p= new team();
         $form = $this->createFormBuilder($p)
 
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+            ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
 
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
 
@@ -59,7 +59,7 @@ class TeamController extends Controller
         $p= new team();
         $form = $this->createFormBuilder($p)
 
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+            ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
 
 
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
@@ -91,7 +91,7 @@ class TeamController extends Controller
         $p= new team();
         $form = $this->createFormBuilder($p)
 
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+            ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
 
             ->getForm();
@@ -120,7 +120,7 @@ class TeamController extends Controller
 
             $form = $this->createFormBuilder($con)
 
-                ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+                ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
 
                 ->add('Modifier', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
                 ->getForm();
@@ -212,7 +212,7 @@ class TeamController extends Controller
         $requestString = $request->get('q');
         $posts =  $em->getRepository('TeamBundle:team')->findEntitiesByString($requestString);
         if(!$posts) {
-            $result['posts']['error'] = "Post Not found :( ";
+            $result['posts']['error'] = "No Matching resultat ";
         } else {
             $result['posts'] = $this->getRealEntities($posts);
         }

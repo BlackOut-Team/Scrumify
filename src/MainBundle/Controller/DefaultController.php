@@ -53,7 +53,7 @@ class DefaultController extends Controller
 
             ]
         );
-        $pieChart->getOptions()->setTitle('Daily Activities');
+        $pieChart->getOptions()->setTitle('General informations');
         $pieChart->getOptions()->setHeight(500);
         $pieChart->getOptions()->setWidth(900);
         $pieChart->getOptions()->getTitleTextStyle()->setBold(true);

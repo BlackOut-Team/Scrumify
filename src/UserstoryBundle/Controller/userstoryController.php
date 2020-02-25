@@ -39,16 +39,12 @@ class userstoryController extends Controller
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
 
-
             $em = $this->getDoctrine()->getManager();
             $userstory->setIsDeleted(0);
             $em->persist($userstory);
             $em->flush($userstory);
 
-
-
             return $this->redirectToRoute('userstory_index') ;
-
     }
         return $this->render('@Userstory/userstory/index.html.twig', array(
             'userstories' => $userstories,

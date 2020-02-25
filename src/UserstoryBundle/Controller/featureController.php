@@ -25,20 +25,14 @@ class featureController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $features =$em->getRepository('UserstoryBundle:Feature')->findBy(['isDeleted' => 0]);
-
         $feature = new Feature();
         $form=$this->createForm('UserstoryBundle\Form\featureType',$feature);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
-
-
             $em = $this->getDoctrine()->getManager();
             $feature->setIsDeleted(0);
             $em->persist($feature);
             $em->flush($feature);
-
-
-
             return $this->redirectToRoute('feature_index') ;
         }
 

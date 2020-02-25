@@ -2,6 +2,7 @@
 
 namespace TasksBundle\Controller;
 
+use MainBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TasksBundle\Entity\Media;
@@ -9,6 +10,7 @@ use TasksBundle\Entity\Tasks;
 use TasksBundle\Form\TasksType;
 use ActivityBundle\Service\ActivityGenerator;
 use Headsnet\Sms\SmsSendingInterface;
+use UserstoryBundle\Entity\userstory;
 
 
 class TasksController extends Controller
@@ -21,6 +23,8 @@ class TasksController extends Controller
         $em->flush();
         return $this->redirectToRoute('show_tasks');
     }
+
+
 
     public function editAction(Request $request, Tasks $task){
         $em= $this->getDoctrine()->getManager();
@@ -88,14 +92,14 @@ class TasksController extends Controller
         $em->flush();
     }
 
-    public function showTasksAction(Request $request){
+    public function showTasksAction(Request $request, userstory $userstory){
 
         $em= $this->getDoctrine()->getManager();
 
-        $Tasks =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'To do'],['priority' => 'ASC']);
-        $Tasks1 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Doing'],['priority' => 'ASC']);
-        $Tasks2 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Done'],['priority' => 'ASC']);
-        $Tasks3 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Block'],['priority' => 'ASC']);
+        $Tasks =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'To do','Userstory'=>$userstory],['priority' => 'ASC']);
+        $Tasks1 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Doing','Userstory'=>$userstory],['priority' => 'ASC']);
+        $Tasks2 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Done','Userstory'=>$userstory],['priority' => 'ASC']);
+        $Tasks3 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Block','Userstory'=>$userstory],['priority' => 'ASC']);
         $users =$em->getRepository('MainBundle:User')->findall();
 
         $task=new Tasks();
@@ -108,50 +112,36 @@ class TasksController extends Controller
             //$activityGenerator = $this->get(ActivityGenerator::class);
             //$activity = $activityGenerator->AjouterActivity('a ajouter une tache', 'hidaya');
             //$this->addFlash('success', $activity);
+            $usernames = $request->request->get('users');
             $media->setPath($request->files->get('file'));
+            $usersToAffect =$em->getRepository('MainBundle:User')->findBy(['username'=>'']);
+            foreach ($usernames as $username){
+                $a =$em->getRepository('MainBundle:User')->findOneBy(['username'=>$username]);
+                array_push($usersToAffect,$a);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $task->setEtat(0);
             $task->setCreated(new \DateTime('now'));
             $task->setStatus("To do");
             $task->setUpdated(new \DateTime('now'));
+            $task->setUserstory($userstory);
+            $task->setUser($usersToAffect);
+
+
             $em->persist($task);
             $em->flush($task);
            $this->addMedia($request, $media,$task);
-            //dump($request);exit;
-            return $this->redirectToRoute('show_tasks') ;
+           // dump($request);exit;
+            return $this->redirectToRoute('show_tasks',array('id' => $userstory->getId())) ;
         }
 
         return $this->render('@Tasks/Tasks/home.html.twig',array(
             'form'=>$form->CreateView(),
-            'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3,'users'=>$users));
+            'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3,'users'=>$users,'userstory'=>$userstory));
 
     }
-    public function affecterUserAction($team_id, $user_id){
 
-        $users= $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
-        $user= $this->getDoctrine()->getRepository('MainBundle:User')->find($user_id);
-        $team= $this->getDoctrine()->getRepository('TeamBundle:team')->find($team_id);
-
-
-
-        $aff= new team_user();
-
-
-        $aff->setTeamId($team);
-        $aff->setUserId($user);
-
-
-
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($aff);
-
-        $em->flush();
-
-
-        return $this->render('@Team/Default/affMembre.html.twig',array("id" => $team_id,"users"=>$users));
-
-    }
 
 
 

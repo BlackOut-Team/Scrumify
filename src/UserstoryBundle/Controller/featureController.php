@@ -6,6 +6,7 @@ use UserstoryBundle\Entity\feature;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use UserstoryBundle\UserstoryBundle;
 
 /**
  * Feature controller.
@@ -23,15 +24,22 @@ class featureController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $features =$em->getRepository('UserstoryBundle:Feature')->findBy(['isDeleted' => 0]);
         $feature = new Feature();
-        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
+        $form=$this->createForm('UserstoryBundle\Form\featureType',$feature);
         $form->handleRequest($request);
-
-        $features = $em->getRepository('UserstoryBundle:feature')->findAll();
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $feature->setIsDeleted(0);
+            $em->persist($feature);
+            $em->flush($feature);
+            return $this->redirectToRoute('feature_index') ;
+        }
 
         return $this->render('@Userstory/feature/index.html.twig', array(
             'features' => $features,
-            'form' => $form->createView(),
+            'form'=> $form->CreateView(),
+            'feature' => $feature
         ));
     }
 
@@ -41,23 +49,15 @@ class featureController extends Controller
      * @Route("/new", name="feature_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+
+    public function getDeletedfeatureAction()
     {
-        $feature = new Feature();
-        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
-        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($feature);
-            $em->flush();
+        $features = $em->getRepository('UserstoryBundle:feature')->findBy( ['isDeleted' => 1]);
 
-            return $this->redirectToRoute('feature_show', array('id' => $feature->getId()));
-        }
-
-        return $this->render('@Userstory/feature/new.html.twig', array(
-            'feature' => $feature,
-            'form' => $form->createView(),
+        return $this->render('@Userstory/feature/index.html.twig', array(
+            'features' => $features,
         ));
     }
 
@@ -67,13 +67,14 @@ class featureController extends Controller
      * @Route("/{id}", name="feature_show")
      * @Method("GET")
      */
-    public function showAction(feature $feature)
+    public function showAction($id)
     {
-        $deleteForm = $this->createDeleteForm($feature);
+        $em = $this->getDoctrine()->getManager();
+        $feature = $em->getRepository('UserstoryBundle:feature')->find($id);
 
-        return $this->render('@userstory/feature/show.html.twig', array(
+        return $this->render('@Userstory/feature/show.html.twig', array(
             'feature' => $feature,
-            'delete_form' => $deleteForm->createView(),
+
         ));
     }
 
@@ -83,9 +84,10 @@ class featureController extends Controller
      * @Route("/{id}/edit", name="feature_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, feature $feature)
+    public function editAction(Request $request, $id)
     {
-        $deleteForm = $this->createDeleteForm($feature);
+        $em = $this->getDoctrine()->getManager();
+        $feature = $em->getRepository('UserstoryBundle:feature')->find($id);
         $editForm = $this->createForm('UserstoryBundle\Form\featureType', $feature);
         $editForm->handleRequest($request);
 
@@ -98,7 +100,7 @@ class featureController extends Controller
         return $this->render('@Userstory/feature/edit.html.twig', array(
             'feature' => $feature,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+
         ));
     }
 
@@ -111,10 +113,24 @@ class featureController extends Controller
     public function deleteAction($id)
     {
             $em = $this->getDoctrine()->getManager();
-            $userstory = $em->getRepository('UserstoryBundle:userstory')->find($id);
+            $userstory = $em->getRepository('UserstoryBundle:feature')->find($id);
             $userstory->setIsDeleted(1);
             $em->flush();
-        return $this->redirectToRoute('userstory_index');
+        return $this->redirectToRoute('feature_index');
+    }
+    public function BackAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $feature = new Feature();
+        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
+        $form->handleRequest($request);
+
+        $features = $em->getRepository('UserstoryBundle:feature')->findAll();
+
+        return $this->render('@Userstory/feature/Back.html.twig', array(
+            'features' => $features,
+            'form' => $form->createView(),
+        ));
     }
 
 }

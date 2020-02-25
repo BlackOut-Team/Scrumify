@@ -23,17 +23,39 @@ feature_index:
     path:     /indexfeature
     defaults: { _controller: UserstoryBundle:feature:index }
 feature_show:
-    path:     /showfeature
+    path:     /showfeature/{id}
     defaults: { _controller: UserstoryBundle:feature:show }
 feature_edit:
-    path:     /editfeature
+    path:     /editfeature/{id}
     defaults: { _controller: UserstoryBundle:feature:edit }
 ajout_comment:
     path:     /ajout_comment/{id}
     defaults: { _controller: UserstoryBundle:userstory:ajout_comment }
 userstory_edit:
-    path:     /edituserstory
+    path:     /edituserstory/{id}
     defaults: { _controller: UserstoryBundle:userstory:edit }
+userstory_back:
+    path:     /userstoryback
+    defaults: { _controller: UserstoryBundle:userstory:Back }
+feature_back:
+    path:     /featureback
+    defaults: { _controller: UserstoryBundle:feature:Back }
+pdfexport:
+    path:     /pdf
+    defaults: { _controller: UserstoryBundle:pdf:index }
+pdf_body:
+    path:     /export
+    defaults: { _controller: UserstoryBundle:pdf:pdfuserstory }
+feature_delete:
+    path:     /featureDelete/{id}
+    defaults: { _controller: UserstoryBundle:feature:delete }
+pdf_bodyF:
+    path:     /exportFeature
+    defaults: { _controller: UserstoryBundle:pdf:pdfFeature }
+pdfexportFeature:
+    path:     /pdfFeature
+    defaults: { _controller: UserstoryBundle:pdf:indexF }
+
 
 
 

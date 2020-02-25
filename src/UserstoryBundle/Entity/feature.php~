@@ -141,28 +141,4 @@ class feature
     }
 
 
-
-    /**
-     * Set sprint.
-     *
-     * @param \SprintBundle\Entity\Sprint|null $sprint
-     *
-     * @return feature
-     */
-    public function setSprint(\SprintBundle\Entity\Sprint $sprint = null)
-    {
-        $this->sprint = $sprint;
-
-        return $this;
-    }
-
-    /**
-     * Get sprint.
-     *
-     * @return \SprintBundle\Entity\Sprint|null
-     */
-    public function getSprint()
-    {
-        return $this->sprint;
-    }
 }

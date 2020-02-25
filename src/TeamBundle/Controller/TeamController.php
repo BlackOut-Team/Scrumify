@@ -26,12 +26,14 @@ class TeamController extends Controller
         $p= new team();
         $form = $this->createFormBuilder($p)
 
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+            ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
 
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
 
             ->getForm();
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted()) {
 
             $p->setCreated(new \DateTime('now'));
@@ -57,7 +59,7 @@ class TeamController extends Controller
         $p= new team();
         $form = $this->createFormBuilder($p)
 
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+            ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
 
 
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
@@ -67,8 +69,7 @@ class TeamController extends Controller
 
         if ($form->isSubmitted()&&$form->isValid()) {
 
-            if ($form['name']->getData()=='a')
-            {
+
 
                 $p->setCreated(new \DateTime('now'));
                 $p->setUpdated(new \DateTime('now'));
@@ -81,7 +82,7 @@ class TeamController extends Controller
                 return $this->redirectToRoute("affiche_team");
             } $this->addFlash('success', 'hahaha');
 
-        }
+
         $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->findAll();
         return $this->render('@Team/team/index.html.twig',array('con'=> $con,"form" => $form->createView()));
     }
@@ -90,7 +91,7 @@ class TeamController extends Controller
         $p= new team();
         $form = $this->createFormBuilder($p)
 
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+            ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
             ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
 
             ->getForm();
@@ -119,7 +120,7 @@ class TeamController extends Controller
 
             $form = $this->createFormBuilder($con)
 
-                ->add('name', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "name"))
+                ->add('name', TextType::class, array('attr' => array('class' => 'form-control'),'label' => "name"))
 
                 ->add('Modifier', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
                 ->getForm();
@@ -202,6 +203,28 @@ class TeamController extends Controller
         $em->persist($con);
         $em->flush();
         return $this->redirectToRoute('show_team_back');
+    }
+
+
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('q');
+        $posts =  $em->getRepository('TeamBundle:team')->findEntitiesByString($requestString);
+        if(!$posts) {
+            $result['posts']['error'] = "No Matching resultat ";
+        } else {
+            $result['posts'] = $this->getRealEntities($posts);
+        }
+        return new Response(json_encode($result));
+    }
+
+    public function getRealEntities($posts){
+        foreach ($posts as $post){
+            $realEntities[$post->getId()] = [$post->getName()];
+
+        }
+        return $realEntities;
     }
 
 }

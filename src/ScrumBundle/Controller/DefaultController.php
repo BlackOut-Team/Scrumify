@@ -8,12 +8,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
+use TeamBundle\Entity\team_user;
 
 class DefaultController extends Controller
 {
     public function  AddPAction(Request $request)
     {
-        $project=$this->getDoctrine()->getRepository(Projet::class)->findAll();
+        $myproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'master_id'=>$this->getUser()]);
+        $ownerproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'owner_id'=>$this->getUser()]);
+       // $team=$this->getDoctrine()->getRepository(team_user::class)->findBy(['user_id'=>$this->getUser()]);
+   //     $membersproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'team_id'=>getUser()]);
+
         $p= new Projet();
         $f=$this->createForm('ScrumBundle\Form\ProjetType',$p);
         $f->handleRequest($request);
@@ -32,7 +37,9 @@ class DefaultController extends Controller
         }
         return $this->render('@Scrum/Default/createProject.html.twig',array(
             'f'=>$f->createView(),
-            'project'=>$project
+            'myproject'=>$myproject,
+            'ownerproject'=>$ownerproject
+           //'memberproject'=>$membersproject
         ));
 
     }

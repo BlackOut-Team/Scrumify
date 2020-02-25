@@ -1,5 +1,4 @@
 {% extends'base.html.twig' %}
-{% block soustitle %}   <a class="nav-link" }}>Member Homepage</a> {% endblock %}
 {% block head %}
     {{ parent() }}
     <style type="text/css">
@@ -39,15 +38,33 @@
                               <i class="material-icons">filter_list</i>
                             </span>
                                             </div>
-                                            <input type="search" class="form-control filter-list-input" placeholder="Filter projects" aria-label="Filter Projects">
+                                            <input type="search" class="form-control filter-list-input" placeholder="Filter utilsateurs" aria-label="Filter Projects">
                                         </div>
                                     </form>
                                 </div>
+
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
 
 
+                                    {% for info in info %}
+                                        <div class="content-list-body row">
 
+                                            <div class="col-6">
+                                                <a class="media media-member" href="#">
+                                                    <img src="{{ asset('uploads/images/')}}{{ info.image }}" width="200" class="avatar avatar-lg" />
+                                                    <div class="media-body">
+                                                        <h6 class="mb-0" data-filter-by="text">{{ info.username }}</h6>
+                                                        <span data-filter-by="text" class="text-body">{{ info.email }}</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    {% endfor %}
                                 </div>
                                 <!--end of content list body-->
                             </div>
@@ -348,26 +365,30 @@
                                 <div class="modal-body">
 
 
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
-                                            <h6>Users</h6>
-                                            {% for user in users  %}
-                                                {{ user.username }}
-                                                <a href="{{ path('affecterUser',{'team_id':id,'user_id':user.id}) }}">affecter</a>
-                                            {% endfor %}
+                                    {% for users in users  %}
+                                        <div class="media media-member mb-0">
+                                            <img src="{{ asset('uploads/images/')}}{{ users.image }}" width="200" class="avatar avatar-lg" />
 
+                                            <div class="media-body">
+                                                <h6 class="mb-0 H6-filter-by-text" data-filter-by="text">{{ users.username }}</h6>
+                                                <a href="{{ path('affecterUser',{'team_id':id,'user_id':users.id}) }}">affecter</a>
+                                            </div>
                                         </div>
-                                    </div>
-
+                                    {% endfor %}
                                 </div>
 
+
                             </div>
+
                         </div>
-                        <!--end of modal body-->
 
                     </div>
                 </div>
+                <!--end of modal body-->
+
             </div>
+        </div>
+        </div>
 
         </div>
         </div>
@@ -551,64 +572,4 @@
 
     {% endblock %}
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

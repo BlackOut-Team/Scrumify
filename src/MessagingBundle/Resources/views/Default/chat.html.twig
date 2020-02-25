@@ -42,12 +42,12 @@
                             {% else %}
                             <li>
                                 <a href="{{ url('messaging_homepage',{'id':t.id}) }}" class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
+                                    <img src="{{ asset('uploads/images/' ~ user.image) }}" alt="" class="img-circle  m-2">
                                     <div class="friend-name">
                                         <strong>{{ t.otherParticipants( user) | last}}</strong>
                                     </div>
                                     <div class="last-message text-muted">{{ t.lastMessage.body }}</div>
-                                    <small class="time text-muted">5 mins ago</small>
+                                    <small class="time text-muted">at {{ t.lastMessage.timestamp | date('H:i') }}</small>
                                     <small class="chat-alert text-muted"><i class="fa fa-check"></i></small>
                                 </a>
                             </li>
@@ -55,27 +55,40 @@
 
                     {% endfor %}
                 </ul>
+                    <div id="accordion">
                 <ul class="friend-list">
-                    <div class="alert alert-primary" role="alert">
-                        inbox
-                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                inbox
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
 
                     {% for t in threadsInbox %}
-                            <li class="active bounceInDown" style="background-color: #ecf0f1;">
-                                <a href="{{ url('messaging_homepage',{'id':t.id}) }}"  class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
-                                    <div class="friend-name">
-                                        <strong>{{ t.otherParticipants( user) | last}}</strong>
-                                    </div>
-                                    <div class="last-message text-muted">{{ t.lastMessage.body }}</div>
-                                    <small class="time text-muted">Just now</small>
-                                    <small class="chat-alert label label-danger">1</small>
-                                </a>
-                            </li>
+                            <li class=" bounceInDown" style="background-color: #ecf0f1;">
+                                        <a href="{{ url('messaging_homepage',{'id':t.id}) }}"  class="clearfix">
+                                            <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
+                                            <div class="friend-name">
+                                                <strong>{{ t.otherParticipants( user) | last}}</strong>
+                                            </div>
+                                            <div class="last-message text-muted">{{ t.lastMessage.body }}</div>
+                                            <small class="time text-muted">at {{ t.lastMessage.timestamp | date('H:i') }}</small>
+                                            <small class="chat-alert label label-danger">1</small>
+                                        </a>
+                                    </li>
 
 
                     {% endfor %}
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </ul>
+            </div>
             </div>
 
             <!--=========================================================-->
@@ -151,7 +164,7 @@
 
                                       var e = '<li class="left clearfix">\n' +
                                           '                    <span class="chat-img pull-left">' +
-                                          '                    <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">' +
+                                          '                    <img src="{{ asset('uploads/images/'~ user.image ) }}" alt="User Avatar">' +
                                           '                    </span>' +
                                           '                            <div class="chat-body clearfix">\n' +
                                           '                                <div class="header">\n' +
@@ -167,7 +180,7 @@
                                   } else {
                                       var ee = ' <li class="right clearfix">\n' +
                                           '                    <span class="chat-img pull-right">' +
-                                          '                    <img src="https://bootdey.com/img/Content/user_1.jpg" alt="User Avatar">' +
+                                          '                    <img src ="{{ asset('uploads/images/'~ user.image) }}" alt="User Avatar" class="avatar_img"/>' +
                                           '                    </span>' +
                                           '                                    <div class="chat-body clearfix">' +
                                           '                                        <div class="header">' +

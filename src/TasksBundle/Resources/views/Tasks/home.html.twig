@@ -171,16 +171,16 @@
                                         <div class="form-group-users">
 
                                             <div class="custom-control custom-checkbox">
-                                                {% for users in users %}
+                                                {% for users in users  %}
 
                                                 <label class="custom-control-label" >
-                                                    <input type="checkbox" class="custom-control-input" name="user_id" value="{{ users.id }}" >
-                                                   <span class="d-flex align-items-center">
-                                                       <img  src={{ asset('assets/img/avatar-female-1.jpg') }} class="avatar mr-2" />
-                                                       <span class="h6 mb-0" >{{users.username}}</span>
-                                                   </span>
+
+                                                           {{ users.username }}
+                                                    <a href="{{ path('affecterUserTask',{'task_id':id,'user_id':users.id}) }}">affecter</a>
+                                                    {% endfor %}
+
+
                                                 </label>
-                                                {% endfor %}
                                             </div>
 
                                         </div>

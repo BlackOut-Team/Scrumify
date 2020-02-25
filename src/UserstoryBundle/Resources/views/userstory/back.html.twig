@@ -28,17 +28,17 @@
 
 
                         </tr>
-                        {% for pp in pp %}
+                        {% for userstory in userstories %}
                             <tr>
-                                <td>{{ pp.id}}</td>
-                                <td>{{ pp.description}}</td>
-                                <td>{{ pp.priority }}</td>
-                                <td>{{ pp.storyPoint}}</td>
-                                <td>{{ pp.etat}}</td>
+                                <td>{{ userstory.id}}</td>
+                                <td>{{ userstory.description}}</td>
+                                <td>{{ userstory.priority }}</td>
+                                <td>{{ userstory.storyPoint}}</td>
+                                <td>{{ userstory.etat}}</td>
 
 
 
-                                {% if pp.etat==0 %}
+                                {% if userstory.etat==0 %}
 
                                 <td><span class="badge text-white bg-green" >Active</span>
 

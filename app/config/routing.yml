@@ -25,7 +25,7 @@ main:
 
 messaging:
     resource: "@MessagingBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /chat
 forum:
     resource: "@ForumBundle/Resources/config/routing.yml"
     prefix:   /

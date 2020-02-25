@@ -12,9 +12,9 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index-2.html">Feature</a>
+            <li class="breadcrumb-item"><a href="{{ path('feature_index') }}">Feature</a>
             </li>
-            <li class="breadcrumb-item"><a href="pages-app.html#">User Story</a>
+            <li class="breadcrumb-item"><a href="{{ path('userstory_index') }}">User Story</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
         </ol>
@@ -63,7 +63,7 @@
                             </div>
                         </form>
                     </div>
-
+                    <a class="dropdown-item text-succes" href="{{ path('pdfexport')}}">export Pdf </a>
 
 
 
@@ -84,6 +84,7 @@
                                     <a class="dropdown-item" href="{{ path('userstory_show', { 'id': userstory.id }) }}">Show</a>
                                     <a class="dropdown-item text-danger" href={{ path('userstory_edit', { 'id': userstory.id }) }}"">Edit</a>
                                     <a class="dropdown-item text-danger" href="{{ path('userstory_delete', { 'id': userstory.id }) }}">archive</a>
+
                                 </div>
                             </div>
                             <div class="card-title">
@@ -154,13 +155,16 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row align-items-center">
 
-                                <button role="button" class="btn btn-primary" type="submit">
-                                    Create Userstory
-                                </button>
+                                    <label class="col-3">Ajouter</label>
 
+
+
+                                {{ form_widget(form.ajouter,  {'attr': {'class': 'form-control col'}})}}
                                 {{ form_end(form) }}
-                                {{ form_end(form) }}
+                               </div>
+                            </div>
 {% endblock %}
 {% block javascript %}
 {% endblock %}

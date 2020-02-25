@@ -108,12 +108,19 @@ class DefaultController extends Controller
     }
     public function inboxAction(){
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $em=$this->getDoctrine()->getManager();
+
+        $friendRequest = $em->getRepository(FriendShip::class)->findBy(['friend' => $user, 'isFriend' => 0]);
 
         $provider = $this->container->get('fos_message.provider');
-        $threads = $provider->getInboxThreads();
+        $threadsInbox = $provider->getInboxThreads();
+        $threads = $provider->getSentThreads();
         return $this->render('@Messaging/Default/inbox.html.twig', array(
             'threads' => $threads,
             'user' =>$user,
+            'threadsInbox'=>$threadsInbox,
+            'requests' => $friendRequest
+
         ));
     }
     public function createThreadAction($id){

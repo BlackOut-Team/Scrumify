@@ -97,7 +97,7 @@ class Answer
     /**
      * @var
      * @ORM\ManyToOne(targetEntity="ForumBundle\Entity\Question")
-     * @ORM\JoinColumn(name="question_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="question_id",referencedColumnName="id",onDelete="CASCADE")
      */
     private $Question;
 

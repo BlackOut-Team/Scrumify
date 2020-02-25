@@ -7,7 +7,8 @@ namespace ForumBundle\Repository;
  * repository methods below.
  */
 class QuestionRepository extends \Doctrine\ORM\EntityRepository
-{public function getOtherQuestions($user)
+{
+    public function getOtherQuestions($user)
 {
     $qb = $this->createQueryBuilder('u')
     ->join('u.tags', 't');

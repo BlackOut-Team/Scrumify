@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="tag")
  * @ORM\Entity(repositoryClass="ForumBundle\Repository\TagRepository")
  */
-class Tag
+class  Tag
 {
     /**
      * @return int

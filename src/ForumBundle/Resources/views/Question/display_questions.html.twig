@@ -12,13 +12,17 @@
 
 <div class="d-flex  " style="padding-top: 180px;">
 
-    <div class="tt-wrapper-inner">
-    <div class="tt-topic-list w-75  float-left rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
-        <a href="{{ path('_add_question') }}" >
-                <button class="btn-lg btn-round m-auto mb-lg-4 mt-lg-4" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;" >
+    <div class="tt-wrapper-inner w-100">
+        <a href="{{ path('_add_question') }}" class="" >
+            <div class="w-75">
+                <button class="btn-lg btn-round m-auto mb-lg-4 mt-2 " style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;" >
                     <i class="material-icons icon-add" ></i>
                 </button>
-    </a>
+
+            </div>
+        </a>
+    <div class="tt-topic-list w-75  float-left rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
+
 
         <div class="tt-list-header">
             <div class="tt-col-topic">Topic</div>
@@ -40,7 +44,7 @@
         {% endif %}
         {% for q in myQuestions %}
 
-            <div class="tt-item tt-item mt-1" style=" background-color: #b8c7ce">
+            <div class="tt-item tt-item mt-1" style=" background-color: #ffeaa7">
 
                 <a href="{{ path('_delete_question',{'id':q.id}) }}">
                 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -53,14 +57,22 @@
                     </button>
                 </a>
             <div class="tt-col-avatar">
+                {% if q.user.image %}
+                <img src="{{ asset('uploads/images/'~ q.user.image) }}" alt="Avatar" class="avatar" style="height:50px; width:50px">
+
+                {% else %}
                 <svg class="tt-icon">
                     <use xlink:href="#icon-ava-{{ q.User.username | lower | first  }}"></use>
                 </svg>
+                    {% endif %}
             </div>
             <div class="tt-col-description">
                 <h6 class="tt-title"><a href="{{ path('_display_question',{'id': q.id }) }}" >
                         {{ q.title }}
                     </a></h6>
+                {# Split paragraphs using a limit of 2 #}
+                {{ q.description|slice(0, 120)|striptags  }}
+
                 <div class="row align-items-center no-gutters">
                     <div class="col-11">
                         <ul class="tt-list-badge">
@@ -86,9 +98,14 @@
                 <div class="tt-item  mt-1">
 
             <div class="tt-col-avatar">
-                <svg class="tt-icon">
-                    <use xlink:href="#icon-ava-{{ q.User.username | first  }}"></use>
-                </svg>
+                {% if q.user.image %}
+                    <img src="{{ asset('uploads/images/'~ q.user.image) }}" alt="Avatar" class="avatar" style="height:50px; width:50px">
+
+                {% else %}
+                    <svg class="tt-icon">
+                        <use xlink:href="#icon-ava-{{ q.User.username | lower | first  }}"></use>
+                    </svg>
+                {% endif %}
             </div>
             <div class="tt-col-description">
                 <h6 class="tt-title"><a href="{{ path('_display_question',{'id': q.id }) }}" >
@@ -115,6 +132,7 @@
         </div>
 
         {% endfor %}
+
         <div class="tt-row-btn">
             <button type="button" class="btn-icon js-topiclist-showmore">
                 <svg class="tt-icon">

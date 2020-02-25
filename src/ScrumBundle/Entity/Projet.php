@@ -58,6 +58,57 @@ class Projet
      */
     private $etat;
 
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team")
+     * @ORM\JoinColumn(name="team_id",referencedColumnName="id")
+     */
+    private $team ;
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
+     * @ORM\JoinColumn(name="owner_id",referencedColumnName="id")
+     */
+    private $owner_id ;
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
+     * @ORM\JoinColumn(name="master_id",referencedColumnName="id")
+     */
+    private $master_id ;
+
+    /**
+     * @return mixed
+     */
+    public function getMasterId()
+    {
+        return $this->master_id;
+    }
+
+    /**
+     * @param mixed $master_id
+     */
+    public function setMasterId($master_id): void
+    {
+        $this->master_id = $master_id;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getOwnerId()
+    {
+        return $this->owner_id;
+    }
+
+    /**
+     * @param mixed $owner_id
+     */
+    public function setOwnerId($owner_id): void
+    {
+        $this->owner_id = $owner_id;
+    }
 
 
     /**
@@ -82,6 +133,22 @@ class Projet
         $this->name = $name;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param mixed $team
+     */
+    public function setTeam($team): void
+    {
+        $this->team = $team;
     }
 
     /**

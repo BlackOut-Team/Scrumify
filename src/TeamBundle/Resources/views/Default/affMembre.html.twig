@@ -46,24 +46,6 @@
                                 <div class="content-list-body row">
 
 
-                                    {% for info in info %}
-                                    <div class="content-list-body row">
-
-                                        <div class="col-6">
-                                            <a class="media media-member" href="#">
-                                                <img alt="Claire Connors" src="/scrumify/web/assets/img/avatar-male-6.jpg" class="avatar avatar-lg">
-                                                <div class="media-body">
-                                                    <h6 class="mb-0" data-filter-by="text">{{ info.username }}</h6>
-                                                    <span data-filter-by="text" class="text-body">{{ info.email }}</span>
-                                                </div>
-                                            </a>
-                                        </div>
-
-
-
-
-                                    </div>
-                                    {% endfor %}
                                 </div>
                                 <!--end of content list body-->
                             </div>
@@ -366,27 +348,12 @@
 
                                     <div class="tab-content">
                                         <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
-                                            <h6>General Details</h6>
-                                            <div class="form-group row align-items-center">
-                                                <label class="col-3">Membre Name</label>
-                                                {{ form_start(form) }}
-                                                {{ form_widget(form.email ,{'attr': {'class': 'form-control col'}})}}
-                                            </div>
+                                            <h6>Users</h6>
+                                            {% for user in users  %}
+                                                {{ user.username }}
+                                                <a href="{{ path('affecterUser',{'team_id':id,'user_id':user.id}) }}">affecter</a>
+                                            {% endfor %}
 
-
-
-
-                                            <div class="form-group row align-items-center">
-
-
-
-                                                <hr>
-                                                {{ form_widget(form.Ajouter,{'attr': {'class': 'btn btn-primary'}})}}
-
-
-                                                {{ form_end(form) }}
-
-                                            </div>
                                         </div>
                                     </div>
 

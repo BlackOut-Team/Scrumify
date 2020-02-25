@@ -21,6 +21,7 @@ class DefaultController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $p->setCreated(new \DateTime('now'));
+            $p->setMasterId($this->getUser());
             $p->setEtat(1);
 
             $em->persist($p);

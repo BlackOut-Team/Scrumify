@@ -3,7 +3,7 @@
 namespace TeamBundle\Controller;
 
 use MainBundle\Entity\User;
-use MyAppMailBundle\Entity\team_user;
+use TeamBundle\Entity\team_user;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -15,88 +15,34 @@ use TeamBundle\Entity\team;
 
 class DefaultController extends Controller
 {
-    public function affecterAction($id,Request $request)
-    {
-        $con3 = $this->getDoctrine()->getRepository('MyAppMailBundle:team_user')->findBy(array('teamId' =>$id));
+    public function affecterAction($id,Request $request){
 
-        $data=array();
-        foreach ( $con3 as $item) {
-            $a = array(
-                'username'=> $this ->getDoctrine()->getRepository('MainBundle:User')->find($item->getUserId())->getUsername() ,
-                'email'=>  $this ->getDoctrine()->getRepository('MainBundle:User')->find($item->getUserId())->getEmail()
-            );
-            array_push($data,$a);
-        }
+       $users= $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
 
 
-        $con = $this -> getDoctrine()->getRepository('TeamBundle:team')->find($id);
-        $con1 = new User;
-        $x = new team_user();
+        return $this->render('@Team/Default/affMembre.html.twig',array("id" => $id,"users"=>$users));
 
-        $form = $this->createFormBuilder()
+    }
 
-            ->add('email', TextType::class, array('attr' => array('class' => 'form-control','required' => true),'label' => "email"))
-            ->add('Ajouter', SubmitType::class, array( 'attr' => array('class' => 'template-btn', )))
-            ->getForm();
+    public function affecterUserAction($team_id, $user_id){
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted()) {
-            $test=$this ->getDoctrine()->getRepository('MyAppMailBundle:team_user')->findBy(array('teamId'=>$id));
+        $users= $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
+        $user= $this->getDoctrine()->getRepository('MainBundle:User')->find($user_id);
+        $team= $this->getDoctrine()->getRepository('TeamBundle:team')->find($team_id);
 
 
-            $u = $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
-            foreach ($u as $y )
-            {
-                if($y->getEmail()!=$form['email']->getData())
+        $aff= new team_user();
 
-                {
-                    $con2 = $this ->getDoctrine()->getRepository('MainBundle:User')->findAll();
-                    foreach ($con2 as $u) {
+        $aff->setTeamId($team);
+        $aff->setUserId($user);
 
-                        if(strtoupper($u->getEmail())==strtoupper($form['email']->getData()))
-                        {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($aff);
 
-                            $message = \Swift_Message::newInstance()
-                                ->setSubject('affectation au team')
-                                ->setFrom('iheb.rekik@esprit.tn')
-                                ->setTo($form['email']->getData())
-                                ->setBody(
-                                    $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                                        array('team' => $con->getName(),'text/html')));
-                            $this->get('mailer')->send($message);
-
-                            $x->setTeamId($id);
-                            $x->setUserId($u->getId());
-                            $em = $this->getDoctrine()->getManager();
-                            $em->persist($x);
-                            $em->flush();
-                            return $this->redirectToRoute('affiche_team');
-
-                        }else
-                            $message = \Swift_Message::newInstance()
-                                ->setSubject('affectation au team')
-                                ->setFrom('iheb.rekik@esprit.tn')
-                                ->setTo($form['email']->getData())
-                                ->setBody(
-                                    $this->renderView('@MyAppMail/Mail/mail1.html.twig',
-                                        array('team' => $con->getName(),'text/html')));
-                        $this->get('mailer')->send($message);
-                    }
-
-                }else
-                {
-                    return $this->redirectToRoute('show_team_back');
+        $em->flush();
 
 
-                }
-            }
+        return $this->render('@Team/Default/affMembre.html.twig',array("id" => $team_id,"users"=>$users));
 
-
-
-
-        }
-
-        return $this->render('@Team/Default/affMembre.html.twig',array("form" => $form->createView(),"info"=>$data));
     }
 }

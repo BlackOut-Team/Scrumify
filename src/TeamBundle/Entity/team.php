@@ -49,6 +49,24 @@ class team
      */
     private $etat;
 
+
+
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="ind", type="integer")
+     */
+    private $ind;
+
+
+
+
+
+
+
+
     /**
      * @return int
      */
@@ -64,36 +82,6 @@ class team
     {
         $this->ind = $ind;
     }
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="ind", type="integer")
-     */
-    private $ind;
-
-
-    private $user;
-
-    /**
-     * @return int
-     */
-    public function getUser(): int
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param int $user
-     */
-    public function setUser(int $user): void
-    {
-        $this->user = $user;
-    }
-
-
-
-
     /**
      * Get id.
      *
@@ -198,6 +186,22 @@ class team
     public function getEtat()
     {
         return $this->etat;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUser(): int
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param int $user
+     */
+    public function setUser(int $user): void
+    {
+        $this->user = $user;
     }
 
 

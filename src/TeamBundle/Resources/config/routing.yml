@@ -44,4 +44,6 @@ affiche_team1:
     path:     /affteam1
     defaults: { _controller: TeamBundle:Team:affB }
 
-
+affecterUser:
+    path:   /affuser/{team_id}/{user_id}
+    defaults: { _controller: TeamBundle:Default:affecterUser }

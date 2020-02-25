@@ -47,3 +47,7 @@ affiche_team1:
 affecterUser:
     path:   /affuser/{team_id}/{user_id}
     defaults: { _controller: TeamBundle:Default:affecterUser }
+
+search_ajax:
+    path:     /search
+    defaults: { _controller: TeamBundle:Team:search }

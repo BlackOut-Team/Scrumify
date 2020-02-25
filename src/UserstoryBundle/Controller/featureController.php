@@ -2,6 +2,7 @@
 
 namespace UserstoryBundle\Controller;
 
+use Elastica\Response;
 use UserstoryBundle\Entity\feature;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -56,14 +57,18 @@ class featureController extends Controller
      * @Method({"GET", "POST"})
      */
 
-    public function getDeletedfeatureAction()
+    public function getDeletedfeatureAction(Request $request)
     {
+        $feature=new feature();
+        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
+        $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
 
         $features = $em->getRepository('UserstoryBundle:feature')->findBy( ['isDeleted' => 1]);
 
-        return $this->render('@Userstory/feature/index.html.twig', array(
+        return $this->render('@Userstory/feature/deleteback.html.twig', array(
             'features' => $features,
+            'form' => $form->createView()
         ));
     }
 
@@ -77,9 +82,12 @@ class featureController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $feature = $em->getRepository('UserstoryBundle:feature')->find($id);
+        $featureComments = $em->getRepository('UserstoryBundle:featurecomment')->findBy( ['feature' => $feature]);
+
 
         return $this->render('@Userstory/feature/show.html.twig', array(
             'feature' => $feature,
+            'comments' => $featureComments,
 
         ));
     }
@@ -137,6 +145,42 @@ class featureController extends Controller
             'features' => $features,
             'form' => $form->createView(),
         ));
+    }
+    public function ajout_commentfAction(Request $request,$id)
+    {
+        $commentText = $request->get("comment");
+        $usr= $this->get('security.token_storage')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $feature = $em->getRepository('UserstoryBundle:feature')->find($id);
+        $comment = new featurecomment();
+        $comment->setComment($commentText);
+        $comment->setDate(new \DateTime('now'));
+        $comment->setUser($usr);
+        $comment->setFeature($feature);
+        $em->persist($comment);
+        $em->flush();
+        return $this->redirectToRoute('feature_show', array('id' => $id));
+    }
+
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('q');
+        $features =  $em->getRepository('UserstoryBundle:feature')->findEntitiesByString($requestString);
+        if(!$features) {
+            $result['feature']['error'] = "Post Not found :( ";
+        } else {
+            $result['feature'] = $this->getRealEntities($features);
+        }
+
+        return new Response(json_encode($result));
+    }
+    public function getRealEntities($feature){
+        foreach ($feature as $features){
+            $realEntities[$features->getId()] = [$features->getName(),$features->getTitle()];
+
+        }
+        return $realEntities;
     }
 
 }

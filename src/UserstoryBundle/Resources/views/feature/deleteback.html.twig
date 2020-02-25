@@ -1,0 +1,52 @@
+{% extends'baseF.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+
+{% endblock %}
+{% block contents %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="box">
+                <div class="box-header" style="margin-top: 22px">
+                    <h3 class="box-title"> Deleted Userstories </h3>
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th style="width: 10px">ID</th>
+                            <th>Name</th>
+                            <th>state</th>
+
+
+                        </tr>
+                        {% for feature in features %}
+                            <tr>
+                                <td>{{ feature.id}}</td>
+                                <td>{{ feature.name}}</td>
+                                <td>{{ feature.etat}}</td>
+
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- line graph -->
+
+        <!-- /line graph -->
+    </div>
+{% endblock %}

@@ -62,7 +62,71 @@
                             </div>
                         </div>
                     </div>
-                    <a class="dropdown-item text-succes" href="{{ path('pdfexportFeature')}}">export Pdf </a>
+                    <a class="btn btn-primary" href="{{ path('pdfexportFeature')}}">export Pdf </a><p></p>
+
+
+                 <!--   <h1>search feature</h1>
+                    <div class="sidebar-search">
+
+                        <div class="input-group custom-search-form">
+                    <input type="test" id="search" class="form-control" placeholder="search here">
+                        </div>
+
+                    </div>
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#"> Entities<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level" id="entitiesNav">
+                            </ul>
+                        </li>
+                    </ul><br><br><br><br>
+
+
+
+                    <script type="text/javascript">
+                        jQuery(document).ready(function() {
+                            var searchRequest = null;
+                            $("#search").keyup(function() {
+                                var minlength = 1;
+                                var that = this;
+                                var value = $(this).val();
+                                var entitySelector = $("#entitiesNav").html('');
+                                if (value.length >= minlength ) {
+                                    if (searchRequest != null)
+                                        searchRequest.abort();
+                                    searchRequest = $.ajax({
+                                        type: "GET",
+                                        url: "{{ path('ajax_search') }}",
+                                        data: {
+                                            'q' : value
+                                        },
+                                        dataType: "text",
+                                        success: function(msg){
+                                            //we need to check if the value is the same
+                                            if (value===$(that).val()) {
+                                                var result = JSON.parse(msg);
+                                                $.each(result, function(key, arr) {
+                                                    $.each(arr, function(id, value) {
+                                                        if (key === 'feature') {
+                                                            if (id !== 'error') {
+                                                                console.log(value[1]);
+                                                                entitySelector.append('<li><b>'+value[1]+'</b><a href="/indexfeature'+id+'">'+'</a></li>');
+                                                            } else {
+                                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                            }
+                                                        }
+                                                    });
+                                                });
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    </script>-->
+
+
+
 
         <div class="content-list-body row">
 
@@ -75,7 +139,7 @@
                             <i class="material-icons">more_vert</i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right ">
-                            <a class="dropdown-item" href="{{ path('feature_show', { 'id': feature.id }) }}">Show</a>
+                            <a class="dropdown-item" href="{{ path('feature_show', { 'id': feature.id}) }}">Show</a>
                             <a class="dropdown-item text-danger" href="{{ path('feature_edit', { 'id': feature.id }) }}">Edit</a>
                             <a class="dropdown-item text-danger" href="{{ path('feature_delete', { 'id': feature.id }) }}">archive</a>
 

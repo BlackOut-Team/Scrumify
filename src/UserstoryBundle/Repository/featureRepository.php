@@ -10,4 +10,13 @@ namespace UserstoryBundle\Repository;
  */
 class featureRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findEntitiesByString($str){
+
+        return $this->$this->getEntityManager()->CreateQuery(
+            'SELECT p FROM UserstoryBundle:feature p WHERE p.name LIKE :str'
+
+        )
+            ->setParameter('str','%',$str,'$')
+            ->getResult();
+    }
 }

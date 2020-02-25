@@ -55,6 +55,15 @@ pdf_bodyF:
 pdfexportFeature:
     path:     /pdfFeature
     defaults: { _controller: UserstoryBundle:pdf:indexF }
+ajout_commentf:
+    path:     /ajout_comment/{id}
+    defaults: { _controller: UserstoryBundle:feature:ajout_commentf }
+ajax_search:
+    path:     /search
+    defaults: { _controller: UserstoryBundle:feature:search }
+deleted_feature:
+    path:     /deletedf
+    defaults: { _controller: UserstoryBundle:feature:getDeletedfeature }
 
 
 

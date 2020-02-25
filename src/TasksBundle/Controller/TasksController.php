@@ -126,32 +126,7 @@ class TasksController extends Controller
             'TaskTodo'=> $Tasks,'TaskDoing'=> $Tasks1,'TaskDone'=> $Tasks2,'TaskBlock'=> $Tasks3,'users'=>$users));
 
     }
-    public function affecterUserAction($team_id, $user_id){
 
-        $users= $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
-        $user= $this->getDoctrine()->getRepository('MainBundle:User')->find($user_id);
-        $team= $this->getDoctrine()->getRepository('TeamBundle:team')->find($team_id);
-
-
-
-        $aff= new team_user();
-
-
-        $aff->setTeamId($team);
-        $aff->setUserId($user);
-
-
-
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($aff);
-
-        $em->flush();
-
-
-        return $this->render('@Team/Default/affMembre.html.twig',array("id" => $team_id,"users"=>$users));
-
-    }
 
 
 

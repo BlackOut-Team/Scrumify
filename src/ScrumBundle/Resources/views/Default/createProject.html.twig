@@ -39,12 +39,14 @@
                                         </div>
                                     </form>
                                 </div>
+                                <h6> As a Scrum Master</h6>
 
                                 <!--end of content list head-->
 
                                 <div class="content-list-body row">
-                                    {% for project in project %}
-                                        {% if project.etat != 0 %}
+                                    {% for project in myproject %}
+
+
                                             <div class="col-lg-6">
                                             <div class="card card-project">
 
@@ -104,7 +106,155 @@
                                             </div>
                                             </div>
 
-                                        {% endif %}
+
+
+                                    {% endfor %}
+
+
+                                </div>
+                                <!--end of content list body-->
+
+                                <h6> As a Product Owner</h6>
+
+                                <!--end of content list head-->
+
+                                <div class="content-list-body row">
+                                    {% for project in ownerproject %}
+
+
+                                        <div class="col-lg-6">
+                                            <div class="card card-project">
+
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+
+                                                <div class="card-body">
+                                                    <div class="dropdown card-options">
+                                                        <button class="btn-options" type="button" id="project-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="material-icons">more_vert</i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="{{ path('editProject', { 'id': project.id }) }}">Edit</a>
+                                                            <a class="dropdown-item text-danger" href="{{ path('archiverProject', { 'id': project.id }) }}">Archive Project</a>
+                                                            <a class="dropdown-item" href="{{ path('affichermeeting', { 'id': project.id }) }}">Meetings</a>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-title">
+                                                        <a href="{{ path('Sprint_homepage', { 'id': project.id })}}">
+                                                            <h5 data-filter-by="text" class="H5-filter-by-text"> {{ project.name }}</h5>
+                                                            {{ project.description }}
+                                                        </a>
+
+                                                    </div>
+                                                    <ul class="avatars">
+
+                                                        <li>
+                                                            <a href="#" data-toggle="tooltip" title="Kenny">
+                                                                <img alt="Kenny Tran" class="avatar" src={{ asset('assets/img/avatar-male-6.jpg') }} data-filter-by="alt" />
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="#" data-toggle="tooltip" title="Peggy">
+                                                                <img alt="Peggy Brown" class="avatar" src={{ asset('assets/img/avatar-female-2.jpg') }} data-filter-by="alt" />
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="#" data-toggle="tooltip" title="Ravi">
+                                                                <img alt="Ravi Singh" class="avatar" src={{ asset('assets/img/avatar-male-3.jpg') }} data-filter-by="alt" />
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                    <div class="card-meta d-flex justify-content-between">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="material-icons mr-1">playlist_add_check</i>
+                                                            <span class="text-small">6/10</span>
+                                                        </div>
+                                                        <span class="text-small" data-filter-by="text">Due {{ project.duedate | date('d-M-Y') }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    {% endfor %}
+
+
+                                </div>
+                                <!--end of content list body-->
+                                <h6> As a Team Member</h6>
+
+                                <!--end of content list head-->
+
+                                <div class="content-list-body row">
+                                    {% for project in myproject %}
+
+
+                                        <div class="col-lg-6">
+                                            <div class="card card-project">
+
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+
+                                                <div class="card-body">
+                                                    <div class="dropdown card-options">
+                                                        <button class="btn-options" type="button" id="project-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="material-icons">more_vert</i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="{{ path('editProject', { 'id': project.id }) }}">Edit</a>
+                                                            <a class="dropdown-item text-danger" href="{{ path('archiverProject', { 'id': project.id }) }}">Archive Project</a>
+                                                            <a class="dropdown-item" href="{{ path('affichermeeting', { 'id': project.id }) }}">Meetings</a>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-title">
+                                                        <a href="{{ path('Sprint_homepage', { 'id': project.id })}}">
+                                                            <h5 data-filter-by="text" class="H5-filter-by-text"> {{ project.name }}</h5>
+                                                            {{ project.description }}
+                                                        </a>
+
+                                                    </div>
+                                                    <ul class="avatars">
+
+                                                        <li>
+                                                            <a href="#" data-toggle="tooltip" title="Kenny">
+                                                                <img alt="Kenny Tran" class="avatar" src={{ asset('assets/img/avatar-male-6.jpg') }} data-filter-by="alt" />
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="#" data-toggle="tooltip" title="Peggy">
+                                                                <img alt="Peggy Brown" class="avatar" src={{ asset('assets/img/avatar-female-2.jpg') }} data-filter-by="alt" />
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="#" data-toggle="tooltip" title="Ravi">
+                                                                <img alt="Ravi Singh" class="avatar" src={{ asset('assets/img/avatar-male-3.jpg') }} data-filter-by="alt" />
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                    <div class="card-meta d-flex justify-content-between">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="material-icons mr-1">playlist_add_check</i>
+                                                            <span class="text-small">6/10</span>
+                                                        </div>
+                                                        <span class="text-small" data-filter-by="text">Due {{ project.duedate | date('d-M-Y') }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
 
                                     {% endfor %}

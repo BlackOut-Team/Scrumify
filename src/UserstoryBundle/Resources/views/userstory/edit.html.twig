@@ -81,13 +81,18 @@
                     {{ form_widget(edit_form.feature,  {'attr': {'class': 'form-control col'}}) }}
                 </div>
 
+
+
+                    {{ form_widget(edit_form,  {'attr': {'class': 'btn btn-primary'}}) }}
+
+
                 <input type="submit" value="Edit" class="nav-link" />
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
 
-            <a href="{{ path('userstory_index') }}">Back to the list</a>
+            <input type="submit" href="{{ path('userstory_index',{'attr': {'class': 'btn btn-primary'}}) }}">Userstories List</input>
         </li>
         <li>
             <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">

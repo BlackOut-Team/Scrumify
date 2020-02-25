@@ -24,15 +24,28 @@ class featureController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $feature = new Feature();
-        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
-        $form->handleRequest($request);
+        $features =$em->getRepository('UserstoryBundle:Feature')->findBy(['isDeleted' => 0]);
 
-        $features = $em->getRepository('UserstoryBundle:feature')->findBy( ['isDeleted' => 0]);
+        $feature = new Feature();
+        $form=$this->createForm('UserstoryBundle\Form\featureType',$feature);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+
+
+            $em = $this->getDoctrine()->getManager();
+            $feature->setIsDeleted(0);
+            $em->persist($feature);
+            $em->flush($feature);
+
+
+
+            return $this->redirectToRoute('feature_index') ;
+        }
 
         return $this->render('@Userstory/feature/index.html.twig', array(
             'features' => $features,
-            'form' => $form->createView(),
+            'form'=> $form->CreateView(),
+            'feature' => $feature
         ));
     }
 
@@ -42,25 +55,7 @@ class featureController extends Controller
      * @Route("/new", name="feature_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
-    {
-        $feature = new Feature();
-        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($feature);
-            $em->flush();
-
-            return $this->redirectToRoute('feature_show', array('id' => $feature->getId()));
-        }
-
-        return $this->render('@Userstory/feature/new.html.twig', array(
-            'feature' => $feature,
-            'form' => $form->createView(),
-        ));
-    }
     public function getDeletedfeatureAction()
     {
         $em = $this->getDoctrine()->getManager();

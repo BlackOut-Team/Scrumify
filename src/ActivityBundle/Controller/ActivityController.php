@@ -29,36 +29,38 @@ class ActivityController extends Controller
         return $this->render('@Activity/Default/activity.html.twig',
             array('activities'=>$Activities,'m'=>$meeting));
     }
-    function SupprimerAction($id){
+    function SupprimerAction($id,$project_id){
         $em=$this->getDoctrine()->getManager();
         $Activity=$em->getRepository(Activity::class)
             ->find($id);
         $em->remove($Activity);
         $em->flush();
-        return $this->redirectToRoute('affichermeeting');
+        return $this->redirectToRoute('affichermeeting', ['id' => $project_id]);
 
     }
-    public function ChangeActivityStateAction($id){
+    public function ChangeActivityStateAction($id, $project_id){
         $em = $this->getDoctrine()->getManager();
         $activity = $em->getRepository(Activity::class)
             ->find($id);
         $activity->setViewed(1);
         $em->flush();
-        return $this->redirectToRoute('affichermeeting');
+        return $this->redirectToRoute('affichermeeting', ['id' => $project_id]);
     }
     public function getNotifAction(Request $request){
         if ($request->isXmlHttpRequest() ) {
 
+            //convertir entity array -> json pour l'envoyer lel ajax
             $normalizer = new ObjectNormalizer(null);
-
             $normalizer->setIgnoredAttributes(array('notifiableEntity'));
             $normalizer->setCircularReferenceHandler(function ($object) {
                 return $object->getId();
             });
             $encoder = new JsonEncoder();
             $serializer = new Serializer(array($normalizer), array($encoder));
-            $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
+
+            //online user
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
             $notifiableRepo = $this->getDoctrine()->getManager()->getRepository('MgiletNotificationBundle:NotifiableNotification');
             $notificationList = $notifiableRepo->findAllForNotifiable($user->getId(), \MainBundle\Entity\User::class );
             $jsonContent = $serializer->serialize($notificationList, 'json');

@@ -205,4 +205,26 @@ class TeamController extends Controller
         return $this->redirectToRoute('show_team_back');
     }
 
+
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('q');
+        $posts =  $em->getRepository('TeamBundle:team')->findEntitiesByString($requestString);
+        if(!$posts) {
+            $result['posts']['error'] = "Post Not found :( ";
+        } else {
+            $result['posts'] = $this->getRealEntities($posts);
+        }
+        return new Response(json_encode($result));
+    }
+
+    public function getRealEntities($posts){
+        foreach ($posts as $post){
+            $realEntities[$post->getId()] = [$post->getName()];
+
+        }
+        return $realEntities;
+    }
+
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "279f6e7f6235a08f21a2e553eb886fd3",
+    "content-hash": "0c511ec789272ee25d902a6407889784",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -1901,16 +1901,16 @@
         },
         {
             "name": "gos/web-socket-bundle",
-            "version": "v2.2.0",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GeniusesOfSymfony/WebSocketBundle.git",
-                "reference": "e1569d18567363b24e00fe66d4770cf2339c7c8c"
+                "reference": "99d1873408148f41abe7d347233b21f89d922702"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeniusesOfSymfony/WebSocketBundle/zipball/e1569d18567363b24e00fe66d4770cf2339c7c8c",
-                "reference": "e1569d18567363b24e00fe66d4770cf2339c7c8c",
+                "url": "https://api.github.com/repos/GeniusesOfSymfony/WebSocketBundle/zipball/99d1873408148f41abe7d347233b21f89d922702",
+                "reference": "99d1873408148f41abe7d347233b21f89d922702",
                 "shasum": ""
             },
             "require": {
@@ -1939,10 +1939,10 @@
                 "friendsofphp/php-cs-fixer": "^2.16",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
                 "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "^0.12.3",
-                "phpstan/phpstan-phpunit": "^0.12.2",
-                "phpstan/phpstan-symfony": "^0.12.1",
-                "phpunit/phpunit": "^8.5",
+                "phpstan/phpstan": "^0.12.9",
+                "phpstan/phpstan-phpunit": "^0.12.6",
+                "phpstan/phpstan-symfony": "^0.12.4",
+                "phpunit/phpunit": "^8.5|^9.0",
                 "predis/predis": "^1.1",
                 "symfony/cache": "^3.4 || ^4.4 || ^5.0",
                 "symfony/monolog-bundle": "^3.0",
@@ -2002,7 +2002,7 @@
                 "io",
                 "websocket"
             ],
-            "time": "2020-01-29T18:06:34+00:00"
+            "time": "2020-02-25T20:47:17+00:00"
         },
         {
             "name": "gos/websocket-client",
@@ -5501,7 +5501,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2.18"
+        "php": ">=7.2.18",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "platform-overrides": {

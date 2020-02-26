@@ -28,11 +28,11 @@ class userstoryController extends Controller
      * @Route("/", name="userstory_index")
      * @Method("GET")
      */
-    //hada aff w ajout user story 3awed jareb
-    public function indexAction(Request $request, feature $feature)
+    public function indexAction(Request $request)
     {
+
         $em = $this->getDoctrine()->getManager();
-        $userstories =$em->getRepository('UserstoryBundle:userstory')->findBy(['isDeleted' => 0,'feature'=>$feature]);
+        $userstories =$em->getRepository('UserstoryBundle:userstory')->findBy(['isDeleted' => 0]);
 
         $userstory = new userstory();
         $form=$this->createForm('UserstoryBundle\Form\userstoryType',$userstory);
@@ -42,23 +42,18 @@ class userstoryController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $userstory->setIsDeleted(0);
-            $userstory->setFeature($feature);
             $em->persist($userstory);
             $em->flush($userstory);
 
 
 
-            return $this->redirectToRoute('userstory_index',array('id' => $feature->getId())) ;
+            return $this->redirectToRoute('userstory_index') ;
+
     }
         return $this->render('@Userstory/userstory/index.html.twig', array(
             'userstories' => $userstories,
             'form'=> $form->CreateView(),
-            'userstory' => $userstory,
-
-
-
-            'feature' => $feature
-
+            'userstory' => $userstory
         ));
     }
     public function getDeletedUserstoryAction()
@@ -153,7 +148,6 @@ class userstoryController extends Controller
         return $this->render('@Userstory/userstory/show.html.twig', array(
             'userstory' => $userstory,
             'comments' => $userstoryComments,
-
         ));
     }
     public function ajout_commentAction(Request $request,$id)

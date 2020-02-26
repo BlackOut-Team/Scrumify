@@ -18,6 +18,7 @@ class userstoryType extends AbstractType
             ->add('priority')
             ->add('storyPoint')
             ->add('etat')
+            ->add('feature')
             ->add('ajouter',SubmitType::class);
     }/**
      * {@inheritdoc}

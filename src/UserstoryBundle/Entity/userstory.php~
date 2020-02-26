@@ -184,28 +184,5 @@ class userstory
         $this->feature = $feature;
     }
 
-
-    /**
-     * Set isDeleted
-     *
-     * @param integer $isDeleted
-     *
-     * @return userstory
-     */
-    public function setIsDeleted($isDeleted)
-    {
-        $this->isDeleted = $isDeleted;
-
-        return $this;
-    }
-
-    /**
-     * Get isDeleted
-     *
-     * @return integer
-     */
-    public function getIsDeleted()
-    {
-        return $this->isDeleted;
-    }
 }
+

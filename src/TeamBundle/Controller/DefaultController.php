@@ -40,69 +40,18 @@ class DefaultController extends Controller
 
     public function affecterUserAction($team_id, $user_id){
 
-
-
         $users= $this->getDoctrine()->getRepository('MainBundle:User')->findAll();
         $user= $this->getDoctrine()->getRepository('MainBundle:User')->find($user_id);
         $team= $this->getDoctrine()->getRepository('TeamBundle:team')->find($team_id);
-        $con3 = $this->getDoctrine()->getRepository('TeamBundle:team_user')->findBy(array('teamId' => $team_id));
+        $aff= new team_user();
 
-       if ( $con3 != null)
-       {
-           foreach ($con3 as $con)
-           {
+        $aff->setTeamId($team);
+        $aff->setUserId($user);
 
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($aff);
 
-               if ($con->getUserId()->getEmail() == $user->getEmail())
-               {
-                   return $this->render('@Team/team/ajout1.html.twig',array("id" => $team_id,"users"=>$users));
-               }else
-               {
-                   // envoyer mail notif
-                   $message = \Swift_Message::newInstance()
-                       ->setSubject('affectation au team')
-                       ->setFrom('iheb.rekik@esprit.tn')
-                       ->setTo($user->getEmail())
-                       ->setBody(
-                           $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                               array('team' => $team->getName(),'text/html')));
-                   $this->get('mailer')->send($message);
-
-                   // affectation le user dans l'equipe
-                   $aff= new team_user();
-                   $aff->setTeamId($team);
-                   $aff->setUserId($user);
-                   $em = $this->getDoctrine()->getManager();
-                   $em->persist($aff);
-                   $em->flush();
-               }
-           }
-       }else
-       {
-           // envoyer mail notif
-           $message = \Swift_Message::newInstance()
-               ->setSubject('affectation au team')
-               ->setFrom('iheb.rekik@esprit.tn')
-               ->setTo($user->getEmail())
-               ->setBody(
-                   $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                       array('team' => $team->getName(),'text/html')));
-           $this->get('mailer')->send($message);
-
-           // affectation le user dans l'equipe
-           $aff= new team_user();
-           $aff->setTeamId($team);
-           $aff->setUserId($user);
-           $em = $this->getDoctrine()->getManager();
-           $em->persist($aff);
-           $em->flush();
-       }
-
-
-
-
-
-
+        $em->flush();
 
 
         return $this->render('@Team/team/ajoutTeam.html.twig',array("id" => $team_id,"users"=>$users));

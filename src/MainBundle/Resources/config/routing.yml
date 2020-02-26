@@ -3,4 +3,4 @@ homepage:
   defaults: { _controller: MainBundle:Default:index }
 homepageback:
   path:     /dashboard
-  defaults: { _controller: MainBundle:Default:dashboard }
+  defaults: { _controller: MainBundle:Default:indexback }

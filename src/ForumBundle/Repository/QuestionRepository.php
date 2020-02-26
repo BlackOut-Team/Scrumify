@@ -31,4 +31,12 @@ class QuestionRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()
             ->getResult();
     }
+    public function countForUser($user){
+        return $this->createQueryBuilder('q')
+            ->SELECT('COUNT(q.id)')
+            ->where('q.User = :user')
+            ->setParameter('user' , $user)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

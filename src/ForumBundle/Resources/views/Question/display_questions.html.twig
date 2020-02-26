@@ -149,7 +149,7 @@
                     <div class="tt-item  rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
                         <div class="tt-item-header">
                             <ul class="tt-list-badge">
-                                <li><a href="#"><span class="tt-color01 tt-badge" >Categories</span></a></li>
+                                <li><a href="#"><span class="tt-color01 tt-badge bg-dark" >Categories</span></a></li>
                             </ul>
                             <h6 class="tt-title"><a href="page-categories-single.html">Threads - 1,245</a></h6>
                         </div>
@@ -186,6 +186,30 @@
 
                                 {% for t in tags %}
                                     <li><a href="#"><span class="tt-badge " style="background-color: #d7dadc; color:black;">{{ t.name }}</span></a></li>
+                                {%  endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pl-5" style="">
+            <div class="col-md-6 col-lg-10">
+                <div class="tt-item  rounded-lg" style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
+                    <div class="tt-item-header">
+                        <ul class="tt-list-badge">
+                            <li><a href="#"><span class="tt-color01 tt-badge bg-dark" >Trophies</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="tt-item-layout">
+                        <div class="innerwrapper">
+                            Your Trophies
+                        </div>
+                        <div class="innerwrapper">
+                            <ul class="tt-list-badge">
+
+                                {% for b in badges %}
+                                    <li><a href="#"><span class="tt-badge " style="background-color: #d7dadc; color:black;">{{ b.name }}</span></a></li>
                                 {%  endfor %}
                             </ul>
                         </div>

@@ -25,21 +25,19 @@
                                 </div>
                                 <!-- Single contact -->
                                 {% for activity in newActivities %}
-                                    {%  for t in team  %}
-                                    {% if t.userId == activity.User %}
                                     <li class="my-1">
                                         <div class="card no-b p-3 " style="background-color: #c8eaca">
                                             <div class="">
                                                 <div class="float-right">
-                                                    <a href="{{ path('ChangeActivityState',{'id':activity.id, 'project_id':id}) }}" class="btn-fab btn-fab-sm btn-primary r-5">
+                                                    <a href="{{ path('ChangeActivityState',{'id':activity.id}) }}" class="btn-fab btn-fab-sm btn-primary r-5">
                                                         <i class="icon-eye p-0"></i>
                                                     </a>
-                                                    <a href="{{ path('delete_activity',{'id':activity.id, 'project_id':id})  }}" class="btn-fab btn-fab-sm btn-danger r-5">
+                                                    <a href="{{ path('delete_activity',{'id':activity.id}) }}" class="btn-fab btn-fab-sm btn-danger r-5">
                                                         <i class="icon-delete p-0"></i>
                                                     </a>
                                                 </div>
                                                 <div class="image mr-3  float-left">
-                                                    <img class="w-40px" src="{{ asset('uploads/images/'~t.userId.image) }}" alt="User Image">
+                                                    <img class="w-40px" src="{{ asset('Back/img/dummy/u1.png') }}" alt="User Image">
                                                 </div>
                                                 <div>
                                                     <div class="username">
@@ -50,35 +48,29 @@
                                             </div>
                                         </div>
                                     </li>
-                                    {% endif %}
-                                    {% endfor %}
                                 {% endfor %}
                                 {% for activity in activities %}
-                                    {%  for t in team  %}
-                                    {% if t.userId == activity.User %}
                                     <li class="my-1">
                                     <div class="card no-b p-3">
                                         <div class="">
                                             <div class="float-right">
 
-                                                <a href="{{ path('delete_activity',{'id':activity.id, 'project_id':id}) }}" class="btn-fab btn-fab-sm btn-danger r-5">
+                                                <a href="{{ path('delete_activity',{'id':activity.id}) }}" class="btn-fab btn-fab-sm btn-danger r-5">
                                                     <i class="icon-delete p-0"></i>
                                                 </a>
                                             </div>
                                             <div class="image mr-3  float-left">
-                                                <img class="w-40px" src="{{ asset('uploads/images/' ~ t.userId.image)  }}" alt="User Image">
+                                                <img class="w-40px" src="{{ asset('Back/img/dummy/u1.png') }}" alt="User Image">
                                             </div>
                                             <div>
                                                 <div>
-                                                    <strong class="username">{{ activity.User.username }}</strong>
+                                                    <strong>{{ activity.User.username }}</strong>
                                                 </div>
                                                 <small> {{ activity.action }}</small>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                {% endif %}
-                                {% endfor %}
                                 {% endfor %}
                             </ul>
 
@@ -87,15 +79,12 @@
                     </div><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.95); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 906px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
 
             </div>
+
+                        {% for sprint in sprints %}
             <div class="col-md-9 col-sm-12 light pt-5  ">
                 <button class="btn-lg btn-round m-auto mb-lg-4" data-toggle="modal" data-target="#task-add-modal">
                     <i class="material-icons">add</i>
-                </button>
-                <div class="card-list w-75 m-auto" style="background-color: #dee2e6">
-
-                        {% for sprint in sprints %}
-                                    <div class="card-list w-75 m-auto" style="background-color: #dee2e6">
-
+                </button><div class="card-list w-75 m-auto" style="background-color: #dee2e6">
                     <div class="card-list-head">
                         <h6>{{ sprint.name }}</h6>
                     </div>
@@ -116,13 +105,24 @@
                                             </div>
                                             <div class="card-meta">
                                                 <ul class="avatars">
-                                                {% for t in team %}
+
                                                     <li>
                                                         <a href="#" data-toggle="tooltip" title="Marcus">
-                                                            <img  class="avatar" src="{{ asset('uploads/images/'~ t.userId.image) }}">
+                                                            <img alt="Marcus Simmons" class="avatar" src="{{ asset('assets/img/avatar-male-1.jpg') }}">
                                                         </a>
                                                     </li>
-                                                {% endfor %}
+
+                                                    <li>
+                                                        <a href="#" data-toggle="tooltip" title="Harry">
+                                                            <img alt="Harry Xai" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" data-toggle="tooltip" title="Kristina">
+                                                            <img alt="Kristina Van Der Stroem" class="avatar" src="{{ asset('assets/img/avatar-female-4.jpg') }}">
+                                                        </a>
+                                                    </li>
 
                                                 </ul>
                                                 <div class="d-flex align-items-center">
@@ -134,9 +134,9 @@
                                                         <i class="material-icons">more_vert</i>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="{{ path('update_meeting',{'id':mm.id, 'project_id':id}) }}">Edit</a>
+                                                        <a class="dropdown-item" href="{{ path('update_meeting',{'id':mm.id}) }}">Edit</a>
                                                         <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item text-danger" href="{{ path('delete_meeting',{'id':mm.id, 'project_id':id}) }}">Archive</a>
+                                                        <a class="dropdown-item text-danger" href="{{ path('delete_meeting',{'id':mm.id}) }}">Archive</a>
                                                     </div>
                                                 </div>
                                             </div>

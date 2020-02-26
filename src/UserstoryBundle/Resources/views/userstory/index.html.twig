@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="dropdown-item text-succes" href="{{ path('pdfexport')}}">export Pdf </a>
+                    <a class="btn btn-primary" href="{{ path('pdfexport')}}" >export Pdf </a><p></p>
 
 
 
@@ -81,7 +81,7 @@
                                     <i class="material-icons">more_vert</i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right ">
-                                    <a class="dropdown-item" href="{{ path('userstory_show', { 'id': userstory.id }) }}">Show</a>
+                                    <a class="dropdown-item" href="{{ path('userstory_show', { 'id': userstory.id}) }}">Show</a>
                                     <a class="dropdown-item text-danger" href={{ path('userstory_edit', { 'id': userstory.id }) }}"">Edit</a>
                                     <a class="dropdown-item text-danger" href="{{ path('userstory_delete', { 'id': userstory.id }) }}">archive</a>
 

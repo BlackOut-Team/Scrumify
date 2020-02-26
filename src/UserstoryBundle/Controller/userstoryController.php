@@ -54,7 +54,11 @@ class userstoryController extends Controller
             'userstories' => $userstories,
             'form'=> $form->CreateView(),
             'userstory' => $userstory,
+
+
+
             'feature' => $feature
+
         ));
     }
     public function getDeletedUserstoryAction()
@@ -149,6 +153,7 @@ class userstoryController extends Controller
         return $this->render('@Userstory/userstory/show.html.twig', array(
             'userstory' => $userstory,
             'comments' => $userstoryComments,
+
         ));
     }
     public function ajout_commentAction(Request $request,$id)

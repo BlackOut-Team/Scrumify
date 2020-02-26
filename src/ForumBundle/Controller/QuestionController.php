@@ -5,10 +5,12 @@ namespace ForumBundle\Controller;
 
 use Doctrine\DBAL\Types\DateTimeImmutableType;
 use ForumBundle\Entity\Answer;
+use ForumBundle\Entity\Badge;
 use ForumBundle\Entity\Categories;
 use ForumBundle\Entity\Question;
 use ForumBundle\Entity\Tag;
 use ForumBundle\Form\AnswerType;
+use ForumBundle\Form\BadgeType;
 use ForumBundle\Form\CategoriesType;
 use ForumBundle\Form\QuestionType;
 use ForumBundle\ForumBundle;
@@ -23,6 +25,8 @@ class QuestionController extends Controller
 
     public function DisplayQuestionsAction(Request $request)
     {
+        $em=$this->getDoctrine()->getManager();
+
         $provider = $this->container->get('fos_message.provider');
         $nbr = $provider->getNbUnreadMessages();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
@@ -31,6 +35,8 @@ class QuestionController extends Controller
         $badges = $this->get('badge.manager')->getBadgeFor($user);
         $tags=$this->getDoctrine()
             ->getRepository(Tag::class)->findAll();
+        $answers_count  = $em->getRepository('ForumBundle:Answer')->countForUser($user);
+
         if($request->query->get('tag')){
             $tag = $request->query->get('tag');
             $questions=$this->getDoctrine()
@@ -44,8 +50,10 @@ class QuestionController extends Controller
         $categories = $this->getDoctrine()->getRepository(Categories::class)
             ->findAll();
         return $this->render('@Forum/Question/display_questions.html.twig',
-            array('questions'=>$questions, 'user' => $user,'myQuestions'=>$myQuestions,'nbr'=>$nbr, 'categories'=>$categories, 'tags'=>$tags ,'badges'=>$badges));
+            array('questions'=>$questions, 'user' => $user,'myQuestions'=>$myQuestions,'nbr'=>$nbr, 'categories'=>$categories, 'tags'=>$tags ,'badges'=>$badges ,'answers_count' =>$answers_count));
     }
+
+
     public function DisplayBackQuestionsAction( Request $request)
     {
         $em=$this->getDoctrine()->getManager();
@@ -56,10 +64,20 @@ class QuestionController extends Controller
             ->findAll();
 
         $category = new Categories();
+        $badge = new Badge();
         $Form=$this->createForm(CategoriesType::class,$category);
         $Form->handleRequest($request);
+
+        $Form2=$this->createForm(BadgeType::class,$badge);
+        $Form2->handleRequest($request);
         if($Form->isSubmitted() && $Form->isValid()){
             $em->persist($category);
+            $em->flush();
+            return $this->redirectToRoute('_display_back_questions');
+
+        }
+        if($Form2->isSubmitted() && $Form2->isValid()){
+            $em->persist($badge);
             $em->flush();
             return $this->redirectToRoute('_display_back_questions');
 
@@ -67,7 +85,7 @@ class QuestionController extends Controller
 
 
         return $this->render('@Forum/back/back.html.twig',
-            array('questions'=>$questions, 'user' => $user, 'f'=>$Form->createView() ));
+            array('questions'=>$questions, 'user' => $user, 'f'=>$Form->createView() ,'f2'=>$Form2->createView()));
     }
 
     public function DisplayQuestionAction($id, Request $request)
@@ -82,6 +100,8 @@ class QuestionController extends Controller
         $categories = $this->getDoctrine()->getRepository(Categories::class)
             ->findAll();
 
+        $tags=$this->getDoctrine()
+            ->getRepository(Tag::class)->findAll();
         $badges = $this->get('badge.manager')->getBadgeFor($user);
         $answers = $em->getRepository('ForumBundle:Answer')->findBy(['Question'=>$question]);
         $Form2=$this->createForm(AnswerType::class,$answer);
@@ -95,12 +115,15 @@ class QuestionController extends Controller
             $activityGenerator = $this->get(ActivityGenerator::class);
             $activity = $activityGenerator->AjouterActivity('a ajouter une reponse', $user);
             $this->addFlash('success', $activity);
+
+            $answers_count  = $em->getRepository('ForumBundle:Answer')->countForUser($user);
+            $this->get('badge.manager')->checkAndUnlock($user,'answer',$answers_count);
             return $this->redirectToRoute('_display_question',['id' => $id]);
 
 
         }
         return $this->render('@Forum/Question/display_question.html.twig',array(
-            'question'=> $question, 'f2'=>$Form2->createView(), "answers"=>$answers, 'user' => $user, 'categories' => $categories, 'badges' => $badges));
+            'question'=> $question, 'f2'=>$Form2->createView(), "answers"=>$answers, 'user' => $user,'tags'=>$tags , 'categories' => $categories, 'badges' => $badges));
     }
     public function AddQuestionAction(Request $request)
     {

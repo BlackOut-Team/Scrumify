@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new TasksBundle\TasksBundle(),
             new ForumBundle\ForumBundle(),
             new ActivityBundle\ActivityBundle(),
+
+            new KunicMarko\ColorPickerBundle\ColorPickerBundle(),
             new TeamBundle\TeamBundle(),
             new UserstoryBundle\UserstoryBundle(),
             new SprintBundle\SprintBundle(),

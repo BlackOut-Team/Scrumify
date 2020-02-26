@@ -30,6 +30,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "knplabs/knp-paginator-bundle": "^3.0",
         "knplabs/knp-snappy-bundle": "^1.7",
+        "kunicmarko/color-picker-bundle": "^1.1",
         "mgilet/notification-bundle": "^3.1",
         "nexylan/slack-bundle": "^2.2",
         "php-http/guzzle6-adapter": "^2.0",

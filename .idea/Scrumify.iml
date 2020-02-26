@@ -5,6 +5,22 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/clue/stream-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/apiclient" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kunicmarko/color-picker-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nexylan/slack" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nexylan/slack-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/client-common" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/discovery" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/guzzle6-adapter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/httplug" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/httplug-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/logger-plugin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/message-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/stopwatch-plugin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-client" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

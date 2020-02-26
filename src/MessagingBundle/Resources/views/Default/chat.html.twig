@@ -30,7 +30,7 @@
                         {% if not fos_message_is_read(t) %}
                             <li class="active bounceInDown" style="background-color: #ecf0f1;">
                                 <a href="{{ url('messaging_homepage',{'id':t.id}) }}"  class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
+                                    <img src="{{ asset('uploads/images/' ~ t.lastMessage.sender.image) }}" alt="" class="img-circle  m-2">
                                     <div class="friend-name">
                                         <strong>{{ t.otherParticipants( user) | last}}</strong>
                                     </div>
@@ -42,7 +42,7 @@
                             {% else %}
                             <li>
                                 <a href="{{ url('messaging_homepage',{'id':t.id}) }}" class="clearfix">
-                                    <img src="{{ asset('uploads/images/' ~ user.image) }}" alt="" class="img-circle  m-2">
+                                    <img src="{{ asset('uploads/images/' ~ t.lastMessage.sender.image) }}" alt="" class="img-circle  m-2">
                                     <div class="friend-name">
                                         <strong>{{ t.otherParticipants( user) | last}}</strong>
                                     </div>
@@ -69,7 +69,7 @@
                     {% for t in threadsInbox %}
                             <li class=" bounceInDown" style="background-color: #ecf0f1;">
                                         <a href="{{ url('messaging_homepage',{'id':t.id}) }}"  class="clearfix">
-                                            <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle  m-2">
+                                            <img src="{{ asset('uploads/images/'~  t.lastMessage.sender.image ) }}" alt="" class="img-circle  m-2">
                                             <div class="friend-name">
                                                 <strong>{{ t.otherParticipants( user) | last}}</strong>
                                             </div>
@@ -154,6 +154,7 @@
                       },
                       success: function (response) {
                           $result = JSON.parse(response);
+                          console.log($result);
                           if( JSON.stringify(previousResult) !=  JSON.stringify($result)) {
                               $('#chat').html('');
                               for (var k in $result) {
@@ -180,7 +181,7 @@
                                   } else {
                                       var ee = ' <li class="right clearfix">\n' +
                                           '                    <span class="chat-img pull-right">' +
-                                          '                    <img src ="{{ asset('uploads/images/'~ user.image) }}" alt="User Avatar" class="avatar_img"/>' +
+                                          '                    <img src ="/Scrumify/web/uploads/images/'+$result[k].sender.image +'" alt="User Avatar" class="avatar_img"/>' +
                                           '                    </span>' +
                                           '                                    <div class="chat-body clearfix">' +
                                           '                                        <div class="header">' +

@@ -2,6 +2,7 @@
 
 namespace ForumBundle\Form;
 
+use KunicMarko\ColorPickerBundle\Form\Type\ColorPickerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +18,7 @@ class CategoriesType extends AbstractType
         $builder
             ->add('cname')
             ->add('description')
-            ->add('color')
+            ->add('color', ColorPickerType::class)
         ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}

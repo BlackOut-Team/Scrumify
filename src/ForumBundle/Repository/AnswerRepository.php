@@ -10,4 +10,12 @@ namespace ForumBundle\Repository;
  */
 class AnswerRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function countForUser($user){
+        return $this->createQueryBuilder('q')
+            ->SELECT('COUNT(q.id)')
+            ->where('q.User = :user')
+            ->setParameter('user' , $user)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

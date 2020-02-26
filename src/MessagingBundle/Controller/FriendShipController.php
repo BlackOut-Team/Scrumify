@@ -34,13 +34,17 @@ class FriendShipController extends Controller
         $users = $userManager->findUsers();
         $userId = $this->getUser();
         $friendRequest = $em->getRepository(FriendShip::class)->findBy(['friend' => $userId, 'isFriend' => 0]);
+        $friends = $em->getRepository(FriendShip::class)->findBy(['isFriend' => 1]);
 
+        $me = $this->getUser();
         $pending = $em->getRepository(FriendShip::class)->findBy(['user' => $userId, 'isFriend' => 0]);
         return $this->render('@Messaging/Default/all_users.html.twig', array(
             'users' => $users,
             //'friends' =>$friends,
             'pending' => $pending,
-            'friendRequest' => $friendRequest
+            'friendRequest' => $friendRequest,
+            'me' => $me,
+            'friends' =>$friends
         ));
     }
 

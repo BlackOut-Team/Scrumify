@@ -44,10 +44,6 @@ class Categories
     private $description;
     /**
      * @var string
-     * @Assert\Length(
-     *     min = 7,
-     *     max = 7
-     *     )
      *
      * @ORM\Column(name="color", type="string")
      */

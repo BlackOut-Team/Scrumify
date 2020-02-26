@@ -43,10 +43,60 @@
                 </tbody>
             </table>
         </div>
-        {{ form(f) }}
-        <!-- /.box-body -->
+        {{ form_start(f) }}
+
+        {{ form_row(f._token) }}
+        <div class="form-group w-25 center ">
+            {{ form_widget(f.cname, {'attr': {'class': 'form-control', "id":"inputTopicTitle","placeholder":"category name", "name":"name", "type":"text", "rows":"5"}}) }}
+
+        </div>
+        <div class="form-group w-25 center" >
+            {{ form_widget(f.description, {'attr': {'class': 'form-control', "id":"inputTopicTitle","placeholder":"category description", "name":"name", "type":"text", "rows":"5"}}) }}
+
+        </div>
+
+        <div class="form-group w-25 center">
+        <div class="card">
+                {{ form_widget(f.color) }}
+            </div>
+        </div>
+        {{ form_widget(f.submit, {'attr': {'class': 'btn btn-secondary btn-width-lg', "type":"submit"}}) }}
+
+
     </div>
-    <!-- /.box -->
+
+        {{ form_rest(f) }}
+        {{ form_end(f) }}
+        <!-- /.box-body -->
+
+    {{ form_start(f2) }}
+
+    {{ form_row(f2._token) }}
+    <div class="form-group w-25 center ">
+        {{ form_widget(f2.name, {'attr': {'class': 'form-control', "id":"inputTopicTitle","placeholder":"trophy name", "name":"name", "type":"text", "rows":"5"}}) }}
+
+    </div>
+    <div class="form-group w-25 center" >
+        {{ form_widget(f2.actionName, {'attr': {'class': 'form-control', "id":"inputTopicTitle","placeholder":"trophy action", "name":"name", "type":"text", "rows":"5"}}) }}
+
+    </div>
+
+    <div class="form-group w-25 center">
+            {{ form_widget(f2.actionCount) }}
+    </div>
+    <div class="form-group w-25 center">
+
+    {{ form_widget(f2.submit, {'attr': {'class': 'btn btn-secondary btn-width-lg', "type":"submit"}}) }}
+
+    </div>
+
+    {{ form_rest(f2) }}
+    {{ form_end(f2) }}
 </div>
 
+    <script src="{{ asset('Front/Index/js/jquery-3.3.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/colorpicker/js/jqColorPicker.min.js') }}"></script>
+    <script type="text/javascript">
+        $('.colorpicker').colorPicker();
+    </script>
 {% endblock %}

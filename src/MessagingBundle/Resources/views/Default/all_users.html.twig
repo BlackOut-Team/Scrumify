@@ -23,7 +23,7 @@
                     <div class="col-lg-2 m-2">
                         <div class="text-center card-box">
                             <div class="member-card pt-2 pb-2">
-                                <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                                <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('uploads/images/'~request.user.image) }}" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                 <div class="">
                                     <h4>{{ request.user.username }}</h4>
                                 </div>
@@ -44,7 +44,7 @@
                     <div class="col-lg-2 m-2">
                         <div class="text-center card-box">
                             <div class="member-card pt-2 pb-2">
-                                <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                                <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('uploads/images/'~request.friend.image) }}" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                                 <div class="">
                                     <h4>{{ request.friend.username }}</h4>
                                 </div>
@@ -60,10 +60,13 @@
                     </div>
                 {% endfor %}
                 {%  for user in users %}
+                {% if user != me %}
+                    {% for f in friends %}
+                    {% if f.user != user and f.friend != user %}
                 <div class="col-lg-2 m-2">
                     <div class="text-center card-box">
                         <div class="member-card pt-2 pb-2">
-                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="thumb-lg member-thumb mx-auto"><img src="{{ asset('uploads/images/'~user.image) }}" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                             <div class="">
                                 <h4>{{ user.username }}</h4>
                             </div>
@@ -77,6 +80,9 @@
                         </div>
                     </div>
                 </div>
+                    {%  endif %}
+                    {% endfor %}
+                    {%  endif %}
                 {% endfor %}
             </div>
         </div>

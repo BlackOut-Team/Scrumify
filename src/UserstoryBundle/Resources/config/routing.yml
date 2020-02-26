@@ -5,7 +5,7 @@ userstory_ajoutfeature:
     path:     /ajoutfeature
     defaults: { _controller: UserstoryBundle:feature:ajoutfeature }
 feature_new:
-    path:     /new
+    path:     /new/{id}
     defaults: { _controller: UserstoryBundle:feature:new }
 userstory_index:
     path:     /indexuserstory
@@ -20,7 +20,7 @@ userstory_delete:
     path:     /userstoryDelete/{id}
     defaults: { _controller: UserstoryBundle:userstory:delete }
 feature_index:
-    path:     /indexfeature
+    path:     /indexfeature/{id}
     defaults: { _controller: UserstoryBundle:feature:index }
 feature_show:
     path:     /showfeature/{id}

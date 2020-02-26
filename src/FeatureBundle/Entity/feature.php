@@ -35,6 +35,28 @@ class feature
      */
     private $etat;
 
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="SprintBundle\Entity\Sprint")
+     * @ORM\JoinColumn(name="sprint_id",referencedColumnName="id")
+     */
+    private $sprint;
+
+    /**
+     * @return mixed
+     */
+    public function getSprint()
+    {
+        return $this->sprint;
+    }
+
+    /**
+     * @param mixed $sprint
+     */
+    public function setSprint($sprint)
+    {
+        $this->sprint = $sprint;
+    }
 
     /**
      * Get id

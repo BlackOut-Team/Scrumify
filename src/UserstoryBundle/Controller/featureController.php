@@ -2,6 +2,7 @@
 
 namespace UserstoryBundle\Controller;
 
+use SprintBundle\Entity\Sprint;
 use UserstoryBundle\Entity\feature;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -21,31 +22,31 @@ class featureController extends Controller
      * @Route("/", name="feature_index")
      * @Method("GET")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request,Sprint $sprint)
     {
+
+
+
         $em = $this->getDoctrine()->getManager();
-        $features =$em->getRepository('UserstoryBundle:Feature')->findBy(['isDeleted' => 0]);
-
         $feature = new Feature();
-        $form=$this->createForm('UserstoryBundle\Form\featureType',$feature);
+        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $feature->setSprint($sprint);
+            $feature->setIsDeleted(0);
 
             $em = $this->getDoctrine()->getManager();
-            $feature->setIsDeleted(0);
             $em->persist($feature);
             $em->flush($feature);
 
-
-
-            return $this->redirectToRoute('feature_index') ;
+            return $this->redirectToRoute('feature_index', array('id' => $sprint->getId()));
         }
 
+        $features = $this->getDoctrine()->getRepository(feature::class)->findBy(array('id'=>$sprint->getId()));
         return $this->render('@Userstory/feature/index.html.twig', array(
             'features' => $features,
-            'form'=> $form->CreateView(),
-            'feature' => $feature
+            'form' => $form->createView(),
         ));
     }
 
@@ -55,7 +56,27 @@ class featureController extends Controller
      * @Route("/new", name="feature_new")
      * @Method({"GET", "POST"})
      */
+    public function newAction($id ,Request $request)
+    {
+        $feature = new Feature();
+        $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $feature->setSprint($id);
+            $feature->setIsDeleted(0);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($feature);
+            $em->flush();
+
+            return $this->redirectToRoute('feature_show', array('id' => $feature->getId()));
+        }
+
+        return $this->render('@Userstory/feature/new.html.twig', array(
+            'feature' => $feature,
+            'form' => $form->createView(),
+        ));
+    }
     public function getDeletedfeatureAction()
     {
         $em = $this->getDoctrine()->getManager();

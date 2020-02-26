@@ -16,6 +16,7 @@ imports:
 
     - { resource: "@MyAppMailBundle/Resources/config/services.yml" }
     - { resource: "@GrapheBundle/Resources/config/services.yml" }
+    - { resource: "@CalendarBundle/Resources/config/services.yml" }
 
 
 # Put parameters here that don't need to change on each machine where the app is deployed

@@ -59,10 +59,11 @@
                         </div>
                     </div>
                 {% endfor %}
+            </br>
+                {% for f in friends %}
                 {%  for user in users %}
                 {% if user != me %}
-                    {% for f in friends %}
-                    {% if f.user != user and f.friend != user %}
+                    {% if( f.user != user and f.friend != user )or (f.user != me and f.friend != me )%}
                 <div class="col-lg-2 m-2">
                     <div class="text-center card-box">
                         <div class="member-card pt-2 pb-2">
@@ -81,8 +82,8 @@
                     </div>
                 </div>
                     {%  endif %}
-                    {% endfor %}
                     {%  endif %}
+                {% endfor %}
                 {% endfor %}
             </div>
         </div>

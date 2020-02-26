@@ -27,6 +27,12 @@ class Question
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "title must be at least {{ limit }} characters long",
+     *      maxMessage = "title cannot be longer than {{ limit }} characters"
+     * )
      */
     private $title;
 
@@ -34,6 +40,14 @@ class Question
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     *
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 200,
+     *      minMessage = "Description must be at least {{ limit }} characters long",
+     *      maxMessage = "Description cannot be longer than {{ limit }} characters"
+     * )
+     *
      */
     private $description;
     /**

@@ -6,6 +6,7 @@ use ScrumBundle\Entity\Projet;
 use SprintBundle\Entity\Sprint;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use TeamBundle\Entity\team_user;
 
 class DefaultController extends Controller
 {
@@ -16,6 +17,8 @@ class DefaultController extends Controller
     public function  AddSAction(Request $request, Projet $projet)
     {
         $sprint=$this->getDoctrine()->getRepository(Sprint::class)->findBy(array('project'=>$projet->getId()));
+       // $team=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'id'=>$projet->getTeam()]);
+      //  $members=$this->getDoctrine()->getRepository(team_user::class)->find($team);
         $s= new Sprint();
         $f=$this->createForm('SprintBundle\Form\SprintType',$s);
         $f->handleRequest($request);
@@ -35,6 +38,7 @@ class DefaultController extends Controller
             'f'=>$f->createView(),
             'sprint'=>$sprint ,
             'project'=>$projet,
+          //  'members'=> $members ,
 
 
         ));

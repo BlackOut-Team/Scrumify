@@ -16,3 +16,6 @@ showProject:
 desarchiverProject:
     path:   /undelete/{id}
     defaults: { _controller: ScrumBundle:Default:desarchiverP }
+chart:
+    path:   /chart
+    defaults: { _controller: ScrumBundle:Default:chart }

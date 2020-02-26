@@ -59,14 +59,14 @@ class DefaultController extends Controller
                }else
                {
                    // envoyer mail notif
-                   $message = \Swift_Message::newInstance()
-                       ->setSubject('affectation au team')
-                       ->setFrom('iheb.rekik@esprit.tn')
-                       ->setTo($user->getEmail())
-                       ->setBody(
-                           $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                               array('team' => $team->getName(),'text/html')));
-                   $this->get('mailer')->send($message);
+                  // $message = \Swift_Message::newInstance()
+                    //   ->setSubject('affectation au team')
+                      // ->setFrom('iheb.rekik@esprit.tn')
+                       //->setTo($user->getEmail())
+                       //->setBody(
+                         //  $this->renderView('@MyAppMail/Mail/mail.html.twig',
+                           //    array('team' => $team->getName(),'text/html')));
+                  // $this->get('mailer')->send($message);
 
                    // affectation le user dans l'equipe
                    $aff= new team_user();
@@ -80,14 +80,14 @@ class DefaultController extends Controller
        }else
        {
            // envoyer mail notif
-           $message = \Swift_Message::newInstance()
-               ->setSubject('affectation au team')
-               ->setFrom('iheb.rekik@esprit.tn')
-               ->setTo($user->getEmail())
-               ->setBody(
-                   $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                       array('team' => $team->getName(),'text/html')));
-           $this->get('mailer')->send($message);
+           //$message = \Swift_Message::newInstance()
+             //  ->setSubject('affectation au team')
+               //->setFrom('iheb.rekik@esprit.tn')
+               //->setTo($user->getEmail())
+               //->setBody(
+                 //  $this->renderView('@MyAppMail/Mail/mail.html.twig',
+                   //    array('team' => $team->getName(),'text/html')));
+           //$this->get('mailer')->send($message);
 
            // affectation le user dans l'equipe
            $aff= new team_user();

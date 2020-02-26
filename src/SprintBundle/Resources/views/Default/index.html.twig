@@ -67,7 +67,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="card-title">
-                                                        <a href="{{ path('show_tasks' )}}">
+                                                        <a href="{{ path('feature_index' , { 'id': sprint.id } )}}">
                                                             <h5 data-filter-by="text"> {{ sprint.name }}</h5>
                                                             <p> {{ sprint.description }}</p>
                                                         </a>
@@ -137,15 +137,6 @@
                                 <!--end of content list head-->
                                 <div class="content-list-body row">
 
-                                    <div class="col-6">
-                                        <a class="media media-member" href="#">
-                                            <img alt="Claire Connors" src={{ asset('assets/img/avatar-male-6.jpg') }} class="avatar avatar-lg" />
-                                            <div class="media-body">
-                                                <h6 class="mb-0" data-filter-by="text">Claire Connors</h6>
-                                                <span data-filter-by="text" class="text-body">Administrator</span>
-                                            </div>
-                                        </a>
-                                    </div>
 
 
 

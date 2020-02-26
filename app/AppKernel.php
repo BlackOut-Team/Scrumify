@@ -36,10 +36,12 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+
             new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
 
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new CalendarBundle\CalendarBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -5,7 +5,7 @@ add_tasks:
     path:     /addTasks
     defaults: { _controller: TasksBundle:Tasks:addTasks }
 show_tasks:
-    path:     /showTasks
+    path:     /showTasks/{id}
     defaults: { _controller: TasksBundle:Tasks:showTasks }
 edit_tasks:
     path:     /editTasks/{id}

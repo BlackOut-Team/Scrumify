@@ -12,11 +12,11 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="">Sprint</a>
+            </li>
             <li class="breadcrumb-item"><a href="{{ path('feature_index') }}">Feature</a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ path('userstory_index') }}">User Story</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
+            <li class="breadcrumb-item active" aria-current="page">User Stories</li>
         </ol>
     </nav>
 
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="dropdown-item text-succes" href="{{ path('pdfexport')}}">export Pdf </a>
+                    <a class="btn btn-primary" href="{{ path('pdfexport')}}" >export Pdf </a><p></p>
 
 
 
@@ -81,7 +81,7 @@
                                     <i class="material-icons">more_vert</i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right ">
-                                    <a class="dropdown-item" href="{{ path('userstory_show', { 'id': userstory.id }) }}">Show</a>
+                                    <a class="dropdown-item" href="{{ path('userstory_show', { 'id': userstory.id}) }}">Show</a>
                                     <a class="dropdown-item text-danger" href={{ path('userstory_edit', { 'id': userstory.id }) }}"">Edit</a>
                                     <a class="dropdown-item text-danger" href="{{ path('userstory_delete', { 'id': userstory.id }) }}">archive</a>
 
@@ -148,11 +148,7 @@
                                         {{ form_widget(form.etat,  {'attr': {'class': 'form-control col'}}) }}
 
                                     </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-3">Feature</label>
-                                        {{ form_widget(form.feature,  {'attr': {'class': 'form-control col'}}) }}
 
-                                    </div>
                                 </div>
 
 

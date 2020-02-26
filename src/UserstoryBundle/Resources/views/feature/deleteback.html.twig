@@ -4,6 +4,7 @@
     <style type="text/css">
         .important { color: #336699; }
     </style>
+
 {% endblock %}
 {% block contents %}
 
@@ -11,8 +12,7 @@
         <div class="col-12">
             <div class="box">
                 <div class="box-header" style="margin-top: 22px">
-                    <h3 class="box-title"> Userstories </h3>
-                    <a class="dropdown-item" href="{{ path('deleted_feature') }}">Deleted</a>
+                    <h3 class="box-title"> Deleted Userstories </h3>
 
                 </div>
                 <!-- /.box-header -->
@@ -22,31 +22,20 @@
                         <tbody>
                         <tr>
                             <th style="width: 10px">ID</th>
-                            <th>Description</th>
-                            <th>Priority</th>
-                            <th style="width: 40px">Story point</th>
+                            <th>Name</th>
                             <th>state</th>
 
 
                         </tr>
-                        {% for userstory in userstories %}
+                        {% for feature in features %}
                             <tr>
-                                <td>{{ userstory.id}}</td>
-                                <td>{{ userstory.description}}</td>
-                                <td>{{ userstory.priority }}</td>
-                                <td>{{ userstory.storyPoint}}</td>
-                                <td>{{ userstory.etat}}</td>
-
-
-
-                                {% if userstory.etat==0 %}
-
-                                <td><span class="badge text-white bg-green" >Active</span>
+                                <td>{{ feature.id}}</td>
+                                <td>{{ feature.name}}</td>
+                                <td>{{ feature.etat}}</td>
 
 
 
 
-                                    {% endif %}
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -56,5 +45,8 @@
             </div>
             <!-- /.box -->
         </div>
+        <!-- line graph -->
+
+        <!-- /line graph -->
     </div>
 {% endblock %}

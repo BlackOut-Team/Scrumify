@@ -179,7 +179,7 @@ class userstory
     /**
      * @param mixed $feature
      */
-    public function setFeature($feature): void
+    public function setFeature($feature)
     {
         $this->feature = $feature;
     }
@@ -208,4 +208,6 @@ class userstory
     {
         return $this->isDeleted;
     }
+
+
 }

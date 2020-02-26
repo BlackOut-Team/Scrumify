@@ -34,9 +34,9 @@ class AppKernel extends Kernel
             new FOS\MessageBundle\FOSMessageBundle(),
             new Mgilet\NotificationBundle\MgiletNotificationBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
-            new Http\HttplugBundle\HttplugBundle(),
-            new Nexy\SlackBundle\NexySlackBundle(),
+           
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

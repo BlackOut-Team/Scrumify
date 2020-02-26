@@ -9,11 +9,11 @@ graphe:
 
 scrum:
     resource: "@ScrumBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /Project
 
 sprint:
     resource: "@SprintBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /Sprint
 
 Userstory:
     resource: "@UserstoryBundle/Resources/config/routing.yml"

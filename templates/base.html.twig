@@ -46,11 +46,10 @@
 
 
                 <div class="dropdown" >
-                    <a href=""  id="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="{{ mgilet_notification_generate_path('notification_mark_all_as_seen', app.user) }}"  id="dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Notifications <span class="badge badge-light" id="notifications">{{ mgilet_notification_unseen_count(app.user)  }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" id="dropcontent">
-
                     </div>
                 </div>
 
@@ -238,18 +237,18 @@
     <script type="text/javascript" src={{ asset('assets/js/theme.js') }}></script>
 
         <script>
-            $('#dropdown').click(function(){
-                $('#dropcontent').html('');
+            $('#dropdown').click(() =>{
                 $.ajax({
                     url: '{{ path('getNotif') }}',
                     type: 'POST',
                     dataType: "json",
                     success: function(response) {
                         $result = JSON.parse(response);
+                        console.log($result);
                         $('#dropcontent').val('');
                         $('#notifications').html($result.length);
                         for (var k in $result) {
-                            var e = '<a href="" class="dropdown-item">' + $result[k].notification.message +'</a>'
+                            var e = '<a href="nav-side-user.html" class="dropdown-item">' + $result[k].notification.message +'</a>'
                             $('#dropcontent').append(e);
                         }
                     }

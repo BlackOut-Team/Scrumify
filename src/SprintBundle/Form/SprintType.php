@@ -19,6 +19,10 @@ class SprintType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
+            ->add('created',DateTimeType::class, [
+                // renders it as a single text box
+                'widget' => 'single_text',
+            ])
             ->add('duedate',DateTimeType::class, [
                 // renders it as a single text box
                 'widget' => 'single_text',

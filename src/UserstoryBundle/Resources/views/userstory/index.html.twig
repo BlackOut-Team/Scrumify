@@ -1,162 +1,60 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseF.html.twig' %}
 
-{% block contents %}
-<div class="layout layout-nav-top layout-sidebar">
-
-
-
-    <div class="main-container">
-        <div class="content-container">
-
-<div class="breadcrumb-bar navbar bg-white sticky-top">
-
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="">Sprint</a>
-            </li>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">User Stories</li>
-        </ol>
-    </nav>
-
-    <div class="dropdown">
-        <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
-            <i class="material-icons">settings</i>
-    </button>
-    <div class="dropdown-menu dropdown-menu-right">
-
-        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
-        <a class="dropdown-item" href="#">Share</a>
-        <a class="dropdown-item" href="#">Mark as Complete</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item text-danger" href="#">Archive</a>
-
-    </div>
-</div>
-    </div>
-    <div class="container">
-    <div class="row justify-content-center">
-    <div class="col-lg-11 col-xl-10">
-    <div class="page-header">
-
-
-
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="tasks" role="tabpanel" data-filter-list="card-list-body">
-                    <div class="row content-list-head">
-                        <div class="col-auto">
-                                <h1>Userstories list</h1>
-                            <button class="btn btn-round" data-toggle="modal" data-target="#feature-add-modal">
-
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group input-group-round">
-                                <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons">filter_list</i>
-                          </span>
-                                </div>
-                                <input type="search" class="form-control filter-list-input" placeholder="Filter userstories" aria-label="Filter userstories">
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary" href="{{ path('pdfexport')}}" >export Pdf </a><p></p>
+                            {% block contents %}
+                                {% block row %}
+                                    <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+                                        <li>
+                                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" >
+                                                <i class="icon icon-puzzle-piece"></i>Features</a>
+                                        </li>
+                                    </ul>
 
 
 
 
-         <div class="">
-                        <div class="">
-        <div class="content-list-body row filter-list-1581955605357">
+                                {% endblock %}
 
-            {% for userstory in userstories %}
-                <div class="col-md-6">
-                    <div class="card card-team">
-                        <div class="card-body">
-                            <div class="dropdown card-options">
-                                <button class="btn-options" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right ">
-                                    <a class="dropdown-item" href="{{ path('userstory_show', { 'id': userstory.id}) }}">Show</a>
-                                    <a class="dropdown-item text-danger" href={{ path('userstory_edit', { 'id': userstory.id }) }}"">Edit</a>
-                                    <a class="dropdown-item text-danger" href="{{ path('userstory_delete', { 'id': userstory.id }) }}">archive</a>
+     {% block items %}
+         <div>
+             <a href="{{ path('userstory_new', {'id':feature.id} ) }}"><i class="icon-plus " style="-webkit-text-fill-color: #16CABD;font-size: 24px;letter-spacing: 10px;" ></i></a>
+             <a class="btn btn-primary col-lg-8" style="margin-left: 50px" href="{{ path('pdfexport')}}" >export Pdf </a><p></p>
 
-                                </div>
-                            </div>
-                            <div class="card-title">
-                                <a href="#">
-                                    <h5 data-filter-by="text">{{ userstory.description }}</h5>
-                                </a>
-                                <p>
-                                 <span>Priority: {{ userstory.priority }}</span>
-                                <p> <span>storyPoint: {{ userstory.storyPoint }}</span></p>
-                                   <p> <span>state: {{ userstory.etat }}</span></p>
-                            </div>
-
-                        </div>
-                    </div>
+         </div>
 
 
-                </div>
+         <br>
 
-            {% endfor %}
-
-            <div class="modal fade" id="feature-add-modal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">New Userstory</h5>
-                            <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
-                                <i class="material-icons">close</i>
-                            </button>
-                        </div>
-                        <!--end of modal head-->
-                        <ul class="nav nav-tabs nav-fill" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="team-add-details-tab" data-toggle="tab" href="#team-add-details" role="tab" aria-controls="team-add-details" aria-selected="true">Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="team-add-members-tab" data-toggle="tab" href="#team-add-members" role="tab" aria-controls="team-add-members" aria-selected="false">Members</a>
-                            </li>
-                        </ul>
-                        {{ form_start(form) }}
-                        <div class="modal-body">
-                            <div class="tab-content">
-                                <div class="tab-pane fade show active" id="team-add-details" role="tabpanel">
-                                    <h6>UserStory Details</h6>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-3">Description</label>
-                                        {{ form_widget(form.description,  {'attr': {'class': 'form-control col'}}) }}
-
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-3">Priority</label>
-                                        {{ form_widget(form.priority,  {'attr': {'class': 'form-control col'}}) }}
-
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-3">Story Point</label>
-                                        {{ form_widget(form.storyPoint,  {'attr': {'class': 'form-control col'}}) }}
-
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-3">State</label>
-                                        {{ form_widget(form.etat,  {'attr': {'class': 'form-control col'}}) }}
-
-                                    </div>
-
-                                </div>
+                 {% for userstory in userstories %}
 
 
 
+                                            <div class="card card-block shadow1 d-flex"  style="width:420%;" >
+                                            <div class="p-4">
+                                                <div class="float-left" >
+                                                </div>
 
-                                {{ form_widget(form.ajouter,  {'attr': {'class': 'btn btn-primary'}})}}
-                                {{ form_end(form) }}
-                               </div>
-                            </div>
-{% endblock %}
-{% block javascript %}
+                                                <div class="counter-title">
+                                                    <a  href="{{ path('show_tasks' , { 'id': userstory.id } )}}">
+                                                    <h5 data-filter-by="text" class="H5-filter-by-text">  {{ userstory.description }}</h5>
+
+                                                    </a>
+                                                </div>
+                                                <span class="text-small" data-filter-by="text">Priority  {{ userstory.priority }}</span>
+                                                <br>
+                                                <span class="text-small" data-filter-by="text">Story points  {{ userstory.storyPoint  }}</span>
+                                              </div>
+
+                                                <div class="card-footer right-side" style="margin-left: 700Px;background-color: transparent;">
+                                                    <a href=" {{ path('userstory_delete', { 'id': userstory.id }) }}"><i class="icon-archive " style="-webkit-text-fill-color: #16CABD;font-size: 24px;letter-spacing: 10px;" ></i></a>
+                                                    <a href="{{ path('userstory_edit', { 'id': userstory.id }) }}"><i class="icon-edit " style="-webkit-text-fill-color: #16CABD;  font-size: 24px;letter-spacing: 10px;"></i></a>
+                                                </div>
+
+                                            </div>
+
+                     <br>
+
+                 {% endfor %}
+
+
+       {% endblock %}
 {% endblock %}

@@ -1,52 +1,33 @@
-{% extends'base.html.twig' %}
-{% block title %}Project's Tasks{% endblock %}
-{% block head %}
-    {{ parent() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
-{% endblock %}
+{% extends'baseF.html.twig' %}
 
-{% block content %}
 
-{% block contents %}
 
-<div class="breadcrumb-bar navbar bg-white sticky-top">
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index-2.html">Feature</a>
+    {% block row %}
+
+        <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+            <li>
+                <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                    <i class="icon icon-puzzle-piece"></i>Scrum Board </a>
             </li>
-            <li class="breadcrumb-item"><a href="pages-app.html#">User Story</a>
-            </li>
-            <li class="breadcrumb-item"><a href="pages-app.html#">Tasks board</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Task</li>
-        </ol>
-    </nav>
+        </ul>
+
+    {% endblock %}
+    {% block items %}
 
 
-    <!--Menu li ala jnab -->
-    <div class="dropdown">
-        <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
-            <i class="material-icons">settings</i>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
 
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
-            <a class="dropdown-item" href="#">Share</a>
-            <a class="dropdown-item" href="#">Mark as Complete</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item text-danger" href="#">Archive</a>
 
-        </div>
-    </div>
 
-</div>
 
 
 {{ form_start(edit_form, {'multipart': true}) }}
-    <div class="modal-dialog">
+
+<div class="animatedParent animateOnce" style="width: 750%">
+    <div class="container-fluid my-3">
+        <div class="row">
+            <div class="col-md-7">
+<div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -114,7 +95,7 @@
                                     <input type="checkbox" class="custom-control-input" id="task-user-1" checked>
                                     <label class="custom-control-label" for="task-user-1">
                                   <span class="d-flex align-items-center">
-                                    <img alt="Claire Connors" src={{ asset('assets/img/avatar-female-1.jpg') }} class="avatar mr-2" />
+                                    <img alt="Claire Connors" src="{{ asset('assets/img/avatar-female-1.jpg') }}" class="avatar mr-2" />
                                     <span class="h6 mb-0" data-filter-by="text">Claire Connors</span>
                                   </span>
                                     </label>
@@ -172,14 +153,14 @@
             </div>
         </div>
 
-
+</div>
+            </div>
     </div>
+    </div>
+</div>>
+        {{ form_end(edit_form) }}
 
 
-{{ form_end(edit_form) }}
 
 
-
-
-{% endblock %}
 {% endblock %}

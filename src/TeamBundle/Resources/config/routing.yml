@@ -2,8 +2,6 @@ team_homepage:
     path:     /role
     defaults: { _controller: TeamBundle:Default:index }
 
-
-
 ajout_team:
     path:     /ajtteam
     defaults: { _controller: TeamBundle:Team:AddP }

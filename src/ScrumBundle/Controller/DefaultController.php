@@ -17,8 +17,7 @@ class DefaultController extends Controller
 {
     public function  AddPAction(Request $request)
     {
-        $myproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'master_id'=>$this->getUser()]);
-        $ownerproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'owner_id'=>$this->getUser()]);
+
       //  $team=$this->getDoctrine()->getRepository(Projet::class)->findBy(['team_id'=>$getT]);
     //    $membersproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'team_id'=>$team->get]);
 
@@ -35,14 +34,11 @@ class DefaultController extends Controller
             $em->persist($p);
             $em->flush($p);
 
-            return $this->redirectToRoute('addProject');
+            return $this->redirectToRoute('project_homepage');
 
         }
-        return $this->render('@Scrum/Default/createProject.html.twig',array(
+        return $this->render('@Scrum/Default/addP.html.twig',array(
             'f'=>$f->createView(),
-            'myproject'=>$myproject,
-            'ownerproject'=>$ownerproject,
-       //    'memberproject'=>$membersproject
         ));
 
     }
@@ -53,7 +49,7 @@ class DefaultController extends Controller
         $project->setEtat(0);
         $em->persist($project);
         $em->flush();
-        return $this->redirectToRoute('addProject');
+        return $this->redirectToRoute('project_homepage');
 
     }
     public function editPAction(Request $request, Projet $project){
@@ -63,7 +59,7 @@ class DefaultController extends Controller
         if($editForm->isSubmitted() && $editForm->isValid())
         {
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('addProject');
+            return $this->redirectToRoute('project_homepage');
         }
         return $this->render('@Scrum/Default/editP.html.twig', array(
             'edit_form' => $editForm->createView()
@@ -72,11 +68,13 @@ class DefaultController extends Controller
 
     public function  showPAction(Request $request)
     {
-        $project=$this->getDoctrine()->getRepository(Projet::class)->findAll();
 
+        $myproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'master_id'=>$this->getUser()]);
+        $ownerproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'owner_id'=>$this->getUser()]);
 
-        return $this->render('@Scrum/Back/projects.html.twig',array(
-            'pp'=>$project
+        return $this->render('@Scrum/Default/showProjects.html.twig',array(
+            'myproject'=>$myproject,
+            'ownerproject'=>$ownerproject,
 
         ));
 
@@ -101,7 +99,7 @@ class DefaultController extends Controller
             if($Form->isSubmitted()){
                 $projet=$this->getDoctrine()->getRepository(Projet::class)->findBy(array('name'=>$projet->getName()));
             }
-            return $this->render('@Projet/Default/createProject.html.twig',
+            return $this->render('@Projet/Default/showProjects.html.twig',
                 array('S'=>$Form->createView(),'p'=>$projet));
 
 

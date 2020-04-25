@@ -7,7 +7,6 @@ login:
 register:
   path:     /register
   defaults: { _controller: MainBundle:Default:register }
-
 dashboard:
   path:     /home
   defaults: { _controller: AppBundle:Default:home }

@@ -1,81 +1,82 @@
-{% extends'base.html.twig' %}
-{% block title %}Project's Tasks{% endblock %}
-{% block head %}
-    {{ parent() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
-{% endblock %}
+{% extends'baseF.html.twig' %}
 
-{% block content %}
+
+{% block head %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="{{  asset('Back/img/dummy/scrumify.png')}}" type="image/x-icon">
+        <title>Scrumify </title>
+        <!-- CSS -->
+        <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('Back/css/app.css') }}">
+        <style>
+            .loader {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #F5F8FA;
+                z-index: 9998;
+                text-align: center;
+            }
+
+            .plane-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+        </style>
+    </head>
+{% endblock %}
 
 {% block contents %}
 
-<div class="breadcrumb-bar navbar bg-white sticky-top">
+    {% block row %}
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index-2.html">Feature</a>
+        <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+            <li>
+                <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                    <i class="icon icon-puzzle-piece"></i>Scrum Board of {{ userstory.description }}</a>
             </li>
-            <li class="breadcrumb-item"><a href="pages-app.html#">User Story</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
-        </ol>
-    </nav>
+        </ul>
+
+    {% endblock %}
+{% block items %}
+
+    <a class="btn btn-link btn-sm text-small" data-toggle="modal" data-target="#myModal1"><i class="icon-plus " style="-webkit-text-fill-color: #16CABD;font-size: 24px;letter-spacing: 10px;" ></i></a>
+    <a class="btn btn-link btn-sm text-small"  href="{{path('graphe_homepage')}}" >Tasks statistics</a>
 
 
-    <!--Menu li ala jnab -->
-    <div class="dropdown">
-        <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
-            <i class="material-icons">settings</i>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
 
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
-            <a class="dropdown-item" href="#">Share</a>
-            <a class="dropdown-item" href="#">Mark as Complete</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item text-danger" href="#">Archive</a>
+<div class="main-container"   >
+<div style="background-image:url({{ asset("Front/Index/images/Image10.png")  }}); height: 500%;width: 420%;background-repeat: no-repeat;-ms-background-position-x: right;background-position: right;opacity: 80%;">
 
-        </div>
-    </div>
-
-</div>
-    <ul class="nav nav-tabs nav-fill" style="width: fit-content; margin: auto;margin-top: 17px;" >
-        <li class="nav-item">
-            <a class="nav-link active"  role="tab" href="{{ path('show_tasks', { 'id': userstory.id }) }}">Scrum Board</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link"  href="{{path('graphe_homepage')}}" >General Overview</a>
-        </li>
-
-
-    </ul>
-    <div class="main-container">
-        <div class="kanban-board container-fluid mt-lg-3">
+        <div class="kanban-board container-fluid mt-lg-3" style="height: 800px" >
             <!-- colone to do-->
             <div class="kanban-col">
-                <div class="card-list">
+                <div class="card-list" >
                     <div class="card-list-header">
                         <h6>To Do</h6>
                     </div>
                     <div class="card-list-body">
                         <!--kaaba sticky note -->
                         {%  for TaskTodo in TaskTodo %}
-                            <div class="card card-kanban" draggable="true"  onmouseup="drop('{{ path('statut_task',{ 'id': TaskTodo.id ,'statut':'Doing'}) }}')">
+                            <div class="card card-kanban" draggable="true"  ondragend="drop('{{ path('statut_task',{ 'id': TaskTodo.id ,'statut':'Doing'}) }}')">
 
 
                             <div class="card-body">
                                 <!--menu sticky note-->
-                                <div class="dropdown card-options">
-                                    <button class="btn-options" type="button" id="kanban-dropdown-button-13" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
+                                    <button class="btn-options" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon icon-arrow_drop_down"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="{{ path('edit_tasks', { 'id': TaskTodo.id }) }}" >Edit</a>
                                         <a class="dropdown-item text-danger" href="{{ path('archiver_tasks', { 'id': TaskTodo.id }) }}">Archive Card</a>
                                     </div>
-                                </div>
 
                                 <div class="card-title">
                                     <a href="#" data-toggle="modal" data-target="#task-modal">
@@ -94,15 +95,13 @@
 
                         {% endfor %}
                     </div>
-                    <div class="card-list-footer">
-                        <button class="btn btn-link btn-sm text-small" data-toggle="modal" data-target="#myModal1">Add task</button>
-                    </div>
+
 
 
                 </div>
             </div>
 
-            <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal" id="myModal1" role="dialog">
 
                 <div class="modal-dialog">
 
@@ -110,8 +109,8 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">New Task</h5>
-                            <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
-                                <i class="material-icons">close</i>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="icon icon-close2"></i>
                             </button>
                         </div>
                         <!--end of modal head-->
@@ -175,10 +174,9 @@
                                                 <div>
                                                     <label >{{ users.username }}</label>
 
-                                                    <input type="checkbox" class="form-check-label" value="{{ users.username }}" name="users[]" multiple="true">
+                                                    <input  aria-label="Name" type="checkbox" class="form-check-label" value="{{ users.username }}" name="users[]" multiple="multiple">
                                                 </div>
                                                     <br>
-
 
 
                                                 {% endfor %}
@@ -190,14 +188,14 @@
                                 </div>
                             </div>
                         </div>
-                        <!--end of modal body-->
                         <div class="modal-footer">
                             <input type="file"  class="dropzone dz-clickable" name="file">
-
-                         <input type="submit" class="btn btn-primary" value="ok">
+                            <input type="submit" class="btn btn-primary" value="ok">
                             {{ form_end(form) }}
 
                         </div>
+                        <!--end of modal body-->
+
                     </div>
 
 
@@ -217,19 +215,17 @@
                     </div>
                     <div class="card-list-body">
                         {%  for TaskDoing in TaskDoing %}
-                        <div class="card card-kanban" draggable="true" onmouseup="drop('{{ path('statut_task',{ 'id': TaskDoing.id ,'statut':'Done'}) }}')">
+                        <div class="card card-kanban" draggable="true" ondragstart="drop('{{ path('statut_task',{ 'id': TaskDoing.id ,'statut':'Done'}) }}')">
 
                             <div class="card-body">
-                                <div class="dropdown card-options">
-                                    <button class="btn-options" type="button" id="kanban-dropdown-button-9" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{ path('edit_tasks', { 'id': TaskDoing.id }) }}" >Edit</a>
-                                        <a class="dropdown-item text-danger" href="{{ path('archiver_tasks', { 'id': TaskDoing.id }) }}">Archive Card</a>
-                                    </div>
-
+                                <button class="btn-options dropdown-menu-lg-right" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="alignment: right;">
+                                    <i class="icon icon-arrow_drop_down"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="{{ path('edit_tasks', { 'id': TaskDoing.id }) }}" >Edit</a>
+                                    <a class="dropdown-item text-danger" href="{{ path('archiver_tasks', { 'id': TaskDoing.id }) }}">Archive Card</a>
                                 </div>
+
                                 <div class="card-title">
                                     <a href="#" data-toggle="modal" data-target="#task-modal">
                                         <h5>{{ TaskDoing.title }}</h5>
@@ -260,10 +256,10 @@
                     </div>
                     <div class="card-list-body">
                         {%  for TaskDone in TaskDone %}
-                        <div class="card card-kanban">
 
+                            <div class="card card-kanban" draggable="true" ondragstart="drop('{{ path('statut_task',{ 'id': TaskDone.id ,'statut':'Doing'}) }}')">
 
-                            <div class="card-body">
+                          <div class="card-body">
                                 <div class="dropdown card-options">
                                     <button class="btn-options" type="button" id="kanban-dropdown-button-6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
@@ -344,35 +340,33 @@
                 </div>
 
             </div>
-            <figure>
-                <img src={{ asset('Front/Index/images/Image10.png') }} alt="Image" width="250" height="300">
-            </figure>
+
         </div>
-    </div>
+</div>
+</div>
 
-    <script>
-        function drop(x) {
-            console.log(x)
-            $.ajax({
-                url: x,
-                method:"POST", //First change type to method here
+<script>
+    function drop(x) {
+        console.log(x);
+        $.ajax({
 
-                data:{
-                    item_id: "id", // Second add quotes on the value.
-                },
-                success:function(response) {
-                    console.log(response)
-                },
-                error:function(){
-                    alert("error");
-                }
-
-            });
+            url: x,
+            method:"POST", //First change type to method here
+            data:{
+                item_id: "id", // Second add quotes on the value.
+            },
+            success:function(response) {
+                console.log(response);
+                window.location.reload();
+            },
 
 
-        }
-    </script>
+        });
 
+
+
+    }
+</script>
 
 
 {% endblock %}

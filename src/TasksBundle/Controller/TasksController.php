@@ -18,12 +18,13 @@ use UserstoryBundle\Entity\userstory;
 class TasksController extends Controller
 {
 
-    public function changeStatusAction(Request $request, Tasks $task,string $statut){
+    public function changeStatusAction( Tasks $task,string $statut){
         $em= $this->getDoctrine()->getManager();
         $task->setStatus($statut);
         $em->persist($task);
         $em->flush();
-        return $this->redirectToRoute('show_tasks');
+        return $this->redirectToRoute('show_tasks',array('id' => $task->getUserstory()->getId()));
+
     }
 
 
@@ -41,7 +42,7 @@ class TasksController extends Controller
             $this->getDoctrine()->getManager()->flush();
             $this->addMedia($request, $media,$task);
             $task->setUpdated(new \DateTime('now'));
-            return $this->redirectToRoute('show_tasks');
+            return $this->redirectToRoute('show_tasks',array('id' => $task->getUserstory()->getId()));
         }
         return $this->render('@Tasks/Tasks/edit.html.twig', array(
             'edit_form' => $editForm->createView() ,'m'=>$m
@@ -54,7 +55,8 @@ class TasksController extends Controller
         $task->setEtat(1);
         $em->persist($task);
         $em->flush();
-            return $this->redirectToRoute('show_tasks');
+        return $this->redirectToRoute('show_tasks',array('id' => $task->getUserstory()->getId()));
+
 
     }
     public function desarchiverAction(Request $request, Tasks $pp){
@@ -98,7 +100,7 @@ class TasksController extends Controller
 
         $em= $this->getDoctrine()->getManager();
 
-        $Tasks =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'To do','Userstory'=>$userstory],['priority' => 'ASC']);
+        $Tasks =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Todo','Userstory'=>$userstory],['priority' => 'ASC']);
         $Tasks1 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Doing','Userstory'=>$userstory],['priority' => 'ASC']);
         $Tasks2 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Done','Userstory'=>$userstory],['priority' => 'ASC']);
         $Tasks3 =$em->getRepository('TasksBundle:Tasks')->findBy(['etat'=>0,'status'=>'Block','Userstory'=>$userstory],['priority' => 'ASC']);
@@ -125,7 +127,7 @@ class TasksController extends Controller
             $em = $this->getDoctrine()->getManager();
             $task->setEtat(0);
             $task->setCreated(new \DateTime('now'));
-            $task->setStatus("To do");
+            $task->setStatus("Todo");
             $task->setUpdated(new \DateTime('now'));
             $task->setUserstory($userstory);
             $task->setUser($usersToAffect);

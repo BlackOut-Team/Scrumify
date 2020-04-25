@@ -1,139 +1,52 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseF.html.twig' %}
 
-{% block contents %}
-
-<div class="main-container">
-
-    <div class="content-container">
-
-
-        <div class="breadcrumb-bar navbar bg-white sticky-top">
-
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Tasks board</li>
-                </ol>
-            </nav>
-
-            <div class="dropdown">
-                <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
-                    <i class="material-icons">settings</i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#project-edit-modal">Edit Project</a>
-                    <a class="dropdown-item" href="#">Share</a>
-                    <a class="dropdown-item" href="#">Mark as Complete</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#">Archive</a>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-11 col-xl-10">
-                    <div class="page-header">
+                            {% block contents %}
+                                {% block row %}
+                                    <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+                                        <li>
+                                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" >
+                                                <i class="icon icon-puzzle-piece"></i>Features</a>
+                                        </li>
+                                    </ul>
 
 
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="tasks" role="tabpanel" data-filter-list="card-list-body">
-                                <div class="row content-list-head">
-                                    <div class="col-auto">
-                                        <h3>Feature list</h3>
-                                        <button class="btn btn-round" data-toggle="modal" data-target="#feature-add-modal">
-                                            <i class="material-icons">add</i>
 
-                                        </button>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <div class="input-group input-group-round">
-                                            <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons">filter_list</i>
-                          </span>
-                                            </div>
-                                            <input type="search" class="form-control filter-list-input" placeholder="Filter features" aria-label="Filter features">
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="dropdown-item text-succes" href="{{ path('pdfexportFeature')}}">export Pdf </a>
 
-                                <div class="content-list-body row">
+                                {% endblock %}
 
-                                    {% for feature in features %}
-                                        <div class="col-md-6">
-                                            <div class="card card-team">
-                                                <div class="card-body">
-                                                    <div class="dropdown card-options">
-                                                        <button class="btn-options" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="material-icons">more_vert</i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right ">
-                                                            <a class="dropdown-item" href="{{ path('feature_show', { 'id': feature.id }) }}">Show</a>
-                                                            <a class="dropdown-item text-danger" href="{{ path('feature_edit', { 'id': feature.id }) }}">Edit</a>
-                                                            <a class="dropdown-item text-danger" href="{{ path('feature_delete', { 'id': feature.id }) }}">archive</a>
+     {% block items %}
+         <div>
+             <a href="{{ path('feature_add', {'id':sprint.id} ) }}"><i class="icon-plus " style="-webkit-text-fill-color: #16CABD;font-size: 24px;letter-spacing: 10px;" ></i></a>
+         </div>
+         <br>
 
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-title">
-                                                        <a href="#">
-                                                            <h5 data-filter-by="text">{{ feature.name }}</h5>
-                                                        </a>
-                                                        <span>{{ feature.etat }}</span>
-                                                    </div>
+                 {% for feature in features %}
+
+
+                     {% if feature.isDeleted != 1 %}
+
+                                            <div class="card card-block shadow1 d-flex"  style="width:420%;" >
+                                            <div class="p-4">
+                                                <div class="float-left" >
 
                                                 </div>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                                <!--end of tab-->
-                            </div>
-                            <div class="modal fade" id="feature-add-modal" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">New Feature</h5>
-                                            <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </div>
-                                        <!--end of modal head-->
-                                        <ul class="nav nav-tabs nav-fill" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="team-add-details-tab" data-toggle="tab" href="#team-add-details" role="tab" aria-controls="team-add-details" aria-selected="true">Details</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="team-add-members-tab" data-toggle="tab" href="#team-add-members" role="tab" aria-controls="team-add-members" aria-selected="false">Members</a>
-                                            </li>
-                                        </ul>
-                                        {{ form_start(form) }}
-                                        <div class="modal-body">
-                                            <div class="tab-content">
-                                                <div class="tab-pane fade show active" id="team-add-details" role="tabpanel">
-                                                    <h6>Feature Details</h6>
-                                                    <div class="form-group row align-items-center">
-                                                        <label class="col-3">Name</label>
-                                                        {{ form_widget(form.name, {'attr': {'class': 'form-control col'}}) }}
-
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label class="col-3">state</label>
-                                                        {{ form_widget(form.etat, {'attr': {'class': 'form-control col'}}) }}
-
-                                                    </div>
-
+                                                <div class="counter-title">
+                                                    <a  href="{{ path('userstory_index' , { 'id': feature.id } )}}">
+                                                    <h5 data-filter-by="text" class="H5-filter-by-text"> {{ feature.name }}</h5>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer right-side" style="margin-left: 700Px;background-color: transparent;">
+                                                    <a href="{{ path('feature_delete', {'id':feature.id} ) }}"><i class="icon-archive " style="-webkit-text-fill-color: #16CABD;font-size: 24px;letter-spacing: 10px;" ></i></a>
+                                                    <a href="{{ path('feature_edit', {'id':feature.id }) }}"><i class="icon-edit " style="-webkit-text-fill-color: #16CABD;  font-size: 24px;letter-spacing: 10px;"></i></a>
                                                 </div>
 
+                                             </div>
+
+                                            </div>
+                     <br>
+{% endif %}
+                 {% endfor %}
 
 
-                                                {{ form_widget(form.ajouter,{'attr': {'class': 'btn btn-primary'}})}}
-                                                {{ form_end(form) }}
-
-                                                {% endblock %}
-                                                {% block javascript %}
+       {% endblock %}
 {% endblock %}

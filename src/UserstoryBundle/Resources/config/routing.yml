@@ -11,8 +11,8 @@ userstory_index:
     path:     /indexuserstory/{id}
     defaults: { _controller: UserstoryBundle:userstory:index }
 userstory_new:
-    path:     /newuserstory
-    defaults: { _controller: UserstoryBundle:userstory:new }
+    path:     /newuserstory/{id}
+    defaults: { _controller: UserstoryBundle:userstory:addUserStory }
 userstory_show:
     path:     /showuserstory/{id}
     defaults: { _controller: UserstoryBundle:userstory:show }
@@ -21,7 +21,10 @@ userstory_delete:
     defaults: { _controller: UserstoryBundle:userstory:delete }
 feature_index:
     path:     /indexfeature/{id}
-    defaults: { _controller: UserstoryBundle:feature:index }
+    defaults: { _controller: UserstoryBundle:feature:showF }
+feature_add:
+    path:     /addfeature/{id}
+    defaults: { _controller: UserstoryBundle:feature:addF }
 feature_show:
     path:     /showfeature/{id}
     defaults: { _controller: UserstoryBundle:feature:show }

@@ -36,6 +36,7 @@ class ProjetType extends AbstractType
                 // every time you edit the Product details
                 'required' => false,
 
+
                 // unmapped fields can't define their validation using annotations
                 // in the associated entity, so you can use the PHP constraint classes
                 'constraints' => [
@@ -54,11 +55,7 @@ class ProjetType extends AbstractType
                 'choice_label'=>'name',
                 'multiple'=>false
             ))
-            ->add('owner_id',EntityType::class,array(
-                'class'=>'MainBundle:User',
-                'choice_label'=>'username',
-                'multiple'=>false
-            ))
+
 
             ->add('Submit',SubmitType::class );
     }

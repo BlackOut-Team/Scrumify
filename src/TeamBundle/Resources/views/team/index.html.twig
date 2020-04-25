@@ -103,7 +103,7 @@
                                                             <a class="dropdown-item" href="{{ path('edit_team', {'id': con.id}) }}">Edit</a>
                                                             <a class="dropdown-item text-danger" href="{{ path('archive_team', { 'id': con.id }) }}">Archive Team</a>
                                                             <a class="dropdown-item text-succes" href="{{ path('affecter', { 'id': con.id }) }}">Affecter membre</a>
-                                                         
+
 
                                                         </div>
                                                     </div>
@@ -112,7 +112,6 @@
                                                             <h5 data-filter-by="text"> Team Name: {{ con.name }}</h5>
                                                             <h5 data-filter-by="text"> Creation Date: {{ con.created |date("m/d/Y")}}</h5>
                                                             <h5 data-filter-by="text"> Updated Date:  {{ con.updated|date("m/d/Y") }}</h5>
-
 
                                                         </a>
                                                     </div>

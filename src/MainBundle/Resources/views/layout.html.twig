@@ -1,63 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ asset('Front/Index/images/scrumify.png') }}" type="image/x-icon">
     <title>Scrumify</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('Back/css/app.css') }}">
+    <style>
+        .loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F5F8FA;
+            z-index: 9998;
+            text-align: center;
+        }
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href={{ asset('Login/fonts/material-icon/css/material-design-iconic-font.min.css') }}>
-
-    <!-- Main css -->
-    <link rel="stylesheet" href={{ asset('Login/css/style.css') }}>
+        .plane-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
 </head>
-<body>
-
-<div class="main">
-
-    <section class="signup">
-        <!-- <img src="images/signup-bg.jpg" alt=""> -->
-        <div class="container">
-            <div class="signup-content">
-                {% block fos_user_content %}
-                <form method="POST" id="signup-form" class="signup-form">
-                    <h2 class="form-title">Create account</h2>
-                    <div class="form-group">
-                        <input type="text" class="form-input" name="name" id="name" placeholder="Your Name"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
-                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
-                    </div>
-                </form>
-                    <p class="loginhere">
-                        Have already an account ? <a href="#" class="loginhere-link">Login here</a>
-                    </p>
-                {% endblock %}
-
+<body class="light">
+<!-- Pre loader -->
+<!--<div id="loader" class="loader">
+    <div class="plane-container">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
             </div>
 
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</div>-->
+<div id="app">
+    <main>
+        <div id="primary" class="p-t-b-100 height-full responsive-phone" style="background: linear-gradient(56deg, rgba(255,255,255,1) 0%, rgba(22,202,189,1) 35%, rgba(142,233,226,1) 100%);">
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <img src="{{  asset('Front/Index/images/scrumify.png') }}" alt="" style="width:5%;margin-left: -40px;margin-top: -80px;" >
+                    </div>
 
+                    <div class="col-lg-6">
+                        <p class="text-bold gray" style="font-size:20Px;font-weight:bold;font-family: 'Calibri';margin-top: 40px;";> Scrumify.</p>
+                        <p class="text-white-50" style="font-size: 24Px;font-family: 'Calibri Light'; "> Get your team work done easily !</p>
+
+                        <img src="{{  asset('Front/Index/images/undraw_investing_7u74.png') }}" alt="" style="width:70%;margin-left:20px;margin-top:40px;">
+                    </div>
+
+                    <div class="col-lg-6 p-t-0">
+
+                        {% block fos_user_content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #primary -->
+    </main>
+    <!-- Right Sidebar -->
+    <aside class="control-sidebar fixed white ">
+        <div class="slimScroll">
+            <div class="sidebar-header">
+                <h4>Activity List</h4>
+                <a href="#" data-toggle="control-sidebar" class="paper-nav-toggle  active"><i></i></a>
+            </div>
+            <div class="p-3">
+                <div>
+                    <div class="my-3">
+                        <small>25% Complete</small>
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <small>45% Complete</small>
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <small>60% Complete</small>
+                        `
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <small>75% Complete</small>
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%;" aria-valuenow="75"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <small>100% Complete</small>
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 bg-primary text-white">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="font-weight-normal s-14">Sodium</h5>
+                        <span class="font-weight-lighter text-primary">Spark Bar</span>
+                        <div> Oxygen
+                            <span class="text-primary">
+                                                    <i class="icon icon-arrow_downward"></i> 67%</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <canvas width="100" height="70" data-chart="spark" data-chart-type="bar"
+                                data-dataset="[[28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100]]"
+                                data-labels="['a','b','c','d','e','f','g','h','i','j','k','l','m','n','a','b','c','d','e','f','g','h','i','j','k','l','m','n']">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table id="recent-orders" class="table table-hover mb-0 ps-container ps-theme-default">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a href="#">INV-281281</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-success">Paid</span>
+                        </td>
+                        <td>$ 1228.28</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">INV-01112</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-warning">Overdue</span>
+                        </td>
+                        <td>$ 5685.28</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">INV-281012</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-success">Paid</span>
+                        </td>
+                        <td>$ 152.28</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">INV-01112</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-warning">Overdue</span>
+                        </td>
+                        <td>$ 5685.28</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">INV-281012</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-success">Paid</span>
+                        </td>
+                        <td>$ 152.28</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sidebar-header">
+                <h4>Activity</h4>
+                <a href="#" data-toggle="control-sidebar" class="paper-nav-toggle  active"><i></i></a>
+            </div>
+            <div class="p-4">
+                <div class="activity-item activity-primary">
+                    <div class="activity-content">
+                        <small class="text-muted">
+                            <i class="icon icon-user position-left"></i> 5 mins ago
+                        </small>
+                        <p>Lorem ipsum dolor sit amet conse ctetur which ascing elit users.</p>
+                    </div>
+                </div>
+                <div class="activity-item activity-danger">
+                    <div class="activity-content">
+                        <small class="text-muted">
+                            <i class="icon icon-user position-left"></i> 8 mins ago
+                        </small>
+                        <p>Lorem ipsum dolor sit ametcon the sectetur that ascing elit users.</p>
+                    </div>
+                </div>
+                <div class="activity-item activity-success">
+                    <div class="activity-content">
+                        <small class="text-muted">
+                            <i class="icon icon-user position-left"></i> 10 mins ago
+                        </small>
+                        <p>Lorem ipsum dolor sit amet cons the ecte tur and adip ascing elit users.</p>
+                    </div>
+                </div>
+                <div class="activity-item activity-warning">
+                    <div class="activity-content">
+                        <small class="text-muted">
+                            <i class="icon icon-user position-left"></i> 12 mins ago
+                        </small>
+                        <p>Lorem ipsum dolor sit amet consec tetur adip ascing elit users.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- /.right-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+    <div class="control-sidebar-bg shadow white fixed"></div>
 </div>
-
-<!-- JS -->
-<script src={{ asset('Login/vendor/jquery/jquery.min.js') }}></script>
-<script src={{ asset('Login/js/main.js') }}></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+<!--/#app -->
+<script src="assets/js/app.js"></script>
+</body>
 </html>

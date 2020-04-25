@@ -16,7 +16,6 @@ archiver_tasks:
 statut_task:
     path:     /statutTask/{id}/{statut}
     defaults: { _controller: TasksBundle:Tasks:changeStatus }
-
 desarchiver:
     path:     /desarchive/{id}
     defaults: { _controller: TasksBundle:Tasks:desarchiver }

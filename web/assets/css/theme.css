@@ -4110,18 +4110,7 @@ a.close.disabled {
   border-radius: 0.3rem;
   outline: 0; }
 
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1040;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000; }
-  .modal-backdrop.fade {
-    opacity: 0; }
-  .modal-backdrop.show {
-    opacity: 0.5; }
+
 
 .modal-header {
   display: flex;
@@ -7404,7 +7393,7 @@ h3 + .btn-round, h5 + .btn-round {
   margin-bottom: 0.75rem;
   border-radius: 0.5rem;
   padding: 1rem;
-  background: #ffbe9d; }
+  background: #f5d05e8a; }
   .card-list .card {
     border: none; }
   .card-list .card-list-head {

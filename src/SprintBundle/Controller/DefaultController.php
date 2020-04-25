@@ -16,7 +16,6 @@ class DefaultController extends Controller
     }
     public function  AddSAction(Request $request, Projet $projet)
     {
-        $sprint=$this->getDoctrine()->getRepository(Sprint::class)->findBy(array('project'=>$projet->getId()));
        // $team=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'id'=>$projet->getTeam()]);
       //  $members=$this->getDoctrine()->getRepository(team_user::class)->find($team);
         $s= new Sprint();
@@ -32,11 +31,10 @@ class DefaultController extends Controller
 
             $em->flush($s);
 
-            return $this->redirect($request->getUri());
+            return $this->redirectToRoute('Sprint_homepage',array('id' => $projet->getId()));
         }
-        return $this->render('@Sprint/Default/index.html.twig',array(
+        return $this->render('@Sprint/Default/addS.html.twig',array(
             'f'=>$f->createView(),
-            'sprint'=>$sprint ,
             'project'=>$projet,
           //  'members'=> $members ,
 
@@ -51,7 +49,7 @@ class DefaultController extends Controller
         $sprint->setEtat(0);
         $em->persist($sprint);
         $em->flush();
-        return $this->redirectToRoute('addProject');
+        return $this->redirectToRoute('Sprint_homepage',array('id' => $projet->getId()));
 
     }
     public function editSAction(Request $request, Projet $projet  , Sprint $sprint){
@@ -63,12 +61,26 @@ class DefaultController extends Controller
         {
             $sprint->setProject($projet);
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('addProject');
+            return $this->redirectToRoute('Sprint_homepage',array('id' => $projet->getId()));
         }
         return $this->render('@Sprint/Default/editS.html.twig', array(
             'edit_form' => $editForm->createView(),
             'project' => $projet,
         ));
+    }
+
+    public function  showSprintsAction(Projet $projet){
+
+        $sprint=$this->getDoctrine()->getRepository(Sprint::class)->findBy(array('project'=>$projet->getId()));
+
+
+        return $this->render('@Sprint/Default/index.html.twig',array(
+            'sprint'=>$sprint ,
+            'project'=>$projet,
+
+
+        ));
+
     }
 
 }

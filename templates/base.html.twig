@@ -231,25 +231,7 @@
     <!-- Required theme scripts (Do not remove) -->
     <script type="text/javascript" src={{ asset('assets/js/theme.js') }}></script>
 
-        <script>
-            $('#dropdown').click(function(){
-                $('#dropcontent').html('');
-                $.ajax({
-                    url: '{{ path('getNotif') }}',
-                    type: 'POST',
-                    dataType: "json",
-                    success: function(response) {
-                        $result = JSON.parse(response);
-                        $('#dropcontent').val('');
-                        $('#notifications').html($result.length);
-                        for (var k in $result) {
-                            var e = '<a href="" class="dropdown-item">' + $result[k].notification.message +'</a>'
-                            $('#dropcontent').append(e);
-                        }
-                    }
-                });
-            })
-        </script>
+
     {% block javascripts %}
     {% endblock %}
     <div class="layout-switcher" tabindex="1">

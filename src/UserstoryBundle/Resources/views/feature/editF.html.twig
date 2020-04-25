@@ -20,41 +20,28 @@
                                     <div class="col-md-7">
                                         <div class="card" >
                                             <div class="card-body b-b">
-                                                <h4>Edit Sprint</h4>
+                                                <h4>Edit feature</h4>
                                                 <form class="form-material">
                                                      <div class="body">
                                                         <div class="row clearfix">
                                                             <div class="col-sm-12">
                                                                 <div class="form-group">
                                                                     <div class="form-line">
-                                                                        <label class="col-3">Project Title</label>
+                                                                        <label class="col-3">Feature Title</label>
                                                                         {{ form_widget(edit_form.name, {'attr': {'class': 'form-control col'}}) }}
                                                                      </div>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <div class="form-text">
-                                                                        <label class="col-3">Description</label>
-                                                                        {{ form_widget(edit_form.description, {'attr': {'class': 'form-control col'}}) }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
                                                                     <div class="form-line">
-                                                                        <label class="col-3">Start Date</label>
-                                                                        {{ form_widget(edit_form.created, {'attr': {'class': 'form-control col'}}) }}
-
+                                                                        <label class="col-3">Status</label>
+                                                                        {{ form_widget(edit_form.etat, {'attr': {'class': 'form-control col'}}) }}
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <div class="form-line">
-                                                                        <label class="col-3">Due Date</label>
-                                                                        {{ form_widget(edit_form.duedate, {'attr': {'class': 'form-control col'}}) }}
+                                                                <div class="card-bottom">
 
-                                                                    </div>
-                                                                </div>
-                                                                <div class="alert alert-warning text-small" role="alert">
-                                                                    <span>You can change  dates at any time.</span>
-                                                                </div>
+                                                                    {{ form_widget(edit_form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
 
+                                                                </div>
 
 
                                                              </div>
@@ -65,7 +52,6 @@
 
                                                             <div class="card-bottom">
 
-                                                              {{ form_widget(edit_form.Submit, {'attr': {'class': 'btn btn-primary'}}) }}
 
                                                             </div>
                                                          {{ form_end(edit_form) }}

@@ -22,12 +22,11 @@ class featureController extends Controller
      * @Route("/", name="feature_index")
      * @Method("GET")
      */
-    public function indexAction(Request $request,Sprint $sprint)
+    public function   addFAction(Request $request,Sprint $sprint)
     {
 
 
 
-        $em = $this->getDoctrine()->getManager();
         $feature = new Feature();
         $form = $this->createForm('UserstoryBundle\Form\featureType', $feature);
         $form->handleRequest($request);
@@ -43,10 +42,8 @@ class featureController extends Controller
             return $this->redirectToRoute('feature_index', array('id' => $sprint->getId()));
         }
 
-        $features = $this->getDoctrine()->getRepository(feature::class)->findBy(array('id'=>$sprint->getId()));
-        return $this->render('@Userstory/feature/index.html.twig', array(
-            'features' => $features,
-            'form' => $form->createView(),
+        return $this->render('@Userstory/feature/addF.html.twig', array(
+            'f' => $form->createView(),
         ));
     }
 
@@ -121,10 +118,10 @@ class featureController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('feature_edit', array('id' => $feature->getId()));
+            return $this->redirectToRoute('feature_index', array('id' => $feature->getSprint()->getId()));
         }
 
-        return $this->render('@Userstory/feature/edit.html.twig', array(
+        return $this->render('@Userstory/feature/editF.html.twig', array(
             'feature' => $feature,
             'edit_form' => $editForm->createView(),
 
@@ -140,10 +137,11 @@ class featureController extends Controller
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $userstory = $em->getRepository('UserstoryBundle:feature')->find($id);
-        $userstory->setIsDeleted(1);
+        $feature = $em->getRepository('UserstoryBundle:feature')->find($id);
+        $feature->setIsDeleted(1);
         $em->flush();
-        return $this->redirectToRoute('feature_index');
+        return $this->redirectToRoute('feature_index', array('id' => $feature->getSprint()->getId()));
+
     }
     public function BackAction(Request $request)
     {
@@ -159,5 +157,15 @@ class featureController extends Controller
             'form' => $form->createView(),
         ));
     }
+    public function showFAction(Sprint $sprint)
+    {
 
+        $features = $this->getDoctrine()->getRepository(feature::class)->findBy(array('sprint'=>$sprint->getId()));
+
+        return $this->render('@Userstory/feature/index.html.twig', array(
+            'features' => $features,
+            'sprint'=> $sprint,
+
+        ));
+    }
 }

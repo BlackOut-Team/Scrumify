@@ -29,11 +29,20 @@ class userstoryController extends Controller
      * @Method("GET")
      */
     //hada aff w ajout user story 3awed jareb
-    public function indexAction(Request $request, feature $feature)
+    public function indexAction(feature $feature)
     {
         $em = $this->getDoctrine()->getManager();
-        $userstories =$em->getRepository('UserstoryBundle:userstory')->findBy(['isDeleted' => 0,'feature'=>$feature]);
+        $userstories =$em->getRepository('UserstoryBundle:userstory')->findBy(['isDeleted' => 0,'feature'=>$feature->getId()]);
 
+
+        return $this->render('@Userstory/userstory/index.html.twig', array(
+            'userstories' => $userstories,
+            'feature' => $feature
+
+        ));
+    }
+
+    public function addUserStoryAction(Request $request,feature $feature){
         $userstory = new userstory();
         $form=$this->createForm('UserstoryBundle\Form\userstoryType',$userstory);
         $form->handleRequest($request);
@@ -49,14 +58,10 @@ class userstoryController extends Controller
 
 
             return $this->redirectToRoute('userstory_index',array('id' => $feature->getId())) ;
-    }
-        return $this->render('@Userstory/userstory/index.html.twig', array(
-            'userstories' => $userstories,
-            'form'=> $form->CreateView(),
+        }
+        return $this->render('@Userstory/userstory/new.html.twig', array(
+            'f'=> $form->CreateView(),
             'userstory' => $userstory,
-
-
-
             'feature' => $feature
 
         ));
@@ -204,7 +209,7 @@ class userstoryController extends Controller
         $userstory = $em->getRepository('UserstoryBundle:userstory')->find($id);
         $userstory->setIsDeleted(1);
         $em->flush();
-        return $this->redirectToRoute('userstory_index');
+        return $this->redirectToRoute('userstory_index', array('id' => $userstory->getFeature()->getId()));
     }
 
     public function PdfAction(){

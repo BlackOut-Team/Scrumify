@@ -2,6 +2,7 @@
 
 namespace UserstoryBundle\Form;
 
+use Doctrine\DBAL\Types\IntegerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,7 +17,7 @@ class featureType extends AbstractType
     {
         $builder->add('name')
             ->add('etat')
-            ->add('ajouter',SubmitType::class); ;
+            ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}
      */

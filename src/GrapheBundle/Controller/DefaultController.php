@@ -29,6 +29,7 @@ class DefaultController extends Controller
                 ['Block', $sizeBlock],
             ]
         );
+
         $pieChart->getOptions()->setTitle('Daily Activities');
         $pieChart->getOptions()->setHeight(500);
         $pieChart->getOptions()->setWidth(900);

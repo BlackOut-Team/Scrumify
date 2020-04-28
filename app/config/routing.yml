@@ -36,7 +36,7 @@ activity:
     prefix:   /
 tasks:
     resource: "@TasksBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /Tasks
 
 
 app:

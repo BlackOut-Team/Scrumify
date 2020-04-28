@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="{{  asset('Back/img/dummy/scrumify.png')}}" type="image/x-icon">
-        <title>Scrumify </title>
+        <title>Scrumify | Tasks Board </title>
         <!-- CSS -->
         <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('Back/css/app.css') }}">
@@ -40,7 +40,16 @@
         <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
             <li>
                 <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
-                    <i class="icon icon-puzzle-piece"></i>Scrum Board of {{ userstory.description }}</a>
+                    <i class="icon icon-puzzle-piece"></i>Tasks Board of {{ userstory.description }}</a>
+
+            </li>
+        </ul>
+
+        <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+            <li>
+                <a class="nav-link " id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                    <i class="icon icon-puzzle-piece"></i>Tasks Board of {{ userstory.description }}</a>
+
             </li>
         </ul>
 
@@ -84,6 +93,21 @@
                                         <h6> {{ TaskTodo.description }} </h6>
                                     </a>
                                 </div>
+                                <ul class="avatars">
+
+                                    <li>
+                                        <a href="#" data-toggle="tooltip" title="" data-original-title="David">
+                                            <img alt="David Whittaker" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" data-toggle="tooltip" title="" data-original-title="Ravi">
+                                            <img alt="Ravi Singh" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
+                                        </a>
+                                    </li>
+
+                                </ul>
                                 <div class="card-meta d-flex justify-content-between">
 
                                     <span class="text-small">Due {{ TaskTodo.finished|date('Y-m-d H:i:s') }}</span>
@@ -275,6 +299,21 @@
                                         <h6>  {{ TaskDone.description }}</h6>
                                     </a>
                                 </div>
+                              <ul class="avatars">
+
+                                  <li>
+                                      <a href="#" data-toggle="tooltip" title="" data-original-title="David">
+                                          <img alt="David Whittaker" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
+                                      </a>
+                                  </li>
+
+                                  <li>
+                                      <a href="#" data-toggle="tooltip" title="" data-original-title="Ravi">
+                                          <img alt="Ravi Singh" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
+                                      </a>
+                                  </li>
+
+                              </ul>
 
                                 <div class="card-meta d-flex justify-content-between">
 
@@ -321,6 +360,21 @@
                                         <h6> {{ TaskBlock.description }} </h6>
                                     </a>
                                 </div>
+                                <ul class="avatars">
+
+                                    <li>
+                                        <a href="#" data-toggle="tooltip" title="" data-original-title="David">
+                                            <img alt="David Whittaker" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" data-toggle="tooltip" title="" data-original-title="Ravi">
+                                            <img alt="Ravi Singh" class="avatar" src="{{ asset('assets/img/avatar-male-3.jpg') }}">
+                                        </a>
+                                    </li>
+
+                                </ul>
 
                                 <div class="card-meta d-flex justify-content-between">
 

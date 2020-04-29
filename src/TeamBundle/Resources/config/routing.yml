@@ -9,7 +9,9 @@ ajout_team:
 affiche_team:
     path:     /affteam
     defaults: { _controller: TeamBundle:Team:aff }
-
+affiche_members:
+    path:     /teammembers/{id}
+    defaults: { _controller: TeamBundle:Team:afficherT }
 edit_team:
     path:     /editteam/{id}
     defaults: { _controller: TeamBundle:Team:edit }
@@ -33,13 +35,16 @@ show_team_back:
 affecter:
     path:   /afcteam/{id}
     defaults: { _controller: TeamBundle:Default:affecter }
+envoyer_mail:
+    path:   /afcteam/{id}
+    defaults: { _controller: TeamBundle:Default:mail }
 
 pdfexample:
     path:     /pdf-example
     defaults: { _controller: TeamBundle:Pdf:index }
 
 affiche_team1:
-    path:     /affteam1
+    path:     /affteamB
     defaults: { _controller: TeamBundle:Team:affB }
 
 affecterUser:

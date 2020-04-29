@@ -15,7 +15,7 @@ class PdfController extends Controller
         $filename = 'Team';
 
         // use absolute path !
-        $pageUrl = $this->generateUrl('affiche_team1', array(), UrlGeneratorInterface::ABSOLUTE_URL);
+        $pageUrl = $this->generateUrl('affiche_team', array(), UrlGeneratorInterface::ABSOLUTE_URL);
 
         return new Response(
             $snappy->getOutput($pageUrl),

@@ -9,7 +9,8 @@
     <link rel="icon" href="{{  asset('Back/img/dummy/scrumify.png')}}" type="image/x-icon">
     <title>Scrumify </title>
     <!-- CSS -->
-
+    <link href='{{ asset('fullCalendar/lib/fullcalendar.min.css') }}' rel='stylesheet'/>
+    <link href='{{ asset('fullCalendar/lib/fullcalendar.print.css') }}' rel='stylesheet' media='print'/>
     <link rel="stylesheet" href="{{ asset('Back/css/app.css') }}">
     <style>
         .loader {
@@ -661,8 +662,102 @@
 <div class="control-sidebar-bg shadow white fixed"></div>
 </div>
 <!--/#app -->
+
+<script src='{{ asset('fullCalendar/lib/jquery.min.js') }}'></script>
+<script src='{{ asset('fullCalendar/lib/moment.min.js') }}'></script>
+<script src='{{ asset('fullCalendar/lib/jquery-ui.custom.min.js') }}'></script>
+<script src='{{ asset('fullCalendar/lib/fullcalendar.min.js') }}'></script>
+<script>
+    console.log('a');
+    $(document).ready(function() {
+        var calendar = $('#calendar').fullCalendar({
+            editable:true,
+            header:{
+                left:'prev,next today',
+                center:'title',
+                right:'month,agendaWeek,agendaDay'
+            },
+            events : 'load',
+            selectable:true,
+            selectHelper:true,
+            select: function(start, end, allDay)
+            {
+                var title = prompt("Enter Event Title");
+                if(title)
+                {
+                    var start =moment(start, 'DD.MM.YYYY').format( "YYYY-MM-DD HH:mm:ss");
+                    var end = moment(end, 'DD.MM.YYYY').format( "YYYY-MM-DD HH:mm:ss");
+                    $.ajax({
+
+                        url:"add",
+                        type:"POST",
+                        data:{title:title, start:start, end:end},
+                        success:function()
+                        {
+                            calendar.fullCalendar('refetchEvents');
+                            alert("Added Successfully");
+                        }
+                    })
+                }
+            },
+
+            eventResize:function(event)
+            {
+                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+                var title = event.title;
+                var id = event.id;
+                $.ajax({
+                    url:"update.php",
+                    type:"POST",
+                    data:{title:title, start:start, end:end, id:id},
+                    success:function(){
+                        calendar.fullCalendar('refetchEvents');
+                        alert('Event Update');
+                    }
+                })
+            },
+
+            eventDrop:function(event)
+            {
+                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+                var title = event.title;
+                var id = event.id;
+                $.ajax({
+                    url:"update.php",
+                    type:"POST",
+                    data:{title:title, start:start, end:end, id:id},
+                    success:function()
+                    {
+                        calendar.fullCalendar('refetchEvents');
+                        alert("Event Updated");
+                    }
+                });
+            },
+
+            eventClick:function(event)
+            {
+                if(confirm("Are you sure you want to remove it?"))
+                {
+                    var id = event.id;
+                    $.ajax({
+                        url:"delete.php",
+                        type:"POST",
+                        data:{id:id},
+                        success:function()
+                        {
+                            calendar.fullCalendar('refetchEvents');
+                            alert("Event Removed");
+                        }
+                    })
+                }
+            },
+
+        });
+    });
+</script>
 <script src="{{ asset('Back/js/app.js') }}"></script>
-<script src="{{ asset('Back/js/task.js') }}"></script>
  <script>
     $('#dropdown').click(function(){
         $('#dropcontent').html('');

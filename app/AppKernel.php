@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new UserstoryBundle\UserstoryBundle(),
             new SprintBundle\SprintBundle(),
             new ScrumBundle\ScrumBundle(),
+
             new MyAppMailBundle\MyAppMailBundle(),
             new MessagingBundle\MessagingBundle(),
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
@@ -38,8 +39,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
-
-
+            new EvenementBundle\EvenementBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

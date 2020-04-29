@@ -1,200 +1,101 @@
-{% extends'base.html.twig' %}
-
-{% block soustitle %}   <a class="nav-link" }}>Team Homepage</a> {% endblock %}
-{% block head %}
-    {{ parent() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
-{% endblock %}
-{% block content %}
+{% extends'baseF.html.twig' %}
 
 
+{% block contents %}
 
-    {% block contents %}
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-10 col-lg-11">
-                    <hr>
-                    <ul class="nav nav-tabs nav-fill" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Team</a>
-                        </li>
+    {% block row %}
 
-                    </ul>
+        <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+            <li>
+                <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v--1">
+                    <i class="icon icon-group"></i>Teams</a>
+            </li>
+        </ul>
+        <div>
+            <a class="btn btn-primary" href="{{ path('pdfexample') }}">Export to PDF</a>
+            <a data-toggle="modal" data-target="#project-add-modal"><i class="icon icon-plus" style="-webkit-text-fill-color: #FFFFFF;font-size: 24px;letter-spacing: 10px;" ></i></a>
 
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="projects" role="tabpanel" data-filter-list="content-list-body">
-                            <div class="content-list">
-                                <div class="row content-list-head">
-                                    <div class="col-auto">
-                                        <h3>Team</h3>
-                                        <button class="btn btn-round" data-toggle="modal" data-target="#project-add-modal">
-                                            <i class="material-icons">add</i>
-                                        </button>
-                                    </div>
+        </div>
+    {% endblock %}
 
-                                    <div>
 
-                                        <input type="search" class="form-control filter-list-input" placeholder="search teams" aria-label="Filter Teams"> <br>
-                                        <script type="text/javascript">
-                                            jQuery(document).ready(function() {
-                                                var searchRequest = null;
-                                                $("#search").keyup(function() {
-                                                    var minlength = 1;
-                                                    var that = this;
-                                                    var value = $(this).val();
-                                                    var entitySelector = $("#entitiesNav").html('');
-                                                    if (value.length >= minlength ) {
-                                                        if (searchRequest != null)
-                                                            searchRequest.abort();
-                                                        searchRequest = $.ajax({
-                                                            type: "GET",
-                                                            url: "{{ path('search_ajax') }}",
-                                                            data: {
-                                                                'q' : value
-                                                            },
-                                                            dataType: "text",
-                                                            success: function(msg){
-                                                                //we need to check if the value is the same
-                                                                if (value===$(that).val()) {
-                                                                    var result = JSON.parse(msg);
-                                                                    $.each(result, function(key, arr) {
-                                                                        $.each(arr, function(id, value) {
-                                                                            if (key === 'posts') {
-                                                                                if (id !== 'error') {
-                                                                                    console.log(value[1]);
-                                                                                    entitySelector.append('<li><b>'+value[1]+'</b><a href="/affiche_team">'+'</a></li>');
-                                                                                } else {
-                                                                                    entitySelector.append('<li class="errorLi">'+value+'</li>');
-                                                                                }
-                                                                            }
-                                                                        });
-                                                                    });
-                                                                }
-                                                            }
-                                                        });
-                                                    }
-                                                });
-                                            });
-                                        </script>
-                                            <a class="btn btn-primary" href="{{ path('pdfexample') }}">Export to PDF</a>
+    {% block items %}
 
-                                    </div>
+                        {% for con in con %}
+                            {% if con.ind != 1 %}
+                         <div class="card card-block shadow1 d-flex"  style="width:420%" >
+                            <div class="p-4" >
+                                <div class="counter-title">
+                                    <a href="{{ path('affiche_members',{'id':con.id}) }}">
+                                        <h5 data-filter-by="text" class="H5-filter-by-text"> Team Name: {{ con.name }}</h5>
+                                        <span  class="text-small" data-filter-by="text"> Creation Date: {{ con.created |date("m/d/Y")}}</span>
+                                        <br>
+                                        <span  class="text-small" data-filter-by="text"> Updated Date:  {{ con.updated|date("m/d/Y") }}</span>
+                                    </a>
                                 </div>
-
-                                <!--end of content list head-->
-                                <div class="content-list-body row">
-                                    {% for con in con %}
-                                        {% if con.ind != 1 %}
-                                        <div class="col-lg-6">
-                                            <div class="card card-project">
-
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                                <div class="card-body">
-                                                    <div class="dropdown card-options">
-                                                        <button class="btn-options" type="button" id="project-dropdown-button-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="material-icons">more_vert</i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="{{ path('edit_team', {'id': con.id}) }}">Edit</a>
-                                                            <a class="dropdown-item text-danger" href="{{ path('archive_team', { 'id': con.id }) }}">Archive Team</a>
-                                                            <a class="dropdown-item text-succes" href="{{ path('affecter', { 'id': con.id }) }}">Affecter membre</a>
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-title">
-                                                        <a href="#">
-                                                            <h5 data-filter-by="text"> Team Name: {{ con.name }}</h5>
-                                                            <h5 data-filter-by="text"> Creation Date: {{ con.created |date("m/d/Y")}}</h5>
-                                                            <h5 data-filter-by="text"> Updated Date:  {{ con.updated|date("m/d/Y") }}</h5>
-
-                                                        </a>
-                                                    </div>
-
-
-                                                </div>
-                                            </div>
-                                        </div>{% endif %}
-                                    {% endfor %}
-
-
-
-                                </div>
-                                <!--end of content list body-->
                             </div>
-                            <!--end of content list-->
-                        </div>
-                        <!--end of tab-->
+                            <div class="card-footer right-side" style="margin-left:700Px;background-color:transparent;">
+                                <a href="{{ path('archive_team', {'id': con.id}) }}"><i class="icon-archive " style="-webkit-text-fill-color: #16CABD;font-size: 24px;letter-spacing: 10px;"></i></a>
+                                <a href="{{ path('edit_team', {'id': con.id}) }}"><i class="icon-edit " style="-webkit-text-fill-color: #16CABD; font-size: 24px;letter-spacing: 10px;"></i></a>
+                                <a href="{{ path('affecter', {'id': con.id}) }}"><i class="icon-user-plus " style="-webkit-text-fill-color: #16CABD; font-size: 24px;letter-spacing: 10px;"></i></a>
 
+                            </div>
+                         </div>
+                            <br>
+
+                            {% endif %}
+                        {% endfor %}
+
+
+        <div class="modal fade" id="project-add-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">New Team</h5>
+                        <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
+                            <i class="icon icon-close2"></i>
+                        </button>
                     </div>
+                    <!--end of modal head-->
+
+                    <div class="modal-body">
 
 
-
-                    <div class="modal fade" id="project-add-modal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">New Team</h5>
-                                    <button type="button" class="close btn btn-round" data-dismiss="modal" aria-label="Close">
-                                        <i class="material-icons">close</i>
-                                    </button>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
+                                <h6>General Details</h6>
+                                <div class="form-group row align-items-center">
+                                    <label class="col-3">Team name</label>
+                                    {{ form_start(form) }}
+                                    {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
                                 </div>
-                                <!--end of modal head-->
-                                <ul class="nav nav-tabs nav-fill" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="project-add-details-tab" data-toggle="tab" href="#project-add-details" role="tab" aria-controls="project-add-details" aria-selected="true">Details</a>
-                                    </li>
 
-                                </ul>
-                                <div class="modal-body">
+                                <hr>
+
+                                <div class="form-group row align-items-center">
+
+                                    <label class="col-3">Ajouter</label>
 
 
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
-                                            <h6>General Details</h6>
-                                            <div class="form-group row align-items-center">
-                                                <label class="col-3">Team name</label>
-                                                {{ form_start(form) }}
-                                                {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
-                                            </div>
-
-                                            <hr>
-
-                                            <div class="form-group row align-items-center">
-
-                                                <label class="col-3">Ajouter</label>
-
-
-                                                {{ form_widget(form.Ajouter,{'attr': {'class': 'form-control col'}})}}
-                                                {{ form_end(form) }}
-
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                    {{ form_widget(form.Ajouter,{'attr': {'class': 'form-control col'}})}}
+                                    {{ form_end(form) }}
 
                                 </div>
                             </div>
-                            <!--end of modal body-->
-                            <div class="modal-footer">
 
-                            </div>
                         </div>
+
                     </div>
                 </div>
+                <!--end of modal body-->
+                <div class="modal-footer">
 
+                </div>
             </div>
         </div>
-        </div>
 
 
-        </div>
-        </div>
+
 
     {% endblock %}
 {% endblock %}

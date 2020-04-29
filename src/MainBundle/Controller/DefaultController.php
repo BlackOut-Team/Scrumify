@@ -33,7 +33,7 @@ class DefaultController extends Controller
     {
         $em= $this->getDoctrine()->getManager();
         $pieChart = new PieChart();
-        $project =$em->getRepository('ScrumBundle:Projet')->findAll();
+        $project =$em->getRepository('ProjectApi:Projet')->findAll();
         $user =$em->getRepository('MainBundle:User')->findAll();
         $team =$em->getRepository('TeamBundle:Team')->findAll();
 

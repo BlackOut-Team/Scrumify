@@ -99,5 +99,27 @@ class team_user
     {
         $this->id = $id;
     }
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="role", type="integer")
+     */
+    private $role;
+
+    /**
+     * @return int
+     */
+    public function getRole(): int
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param int $role
+     */
+    public function setRole(int $role): void
+    {
+        $this->role = $role;
+    }
 
 }

@@ -10,7 +10,10 @@ use SprintBundle\Entity\Sprint;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 use TeamBundle\Entity\team_user;
 
 class DefaultController extends Controller
@@ -33,7 +36,9 @@ class DefaultController extends Controller
 
             $em->persist($p);
             $em->flush($p);
-
+            $serializer = new Serializer([new ObjectNormalizer()]);
+            $formatted = $serializer->normalize($p);
+            //return new JsonResponse($formatted);
             return $this->redirectToRoute('project_homepage');
 
         }
@@ -72,11 +77,14 @@ class DefaultController extends Controller
         $myproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'master_id'=>$this->getUser()]);
         $ownerproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'owner_id'=>$this->getUser()]);
 
-        return $this->render('@Scrum/Default/showProjects.html.twig',array(
+       return $this->render('@Scrum/Default/showProjects.html.twig',array(
             'myproject'=>$myproject,
             'ownerproject'=>$ownerproject,
 
         ));
+        //$serializer = new Serializer([new ObjectNormalizer()]);
+       // $formatted = $serializer->normalize($myproject);
+        //return new JsonResponse($formatted);
 
     }
     public function desarchiverPAction(Request $request, Projet $pp){
@@ -108,8 +116,8 @@ class DefaultController extends Controller
     {
         $em= $this->getDoctrine()->getManager();
         $pieChart = new PieChart();
-        $Archive =$em->getRepository('ScrumBundle:Projet')->findBy(['etat'=>0]);
-        $Active =$em->getRepository('ScrumBundle:Projet')->findBy(['etat'=>1]);
+        $Archive =$em->getRepository('Scrum:Projet')->findBy(['etat'=>0]);
+        $Active =$em->getRepository('Scrum:Projet')->findBy(['etat'=>1]);
 
         $user=$em->getRepository('MainBundle:User')->findAll();
 

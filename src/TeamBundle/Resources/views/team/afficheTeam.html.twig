@@ -1,0 +1,47 @@
+{% extends'baseF.html.twig' %}
+
+
+{% block contents %}
+
+    {% block row %}
+
+        <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+            <li>
+                <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v--1">
+                    <i class="icon icon-group"></i>Teams</a>
+            </li>
+        </ul>
+
+    {% endblock %}
+
+
+    {% block items %}
+        <h1 > Team : {{ team }}</h1>
+
+
+
+        <a class="btn btn-primary" href="{{ path('affecter' , { 'id': id }) }}" style="margin-left: 150px;margin-top: 20px;">Ajouter membres</a>
+
+
+        <div class="modal-dialog-centered"  style=" margin-top: 100px;" >
+
+            {% for users in users  %}
+
+                <div class="card card-handle" style="width: 200%;margin-right: 50Px;">
+                    <div class="modal-title">
+                        <img src="{{ asset('uploads/images/')}}{{ users.image }}" width="200" class="avatar avatar-lg">
+
+                        <div class="media-body">
+                            <h6 class="mb-0 H6-filter-by-text" data-filter-by="text">{{ users.username }}</h6>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+
+
+
+    {% endblock %}
+{% endblock %}
+

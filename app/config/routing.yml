@@ -1,3 +1,7 @@
+evenement:
+    resource: "@EvenementBundle/Resources/config/routing.yml"
+    prefix:   /evt
+
 
 
 my_app_mail:
@@ -14,7 +18,6 @@ scrum:
 sprint:
     resource: "@SprintBundle/Resources/config/routing.yml"
     prefix:   /Sprint
-
 Userstory:
     resource: "@UserstoryBundle/Resources/config/routing.yml"
     prefix:   /

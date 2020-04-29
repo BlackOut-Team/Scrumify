@@ -25,10 +25,13 @@
         <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
 
             <div class="alert alert-primary" role="alert">
-                Utilisateur existe déja dans l'équipe
+               Pas de membres
             </div>
+
             <div>
                 <a class="btn btn-primary" href="{{ path('affiche_team') }}" style="margin-left: 150px;">Retour aux equipe</a>
+                <br>
+                <a class="btn btn-primary" href="{{ path('affecter' , { 'id': id }) }}" style="margin-left: 150px;margin-top: 20px;">Ajouter membres</a>
             </div>
             <br>
 

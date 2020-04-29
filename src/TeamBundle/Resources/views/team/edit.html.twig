@@ -1,88 +1,71 @@
-{% extends'base.html.twig' %}
-{% block title %}Team Details{% endblock %}
-{% block head %}
-    {{ parent() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
-{% endblock %}
-
-{% block content %}
-
-    {% block contents %}
-
-        <div class="breadcrumb-bar navbar bg-white sticky-top">
-
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index-2.html">Team</a>
-                    </li>
-
-                    <li class="breadcrumb-item active" aria-current="page">Details</li>
-                </ol>
-            </nav>
+{% extends'baseF.html.twig' %}
 
 
-            <!--Menu li ala jnab -->
-            <div class="dropdown">
-                <button class="btn btn-round" role="button" data-toggle="dropdown" aria-expanded="false">
-                    <i class="material-icons">settings</i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
+{% block contents %}
 
-                    <a class="dropdown-item"  data-toggle="modal" data-target="#project-edit-modal">Edit team</a>
-                    <a class="dropdown-item" href="#">Mark as Complete</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#">Archive</a>
+    {% block row %}
 
-                </div>
-            </div>
+        <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+            <li>
+                <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v--1">
+                    <i class="icon icon-group"></i>Teams</a>
+            </li>
+        </ul>
+        <div>
+            <a class="btn btn-primary" href="{{ path('pdfexample') }}">Export to PDF</a>
+            <a data-toggle="modal" data-target="#project-add-modal"><i class="icon icon-plus" style="-webkit-text-fill-color: #FFFFFF;font-size: 24px;letter-spacing: 10px;" ></i></a>
 
         </div>
+    {% endblock %}
 
 
-
-        <div class="modal-dialog">
+    {% block items %}
             {{ form_start(form) }}
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit  Project</h5>
+
+
+<div class="animatedParent animateOnce" style="width: 750%">
+    <div class="container-fluid my-3">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card" >
+                    <div class="card-body b-b">
+                        <h4>Edit team name</h4>
+                        <form class="form-material">
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label class="col-3">Team name</label>
+                                                {{ form_widget(form.name, {'attr': {'class': 'form-control col'}}) }}
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="card-bottom">
+
+                                    {{ form_widget(form.Modifier, {'attr': {'class': 'btn btn-primary'}}) }}
+
+                                </div>
+                                {{ form_end(form) }}
+
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
-                <!--end of modal head-->
-                <ul class="nav nav-tabs nav-fill" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="task-add-details-tab" data-toggle="tab" href="#task-add-details" role="tab" aria-controls="task-add-details" aria-selected="true">Details</a>
-                    </li>
-
-                </ul>
-                <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
-                    <h6>General Details</h6>
-
-                    <div class="form-group row align-items-center">
-                        <label class="col-3">Team name</label>
-                        {{ form_start(form) }}
-                        {{ form_widget(form.name ,{'attr': {'class': 'form-control col'}})}}
-                    </div>
-
-                    <hr>
-
-                    <div class="form-group row align-items-center">
-
-                        <label class="col-3">Modifier Team</label>
-
-
-                        {{ form_widget(form.Modifier,{'attr': {'class': 'form-control col'}})}}
-                        {{ form_end(form) }}
-
-                    </div>
-                <!--end of modal body-->
-
             </div>
-
-                {{ form_end(form) }}
         </div>
-
+    </div>
+</div>
 
 
 

@@ -1,0 +1,93 @@
+{% extends'baseF.html.twig' %}
+
+
+
+
+                            {% block contents %}
+                                {% block row %}
+
+                                    <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+                                        <li>
+                                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                                                <i class="icon icon-meeting"></i>Meetings</a>
+                                        </li>
+
+
+                                    </ul>
+
+                                {% endblock %}
+                                {% block items %}
+
+                                    <div style="width:420%;" >
+                                    <div class="p-4">
+
+                                    <!--end of modal head-->
+                                    {{ form_start(f) }}
+                                    <div class="modal-body">
+                                    <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="task-add-details" role="tabpanel">
+                                        <h6>General Details</h6>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-3">Name</label>
+                                            {{ form_widget(f.name, {'attr': {'class': 'form-control col',"placeholder":"meeting name", "name":"meeting-name","type":"text"}}) }}
+
+                                        </div>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-3">place</label>
+                                            {{ form_widget(f.place, {'attr': {'class': 'form-control col',"placeholder":"meeting place", "name":"meeting-place","type":"text"}}) }}
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3">type</label>
+                                            {{ form_widget(f.type, {'attr': {'class': 'form-control col',"placeholder":"meeting type", "name":"meeting-type"}}) }}
+
+
+                                        </div>
+                                        <div class="form-group row">
+
+                                            <label class="col-3">Sprint Name</label>
+                                            {{ form_widget(f.sprint, {'attr': {'class': 'form-control col', "name":"meeting-sprint"}}) }}
+                                        </div>
+
+                                        <hr>
+                                        <h6>Timeline</h6>
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-3">Start Date</label>
+
+                                            {{ form_widget(f.meetingDate) }}
+                                        </div>
+
+
+                                        <div class="alert alert-warning text-small" role="alert">
+                                            <span>You can change due dates at any time.</span>
+                                        </div>
+                                    </div>
+
+                                    <!--end of modal body-->
+                                    <div class="modal-footer">
+                                        {{ form_widget(f._token) }}
+                                        {{ form_widget(f.submit, {'attr': {'class': 'btn btn-primary', "type":"submit"}}) }}
+
+                                    </div>
+
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    {% block javascripts %}
+                                        <script>
+                                            $(document).ready(function(){
+                                                $("#myInput").on("keyup", function() {
+                                                    var value = $(this).val().toLowerCase();
+                                                    $("#myList li").filter(function() {
+
+                                                        $(this).toggle($(this).find('.username').text().toLowerCase().indexOf(value) > -1)
+                                                    });
+                                                });
+                                            });
+                                        </script>
+
+                                    {% endblock %}
+
+                                {% endblock %}
+                            {% endblock %}

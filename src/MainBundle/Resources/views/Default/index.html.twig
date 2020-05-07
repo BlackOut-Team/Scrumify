@@ -88,20 +88,18 @@
                         <li><a href="#testimonials-section">Company</a></li>
                       </ul>
                     </li>
-                <li><a href="{{ path('_display_questions') }}" class="nav-link">Forum</a></li>
                 <li><a href="#contact-section" class="nav-link">Contact</a></li>
                 {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <li><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary mr-2 mb-2" style="color: white"><strong>Sign in</strong></a></li>
                 {% endif %}
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                  <li>
+            <!--      <li>
                     <a href="{{ path('inbox') }}"  class="nav-link" >
                       <i class="icon-message "></i>
                       <span class="badge badge-success badge-mini rounded-circle">{{ fos_message_nb_unread() }}</span>
                     </a>
-                  </li>
+                  </li>-->
                   <li><a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary mr-2 mb-2"  style="color: white; background-color: #16cabd"><strong class="mt-ng-2">LogOut</strong></a></li>
-
                 {% endif %}
 
               </ul>

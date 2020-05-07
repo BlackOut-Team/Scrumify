@@ -1,16 +1,15 @@
-
-{% extends "@Main/Default/index.html.twig" %}
+{% extends 'baseF.html.twig' %}
 
 {% block stylesheets %}
 
     <link rel="stylesheet" href={{ asset('Forum/css/style.css') }}>
-    <link href={{ asset('assets/css/theme.css') }} rel="stylesheet" type="text/css" media="all" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/chat.css') }}" rel="stylesheet">
 
 {% endblock %}
-{% block contents %}
-    <div class="container bootstrap snippet"style="padding-top: 180px;">
+
+    {% block items %}
+    <div class="container bootstrap snippet"style="padding-top: 80px;width: 420%;">
         <div class="row " style="box-shadow: 6px 6px 10px rgba(0,0,0,0.2), -6px -6px 10px    rgba(255,255,255, 0.8); background-color: #ecf0f1;">
             <div class="col-md-4 bg-white ">
                 <div class=" row border-bottom padding-sm" style="height: 40px;">
@@ -19,7 +18,7 @@
 
                 <!-- =============================================================== -->
                 <!-- member list -->
-                <ul class="friend-list">
+                <ul class="friend-list" style="margin-left: 20px;">
                     <center><a href="{{ path('DisplayUsers') }}"><button type="button" class="btn btn-info  mb-2 mt-2">Add Friends</button></a></center>
 
                     <div class="alert alert-primary" role="alert">
@@ -57,8 +56,8 @@
                 </ul>
                     <div id="accordion">
                 <ul class="friend-list">
-                    <div class="card">
-                        <div class="card-header">
+                    <div class="card" style="margin-left: 30px;">
+                        <div class="card-header" >
                             <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
                                 inbox
                             </a>
@@ -66,7 +65,7 @@
                         <div id="collapseTwo" class="collapse" data-parent="#accordion">
                             <div class="card-body">
 
-                    {% for t in threadsInbox %}
+                      {% for t in threadsInbox %}
                             <li class=" bounceInDown" style="background-color: #ecf0f1;">
                                         <a href="{{ url('messaging_homepage',{'id':t.id}) }}"  class="clearfix">
                                             <img src="{{ asset('uploads/images/'~  t.lastMessage.sender.image ) }}" alt="" class="img-circle  m-2">

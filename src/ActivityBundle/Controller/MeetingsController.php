@@ -20,9 +20,8 @@ use Mgilet\NotificationBundle\NotifiableInterface;
 class MeetingsController extends Controller
 {
 
-    function AfficheMettingAction($id,Request $request){
+    function AfficheMettingAction($id){
 
-        $em = $this->getDoctrine()->getManager();
 
         //select project
         $project=$this->getDoctrine()
@@ -32,7 +31,7 @@ class MeetingsController extends Controller
         //select sprints mil base de donnee(array)
         $sprints = $this->getDoctrine()
             ->getRepository(Sprint::class)
-            ->findBy(['project' => $project]);
+            ->findBy(['project' => $id]);
 
         //select team
         $team = $this->getDoctrine()
@@ -45,7 +44,6 @@ class MeetingsController extends Controller
             ->findBy(['teamId' => $team->getId()]);
 
         //display meeting
-        $meetingadd = new Meetings();
         $meeting=$this->getDoctrine()
             ->getRepository(Meetings::class)
             ->findAll();
@@ -60,41 +58,57 @@ class MeetingsController extends Controller
             ->getRepository(Activity::class)
             ->findBy(['viewed'=>0]);
 
-        //create form
-        $ajouterFrorm = $this->createForm(MeetingsType::class, $meetingadd);
-        $ajouterFrorm->handleRequest($request);
 
-        if ($ajouterFrorm->isSubmitted() && $ajouterFrorm->isValid()) {
-
-            //create meeting
-            $em->persist($meetingadd);
-            $em->flush();
-
-
-            //appel lel service mta bundle extern -> createNotification
-            $notif =$this->get('mgilet.notification')->createNotification('Meeting !', "you have a meeting (". $meetingadd->getName() .") in " . $meetingadd->getPlace() ." at ". $meetingadd->getMeetingDate()->format('Y-m-d H:i'), '');
-            foreach ( $teamMembers as $teamMember){
-                $this->get('mgilet.notification')->addNotification(array($teamMember->getUserId()), $notif, true);
-            }
-            //send sms when adding meeting (extern bundle)
-            //$sid = "ACabcbc80d4384e812cad9003a0e0572df"; // Your Account SID from www.twilio.com/console
-            //$token = "88420746fc00b5b421774e629777891a"; // Your Auth Token from www.twilio.com/console
-
-            //$client = new Client($sid, $token);
-            //$client->messages->create(
-                //'+21655515552', // Text this number
-                //array(
-                    //'from' => '+12563636360', // From a valid Twilio number
-                    //'body' => "you have a meeting (". $meetingadd->getName() .") in " . $meetingadd->getPlace() ." at ". $meetingadd->getMeetingDate()->format('Y-m-d H:i')
-                //)
-            return $this->redirectToRoute('affichermeeting',['id'=>$id]);
-
-        }
-        return $this->render('@Activity/Default/activity.html.twig',
-            array('activities'=>$Activities,'m'=>$meeting, "f"=>$ajouterFrorm->createView(), 'newActivities'=>$NewActivities, 'sprints'=> $sprints, 'id' => $id, 'team' =>$teamMembers));
+        return $this->render('@Activity/Default/meetings.html.twig',
+            array('activities'=>$Activities,'m'=>$meeting,  'newActivities'=>$NewActivities, 'sprints'=> $sprints, 'id' => $id, 'team' =>$teamMembers));
     }
 
+function addMeetingAction(Request $request,$id){
+    $em = $this->getDoctrine()->getManager();
+    $meetingadd = new Meetings();
+    $project = $this->getDoctrine()
+        ->getRepository(Projet::class)
+        ->find($id);
+    $t=$project->getTeam()->getId();
+    $team = $this->getDoctrine()
+        ->getRepository(team::class)
+        ->find($t);
+    $teamMembers = $this->getDoctrine()
+        ->getRepository(team_user::class)
+        ->findBy(['teamId' => $team->getId()]);
+    //create form
+    $ajouterFrorm = $this->createForm(MeetingsType::class, $meetingadd);
+    $ajouterFrorm->handleRequest($request);
 
+    if ($ajouterFrorm->isSubmitted() && $ajouterFrorm->isValid()) {
+
+        //create meeting
+        $em->persist($meetingadd);
+        $em->flush();
+
+
+        //appel lel service mta bundle extern -> createNotification
+        $notif =$this->get('mgilet.notification')->createNotification('Meeting !', "you have a meeting (". $meetingadd->getName() .") in " . $meetingadd->getPlace() ." at ". $meetingadd->getMeetingDate()->format('Y-m-d H:i'), '');
+        foreach ( $teamMembers as $teamMember){
+            $this->get('mgilet.notification')->addNotification(array($teamMember->getUserId()), $notif, true);
+        }
+        //send sms when adding meeting (extern bundle)
+        //$sid = "ACabcbc80d4384e812cad9003a0e0572df"; // Your Account SID from www.twilio.com/console
+        //$token = "88420746fc00b5b421774e629777891a"; // Your Auth Token from www.twilio.com/console
+
+        //$client = new Client($sid, $token);
+        //$client->messages->create(
+        //'+21655515552', // Text this number
+        //array(
+        //'from' => '+12563636360', // From a valid Twilio number
+        //'body' => "you have a meeting (". $meetingadd->getName() .") in " . $meetingadd->getPlace() ." at ". $meetingadd->getMeetingDate()->format('Y-m-d H:i')
+        //)
+        return $this->redirectToRoute('affichermeeting',['id'=>$id]);
+
+    }
+    return $this->render('@Activity/Default/addmeetings.html.twig',
+        array( "f"=>$ajouterFrorm->createView(),'id' => $id));
+}
 
 
     function SupprimerAction($id,$project_id){
@@ -105,6 +119,13 @@ class MeetingsController extends Controller
         $em->flush();
         return $this->redirectToRoute('affichermeeting',['id' =>$project_id ]);
 
+    }
+    function afficherMeetingsAction($project_id){
+        $em=$this->getDoctrine()->getManager();
+        $meeting=$em->getRepository(Meetings::class)
+            ->find($project_id);
+        return $this->render('@Activity/Default/afficherMeeting.html.twig',
+            array('m'=> $meeting ));
     }
     function modifierAction($id,$project_id , Request $request)
     {

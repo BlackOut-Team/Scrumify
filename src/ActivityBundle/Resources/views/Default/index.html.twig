@@ -1,13 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends'baseF.html.twig' %}
 
-{% block title %}Activity{% endblock %}
-{% block head %}
 
-{% endblock %}
-{% block contents %}
-    <div class="text-center d-flex align-items-center justify-content-center pt-5">
 
-<ol class="list-group list-group-activity w-25">
+
+                            {% block contents %}
+                                {% block row %}
+
+                                    <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+                                        <li>
+                                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                                                <i class="icon icon-note-important"></i>All activities</a>
+                                        </li>
+
+
+                                    </ul>
+
+                                {% endblock %}
+                                        {% block items %}
+
 
     {% for activity in activities %}
 
@@ -39,8 +49,7 @@
 
     {% endfor %}
 
-    </ol>
-    </div>
+   {% endblock %}
 
 
 {% endblock %}

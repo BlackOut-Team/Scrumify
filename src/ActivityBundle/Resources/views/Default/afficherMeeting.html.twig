@@ -1,10 +1,26 @@
-{% extends 'base.html.twig' %}
-{% block title %}Activity{% endblock %}
-{% block head %}
+{% extends'baseF.html.twig' %}
 
-{% endblock %}
-{% block contents %}
-<div class="text-center d-flex align-items-center justify-content-center pt-md-5 flex-column">
+
+
+
+                            {% block contents %}
+                                {% block row %}
+
+                                    <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+                                        <li>
+                                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                                                <i class="icon icon-meeting"></i>All meetings</a>
+                                        </li>
+
+
+                                    </ul>
+
+                                {% endblock %}
+                                        {% block items %}
+
+
+                                            <div style="width:420%;" >
+                                            <div class="p-4">
     {% for mm in m %}
 <div class="card card-kanban w-25">
     <div class="progress">
@@ -55,6 +71,7 @@
 </div>
     {% endfor %}
 </div>
+                                            </div>
 
-
+{% endblock %}
 {% endblock %}

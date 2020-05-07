@@ -1,24 +1,25 @@
-
-{% extends "@Main/Default/index.html.twig" %}
+{% extends 'baseF.html.twig' %}
 
 {% block stylesheets %}
 
     <link rel="stylesheet" href={{ asset('Forum/css/style.css') }}>
-    <link href={{ asset('assets/css/theme.css') }} rel="stylesheet" type="text/css" media="all" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/chat.css') }}" rel="stylesheet">
 
 {% endblock %}
-{% block contents %}
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    {% block items %}
+  <div class="card card-block d-flex"  style="width:420%;background: transparent;" >
+                    <div class="p-4">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <div class="content">
         <div class="container">
-            <div class="row">
+          <!--  <div class="row">
                 <div class="col-sm-4"><a href="#custom-modal" class="btn btn-custom waves-effect waves-light mb-4" data-animation="fadein" data-plugin="custommodal" data-overlayspeed="200" data-overlaycolor="#36404a"><i class="mdi mdi-plus"></i> Add Member</a></div>
-                <!-- end col -->
-            </div>
+
+            </div>-->
             <!-- end row -->
-            <div class="row" style="padding-top: 150px;">
+            <div class="row" style="padding-top: 50px;">
                 {% for request in friendRequest %}
                     <div class="col-lg-2 m-2">
                         <div class="text-center card-box">
@@ -89,6 +90,8 @@
         </div>
         <!-- container -->
     </div>
+    </div>
+  </div>
 {% endblock %}
 {% block javascripts %}
 

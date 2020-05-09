@@ -23,19 +23,17 @@
         <a class="btn btn-primary" href="{{ path('affecter' , { 'id': id }) }}" style="margin-left: 150px;margin-top: 20px;">Ajouter membres</a>
 
 
-        <div class="modal-dialog-centered"  style=" margin-top: 100px;" >
+        <div class="modal-dialog-centered"  style=" margin-top: 10px;" >
 
             {% for users in users  %}
 
-                <div class="card card-handle" style="width: 200%;margin-right: 50Px;">
-                    <div class="modal-title">
-                        <img src="{{ asset('uploads/images/')}}{{ users.image }}" width="200" class="avatar avatar-lg">
+                    <div class="modal-title" style="padding: 15px;">
+                        <img src="{{ asset('uploads/images/')}}{{ users.image }}"  class="avatar avatar-lg">
 
-                        <div class="media-body">
+                        <div class="modal-body">
                             <h6 class="mb-0 H6-filter-by-text" data-filter-by="text">{{ users.username }}</h6>
                         </div>
                     </div>
-                </div>
                 <br>
             {% endfor %}
         </div>

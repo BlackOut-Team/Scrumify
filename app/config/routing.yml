@@ -1,7 +1,3 @@
-evenement:
-    resource: "@EvenementBundle/Resources/config/routing.yml"
-    prefix:   /evt
-
 
 
 my_app_mail:

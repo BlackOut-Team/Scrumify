@@ -23,12 +23,10 @@
                                     </div>
 
 
-                                    <div style="width:420%;" >
-                                        <div class="p-4">
 
 
                                             {% for sprint in sprints %}
-                                                <div class="card-list w-75 m-auto" style="background-color: #dee2e6">
+                                                <div class="card-list w-75 m-5 " style="background-color: #dee2e6">
 
                                                     <div class="card-list-head">
                                                         <h6>{{ sprint.name }}</h6>
@@ -37,54 +35,47 @@
                                                     {% for mm in m %}
                                                         {% if mm.sprint.id == sprint.id %}
 
-                                                            <div class="card-list-body filter-list-1581930131283 mb-2"><div class="card card-task">
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                    </div>
-                                                                    <div class="card-body">
-                                                                        <div class="card-title">
+                                                            <div class="card card-block shadow1 d-flex"  style="width:520%;" >
+                                                                <div class="p-4">
+                                                                        <div class="counter-title">
                                                                             <a href="#">
                                                                                 <h6 data-filter-by="text" class="H6-filter-by-text">{{ mm.name }}</h6>
                                                                             </a>
-                                                                            <span class="text-small">{{ mm.type }}</span>
+                                                                            <span class="text-small">Type: {{ mm.type }}</span>
                                                                         </div>
-                                                                        <div class="card-meta">
-                                                                            <ul class="avatars">
-                                                                                {% for t in team %}
-                                                                                    <li>
-                                                                                        <a href="#" data-toggle="tooltip" title="Marcus">
-                                                                                            <img  class="avatar" src="{{ asset('uploads/images/'~ t.userId.image) }}">
-                                                                                        </a>
-                                                                                    </li>
-                                                                                {% endfor %}
+                                                                    <span class="text-small" data-filter-by="text">Meeting date :  {{ mm.meetingDate | date('d-M-Y') }}</span>
 
-                                                                            </ul>
-                                                                            <div class="d-flex align-items-center">
-                                                                                <i class="material-icons">playlist_add_check</i>
-                                                                                <span>-/-</span>
-                                                                            </div>
-                                                                            <div class="dropdown card-options">
-                                                                                <button class="btn-options" type="button" id="task-dropdown-button-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                    <i class="material-icons">more_vert</i>
-                                                                                </button>
-                                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                                    <a class="dropdown-item" href="{{ path('update_meeting',{'id':mm.id, 'project_id':id}) }}">Edit</a>
-                                                                                    <div class="dropdown-divider"></div>
-                                                                                    <a class="dropdown-item text-danger" href="{{ path('delete_meeting',{'id':mm.id, 'project_id':id}) }}">Archive</a>
-                                                                                </div>
+                                                                    <div class="card-footer right-side " style="margin-left: 500Px;background-color: transparent;">
+
+                                                                                {% for t in team %}
+
+                                                                                        <a href="#"  title="{{ t.userId.username }}">
+                                                                                            <img  class="avatar" src="{{ asset('uploads/images/'~ t.userId.image) }}" >
+                                                                                        </a>
+                                                                                {% endfor %}
+                                                                    </div>
+                                                                    <div class="card-footer left-side" style="margin-left: 700Px;background-color: transparent;">
+                                                                        <a href="{{ path('delete_meeting',{'id':mm.id, 'project_id':id}) }}"><i class="icon-archive " style="-webkit-text-fill-color: darkred;font-size: 24px;letter-spacing: 10px;" ></i></a>
+
+                                                                        <a href="{{ path('update_meeting',{'id':mm.id, 'project_id':id}) }}"><i class="icon-edit " style="-webkit-text-fill-color: #16CABD;  font-size: 24px;letter-spacing: 10px;"></i></a>
+
+
+                                                                    </div>
+
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                </div></div>
                                                         {% endif %}
+                                                <br>
                                                     {% endfor %}
 
-
                                                 </div>
+                                                <br>
                                             {% endfor %}
 
-                                        </div>
-                                    </div>
+
+
+
+
                                     {% block javascripts %}
                                         <script>
                                             $(document).ready(function(){

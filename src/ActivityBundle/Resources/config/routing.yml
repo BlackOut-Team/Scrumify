@@ -12,7 +12,7 @@ affichermeeting:
     path:     /afficher_meetings/{id}
     defaults: { _controller: ActivityBundle:Meetings:AfficheMetting }
 delete_meeting:
-    path:     /delete_meeting/{id}{project_id}
+    path:     /delete_meeting/{id}/{project_id}
     defaults: { _controller: ActivityBundle:Meetings:Supprimer}
 update_meeting:
     path:     /update_meeting/{id}{project_id}

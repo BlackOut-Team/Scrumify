@@ -21,33 +21,71 @@
 
 
 <h6> Utilisateurs de Scrumify</h6>
-        <div class="modal-dialog-centered"  style="width:420%;margin-top: 100px;" >
+        <div class="modal-dialog-centered"  style="width:420%;margin-top: 10px;" >
 
 
                                     {% for users in users  %}
-                                        <div class="card card-handle" style="width: 200%;margin-right: 50Px;">
-                                         <div class="modal-title">
-                                            <img src="{{ asset('uploads/images/')}}{{ users.image }}" width="200" class="avatar avatar-lg" />
+                                         <div class="modal-title" style="padding: 15px;">
+                                             {% set user_id = users.id %}
+                                             {% set role_id = 'role' ~ users.id %}
+                                             {% set sub_id = 'sub' ~ users.id %}
+                                             {% set srt = 'srt' ~ users.id %}
 
-                                            <div class="media-body">
+                                             <img src="{{ asset('uploads/images/')}}{{ users.image }}" width="200" class="avatar avatar-lg" id="{{  user_id }}" onclick="showSelected(this.id)"  />
+
+                                            <div class="modal-body">
                                                 <h6 class="mb-0 H6-filter-by-text" data-filter-by="text">{{ users.username }}</h6>
-                                                <a href="{{ path('affecterUser',{'team_id':id,'user_id':users.id}) }}">Affecter</a>
+
+                                             <!--  {{ form_start(S) }}
+                                                <div  style="display: none">
+                                                {{ form_widget(S.userId ,{ 'data':user_id,'attr': {'class': 'form-control col','value': user_id  }} ) }}
+                                               </div>
+
+                                                <div  onchange="run(this.id,{{user_id}})">
+                                                {{ form_widget(S.role ,{'id': role_id,'attr': { 'class': 'form-control col' , 'style':'display:none'}} ) }}
+                                                </div>
+                                                {{ form_widget(S.Submit ,{'id': sub_id,'attr': { 'class': 'form-control col','style':'display:none'}} ) }}
+                                                {{ form_end(S) }}-->
+
+
+                                                  <input type="text" id="{{ srt }}" style="display: none">
+                                                       <form action="{{ path('affecterUser',{'team_id':id,'user_id':users.id }) }}" method="get">
+                                                           <select class="pull-left form-control input-lg" name="role_select" id="{{role_id}}" style="display: none" onchange="run(this.id,{{user_id}})">
+                                                               <option value="null">Select role</option>
+                                                               <option value="3">Product Owner</option>
+                                                               <option value="2">Developer</option>
+                                                           </select>
+                                                           <input type="submit" value="Affecter" id="{{sub_id}}" style="display: none">
+
+                                                       </form>
+
+
+
+
+                                                <br>
+
+
+
                                             </div>
-                                        </div>
-                                        </div>
+
+                                         </div>
                                         <br>
                                     {% endfor %}
-                </div>
+
+        </div>
 
         <h6> Non Utilisateurs de Scrumify</h6>
 <div class="tab-pane fade show active" id="project-add-details" role="tabpanel">
 {{ form_start(f) }}
-<div class="alert alert-primary" role="alert">
-    {{ form_widget(f.Email ,{'attr': {'class': 'form-control col'}})}}
+<div class="alert alert-primary" role="alert" style="width: 420%">
+   {{ form_widget(f.Email ,{'attr': {'class': 'form-control col'}})}}
+    <br>
     {{ form_widget(f.Envoyer,{'attr': {'class': 'btn btn-primary'}})}}
 
 </div>
 </div>
     {% endblock %}
+
 {% endblock %}
+
 

@@ -35,7 +35,6 @@ class team_user
     private $userId;
 
 
-
     /**
      * Set teamId.
      *
@@ -107,9 +106,9 @@ class team_user
     private $role;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getRole(): int
+    public function getRole(): ?int
     {
         return $this->role;
     }

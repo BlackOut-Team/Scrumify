@@ -19,3 +19,23 @@ desarchiverProject:
 chart:
     path:   /chart
     defaults: { _controller: ScrumBundle:Default:chart }
+Event_Back:
+    path:     /showBack
+    defaults: { _controller: ScrumBundle:Calendar:showback }
+LoadEvent:
+    path:     /load
+    defaults: { _controller: ScrumBundle:Default:load }
+addEvent:
+    path:     /addE
+    defaults: { _controller: ScrumBundle:Default:add }
+projects_calendar:
+    path:     /calendar
+    defaults: { _controller: ScrumBundle:Calendar:calendar }
+projects_new:
+    path:     /addcalendar
+    defaults: { _controller: ScrumBundle:Calendar:add }
+fullcalendar_load_events:
+    path:     /fc-load-events
+    defaults: { _controller: ScrumBundle:Calendar:load}
+
+

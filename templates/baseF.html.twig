@@ -594,98 +594,66 @@
 <script src='{{ asset('fullCalendar/lib/moment.min.js') }}'></script>
 <script src='{{ asset('fullCalendar/lib/jquery-ui.custom.min.js') }}'></script>
 <script src='{{ asset('fullCalendar/lib/fullcalendar.min.js') }}'></script>
-<script>
-    console.log('a');
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://momentjs.com/downloads/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/locale/fr.js"></script>
+{% block javascripts %}
+{% endblock %}
+<script type="text/javascript">
+    function showSelected(id) {
+
+        var dv = document.getElementById('role'+id);
+        var dv1 = document.getElementById('sub'+id);
+
+        if ((dv.style.display === "none")&&(dv1.style.display === "none")) {
+
+            dv.style.display = "block";
+            dv1.style.display = "block";
+
+        }
+        else {
+            dv.style.display = "none";
+            dv1.style.display = "none";
+
+
+        }
+
+
+}
+
+    function run(id,i) {
+        document.getElementById('srt'+i).value = document.getElementById(id).value;
+
+    }
+
+</script>
+<script type="text/javascript">
     $(document).ready(function() {
-        var calendar = $('#calendar').fullCalendar({
-            editable:true,
-            header:{
-                left:'prev,next today',
-                center:'title',
-                right:'month,agendaWeek,agendaDay'
-            },
-            events : 'load',
-            selectable:true,
-            selectHelper:true,
-            select: function(start, end, allDay)
-            {
-                var title = prompt("Enter Event Title");
-                if(title)
+        $("#calendar-holder").fullCalendar({
+            eventSources: [
                 {
-                    var start =moment(start, 'DD.MM.YYYY').format( "YYYY-MM-DD HH:mm:ss");
-                    var end = moment(end, 'DD.MM.YYYY').format( "YYYY-MM-DD HH:mm:ss");
-                    $.ajax({
-
-                        url:"add",
-                        type:"POST",
-                        data:{title:title, start:start, end:end},
-                        success:function()
-                        {
-                            calendar.fullCalendar('refetchEvents');
-                            alert("Added Successfully");
-                        }
-                    })
-                }
-            },
-
-            eventResize:function(event)
-            {
-                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-                var title = event.title;
-                var id = event.id;
-                $.ajax({
-                    url:"update.php",
-                    type:"POST",
-                    data:{title:title, start:start, end:end, id:id},
-                    success:function(){
-                        calendar.fullCalendar('refetchEvents');
-                        alert('Event Update');
+                    url: "{{ path('fullcalendar_load_events') }}",
+                    type: "POST",
+                    data: {
+                        filters: {},
+                    },
+                    error: function () {
+                        // alert("There was an error while fetching FullCalendar!");
                     }
-                })
-            },
-
-            eventDrop:function(event)
-            {
-                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-                var title = event.title;
-                var id = event.id;
-                $.ajax({
-                    url:"update.php",
-                    type:"POST",
-                    data:{title:title, start:start, end:end, id:id},
-                    success:function()
-                    {
-                        calendar.fullCalendar('refetchEvents');
-                        alert("Event Updated");
-                    }
-                });
-            },
-
-            eventClick:function(event)
-            {
-                if(confirm("Are you sure you want to remove it?"))
-                {
-                    var id = event.id;
-                    $.ajax({
-                        url:"delete.php",
-                        type:"POST",
-                        data:{id:id},
-                        success:function()
-                        {
-                            calendar.fullCalendar('refetchEvents');
-                            alert("Event Removed");
-                        }
-                    })
                 }
+            ],
+            header: {
+                center: "title",
+                left: "prev,next today",
+                right: "month,agendaWeek,agendaDay"
             },
-
+            lazyFetching: true,
+            locale: "fr",
+            navLinks: true, // can click day/week names to navigate views
         });
     });
 </script>
-{% block javascripts %}
-{% endblock %}
 <script src="{{ asset('Back/js/app.js') }}"></script>
  <script>
     $('#dropdown').click(function(){

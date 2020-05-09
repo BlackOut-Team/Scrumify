@@ -1,4 +1,14 @@
 services:
+  fullcalendar.service.serializer:
+    class: ScrumBundle\Service\Serializer
+    public: false
+
+  fullcalendar.service.calendar:
+    class: ScrumBundle\Service\Calendar
+    public: true
+    arguments:
+      - "@fullcalendar.service.serializer"
+      - "@event_dispatcher"
 #    scrum.example:
 #        class: ProjectApi\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

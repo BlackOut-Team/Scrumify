@@ -1,5 +1,3 @@
-
-
 my_app_mail:
     resource: "@MyAppMailBundle/Resources/config/routing.yml"
 

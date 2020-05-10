@@ -10,4 +10,77 @@ namespace ScrumBundle\Repository;
  */
 class ProjetRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getCurrent()
+    {
+        $now =new \DateTime('now');
+
+
+        $qb = $this->createQueryBuilder("e");
+        $qb->andWhere('e.duedate > :now ')
+            ->andWhere('e.etat = 1')
+            ->setParameter('now', $now );
+
+        return $result = $qb->getQuery()->getResult();
+
+
+    }
+    public function getCompleted()
+    {
+        $now =new \DateTime('now');
+
+
+        $qb = $this->createQueryBuilder("e");
+        $qb->andWhere('e.duedate < :now ')
+            ->andWhere('e.etat = 1')
+            ->setParameter('now', $now );
+
+        return $result = $qb->getQuery()->getResult();
+
+
+    }
+    public function getMaster($user)
+    {
+
+        $qb = $this->createQueryBuilder('p');
+        $qb
+
+            ->join('TeamBundle:team_user','t' )
+            ->andWhere('t.userId = :user' )
+            ->andWhere('p.team = t.teamId')
+            ->andWhere('t.role = 1')
+            ->setParameter('user', $user);
+       // var_dump($qb->getQuery()->getResult());
+        return $result = $qb->getQuery()->getResult();
+
+    }
+    public function getOwner($user)
+    {
+
+        $qb = $this->createQueryBuilder('p');
+        $qb
+
+            ->join('TeamBundle:team_user','t' )
+            ->andWhere('t.userId = :user' )
+            ->andWhere('p.team = t.teamId')
+            ->andWhere('t.role = 3')
+            ->setParameter('user', $user);
+       // var_dump($qb->getQuery()->getResult());
+        return $result = $qb->getQuery()->getResult();
+
+    }
+    public function getDev($user)
+    {
+
+        $qb = $this->createQueryBuilder('p');
+        $qb
+
+            ->join('TeamBundle:team_user','t' )
+            ->andWhere('t.userId = :user' )
+            ->andWhere('p.team = t.teamId')
+            ->andWhere('t.role = 2')
+            ->setParameter('user', $user);
+        //var_dump($qb->getQuery()->getResult());
+        return $result = $qb->getQuery()->getResult();
+
+    }
 }

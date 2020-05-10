@@ -18,6 +18,7 @@ use TeamBundle\Entity\team_user;
 
 class DefaultController extends Controller
 {
+
     public function  AddPAction(Request $request)
     {
 
@@ -71,15 +72,27 @@ class DefaultController extends Controller
         ));
     }
 
-    public function  showPAction(Request $request)
+    public function  showPAction()
     {
 
-        $myproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'master_id'=>$this->getUser()]);
-        $ownerproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'owner_id'=>$this->getUser()]);
+        $all = $this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=> 1]);
+        $current = $this->getDoctrine()->getRepository(Projet::class)->getCurrent();
+        $completed = $this->getDoctrine()->getRepository(Projet::class)->getCompleted();
+
+
+        $master=$this->getDoctrine()->getRepository(Projet::class)->getMaster($this->getUser());
+        $owner=$this->getDoctrine()->getRepository(Projet::class)->getOwner($this->getUser());
+        $dev=$this->getDoctrine()->getRepository(Projet::class)->getDev($this->getUser());
+
+        //var_dump($query);
 
        return $this->render('@Scrum/Default/showProjects.html.twig',array(
-            'myproject'=>$myproject,
-            'ownerproject'=>$ownerproject,
+            'master'=>$master,
+            'owner'=>$owner,
+           'dev'=>$dev,
+           'current' => $current ,
+           'comp' => $completed ,
+           'all' => $all
 
         ));
         //$serializer = new Serializer([new ObjectNormalizer()]);
@@ -116,8 +129,8 @@ class DefaultController extends Controller
     {
         $em= $this->getDoctrine()->getManager();
         $pieChart = new PieChart();
-        $Archive =$em->getRepository('Scrum:Projet')->findBy(['etat'=>0]);
-        $Active =$em->getRepository('Scrum:Projet')->findBy(['etat'=>1]);
+        $Archive =$em->getRepository('ScrumBundle:Projet')->findBy(['etat'=>0]);
+        $Active =$em->getRepository('ScrumBundle:Projet')->findBy(['etat'=>1]);
 
         $user=$em->getRepository('MainBundle:User')->findAll();
 

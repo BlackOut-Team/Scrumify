@@ -4,3 +4,7 @@ homepage:
 homepageback:
   path:     /dashboard
   defaults: { _controller: MainBundle:Default:dashboard }
+dashboard:
+  path:     /Dash
+  defaults: { _controller: MainBundle:Default:dash}
+

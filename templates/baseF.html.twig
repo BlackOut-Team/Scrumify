@@ -86,7 +86,6 @@
     <aside class="main-sidebar fixed offcanvas shadow">
         <section class="sidebar">
             <div class="w-80px mt-3 mb-3 ml-3">
-                <img src="{{ asset('Back/img/dummy/scrumify.png') }}"  style="width: 40px;height: 40px;">
             </div>
             <div class="relative">
                 <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false"
@@ -95,26 +94,30 @@
                 </a>
                 <div class="user-panel p-3 light mb-2">
                     <div>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
                         <div class="float-left info">
                             <div class="float-left image">
 
-                                <img class="user_avatar" src="{{ asset('Back/img/dummy/u2.png') }}" alt="User Image">
+                                <img class="user_avatar" src="{{ asset('uploads/images/')}}{{ app.user.image }}" alt="User Image" style="height: 60px">
                             </div>
-                            <div>
-                                <h6 class="font-weight-light mt-2 mb-1">
-                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                                        <a href="{{ path('fos_user_security_logout') }}">
-                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                        </a>
-                                    {% endif %}
+                            <div style="width: 200%">
+                                <h6 class="font-weight-light ">
+                                     Hello ,   {{  app.user.username }}
+                                <br>
+                                    <a href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
                                 </h6>
-                            </div>
+                                <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
 
-                            <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
+                            </div>
                         </div>
+
                     </div>
+
+                    {% endif %}
+
                     <div class="clearfix"></div>
                     <div class="collapse multi-collapse" id="userSettingsCollapse">
                         <div class="list-group mt-3 shadow">
@@ -136,9 +139,11 @@
                                 class="icon icon-angle-left s-18 pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{path('homepageback')}}"><i class="icon icon-folder5"></i>Statistics</a>
+                        <li><a href="{{path('dashboard')}}"><i class="icon icon-folder5"></i>Overview</a>
                         </li>
-                        <li><a href="panel-page-dashboard2.html"><i class="icon icon-folder5"></i>Data</a>
+                        <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Projects Statistics</a>
+                        </li>
+                        <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Team statistis</a>
                         </li>
                     </ul>
                 </li>
@@ -202,7 +207,7 @@
                 <div class="row p-t-b-10 ">
                     <div class="col text-white color-white">
                         <h4>
-                            Scrumify
+                            <img src="{{ asset('Back/img/dummy/scrumifyb.png') }}"  style="width: 40px;height: 40px;"> Scrumify
                         </h4>
                     </div>
                 </div>
@@ -270,11 +275,14 @@
                             </a>
                         </li>
                         <!-- User Account-->
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
                         <li class="dropdown custom-dropdown user user-menu">
                             <a href="#" class="nav-link" data-toggle="dropdown">
-                                <img src="{{ asset('Back/img/dummy/u8.png') }}" class="user-image" alt="User Image">
+                                <img src="{{ asset('uploads/images/')}}{{ app.user.image }}" class="user-image" alt="User Image">
                                 <i class="icon-more_vert "></i>
                             </a>
+                            {% endif %}
                             <div class="dropdown-menu p-4">
                                 <div class="row box justify-content-between my-4">
                                     <div class="col">
@@ -340,6 +348,7 @@
             </div>
         </div>
     </div>
+
     <div class="page has-sidebar-left height-full" >
         <header class="blue accent-3 relative nav-sticky" >
             <div class="container-fluid text-white">
@@ -394,31 +403,11 @@
                 <!-- date tab start-->
 
                 <div class="tab-pane animated fadeInUpShort" id="v-pills-4">
-                    <div class="row">
-                        <div class="col-md-4 mx-md-auto m-5">
-                            <div class="card no-b shadow">
-                                <div class="card-body p-4">
-                                    <div>
-                                        <i class="icon-calendar-check-o s-48 text-primary"></i>
-                                        <p class="p-t-b-20">Hey Soldier</p>
-                                    </div>
-                                    <form action="dashboard2.html">
-                                        <div class="form-group has-icon"><i class="icon-calendar"></i>
-                                            <input class="form-control form-control-lg datePicker" placeholder="Date From"
-                                                   type="text">
-                                        </div>
-                                        <div class="form-group has-icon"><i class="icon-calendar"></i>
-                                            <input class="form-control form-control-lg datePicker" placeholder="Date TO"
-                                                   type="text">
-                                        </div>
-                                        <input class="btn btn-success btn-lg btn-block" value="Get Data" type="submit">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="row my-3">
+                        <div class="col-md-3">
+                            {% block cal %}
 
+                            {% endblock %}
             </div>
         </div>
     </div>

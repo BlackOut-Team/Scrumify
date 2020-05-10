@@ -60,6 +60,9 @@ class DefaultController extends Controller
 
         return $this->render('@Main/Default/indexBack.html.twig', array('piechart' => $pieChart, 'sizeP'=>$sizeP , 'sizeU'=>$sizeU, 'sizeT'=>$sizeT));
     }
-
+    public function dashAction()
+    {
+        return $this->render('@Scrum/Dashboard.html.twig');
+    }
 
 }

@@ -75,9 +75,9 @@ class DefaultController extends Controller
     public function  showPAction()
     {
 
-        $all = $this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=> 1]);
-        $current = $this->getDoctrine()->getRepository(Projet::class)->getCurrent();
-        $completed = $this->getDoctrine()->getRepository(Projet::class)->getCompleted();
+        $all = $this->getDoctrine()->getRepository(Projet::class)->getAll($this->getUser());
+        $current = $this->getDoctrine()->getRepository(Projet::class)->getCurrent($this->getUser());
+        $completed = $this->getDoctrine()->getRepository(Projet::class)->getCompleted($this->getUser());
 
 
         $master=$this->getDoctrine()->getRepository(Projet::class)->getMaster($this->getUser());

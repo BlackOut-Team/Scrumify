@@ -98,14 +98,14 @@ fos_user:
     service:
         mailer: fos_user.mailer.twig_swift
     from_email:
-        address: "amiradoghri0@gmail.com"
+        address: "scrumify.application@gmail.com"
         sender_name: "Scrumify Team"
     registration:
         form:
             type: MainBundle\Form\RegistrationType
             name: app_user_registration
         confirmation:
-            enabled: false
+            enabled: true
             template: '@FOSUser/Registration/email.txt.twig'
     profile:
         form:

@@ -391,7 +391,17 @@
                     </ul>
                 </div>
             </div>
+            <div class="row p-t-b-10 " style="margin-left: 520px">
+
+                <div class="col text-white color-white">
+                    <h4>
+                        <img src="{{ asset('Back/img/dummy/scrumifyb.png') }}"  style="width: 40px;height: 40px;"> Scrumify
+                    </h4>
+                </div>
+            </div>
             <div class="container text-white pb-5">
+
+
                 <div class="mb-4">
                     <h4>
                         <i class="icon-box"></i>
@@ -410,8 +420,8 @@
                 <div class="lightSlider" data-slide-margin="3" data-item="3" data-item-md="2" data-item-sm="1"
                      data-pause="9000" data-pager="false" data-auto="true" data-controls="false"
                      data-loop="true">
-                    <div class="card b-0 r-0">
-                        <div class="card-header white no-b">
+                    <div class="card b-0 r-0" >
+                        <div class="card-header white no-b" >
                             <h6>BitCoin <span class="badge badge-success r-30 float-right"><i
                                             class="icon-chevron-up mr-2"></i>+10%</span></h6>
                         </div>
@@ -437,7 +447,7 @@
                                     }'>
                                     </div>
                                     <div class="btn-group float-right mt-4" data-toggle="buttons">
-                                        <button type="button" class="btn btn-outline-primary btn-xs">BUY</button>
+                                        <button type="button" class="btn btn-outline-primary btn-xs" href="{{ path('project_homepage') }}">BUY</button>
                                         <button type="button" class="btn btn-outline-primary btn-xs">SELL</button>
                                     </div>
                                 </div>
@@ -648,7 +658,7 @@
                                 <div class="my-3">
                                     <div class="float-right">
                                         <img height="48" width="48" class="text-green"
-                                             src="assets/fonts/icons/svg/cnx.svg"/>
+                                             src="{{ asset('Back/fonts/icons/svg/cnx.svg') }}"/>
                                     </div>
                                     <h5 class="counter-title ">Cryptonex</h5>
                                     <div class="sc-counter pt-2 font-weight-bold">1000</div>
@@ -734,7 +744,7 @@
                                           "minSpotColor": "#03a9f4"
                                     }'></span></td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-primary btn-xs">BUY NOW</button>
+                                        <button type="button" class="btn btn-outline-primary btn-xs" href="{{ path('project_homepage') }}" >BUY NOW</button>
                                     </td>
                                     <td>
                                         <a href="panel-page-profile.html"><i class="icon-eye mr-3"></i></a>

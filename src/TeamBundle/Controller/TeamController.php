@@ -255,17 +255,9 @@ class TeamController extends Controller
 
         $t = $this->getDoctrine()->getRepository('TeamBundle:team')->find($id);
         $con3 = $this->getDoctrine()->getRepository('TeamBundle:team_user')->findBy(array('teamId' => $id));
-        $qb = $this->getDoctrine()->getRepository(User::class)->createQueryBuilder('c');
-        $qb->select('c')
 
-            ->join('TeamBundle:team_user','t','WITH','t.userId = c.id')
-            ->where('t.teamId = :team ')
-            ->setParameter('team',$id);
+        $members = $this->getDoctrine()->getRepository('MainBundle:User')->getTeam($id);
 
-
-
-
-        $members= $qb->getQuery()->execute();
         if($con3 != null) {
             return $this->render('@Team/team/afficheTeam.html.twig', array('id' => $id, 'team' => $t->getName(), 'users' => $members));
         }

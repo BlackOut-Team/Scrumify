@@ -2,6 +2,8 @@
 
 namespace MainBundle\Repository;
 
+use MainBundle\Entity\User;
+
 /**
  * UserRepository
  *
@@ -10,4 +12,15 @@ namespace MainBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function  getTeam($id)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->select('c')
+            ->join('TeamBundle:team_user', 't', 'WITH', 't.userId = c.id')
+            ->where('t.teamId = :team ')
+            ->setParameter('team', $id);
+
+
+        return $qb->getQuery()->execute();
+    }
 }

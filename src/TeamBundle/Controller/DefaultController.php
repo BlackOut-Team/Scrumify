@@ -47,7 +47,7 @@ class DefaultController extends Controller
                             } else {
                                 $message = Swift_Message::newInstance()
                                     ->setSubject('Affectation au team sur la plateforme Scrumify')
-                                    ->setFrom('iheb.rekik@esprit.tn')
+                                    ->setFrom('scrumify.application@gmail.com')
                                     ->setTo($user->getEmail())
                                     ->setBody(
                                         $this->renderView('@MyAppMail/Mail/mail1.html.twig',
@@ -173,11 +173,13 @@ class DefaultController extends Controller
                     //envoyer mail notif
                     $message = Swift_Message::newInstance()
                         ->setSubject('Affectation au team sur la plateforme Scrumify : Product owner')
-                        ->setFrom('iheb.rekik@esprit.tn')
+                        ->setFrom('scrumify.application@gmail.com', 'Scrumify Team')
                         ->setTo($user->getEmail())
+                        ->setContentType("text/html")
                         ->setBody(
-                            $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                                array('team' => $team->getName(), 'text/html')));
+                            $this->renderView('@Team/team/mail.html.twig',
+                                array('team' => $team->getName(),'user'=> $user->getUsername()  )));
+
                     $this->get('mailer')->send($message);
 
                     // affectation le user dans l'equipe
@@ -204,11 +206,13 @@ class DefaultController extends Controller
                 //envoyer mail notif
                 $message = Swift_Message::newInstance()
                     ->setSubject('Affectation au team sur la plateforme Scrumify : developer')
-                    ->setFrom('iheb.rekik@esprit.tn')
+                    ->setFrom('scrumify.application@gmail.com', 'Scrumify Team')
                     ->setTo($user->getEmail())
+                    ->setContentType("text/html")
                     ->setBody(
-                        $this->renderView('@MyAppMail/Mail/mail.html.twig',
-                            array('team' => $team->getName(), 'text/html')));
+                        $this->renderView('@Team/team/mail.html.twig',
+                            array('team' => $team->getName(), 'user'=> $user->getUsername() )));
+
                 $this->get('mailer')->send($message);
 
                 // affectation le user dans l'equipe

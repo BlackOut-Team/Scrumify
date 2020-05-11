@@ -1,27 +1,18 @@
-my_app_mail:
-    resource: "@MyAppMailBundle/Resources/config/routing.yml"
-
-graphe:
-    resource: "@GrapheBundle/Resources/config/routing.yml"
-    prefix:   /
-
-scrum:
-    resource: "@ScrumBundle/Resources/config/routing.yml"
-    prefix:   /Project
-
-sprint:
-    resource: "@SprintBundle/Resources/config/routing.yml"
-    prefix:   /Sprint
-Userstory:
-    resource: "@UserstoryBundle/Resources/config/routing.yml"
-    prefix:   /
-team:
-    resource: "@TeamBundle/Resources/config/routing.yml"
-
 main:
     resource: "@MainBundle/Resources/config/routing.yml"
     prefix:   /
-
+scrum:
+    resource: "@ScrumBundle/Resources/config/routing.yml"
+    prefix:   /app/Project
+sprint:
+    resource: "@SprintBundle/Resources/config/routing.yml"
+    prefix:   /app/Sprint
+Userstory:
+    resource: "@UserstoryBundle/Resources/config/routing.yml"
+    prefix:   /app/Userstory
+team:
+    resource: "@TeamBundle/Resources/config/routing.yml"
+    prefix:   /app/team
 messaging:
     resource: "@MessagingBundle/Resources/config/routing.yml"
     prefix:   /chat
@@ -30,12 +21,10 @@ forum:
     prefix:   /
 activity:
     resource: "@ActivityBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /app/activity
 tasks:
     resource: "@TasksBundle/Resources/config/routing.yml"
-    prefix:   /Tasks
-
-
+    prefix:   /app/Tasks
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
@@ -64,3 +53,8 @@ fos_user_change_password:
 mgilet_notification:
     resource: "@MgiletNotificationBundle/Controller/"
     prefix: /afficher_meetings
+my_app_mail:
+    resource: "@MyAppMailBundle/Resources/config/routing.yml"
+graphe:
+    resource: "@GrapheBundle/Resources/config/routing.yml"
+    prefix:   /

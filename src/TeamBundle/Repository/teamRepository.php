@@ -21,4 +21,20 @@ class teamRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('str', '%'.$str.'%')
             ->getResult();
     }
+
+    public function getMyTeams($user)
+    {
+
+        $qb = $this->createQueryBuilder('p');
+        $qb
+
+            ->join('TeamBundle:team_user','t' )
+            ->andWhere('t.userId = :user' )
+            ->andWhere('p.id = t.teamId')
+            ->andWhere('p.ind = 0')
+            ->setParameter('user', $user);
+        // var_dump($qb->getQuery()->getResult());
+        return $result = $qb->getQuery()->getResult();
+
+    }
 }

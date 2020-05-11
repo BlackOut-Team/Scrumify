@@ -88,7 +88,7 @@ class TeamController extends Controller
         }
 
 
-        $con = $this->getDoctrine()->getRepository('TeamBundle:team')->findAll();
+        $con = $this->getDoctrine()->getRepository('TeamBundle:team')->getMyTeams($this->getUser());
         return $this->render('@Team/team/index.html.twig', array('con' => $con, "form" => $form->createView()));
     }
 
@@ -112,7 +112,8 @@ class TeamController extends Controller
             $em->flush();
             return $this->redirectToRoute("affiche_team");
         }
-        $con = $this->getDoctrine()->getRepository('TeamBundle:team')->findAll();
+
+        $con = $this->getDoctrine()->getRepository('TeamBundle:team')->getMyTeams($this->getUser());
         return $this->render('@Team/team/test.html.twig', array('con' => $con, "form" => $form->createView()));
     }
 

@@ -75,7 +75,7 @@ class DefaultController extends Controller
     public function  showPAction()
     {
 
-        $all = $this->getDoctrine()->getRepository(Projet::class)->getAll($this->getUser());
+        //$all = $this->getDoctrine()->getRepository(Projet::class)->getAll($this->getUser());
         $current = $this->getDoctrine()->getRepository(Projet::class)->getCurrent($this->getUser());
         $completed = $this->getDoctrine()->getRepository(Projet::class)->getCompleted($this->getUser());
 
@@ -92,7 +92,7 @@ class DefaultController extends Controller
            'dev'=>$dev,
            'current' => $current ,
            'comp' => $completed ,
-           'all' => $all
+
 
         ));
         //$serializer = new Serializer([new ObjectNormalizer()]);

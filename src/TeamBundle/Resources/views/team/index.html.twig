@@ -20,7 +20,18 @@
 
 
     {% block items %}
+        {% if con== null %}
+        <div class="container-fluid pt-5" style="margin-left: 200Px;width: 200%">
+            <div class="text-center p-5">
+                <img src="{{ asset('Front/Index/images/image13.png') }}" style="position: center">
 
+                <!-- <i class="icon-note-important s-64 text-primary"></i>-->
+                <h4 class="my-3">You belong to no team yet .</h4>
+                <p>You can start by creating your own team .</p>
+                <a data-toggle="modal" data-target="#project-add-modal" class="btn btn-primary shadow btn-lg"><i class="icon-plus-circle mr-2 "></i>Get started</a>
+            </div>
+        </div>
+        {% else %}
                         {% for con in con %}
                             {% if con.ind != 1 %}
                          <div class="card card-block shadow1 d-flex"  style="width:420%" >
@@ -45,7 +56,7 @@
 
                             {% endif %}
                         {% endfor %}
-
+{% endif %}
 
         <div class="modal fade" id="project-add-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog" role="document">

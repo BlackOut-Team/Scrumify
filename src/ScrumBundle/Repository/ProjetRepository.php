@@ -10,9 +10,8 @@ namespace ScrumBundle\Repository;
  */
 class ProjetRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getAll($user)
+    public function getAll($user, $startDate , $endDate)
     {
-        $now =new \DateTime('now');
 
 
         $qb = $this->createQueryBuilder("e");
@@ -20,8 +19,11 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('t.userId = :user' )
             ->andWhere('e.team = t.teamId')
             ->andWhere('e.etat = 1')
+            ->andWhere('e.created BETWEEN :startDate and :endDate')
+            ->setParameter('startDate', $startDate->format('Y-m-d H:i:s'))
+            ->setParameter('endDate', $endDate->format('Y-m-d H:i:s'))
             ->setParameter('user',$user );
-
+          var_dump($qb->getQuery()->getResult());
         return $result = $qb->getQuery()->getResult();
 
 

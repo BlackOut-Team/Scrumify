@@ -40,16 +40,12 @@
             <a href="#" class="btn btn-primary shadow btn-lg"><i class="icon-plus-circle mr-2 "></i>Get started</a>
         </div>
     </div>
-   <!-- <div>
-    <img src="{{ asset('Front/Index/images/landing_1.png') }}" style="position: center">
-    <h1>No projects yet </h1>
-    </div>-->
-                                    {% endif %}
+
+
+                                    {% else %}
                                     {% if master != null  %}
-                                        <h4 style="width: 200%"> You're the Scrum master of these projects </h4>
 
-
-
+                                    <h4 style="width: 200%"> You're the Scrum master of these projects </h4>
 
                                                 {% for project in master %}
 
@@ -91,10 +87,9 @@
                                                     <br>
 
                                                 {% endfor %}
-                                    {% endif %}
 
 
-
+                                        {% endif %}
 
 
 
@@ -145,12 +140,11 @@
 
                                           <br>
                                                 {% endfor %}
-          {% endif %}
 
 
+{% endif %}
 
-
-     {% if master != null  %}
+     {% if dev != null  %}
 
 
 
@@ -192,9 +186,9 @@
                                         <br>
                                     {% endfor %}
 
-     {% endif %}
+                  {% endif %}
 
-
+{% endif %}
 
 
 
@@ -202,8 +196,18 @@
                                  {% endblock %}
                                  {% block items1 %}
 
+                                     {% if current ==null %}
+                                     <div class="container-fluid pt-5" style="margin-left: 200Px;width: 200%">
+                                         <div class="text-center p-5">
+                                             <img src="{{ asset('Front/Index/images/landing_1.png') }}" style="position: center">
 
-                                     {% if owner != null  %}
+                                             <!-- <i class="icon-note-important s-64 text-primary"></i>-->
+                                             <h4 class="my-3">No Projects yet</h4>
+                                             <p>You are the boss make something great.</p>
+                                             <a href="#" class="btn btn-primary shadow btn-lg"><i class="icon-plus-circle mr-2 "></i>Get started</a>
+                                         </div>
+                                     </div>
+                                     {% else  %}
 
 
 
@@ -245,7 +249,7 @@
 
 
 
-{% endif %}
+                                    {% endif %}
 
 
 
@@ -255,9 +259,19 @@
 
                                  {% endblock %}
                                  {% block items2  %}
+                                     {% if comp == null %}
+                                     <div class="container-fluid pt-5" style="margin-left: 200Px;width: 200%">
+                                         <div class="text-center p-5">
+                                             <img src="{{ asset('Front/Index/images/landing_1.png') }}" style="position: center">
 
+                                             <!-- <i class="icon-note-important s-64 text-primary"></i>-->
+                                             <h4 class="my-3">No Projects yet</h4>
+                                             <p>You are the boss make something great.</p>
+                                             <a href="#" class="btn btn-primary shadow btn-lg"><i class="icon-plus-circle mr-2 "></i>Get started</a>
+                                         </div>
+                                     </div>
 
-{% if comp != null %}
+                            {% else %}
 
                                     {% for project in comp %}
 

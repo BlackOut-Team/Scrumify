@@ -17,6 +17,8 @@ class PdfController extends Controller
         // use absolute path !
         $pageUrl = $this->generateUrl('affiche_team', array(), UrlGeneratorInterface::ABSOLUTE_URL);
 
+
+
         return new Response(
             $snappy->getOutput($pageUrl),
             200,

@@ -28,6 +28,20 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
 
 
     }
+    public function getAllP($user)
+    {
+
+
+        $qb = $this->createQueryBuilder("e");
+        $qb ->join('TeamBundle:team_user','t' )
+            ->andWhere('t.userId = :user' )
+            ->andWhere('e.team = t.teamId')
+            ->andWhere('e.etat = 1')
+            ->setParameter('user',$user );
+        return $result = $qb->getQuery()->getResult();
+
+
+    }
     public function getCurrent($user)
     {
         $now =new \DateTime('now');
@@ -71,6 +85,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
             ->join('TeamBundle:team_user','t' )
             ->andWhere('t.userId = :user' )
             ->andWhere('p.team = t.teamId')
+            ->andWhere('p.etat = 1')
             ->andWhere('t.role = 1')
             ->setParameter('user', $user);
        // var_dump($qb->getQuery()->getResult());
@@ -86,6 +101,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
             ->join('TeamBundle:team_user','t' )
             ->andWhere('t.userId = :user' )
             ->andWhere('p.team = t.teamId')
+            ->andWhere('p.etat = 1')
             ->andWhere('t.role = 3')
             ->setParameter('user', $user);
        // var_dump($qb->getQuery()->getResult());
@@ -95,13 +111,14 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
     public function getDev($user)
     {
 
-        $qb = $this->createQueryBuilder('p');
+        $qb = $this->createQueryBuilder('sp');
         $qb
 
             ->join('TeamBundle:team_user','t' )
             ->andWhere('t.userId = :user' )
             ->andWhere('p.team = t.teamId')
             ->andWhere('t.role = 2')
+            ->andWhere('p.etat = 1')
             ->setParameter('user', $user);
         //var_dump($qb->getQuery()->getResult());
         return $result = $qb->getQuery()->getResult();

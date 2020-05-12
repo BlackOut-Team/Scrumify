@@ -62,7 +62,7 @@ class DefaultController extends Controller
     }
     public function dashAction()
     {
-        return $this->render('@Scrum/Dashboard.html.twig');
+        return $this->render('@Scrum/DashboardB.html.twig');
     }
 
 }

@@ -22,8 +22,6 @@ class DefaultController extends Controller
     public function  AddPAction(Request $request)
     {
 
-      //  $team=$this->getDoctrine()->getRepository(Projet::class)->findBy(['team_id'=>$getT]);
-    //    $membersproject=$this->getDoctrine()->getRepository(Projet::class)->findBy(['etat'=>1,'team_id'=>$team->get]);
 
         $p= new Projet();
         $f=$this->createForm('ScrumBundle\Form\ProjetType',$p);
@@ -32,14 +30,10 @@ class DefaultController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $p->setCreated(new \DateTime('now'));
-            $p->setMasterId($this->getUser());
             $p->setEtat(1);
-
             $em->persist($p);
             $em->flush($p);
-            $serializer = new Serializer([new ObjectNormalizer()]);
-            $formatted = $serializer->normalize($p);
-            //return new JsonResponse($formatted);
+
             return $this->redirectToRoute('project_homepage');
 
         }

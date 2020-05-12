@@ -2,45 +2,55 @@
 
 namespace TasksBundle\Controller;
 
-use Elasticsearch\Endpoints\Cat\Tasks;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use TasksBundle\Entity\Media;
+use TasksBundle\Entity\Tasks;
+use MainBundle\Entity\User;
+
+use UserstoryBundle\Entity\userstory;
 
 class ServiceController extends Controller
 {
     public function showAction()
     {
+
         $task = $this->getDoctrine()->getManager()->getRepository('TasksBundle:Tasks')->findby(['etat'=>0]);
         $datas = array();
         foreach ($task as $key => $task){
             $datas[$key]['title'] = $task->getTitle();
+            $datas[$key]['id'] = $task->getId();
             $datas[$key]['description'] = $task->getDescription();
-            $datas[$key]['status'] = $task->getStatus();
+            $datas[$key]['priority'] = $task->getpriority();
             #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
+
     public function newAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $tasks = new Tasks();
-        $tasks->setEtat(0);
+        $user = new User();
+        $user = $em->getRepository('MainBundle:User')->findBy(['id'=>1]);
 
-        $tasks->setId($request->get('idT'));
+        $userStory = new Userstory();
+        $userStory = $em->getRepository('UserstoryBundle:Userstory')->findOneBy(['id'=>1]);
+        $tasks->setEtat(0);
         $tasks->setTitle($request->get('title'));
         $tasks->setDescription($request->get('description'));
         $tasks->setCreated(new \DateTime('now'));
         $tasks->setStatus("Todo");
         $tasks->setUpdated(new \DateTime('now'));
-        $tasks->setPriority($request->get('Priority'));
-        $tasks->setUserstory(1);
-
-
+        $tasks->setFinished(new \DateTime('now'));
+        $tasks->setPriority($request->get('priority'));
+        $tasks->setUserstory($userStory);
+        $tasks->setUser($user);
         $em->persist($tasks);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -63,6 +73,36 @@ class ServiceController extends Controller
         $formatted = $serializer->normalize($find);
         return new JsonResponse($formatted);
     }
+
+
+
+
+
+    public function archiveAction($id,Request $request)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $find=  $this->getDoctrine()->getManager()->getRepository('TasksBundle:Tasks')->findBy(array('id'=>$id));
+        foreach($find as $fin)
+        {
+            $fin->setEtat(1);
+
+        }
+        $em->persist($fin);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($find);
+        return new JsonResponse($formatted);
+    }
+
+
+
+
+
+
+
+
+
+
 
     public function SupprimerAction($Id)
     {

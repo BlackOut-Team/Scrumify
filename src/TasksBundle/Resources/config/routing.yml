@@ -28,3 +28,10 @@ affecterUserTask:
 Taskaffmobile:
     path:   /show
     defaults: { _controller: TasksBundle:Service:show }
+
+Taskaddmobile:
+    path:   /new/{title}/{description}/{priority}
+    defaults: { _controller: TasksBundle:Service:new }
+Taskarchivemobile:
+    path:   /archive/{id}
+    defaults: { _controller: TasksBundle:Service:archive }

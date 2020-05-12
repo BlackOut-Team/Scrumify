@@ -37,7 +37,6 @@ class ServiceController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tasks = new Tasks();
         $user = new User();
-        $user = $em->getRepository('MainBundle:User')->findBy(['id'=>1]);
 
         $userStory = new Userstory();
         $userStory = $em->getRepository('UserstoryBundle:Userstory')->findOneBy(['id'=>1]);
@@ -50,7 +49,13 @@ class ServiceController extends Controller
         $tasks->setFinished(new \DateTime('now'));
         $tasks->setPriority($request->get('priority'));
         $tasks->setUserstory($userStory);
-        $tasks->setUser($user);
+
+        $a = $em->getRepository('MainBundle:User')->find($request->get('user'));
+        $user= $this->getDoctrine()->getManager()->getRepository('MainBundle:User')->findOneBy(['username'=>$a->getUsername()]);
+        $usersToAffect =$em->getRepository('MainBundle:User')->findBy(['username'=>'']);
+        array_push($usersToAffect,$user);
+        $tasks->setUser($usersToAffect);
+        
         $em->persist($tasks);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);

@@ -2,7 +2,9 @@
 
 namespace TasksBundle\Controller;
 
+use MainBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use TasksBundle\Entity\Tasks;
 use TasksBundle\Entity\taskuser;
 
 class DefaultController extends Controller
@@ -35,4 +37,5 @@ class DefaultController extends Controller
         return $this->render('@Tasks/Tasks/home.html.twig',array("id" => $task_id,"users"=>$users));
 
     }
+
 }

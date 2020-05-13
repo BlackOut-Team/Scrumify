@@ -55,7 +55,7 @@ class ServiceController extends Controller
         $usersToAffect =$em->getRepository('MainBundle:User')->findBy(['username'=>'']);
         array_push($usersToAffect,$user);
         $tasks->setUser($usersToAffect);
-
+        
         $em->persist($tasks);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);

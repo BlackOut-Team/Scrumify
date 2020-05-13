@@ -5,67 +5,98 @@
              <div class="lightSlider" data-item="6" data-item-xl="4" data-item-md="2" data-item-sm="1" data-pause="7000" data-pager="false" data-auto="true"
                   data-loop="true">
                  <div>
+                     <a href="{{ path('project_homepage') }}">
+
                      <div class="white text-center p-4">
-                         <h6 class="mb-3">Firewall</h6>
-                         <i class="icon-security s-48 text-success"></i>
-                         <div class="mt-3"><span class="badge badge-success r-30"><i
-                                         class="icon-check mr-2"></i> Runing</span></div>
+                         <h6 class="mb-3">Projects</h6>
+
+                         <i class="icon-work s-48 " style="color: #16CABD"></i>
+                         <div class="mt-3"><span class="badge badge-primary r-30">
+                                <i class="icon-link mr-2" href="{{ path('project_homepage') }}"></i> Check </span></div>
+
                      </div>
+                     </a>
                  </div>
                  <div>
+                     <a href="{{ path('affiche_team') }}">
+
                      <div class="white text-center p-4">
-                         <h6 class="mb-3">Backups</h6>
-                         <i class="icon-database s-48"></i>
-                         <div class="mt-3"><span class="badge badge-success r-30"><i
-                                         class="icon-check mr-2"></i>Enabled</span></div>
+                         <h6 class="mb-3">Teams</h6>
+                         <i class="icon-group_work s-48" style="color: #16CABD"></i>
+
+                         <div class="mt-3"><span class="badge badge-primary r-30"><i
+                                         class="icon-link mr-2"></i>Check </span></div>
+
                      </div>
+                     </a>
                  </div>
                  <div>
+                     <a href="{{ path('tasks_homepage') }}">
+
                      <div class="white text-center p-4">
-                         <h6 class="mb-3">Apache Server</h6>
-                         <i class="icon-server s-48"></i>
-                         <div class="mt-3"><span class="badge badge-danger r-30"><i
-                                         class="icon-close mr-2"></i>Stopped</span></div>
+                         <h6 class="mb-3">Tasks</h6>
+                         <i class="icon-server s-48" style="color: #16CABD"></i>
+
+                         <div class="mt-3"><span class="badge badge-primary r-30"><i
+                                         class="icon-link mr-2"></i>Check</span></div>
+
                      </div>
+                     </a>
                  </div>
                  <div>
+                     <a href="{{ path('activity_homepage') }}">
+
                      <div class="white text-center p-4">
-                         <h6 class="mb-3">FTP Server</h6>
-                         <i class="icon-data_usage s-48"></i>
-                         <div class="mt-3"><span class="badge badge-success r-30"><i
-                                         class="icon-check mr-2"></i>Runing</span></div>
+                         <h6 class="mb-3">Activities</h6>
+                         <i class="icon-notifications s-48" style="color: #16CABD"></i>
+
+                         <div class="mt-3"><span class="badge badge-primary r-30"><i
+                                         class="icon-check mr-2"></i>Check</span></div>
                      </div>
+                     </a>
+
                  </div>
                  <div>
+                     <a href="{{ path('forum_homepage') }}">
+
                      <div class="white text-center p-4">
-                         <h6 class="mb-3">My SQL</h6>
-                         <i class="icon-terrain s-48"></i>
-                         <div class="mt-3"><span class="badge badge-success r-30"><i
-                                         class="icon-check mr-2"></i>Runing</span></div>
+                         <h6 class="mb-3">Forum</h6>
+                         <i class="icon-question_answer s-48" style="color: #16CABD"></i>
+
+                         <div class="mt-3"><span class="badge badge-primary r-30"><i
+                                         class="icon-check mr-2"></i>Check</span></div>
                      </div>
+                     </a>
+
                  </div>
                  <div>
+                     <a href="{{ path('inbox') }}">
+
                      <div class="white text-center p-4">
-                         <h6 class="mb-3">Mail Server</h6>
-                         <i class="icon-chat s-48"></i>
-                         <div class="mt-3"><span class="badge badge-warning r-30 "><i
-                                         class="icon-exclamation-triangle mr-2"></i>Hold</span></div>
+                         <h6 class="mb-3">Inbox</h6>
+                         <i class="icon-chat s-48" style="color: #16CABD"></i>
+
+                         <div class="mt-3"><span class="badge badge-primary r-30 "><i
+                                         class="icon-check mr-2"></i>Check</span></div>
                      </div>
+                     </a>
+
                  </div>
              </div>
 
 
              <div class="white my-3">
                  <div class="row no-gutters">
-                     <div class="col-md-9">
-                         <div class="card no-b">
-                             <div class="card-header white">
-                                 <h6> CPU LIVE STATUS </h6>
-                             </div>
-                             <div id="interactive" style="height: 350px;"></div>
-                         </div>
-                         <hr>
-                         <div class="card no-b">
+                     <div class="col-md-12">
+
+                          <div class="card no-b">
+                               <div class="card-header white">
+                                   <h6> TODO LIST </h6>
+                                   Start by planning your steps ahead. Keep track of your tasks
+                               </div>
+                            <!--   <div id="interactive" style="height: 350px;"></div>-->
+                           </div>
+                        <!-- <div class="card no-b">
                              <div class="card-header white">
                                  <h6> CRONE JOBS</h6>
                              </div>
@@ -328,9 +359,9 @@
                                  </form>
                              </div>
                          </div>
-                     </div>
-                     <!-- Progress Widget Start -->
-                     <div class="col-md-3 b-l">
+                     </div>-->
+                     <!-- Progress Widget Start
+                     <div class="col-md-9 b-l">
                          <div class="card no-b">
                              <div class="card-header white">
                                  <h6> Usage </h6>
@@ -405,11 +436,9 @@
                                      </div>
                                  </div>
                              </div>
-                         </div>
+                         </div>-->
                          <div class="card todo-widget no-b">
-                             <div class="card-header white">
-                                 <h6> TO-DO LIST</h6>
-                             </div>
+
                              <div class="card-body p-0 slimScroll" data-height="250">
                                  <ul class="list-group list-group-striped no-b">
                                      <li class="list-group-item list-group-item-action">

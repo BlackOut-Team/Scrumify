@@ -3,6 +3,7 @@
 namespace TasksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use MainBundle\Entity\User;
 
 /**
  * Tasks
@@ -328,5 +329,6 @@ class Tasks
     {
         return $this->etat;
     }
+
 }
 

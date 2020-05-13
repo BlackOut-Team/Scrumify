@@ -24,7 +24,7 @@ activity:
     prefix:   /app/activity
 tasks:
     resource: "@TasksBundle/Resources/config/routing.yml"
-    prefix:   /app/Tasks
+    prefix:   /Tasks
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

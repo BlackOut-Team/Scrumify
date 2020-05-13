@@ -25,6 +25,8 @@ class ServiceController extends Controller
             $datas[$key]['id'] = $task->getId();
             $datas[$key]['description'] = $task->getDescription();
             $datas[$key]['priority'] = $task->getpriority();
+            $datas[$key]['status'] = $task->getStatus();
+
             #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -36,7 +38,8 @@ class ServiceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $tasks = new Tasks();
-        $user = new User();
+        //$user = new User();
+        //$user = $em->getRepository('MainBundle:User')->findBy(['id'=>1]);
 
         $userStory = new Userstory();
         $userStory = $em->getRepository('UserstoryBundle:Userstory')->findOneBy(['id'=>1]);
@@ -44,18 +47,12 @@ class ServiceController extends Controller
         $tasks->setTitle($request->get('title'));
         $tasks->setDescription($request->get('description'));
         $tasks->setCreated(new \DateTime('now'));
-        $tasks->setStatus("Todo");
+        $tasks->setStatus("To Do");
         $tasks->setUpdated(new \DateTime('now'));
         $tasks->setFinished(new \DateTime('now'));
         $tasks->setPriority($request->get('priority'));
         $tasks->setUserstory($userStory);
-
-        $a = $em->getRepository('MainBundle:User')->find($request->get('user'));
-        $user= $this->getDoctrine()->getManager()->getRepository('MainBundle:User')->findOneBy(['username'=>$a->getUsername()]);
-        $usersToAffect =$em->getRepository('MainBundle:User')->findBy(['username'=>'']);
-        array_push($usersToAffect,$user);
-        $tasks->setUser($usersToAffect);
-        
+        //$tasks->setUser($user);
         $em->persist($tasks);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);

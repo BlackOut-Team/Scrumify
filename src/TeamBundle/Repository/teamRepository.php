@@ -24,7 +24,7 @@ class teamRepository extends \Doctrine\ORM\EntityRepository
 
     public function getMyTeams($user)
     {
-
+ 
         $qb = $this->createQueryBuilder('p');
         $qb
 

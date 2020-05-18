@@ -111,7 +111,7 @@ class ProjetRepository extends \Doctrine\ORM\EntityRepository
     public function getDev($user)
     {
 
-        $qb = $this->createQueryBuilder('sp');
+        $qb = $this->createQueryBuilder('p');
         $qb
 
             ->join('TeamBundle:team_user','t' )

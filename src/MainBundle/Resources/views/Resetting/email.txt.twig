@@ -10,4 +10,6 @@
 {{ 'resetting.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
 {% endautoescape %}
 {% endblock %}
-{% block body_html %}{% endblock %}
+{% block body_html %}
+{% include 'emailreset.html.twig' %}
+{% endblock %}

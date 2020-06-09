@@ -30,7 +30,7 @@ class team_user
     /**
      * @var int
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id",referencedColumnName="id",onDelete="CASCADE")
      */
     private $userId;
 

@@ -84,7 +84,7 @@ class RegistrationController extends Controller
                 }
 
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-var_dump($response);
+
                 return $response;
             }
 

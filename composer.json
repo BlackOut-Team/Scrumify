@@ -44,7 +44,8 @@
         "toiba/fullcalendar-bundle": "^6.2",
         "twig/twig": "^1.0||^2.0",
       "ext-json": "*",
-      "ext-libsodium": "*"
+      "ext-libsodium": "*",
+      "ext-curl": "*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

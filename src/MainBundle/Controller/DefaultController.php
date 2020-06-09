@@ -14,7 +14,28 @@ class DefaultController extends Controller
     {
         return $this->render('@Main/Default/index.html.twig');
     }
-    public function indexbackAction()
+    public function recaptchaAction()
+    {
+        return $this->render('@Main/Security/recaptchaa.html.twig');
+    }
+    function captchaverifyAction($recaptcha)
+    {
+        $url = "https://www.google.com/recaptcha/api/siteverify";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+            "secret" => "6LcZA_0UAAAAAFLu0wleQkmNYY5GSdKSxVg7VnZz", "response" => $recaptcha));
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($response);
+
+        return $data->success;
+    }
+
+        public function indexbackAction()
     {
         return $this->render('@Main/Default/indexback.html.twig');
     }
@@ -27,7 +48,10 @@ class DefaultController extends Controller
     {
         return $this->render('@Main/Registration/register.html.twig');
     }
-
+    public function changeAction()
+    {
+        return $this->render('@Main/ChangePassword/change_password.html.twig');
+    }
 
     public function dashboardAction()
     {

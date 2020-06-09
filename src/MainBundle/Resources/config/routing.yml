@@ -7,4 +7,10 @@ homepageback:
 dashboard:
   path:     /Dash
   defaults: { _controller: MainBundle:Default:dash}
+recaptcha:
+  path:     /captcha
+  defaults: { _controller: MainBundle:Default:recaptcha}
+captchaverify:
+  path:     /captchaverif
+  defaults: { _controller: MainBundle:Default:captchaverify}
 

@@ -1,12 +1,12 @@
 homepage:
   path:     /
   defaults: { _controller: MainBundle:Default:index }
+dashboard:
+  path:     /home
+  defaults: { _controller: AppBundle:Default:home }
 login:
   path:     /login
   defaults: { _controller: MainBundle:Default:login }
 register:
   path:     /register
   defaults: { _controller: MainBundle:Default:register }
-dashboard:
-  path:     /home
-  defaults: { _controller: AppBundle:Default:home }

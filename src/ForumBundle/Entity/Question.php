@@ -66,7 +66,7 @@ class Question
     /**
      * @var
      * @ORM\ManyToOne(targetEntity="ForumBundle\Entity\Categories")
-     * @ORM\JoinColumn(name="category_name",referencedColumnName="id")
+     * @ORM\JoinColumn(name="category_name",referencedColumnName="id",onDelete="CASCADE")
      */
     private $Categories;
 

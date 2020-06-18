@@ -139,8 +139,11 @@
                                 class="icon icon-angle-left s-18 pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
+                        {% block dashlink %}
                         <li><a href="{{path('dashboard')}}"><i class="icon icon-folder5"></i>Overview</a>
                         </li>
+                        {% endblock %}
+
                         <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Projects Statistics</a>
                         </li>
                         <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Team statistis</a>
@@ -152,17 +155,23 @@
                         <span>Projects</span>
 
                     </a>
+                    {% block projectlink %}
                     <ul class="treeview-menu">
                         <li><a href="{{path('project_homepage')}}"><i class="icon icon-circle-o"></i>Active Projects</a>
                         </li>
                         <li><a href="{{path('project_homepage')}}"><i class="icon icon-circle-o"></i>Archived  Projects</a>
                         </li>
                     </ul>
+                    {% endblock %}
                 </li>
+
+                {% block teamlink %}
                 <li class="treeview"><a href="{{ path('affiche_team') }}"><i class="icon icon-account_box light-green-text s-18"></i>Teams<i
                                 class="icon icon-angle-left s-18 pull-right"></i></a>
 
                 </li>
+                {% endblock %}
+                {% block restlink %}
                 <li class="treeview no-b"><a href="{{ path('inbox') }}">
                         <i class="icon icon-package light-green-text s-18"></i>
                         <span>Inbox</span>
@@ -178,6 +187,7 @@
                     </a>
 
                 </li>
+                {% endblock %}
 
             </ul>
         </section>

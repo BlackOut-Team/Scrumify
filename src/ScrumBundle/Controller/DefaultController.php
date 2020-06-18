@@ -100,7 +100,7 @@ class DefaultController extends Controller
         $pp->setEtat(1);
         $em->persist($pp);
         $em->flush();
-        return $this->redirectToRoute('showProject');
+        return $this->redirectToRoute('back');
 
     }
     function searchPAction(Request $request){
@@ -175,6 +175,15 @@ class DefaultController extends Controller
             'piechart' => $pieChart
 
         ));
+    }
+
+    public function backAction(){
+        $p=$this->getDoctrine()->getRepository(Projet::class)->findAll();
+
+        return $this->render('@Scrum/Back/projects.html.twig',array('pp'=> $p));
+    }
+    public function dashAction(){
+        return $this->render('@Scrum/Dashboard.html.twig');
     }
 
 

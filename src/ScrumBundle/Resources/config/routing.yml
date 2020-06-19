@@ -37,11 +37,7 @@ projects_new:
 fullcalendar_load_events:
     path:     /fc-load-events
     defaults: { _controller: ScrumBundle:Calendar:load}
-back:
-    path:     /back
-    defaults: { _controller: ScrumBundle:Default:back }
-dash:
-    path:     /dash
-    defaults: { _controller: ScrumBundle:Default:dash }
+
+
 
 

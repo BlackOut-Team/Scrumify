@@ -92,28 +92,27 @@
                     </a>
                     <div class="user-panel p-3 light mb-2">
                         <div>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-                            <div class="float-left info">
-                                <div class="float-left image">
+                        <div class="float-left info">
+                            <div class="float-left image">
 
-                                    <img class="user_avatar" src="{{ asset('Back/img/dummy/u2.png') }}" alt="User Image">
-                                </div>
-                                <div style="width: 200%">
-                                    <h6 class="font-weight-light ">
-                                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-                                        <br>
-                                        <a href="{{ path('fos_user_security_logout') }}">
-                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                        </a>
-                                    </h6>
-                                    <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
-
-                                </div>
+                                <img class="user_avatar" src="{{ asset('uploads/images/')}}{{ app.user.image }}" alt="User Image" style="height: 60px">
                             </div>
+                            <div style="width: 200%">
+                                <h6 class="font-weight-light ">
+                                    Hello ,   {{  app.user.username }}
+                                    <br>
+                                    <a href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
+                                </h6>
+                                <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
 
+                            </div>
                         </div>
 
+                    </div>
                         {% endif %}
 
                         <div class="clearfix"></div>
@@ -137,9 +136,9 @@
                                     class="icon icon-angle-left s-18 pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Projects Statistics</a>
+                            <li><a href="{{path('chartback')}}"><i class="icon icon-folder5"></i>Projects Statistics</a>
                             </li>
-                            <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Team statistis</a>
+                            <li><a href="{{path('chartback')}}"><i class="icon icon-folder5"></i>Team statistis</a>
                             </li>
                         </ul>
                     </li>
@@ -149,26 +148,18 @@
 
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{path('project_homepage')}}"><i class="icon icon-circle-o"></i>Active Projects</a>
+                            <li><a href="{{path('back')}}"><i class="icon icon-circle-o"></i>Active Projects</a>
                             </li>
-                            <li><a href="{{path('project_homepage')}}"><i class="icon icon-circle-o"></i>Archived  Projects</a>
+                            <li><a href="{{path('back')}}"><i class="icon icon-circle-o"></i>Archived  Projects</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="treeview"><a href="{{ path('affiche_team') }}"><i class="icon icon-account_box light-green-text s-18"></i>Teams<i
+                    <li class="treeview"><a href="{{ path('show_team_back') }}"><i class="icon icon-account_box light-green-text s-18"></i>Teams<i
                                     class="icon icon-angle-left s-18 pull-right"></i></a>
 
                     </li>
-                    <li class="treeview no-b"><a href="{{ path('inbox') }}">
-                            <i class="icon icon-package light-green-text s-18"></i>
-                            <span>Inbox</span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{ path('inbox') }}"><i class="icon icon-circle-o"></i>All Messages</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="treeview no-b"><a href="{{ path('_display_questions') }}">
+
+                    <li class="treeview no-b"><a href="{{ path('_display_back_questions') }}">
                             <i class="icon icon-question_answer blue-text s-18"></i>
                             <span>Forum</span>
                         </a>
@@ -201,13 +192,21 @@
                     </a>
                 </div>
                 <!--Top Menu Start -->
+                <!--Top Menu Start -->
+                <div class="row p-t-b-10 ">
+                    <div class="col text-white color-white">
+                        <h4>
+                            <img src="{{ asset('Back/img/dummy/scrumifyb.png') }}"  style="width: 40px;height: 40px;"> Scrumify
+                        </h4>
+                    </div>
+                </div>
                 <div class="navbar-custom-menu p-t-10">
                     <ul class="nav navbar-nav">
                         <!-- Messages-->
                         <li class="dropdown custom-dropdown messages-menu">
                             <a href="#" class="nav-link" data-toggle="dropdown">
                                 <i class="icon-message "></i>
-                                <span class="badge badge-success badge-mini rounded-circle">4</span>
+                                <span class="badge badge-success badge-mini rounded-circle">{{ fos_message_nb_unread() }}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -217,7 +216,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="avatar float-left">
-                                                    <img src="{{ asset('Back/img/dummy/u4.png') }}" alt="">
+                                                    <img src="assets/img/dummy/u4.png" alt="">
                                                     <span class="avatar-badge busy"></span>
                                                 </div>
                                                 <h4>
@@ -229,86 +228,28 @@
                                         </li>
                                         <!-- end message -->
                                         <!-- start message -->
-                                        <li>
-                                            <a href="#">
-                                                <div class="avatar float-left">
-                                                    <img src="{{  asset('Back/img/dummy/u1.png')}}" alt="">
-                                                    <span class="avatar-badge online"></span>
-                                                </div>
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="icon icon-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <!-- end message -->
-                                        <!-- start message -->
-                                        <li>
-                                            <a href="#">
-                                                <div class="avatar float-left">
-                                                    <img src="{{  asset('Back/img/dummy/u2.png')}}" alt="">
-                                                    <span class="avatar-badge idle"></span>
-                                                </div>
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="icon icon-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <!-- end message -->
-                                        <!-- start message -->
-                                        <li>
-                                            <a href="#">
-                                                <div class="avatar float-left">
-                                                    <img src="{{  asset('Back/img/dummy/u3.png')}}" alt="">
-                                                    <span class="avatar-badge busy"></span>
-                                                </div>
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="icon icon-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
+
                                         <!-- end message -->
                                     </ul>
                                 </li>
-                                <li class="footer s-12 p-2 text-center"><a href="#">See All Messages</a></li>
+                                <li class="footer s-12 p-2 text-center"><a href="{{ path('inbox') }}">See All Messages</a></li>
                             </ul>
                         </li>
                         <!-- Notifications -->
-                        <li class="dropdown custom-dropdown notifications-menu">
-                            <a href="#" class=" nav-link" data-toggle="dropdown" aria-expanded="false">
-                                <i class="icon-notifications "></i>
-                                <span class="badge badge-danger badge-mini rounded-circle">4</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="icon icon-data_usage text-success"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="icon icon-data_usage text-danger"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="icon icon-data_usage text-yellow"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer p-2 text-center"><a href="#">View all</a></li>
-                            </ul>
-                        </li>
+                        {% block notif %}
+                            <li class="dropdown custom-dropdown notifications-menu">
+                                <a  class=" nav-link" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="icon-notifications "></i>
+                                    <span class="badge badge-danger badge-mini rounded-circle"> </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="header">You have  new notifications</li>
+
+                                    </li>
+                                    <li class="footer p-2 text-center"><a href="{{ path('activity_homepage') }}">View all</a></li>
+                                </ul>
+                            </li>
+                        {% endblock %}
                         <li>
                             <a class="nav-link " data-toggle="collapse" data-target="#navbarToggleExternalContent"
                                aria-controls="navbarToggleExternalContent"
@@ -323,11 +264,14 @@
                             </a>
                         </li>
                         <!-- User Account-->
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
                         <li class="dropdown custom-dropdown user user-menu">
                             <a href="#" class="nav-link" data-toggle="dropdown">
-                                <img src="{{  asset('Back/img/dummy/u8.png')   }}" class="user-image" alt="User Image">
+                                <img src="{{ asset('uploads/images/')}}{{ app.user.image }}" class="user-image" alt="User Image">
                                 <i class="icon-more_vert "></i>
                             </a>
+                            {% endif %}
                             <div class="dropdown-menu p-4">
                                 <div class="row box justify-content-between my-4">
                                     <div class="col">
@@ -390,15 +334,8 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="row p-t-b-10 " style="margin-left: 520px">
-
-                <div class="col text-white color-white">
-                    <h4>
-                        <img src="{{ asset('Back/img/dummy/scrumifyb.png') }}"  style="width: 40px;height: 40px;"> Scrumify
-                    </h4>
                 </div>
-            </div>
+
             <div class="container text-white pb-5">
 
 

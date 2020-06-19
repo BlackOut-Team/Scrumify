@@ -19,6 +19,7 @@ security:
         main:
             pattern: ^/
             form_login:
+                success_handler: authentication.handler.login_success_handler
                 remember_me: true
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path: 'dashboard'
@@ -27,11 +28,13 @@ security:
             anonymous:    true
             logout_on_user_change: true
 
+
+
     access_control:
         - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/dash/, role: ROLE_ADMIN }
         - { path: ^/app/, role: ROLE_USER }
         - { path: ^/forum/, role: ROLE_USER }
         - { path: ^/chat/, role: ROLE_USER }

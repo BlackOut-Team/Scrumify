@@ -6,9 +6,25 @@ use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\ColumnChart;
+use ScrumBundle\Entity\Projet;
 
 class DefaultController extends Controller
 {
+    public function rootAction()
+    {
+        $security = $this->get('security.authorization_checker');
+
+        if ($security->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('dash');
+        }
+
+        if ($security->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('dashboard');
+        }
+
+        return $this->redirectToRoute('fos_user_security_login');
+    }
 
     public function indexAction()
     {
@@ -53,27 +69,48 @@ class DefaultController extends Controller
         return $this->render('@Main/ChangePassword/change_password.html.twig');
     }
 
-    public function dashboardAction()
+
+    public function dashAction()
+    {
+
+        return $this->render('@Scrum/DashboardB.html.twig');
+    }
+    public function dashBAction(){
+        return $this->render('@Scrum/Back/Dashboard.html.twig');
+    }
+    public function backAction(){
+        $p=$this->getDoctrine()->getRepository(Projet::class)->findAll();
+
+        return $this->render('@Scrum/Back/projects.html.twig',array('pp'=> $p));
+    }
+    public function chartbackAction()
     {
         $em= $this->getDoctrine()->getManager();
         $pieChart = new PieChart();
-        $project =$em->getRepository('ProjectApi:Projet')->findAll();
-        $user =$em->getRepository('MainBundle:User')->findAll();
-        $team =$em->getRepository('TeamBundle:Team')->findAll();
+        $Archive =$em->getRepository('ScrumBundle:Projet')->findBy(['etat'=>0]);
+        $Active =$em->getRepository('ScrumBundle:Projet')->findBy(['etat'=>1]);
 
-        $sizeP = count($project);
-        $sizeU = count($user);
-        $sizeT = count($team);
+        $user=$em->getRepository('MainBundle:User')->findAll();
 
-        $pieChart->getData()->setArrayToDataTable(
-            [['Task', 'number'],
-                ['Project',     $sizeP],
-                ['users',      $sizeU],
-                ['teams',  $sizeT],
+        $sizeAr = count($Archive);
+        $sizeAc = count($Active);
+
+        $size = count($user);
+        $oldColumnChart = new ColumnChart();
+        $oldColumnChart->getData()->setArrayToDataTable(
+            [['Project', 'Project'],
+                ['Archive',     $sizeAr],
+                ['Active',      $sizeAc],
 
             ]
         );
-        $pieChart->getOptions()->setTitle('General informations');
+        $pieChart->getData()->setArrayToDataTable(
+            [['Task', 'Task'],
+                ['Archive',     $sizeAr],
+                ['Active',      $sizeAc],
+            ]
+        );
+        $pieChart->getOptions()->setTitle('Projects');
         $pieChart->getOptions()->setHeight(500);
         $pieChart->getOptions()->setWidth(900);
         $pieChart->getOptions()->getTitleTextStyle()->setBold(true);
@@ -81,12 +118,26 @@ class DefaultController extends Controller
         $pieChart->getOptions()->getTitleTextStyle()->setItalic(true);
         $pieChart->getOptions()->getTitleTextStyle()->setFontName('Arial');
         $pieChart->getOptions()->getTitleTextStyle()->setFontSize(20);
+        $oldColumnChart->getOptions()->getLegend()->setPosition('top');
+        $oldColumnChart->getOptions()->setWidth(450);
+        $oldColumnChart->getOptions()->setHeight(250);
 
-        return $this->render('@Main/Default/indexBack.html.twig', array('piechart' => $pieChart, 'sizeP'=>$sizeP , 'sizeU'=>$sizeU, 'sizeT'=>$sizeT));
-    }
-    public function dashAction()
-    {
-        return $this->render('@Scrum/DashboardB.html.twig');
-    }
+        $newColumnChart = new ColumnChart();
+        $newColumnChart->getData()->setArrayToDataTable(
+            [
+                ['n', 'Member'],
+                [ 'Number of members in team', $size]
 
+            ]);
+        $newColumnChart->setOptions($oldColumnChart->getOptions());
+
+
+
+        return $this->render('@Scrum/Back/chart.html.twig', array(
+            'oldColumnChart' => $oldColumnChart,
+            'newColumnChart' => $newColumnChart,
+            'piechart' => $pieChart
+
+        ));
+    }
 }

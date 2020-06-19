@@ -193,13 +193,17 @@ class TeamController extends Controller
             ->getSingleScalarResult();
 
         $team = $this->getDoctrine()->getRepository(team::class)->findAll();
-        $persent = $totalarchv / $totalTeam * 100;
+        $persent = 0;
+        if($totalTeam != 0) {
+            $persent = $totalarchv / $totalTeam * 100;
+        }
 //dump($persent);exit;
         return $this->render('@Team/team/back.html.twig', array(
             'pp' => $team,
             'pr' => $persent
 
         ));
+
     }
 
 

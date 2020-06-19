@@ -169,7 +169,7 @@ class DefaultController extends Controller
 
 
 
-        return $this->render('@Scrum/Back/chart.html.twig', array(
+        return $this->render('@Scrum/Default/chart.html.twig', array(
             'oldColumnChart' => $oldColumnChart,
             'newColumnChart' => $newColumnChart,
             'piechart' => $pieChart
@@ -177,14 +177,8 @@ class DefaultController extends Controller
         ));
     }
 
-    public function backAction(){
-        $p=$this->getDoctrine()->getRepository(Projet::class)->findAll();
 
-        return $this->render('@Scrum/Back/projects.html.twig',array('pp'=> $p));
-    }
-    public function dashAction(){
-        return $this->render('@Scrum/Dashboard.html.twig');
-    }
+
 
 
 

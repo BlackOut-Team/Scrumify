@@ -1,6 +1,43 @@
 {% extends "baseF.html.twig" %}
+     {% block dashlink %}
+         <li><a href="{{path('dash')}}"><i class="icon icon-folder5"></i>Overview</a>
+         </li>
+     {% endblock %}
+  {% block statlink %}
+      <li><a href="{{path('chartback')}}"><i class="icon icon-folder5"></i>Projects Statistics</a>
+      </li>
+      <li><a href="{{path('chartback')}}"><i class="icon icon-folder5"></i>Team statistis</a>
+      </li>
+  {% endblock %}
+    {% block projectlink %}
+        <ul class="treeview-menu">
+            <li><a href="{{path('back')}}"><i class="icon icon-circle-o"></i> Projects</a>
+            </li>
+
+        </ul>
+    {% endblock %}
+        {% block teamlink %}
+            <li class="treeview"><a href="{{ path('show_team_back') }}"><i class="icon icon-account_box light-green-text s-18"></i>Teams<i
+                            class="icon icon-angle-left s-18 pull-right"></i></a>
+
+            </li>
+        {% endblock %}
+  {% block inboxxlink %}
+
+  {% endblock %}
+{%  block forumlink %}
+    <li class="treeview no-b"><a href="{{ path('_display_back_questions') }}">
+            <i class="icon icon-question_answer blue-text s-18"></i>
+            <span>Forum</span>
+        </a>
+
+    </li>
+{% endblock %}
 {% block contents %}
-<div class="col-12">
+{% block items %}
+    <div style="width: 400%">
+
+    <div class="col-12">
     <div class="box">
         <div class="box-header">
             <h3 class="box-title mt-5">Forum quetions</h3>
@@ -93,10 +130,11 @@
     {{ form_rest(f2) }}
     {{ form_end(f2) }}
 </div>
-
+    </div>
     <script src="{{ asset('Front/Index/js/jquery-3.3.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/colorpicker/js/jqColorPicker.min.js') }}"></script>
     <script type="text/javascript">
         $('.colorpicker').colorPicker();
     </script>
+{% endblock %}
 {% endblock %}

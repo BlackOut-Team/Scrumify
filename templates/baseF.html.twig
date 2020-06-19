@@ -143,11 +143,12 @@
                         <li><a href="{{path('dashboard')}}"><i class="icon icon-folder5"></i>Overview</a>
                         </li>
                         {% endblock %}
-
+                        {% block statlink %}
                         <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Projects Statistics</a>
                         </li>
                         <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Team statistis</a>
                         </li>
+                        {% endblock %}
                     </ul>
                 </li>
                 <li class="treeview"><a href="#">
@@ -171,7 +172,7 @@
 
                 </li>
                 {% endblock %}
-                {% block restlink %}
+                {% block inboxxlink %}
                 <li class="treeview no-b"><a href="{{ path('inbox') }}">
                         <i class="icon icon-package light-green-text s-18"></i>
                         <span>Inbox</span>
@@ -181,6 +182,8 @@
                         </li>
                     </ul>
                 </li>
+                {% endblock %}
+{%  block forumlink %}
                 <li class="treeview no-b"><a href="{{ path('_display_questions') }}">
                         <i class="icon icon-question_answer blue-text s-18"></i>
                         <span>Forum</span>

@@ -1,9 +1,15 @@
 {% extends'baseF.html.twig' %}
 
      {% block dashlink %}
-         <li><a href="{{path('chart')}}"><i class="icon icon-folder5"></i>Overview</a>
+         <li><a href="{{path('dash')}}"><i class="icon icon-folder5"></i>Overview</a>
          </li>
      {% endblock %}
+  {% block statlink %}
+      <li><a href="{{path('chartback')}}"><i class="icon icon-folder5"></i>Projects Statistics</a>
+      </li>
+      <li><a href="{{path('chartback')}}"><i class="icon icon-folder5"></i>Team statistis</a>
+      </li>
+  {% endblock %}
     {% block projectlink %}
         <ul class="treeview-menu">
             <li><a href="{{path('back')}}"><i class="icon icon-circle-o"></i> Projects</a>
@@ -17,10 +23,17 @@
 
             </li>
         {% endblock %}
- {% block restlink %}
+  {% block inboxxlink %}
 
+  {% endblock %}
+{%  block forumlink %}
+    <li class="treeview no-b"><a href="{{ path('_display_back_questions') }}">
+            <i class="icon icon-question_answer blue-text s-18"></i>
+            <span>Forum</span>
+        </a>
 
- {% endblock %}
+    </li>
+{% endblock %}
 {% block contents %}
 
 {% block items %}

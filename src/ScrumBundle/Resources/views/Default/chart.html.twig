@@ -1,0 +1,26 @@
+{% extends'baseF.html.twig' %}
+
+{% block contents %}
+{% block items %}
+
+                <!-- /.box-header -->
+                <div style="margin-left: 50px; margin-top: 20px;display: -webkit-inline-flex;">
+                    <div id="oldColumnChart"></div>
+                    <div id="newColumnChart"></div>
+
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                        {{ gc_draw([oldColumnChart, newColumnChart], ['oldColumnChart', 'newColumnChart']) }}
+                    </script>
+                </div>
+                <div id="div_chart" style=" margin-top: 20px; margin-left: 50px; background-color: transparent">
+
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript" >
+                        {{ gc_draw(piechart, 'div_chart') }}
+                    </script>
+                </div>
+                <!-- /.box-body -->
+
+    {% endblock %}
+{% endblock %}

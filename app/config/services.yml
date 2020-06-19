@@ -75,3 +75,6 @@ services:
     ScrumBundle\EventListener\FullCalendarListener:
         tags:
             - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: loadEvents }
+    authentication.handler.login_success_handler:
+        class:  MainBundle\EventListener\LoginSuccessHandler
+        arguments:  ['@router', '@security.authorization_checker']
